@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAP Hub · Chase McCane</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #090d10;
+      --surface: #111820;
+      --border: #1e2a35;
+      --green: #00a86b;
+      --green-dim: rgba(0,168,107,.12);
+      --green-glow: rgba(0,168,107,.25);
+      --red: #ff3000;
+      --amber: #f59e0b;
+      --blue: #3b82f6;
+      --text: #e8edf2;
+      --muted: #6b7a8a;
+      --card: #141d26;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; min-height: 100vh; }
+
+    header {
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 14px 32px; display: flex; align-items: center; gap: 16px;
+    }
+    .back-btn {
+      width: 32px; height: 32px; background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      text-decoration: none; color: var(--muted); font-size: 16px;
+      transition: all .15s;
+    }
+    .back-btn:hover { border-color: var(--green); color: var(--green); }
+    .hbreadcrumb { font-size: 12px; color: var(--muted); }
+    .hbreadcrumb a { color: var(--muted); text-decoration: none; }
+    .hbreadcrumb a:hover { color: var(--green); }
+    .htitle { font-size: 16px; font-weight: 800; margin-left: auto; }
+
+    main { max-width: 1100px; margin: 0 auto; padding: 36px 32px; }
+
+    /* Stats bar */
+    .stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
+    .stat-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 18px 20px;
+    }
+    .stat-label { font-size: 11px; color: var(--muted); font-weight: 500; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 8px; }
+    .stat-val { font-size: 28px; font-weight: 800; }
+    .stat-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+    .stat-green { color: var(--green); }
+    .stat-amber { color: var(--amber); }
+
+    /* Quarter tabs */
+    .q-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 24px; }
+    .q-tab {
+      padding: 7px 16px; border-radius: 8px; font-size: 13px; font-weight: 600;
+      border: 1px solid var(--border); background: transparent; color: var(--muted);
+      cursor: pointer; transition: all .15s;
+    }
+    .q-tab:hover { border-color: var(--green-glow); color: var(--text); }
+    .q-tab.active { background: var(--green-dim); border-color: var(--green); color: var(--green); }
+    .q-spacer { flex: 1; }
+    .q-label { font-size: 12px; color: var(--muted); }
+
+    /* Table */
+    .table-wrap { background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+    table { width: 100%; border-collapse: collapse; }
+    thead tr { background: var(--surface); }
+    thead th {
+      padding: 13px 16px; text-align: left; font-size: 11px; font-weight: 600;
+      color: var(--muted); text-transform: uppercase; letter-spacing: .06em;
+      border-bottom: 1px solid var(--border); white-space: nowrap;
+    }
+    tbody tr { border-bottom: 1px solid var(--border); transition: background .1s; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: rgba(255,255,255,.02); }
+    td { padding: 14px 16px; vertical-align: middle; }
+
+    .deal-name { font-weight: 700; font-size: 14px; }
+    .deal-industry { font-size: 11px; color: var(--muted); margin-top: 2px; }
+    .deal-type {
+      font-size: 10px; font-weight: 600; padding: 3px 7px; border-radius: 4px;
+      text-transform: uppercase; letter-spacing: .05em; white-space: nowrap;
+    }
+    .type-b2b { background: rgba(59,130,246,.15); color: #60a5fa; }
+    .type-d2c { background: rgba(168,85,247,.15); color: #c084fc; }
+    .type-both { background: rgba(245,158,11,.15); color: #fbbf24; }
+
+    .close-date { font-size: 13px; font-weight: 500; white-space: nowrap; }
+    .close-soon { color: var(--amber); }
+    .close-overdue { color: var(--red); }
+
+    .stage-pill {
+      font-size: 11px; font-weight: 600; padding: 4px 9px; border-radius: 6px;
+      white-space: nowrap;
+    }
+    .stage-3 { background: rgba(245,158,11,.12); color: var(--amber); }
+    .stage-4 { background: rgba(59,130,246,.12); color: #60a5fa; }
+    .stage-5 { background: rgba(0,168,107,.12); color: var(--green); }
+
+    .person { font-size: 12px; }
+    .person-name { font-weight: 500; }
+    .person-title { color: var(--muted); font-size: 11px; }
+
+    .progress-wrap { min-width: 90px; }
+    .progress-bar { height: 4px; background: var(--border); border-radius: 2px; margin-bottom: 4px; overflow: hidden; }
+    .progress-fill { height: 100%; background: var(--green); border-radius: 2px; transition: width .3s; }
+    .progress-label { font-size: 11px; color: var(--muted); }
+
+    .next-step { font-size: 12px; color: var(--text); max-width: 160px; line-height: 1.4; }
+
+    .btn-row { display: flex; flex-direction: column; gap: 5px; }
+    .map-btn {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 11px; font-weight: 600; padding: 5px 10px; border-radius: 6px;
+      text-decoration: none; white-space: nowrap; transition: all .15s;
+    }
+    .btn-map { background: var(--green-dim); border: 1px solid var(--green-glow); color: var(--green); }
+    .btn-map:hover { background: rgba(0,168,107,.2); border-color: var(--green); }
+    .btn-prop { background: rgba(59,130,246,.1); border: 1px solid rgba(59,130,246,.2); color: #60a5fa; }
+    .btn-prop:hover { background: rgba(59,130,246,.18); border-color: #60a5fa; }
+    .btn-tbd { background: var(--border); border: 1px solid transparent; color: var(--muted); cursor: default; opacity: .5; }
+
+    .empty-row td { text-align: center; padding: 48px; color: var(--muted); font-size: 14px; }
+
+    footer { text-align: center; padding: 24px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); margin-top: 32px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="../" class="back-btn">←</a>
+  <span class="hbreadcrumb"><a href="../">Hub</a> / MAP Hub</span>
+  <span class="htitle">🗺️ MAP Hub</span>
+</header>
+
+<main>
+
+  <!-- Stats bar -->
+  <div class="stats-bar" id="stats-bar"></div>
+
+  <!-- Quarter filter -->
+  <div class="q-bar">
+    <button class="q-tab" onclick="setQ('all')">All Deals</button>
+    <button class="q-tab" onclick="setQ('Q1')">Q1 2026</button>
+    <button class="q-tab active" onclick="setQ('Q2')">Q2 2026</button>
+    <button class="q-tab" onclick="setQ('Q3')">Q3 2026</button>
+    <button class="q-tab" onclick="setQ('Q4')">Q4 2026</button>
+    <div class="q-spacer"></div>
+    <span class="q-label" id="q-count"></span>
+  </div>
+
+  <!-- Table -->
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Company</th>
+          <th>Type</th>
+          <th>Close Date</th>
+          <th>Stage</th>
+          <th>SE</th>
+          <th>MAP Progress</th>
+          <th>Next Step</th>
+          <th>Links</th>
+        </tr>
+      </thead>
+      <tbody id="deal-tbody"></tbody>
+    </table>
+  </div>
+
+</main>
+
+<footer>Chase McCane · Shopify B2B · Internal use only</footer>
+
+<script>
+  // ──────────────────────────────────────────
+  //  DEALS DATA — add new deals here
+  // ──────────────────────────────────────────
+  const DEALS = [
+    {
+      id: 'feniex',
+      name: 'Feniex Industries',
+      industry: 'Emergency Vehicle Equipment · Austin, TX',
+      type: 'b2b',           // b2b | d2c | both
+      close: '2026-05-09',   // ISO date
+      stage: 4,              // 1–6 (3=Qualify, 4=Propose, 5=Negotiate, 6=Closed Won)
+      se: 'Jordan Murphy',
+      map_progress: { done: 2, total: 22 },
+      next_step: 'Follow up on LOI — confirm SE demo timing',
+      map_url: '../../maps/feniex/',
+      proposal_url: '../../maps/feniex/#proposal',
+      quarter: 'Q2',
+    },
+    // Add more deals here as objects ↑
+  ];
+
+  const STAGE_LABELS = { 1:'Discovery', 2:'Qualify', 3:'Qualify', 4:'Propose', 5:'Negotiate', 6:'Closed Won' };
+  const STAGE_CLASS  = { 3:'stage-3', 4:'stage-4', 5:'stage-5', 6:'stage-5' };
+
+  let currentQ = 'Q2';
+
+  function setQ(q) {
+    currentQ = q;
+    document.querySelectorAll('.q-tab').forEach(t => {
+      t.classList.toggle('active', t.textContent.includes(q) || (q === 'all' && t.textContent === 'All Deals'));
+    });
+    render();
+  }
+
+  function daysUntil(iso) {
+    const d = new Date(iso);
+    const now = new Date(); now.setHours(0,0,0,0);
+    return Math.round((d - now) / 86400000);
+  }
+
+  function fmtDate(iso) {
+    const [y,m,d] = iso.split('-');
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    return `${months[+m-1]} ${+d}, ${y}`;
+  }
+
+  function renderStats() {
+    const active = DEALS.filter(d => d.stage < 6).length;
+    const withMap = DEALS.filter(d => d.map_url).length;
+    const closingThis = DEALS.filter(d => { const days = daysUntil(d.close); return days >= 0 && days <= 30; }).length;
+    const wonQ = DEALS.filter(d => d.stage === 6 && d.quarter === currentQ).length;
+
+    document.getElementById('stats-bar').innerHTML = `
+      <div class="stat-card">
+        <div class="stat-label">Active Deals</div>
+        <div class="stat-val stat-green">${active}</div>
+        <div class="stat-sub">${DEALS.length} total in pipeline</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Have MAPs</div>
+        <div class="stat-val stat-green">${withMap}</div>
+        <div class="stat-sub">of ${active} active deals</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Closing ≤ 30 Days</div>
+        <div class="stat-val stat-amber">${closingThis}</div>
+        <div class="stat-sub">urgent action required</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Closed Won ${currentQ !== 'all' ? currentQ : 'YTD'}</div>
+        <div class="stat-val">${wonQ}</div>
+        <div class="stat-sub">deals this quarter</div>
+      </div>
+    `;
+  }
+
+  function render() {
+    renderStats();
+    const deals = currentQ === 'all' ? DEALS : DEALS.filter(d => d.quarter === currentQ);
+    document.getElementById('q-count').textContent = `${deals.length} deal${deals.length !== 1 ? 's' : ''}`;
+
+    const tbody = document.getElementById('deal-tbody');
+    if (deals.length === 0) {
+      tbody.innerHTML = '<tr class="empty-row"><td colspan="8">No deals in this quarter yet.</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = deals.map(deal => {
+      const days = daysUntil(deal.close);
+      const dateClass = days < 0 ? 'close-overdue' : days <= 14 ? 'close-soon' : '';
+      const typeLabel = { b2b:'B2B', d2c:'D2C', both:'B2B + D2C' }[deal.type];
+      const typeClass = { b2b:'type-b2b', d2c:'type-d2c', both:'type-both' }[deal.type];
+      const stageLabel = STAGE_LABELS[deal.stage] || `Stage ${deal.stage}`;
+      const stageClass = STAGE_CLASS[deal.stage] || 'stage-3';
+      const pct = Math.round(deal.map_progress.done / deal.map_progress.total * 100);
+
+      const mapBtn = deal.map_url
+        ? `<a href="${deal.map_url}" target="_blank" class="map-btn btn-map">🗺️ MAP</a>`
+        : `<span class="map-btn btn-tbd">🗺️ MAP</span>`;
+      const propBtn = deal.proposal_url
+        ? `<a href="${deal.proposal_url}" target="_blank" class="map-btn btn-prop">📄 Proposal</a>`
+        : `<span class="map-btn btn-tbd">📄 Proposal</span>`;
+
+      return `<tr>
+        <td>
+          <div class="deal-name">${deal.name}</div>
+          <div class="deal-industry">${deal.industry}</div>
+        </td>
+        <td><span class="deal-type ${typeClass}">${typeLabel}</span></td>
+        <td><span class="close-date ${dateClass}">${fmtDate(deal.close)}</span><br><span style="font-size:10px;color:var(--muted)">${days >= 0 ? `${days}d away` : `${Math.abs(days)}d ago`}</span></td>
+        <td><span class="stage-pill ${stageClass}">${stageLabel}</span></td>
+        <td><div class="person"><div class="person-name">${deal.se || '—'}</div><div class="person-title">Solution Engineer</div></div></td>
+        <td>
+          <div class="progress-wrap">
+            <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
+            <div class="progress-label">${deal.map_progress.done} / ${deal.map_progress.total} milestones</div>
+          </div>
+        </td>
+        <td><div class="next-step">${deal.next_step || '—'}</div></td>
+        <td><div class="btn-row">${mapBtn}${propBtn}</div></td>
+      </tr>`;
+    }).join('');
+  }
+
+  render();
+</script>
+</body>
+</html>

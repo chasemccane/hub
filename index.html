@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chase McCane · Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #090d10;
+      --surface: #111820;
+      --border: #1e2a35;
+      --green: #00a86b;
+      --green-dim: rgba(0,168,107,.12);
+      --green-glow: rgba(0,168,107,.25);
+      --red: #ff3000;
+      --text: #e8edf2;
+      --muted: #6b7a8a;
+      --card: #141d26;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; min-height: 100vh; display: flex; flex-direction: column; }
+
+    /* ── LOCK SCREEN ── */
+    #lock {
+      position: fixed; inset: 0; z-index: 100;
+      background: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .lock-box {
+      text-align: center; width: 320px;
+    }
+    .lock-logo {
+      width: 52px; height: 52px; background: var(--green-dim); border: 1px solid var(--green-glow);
+      border-radius: 14px; display: flex; align-items: center; justify-content: center;
+      font-size: 24px; margin: 0 auto 24px;
+    }
+    .lock-title { font-size: 22px; font-weight: 800; margin-bottom: 4px; }
+    .lock-sub { font-size: 13px; color: var(--muted); margin-bottom: 32px; }
+    .lock-dots { display: flex; gap: 12px; justify-content: center; margin-bottom: 24px; }
+    .lock-dot {
+      width: 14px; height: 14px; border-radius: 50%;
+      background: var(--border); border: 2px solid var(--border);
+      transition: all .15s;
+    }
+    .lock-dot.filled { background: var(--green); border-color: var(--green); }
+    .lock-numpad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 12px; }
+    .lock-key {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 16px; font-size: 18px; font-weight: 600;
+      cursor: pointer; transition: all .1s; user-select: none;
+      color: var(--text);
+    }
+    .lock-key:hover { background: var(--card); border-color: var(--green-glow); }
+    .lock-key:active { transform: scale(.95); }
+    .lock-key.wide { grid-column: span 2; }
+    .lock-error { font-size: 12px; color: var(--red); height: 16px; text-align: center; }
+
+    /* ── APP ── */
+    #app { display: none; flex-direction: column; min-height: 100vh; }
+    header {
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 16px 32px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .header-left { display: flex; align-items: center; gap: 12px; }
+    .header-logo {
+      width: 36px; height: 36px; background: var(--green-dim); border: 1px solid var(--green-glow);
+      border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 16px;
+    }
+    .header-name { font-size: 15px; font-weight: 700; }
+    .header-role { font-size: 11px; color: var(--green); font-weight: 500; margin-top: 1px; }
+    .header-right { font-size: 12px; color: var(--muted); }
+
+    main { flex: 1; max-width: 900px; margin: 0 auto; width: 100%; padding: 48px 32px; }
+    .greeting { font-size: 28px; font-weight: 800; margin-bottom: 6px; }
+    .greeting-sub { font-size: 14px; color: var(--muted); margin-bottom: 48px; }
+
+    .sections { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+    .section-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px 24px;
+      text-decoration: none; color: inherit;
+      transition: all .2s; position: relative; overflow: hidden;
+    }
+    .section-card:hover:not(.disabled) {
+      border-color: var(--green); box-shadow: 0 0 0 1px var(--green-glow), 0 8px 32px rgba(0,0,0,.4);
+      transform: translateY(-2px);
+    }
+    .section-card.disabled { opacity: .45; cursor: default; }
+    .card-icon { font-size: 28px; margin-bottom: 16px; }
+    .card-num { font-size: 11px; color: var(--green); font-weight: 600; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 8px; }
+    .card-title { font-size: 18px; font-weight: 800; margin-bottom: 8px; }
+    .card-desc { font-size: 13px; color: var(--muted); line-height: 1.55; }
+    .card-arrow {
+      position: absolute; bottom: 24px; right: 24px;
+      width: 28px; height: 28px; background: var(--green-dim);
+      border: 1px solid var(--green-glow); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; color: var(--green);
+    }
+    .coming-soon {
+      position: absolute; top: 16px; right: 16px;
+      font-size: 10px; font-weight: 600; color: var(--muted);
+      background: var(--border); border-radius: 4px; padding: 3px 7px;
+      text-transform: uppercase; letter-spacing: .06em;
+    }
+
+    footer {
+      text-align: center; padding: 24px; font-size: 12px; color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+<!-- LOCK SCREEN -->
+<div id="lock">
+  <div class="lock-box">
+    <div class="lock-logo">🏠</div>
+    <div class="lock-title">Chase McCane</div>
+    <div class="lock-sub">Enter passcode to continue</div>
+    <div class="lock-dots" id="dots">
+      <div class="lock-dot" id="d0"></div>
+      <div class="lock-dot" id="d1"></div>
+      <div class="lock-dot" id="d2"></div>
+      <div class="lock-dot" id="d3"></div>
+    </div>
+    <div class="lock-numpad">
+      <button class="lock-key" onclick="numPress('1')">1</button>
+      <button class="lock-key" onclick="numPress('2')">2</button>
+      <button class="lock-key" onclick="numPress('3')">3</button>
+      <button class="lock-key" onclick="numPress('4')">4</button>
+      <button class="lock-key" onclick="numPress('5')">5</button>
+      <button class="lock-key" onclick="numPress('6')">6</button>
+      <button class="lock-key" onclick="numPress('7')">7</button>
+      <button class="lock-key" onclick="numPress('8')">8</button>
+      <button class="lock-key" onclick="numPress('9')">9</button>
+      <button class="lock-key" onclick="numPress('del')">⌫</button>
+      <button class="lock-key" onclick="numPress('0')">0</button>
+    </div>
+    <div class="lock-error" id="lock-err"></div>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app">
+  <header>
+    <div class="header-left">
+      <div class="header-logo">⚡</div>
+      <div>
+        <div class="header-name">Chase McCane</div>
+        <div class="header-role">Sr. Account Executive · B2B AMER</div>
+      </div>
+    </div>
+    <div class="header-right" id="hdate"></div>
+  </header>
+
+  <main>
+    <div class="greeting">Good <span id="tod"></span>, Chase.</div>
+    <div class="greeting-sub" id="gsub">Loading...</div>
+
+    <div class="sections">
+      <!-- Section 1: Dashboard -->
+      <div class="section-card disabled">
+        <div class="coming-soon">Coming Soon</div>
+        <div class="card-icon">📊</div>
+        <div class="card-num">01</div>
+        <div class="card-title">Performance Dashboard</div>
+        <div class="card-desc">Pipeline value, closed won, quota attainment, activity metrics — pulled live from Salesforce.</div>
+      </div>
+
+      <!-- Section 2: Deal Review -->
+      <a href="deal-review/" class="section-card">
+        <div class="card-icon">🎯</div>
+        <div class="card-num">02</div>
+        <div class="card-title">Deal Review Rooms</div>
+        <div class="card-desc">MEDDIC qualification, strategy notes, risks, blockers, and next steps — one room per deal.</div>
+        <div class="card-arrow">→</div>
+      </a>
+
+      <!-- Section 3: MAP Hub -->
+      <a href="map-hub/" class="section-card">
+        <div class="card-icon">🗺️</div>
+        <div class="card-num">03</div>
+        <div class="card-title">MAP Hub</div>
+        <div class="card-desc">All Mutual Action Plans in one place. View deal status, open MAPs, and proposal decks by quarter.</div>
+        <div class="card-arrow">→</div>
+      </a>
+    </div>
+  </main>
+
+  <footer>Chase McCane · Shopify B2B · Internal use only</footer>
+</div>
+
+<script>
+  const PASSCODE = '0309';
+  const SESSION_KEY = 'hub-auth';
+  let input = '';
+
+  function numPress(k) {
+    const err = document.getElementById('lock-err');
+    err.textContent = '';
+    if (k === 'del') { input = input.slice(0, -1); updateDots(); return; }
+    if (input.length >= 4) return;
+    input += k;
+    updateDots();
+    if (input.length === 4) {
+      if (input === PASSCODE) {
+        sessionStorage.setItem(SESSION_KEY, '1');
+        document.getElementById('lock').style.display = 'none';
+        document.getElementById('app').style.display = 'flex';
+        initApp();
+      } else {
+        err.textContent = 'Incorrect passcode';
+        input = '';
+        updateDots();
+      }
+    }
+  }
+
+  function updateDots() {
+    for (let i = 0; i < 4; i++) {
+      document.getElementById('d' + i).classList.toggle('filled', i < input.length);
+    }
+  }
+
+  document.addEventListener('keydown', e => {
+    if (document.getElementById('lock').style.display === 'none') return;
+    if (/^[0-9]$/.test(e.key)) numPress(e.key);
+    if (e.key === 'Backspace') numPress('del');
+  });
+
+  function initApp() {
+    const now = new Date();
+    const h = now.getHours();
+    const tod = h < 12 ? 'morning' : h < 17 ? 'afternoon' : 'evening';
+    document.getElementById('tod').textContent = tod;
+
+    const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    document.getElementById('hdate').textContent = `${days[now.getDay()]}, ${months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}`;
+
+    // Sub-heading
+    const subs = [
+      'What are we closing this quarter?',
+      'Make today count.',
+      'Every deal has a next step.',
+      'Compounding reps compound results.',
+    ];
+    document.getElementById('gsub').textContent = subs[now.getDay() % subs.length];
+  }
+
+  // Check session
+  if (sessionStorage.getItem(SESSION_KEY) === '1') {
+    document.getElementById('lock').style.display = 'none';
+    document.getElementById('app').style.display = 'flex';
+    initApp();
+  }
+</script>
+</body>
+</html>
