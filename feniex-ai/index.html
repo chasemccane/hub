@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shopify AI — Feniex Overview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #008060;
+      --green-light: #00a876;
+      --green-dark: #005c47;
+      --ink: #1a1a2e;
+      --ink-soft: #3d3d5c;
+      --muted: #6b7280;
+      --surface: #f9fafb;
+      --card: #ffffff;
+      --border: #e5e7eb;
+      --accent: #dbeafe;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--surface);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .nav-logo svg { width: 28px; height: 28px; }
+    .nav-logo span { font-size: 1rem; font-weight: 700; letter-spacing: -0.02em; }
+    .nav-tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--green);
+      background: #e6f4f0;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #0a1628 0%, #1a2f4a 40%, #0d3b2e 100%);
+      color: white;
+      padding: 6rem 2rem 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 60% 40%, rgba(0,128,96,0.25) 0%, transparent 60%),
+                  radial-gradient(ellipse at 20% 80%, rgba(0,168,118,0.15) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,128,96,0.25);
+      border: 1px solid rgba(0,128,96,0.5);
+      color: #4ade80;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 2rem;
+    }
+    .hero-badge .dot {
+      width: 6px; height: 6px;
+      background: #4ade80;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 .highlight {
+      background: linear-gradient(90deg, #34d399, #6ee7b7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero .sub {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.7);
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      font-weight: 400;
+    }
+    .hero .for-tag {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.06em;
+      font-weight: 500;
+    }
+    .hero .for-tag strong {
+      color: rgba(255,255,255,0.75);
+      font-weight: 600;
+    }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 3.5rem;
+      flex-wrap: wrap;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat .val {
+      font-size: 2rem;
+      font-weight: 800;
+      color: white;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .hero-stat .lbl {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.5);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 4px;
+    }
+    .hero-divider {
+      width: 1px;
+      background: rgba(255,255,255,0.12);
+      align-self: stretch;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+    .section-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 3rem;
+    }
+
+    /* ── FEATURE GRID ── */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .card:hover {
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+    .card-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 1.1rem;
+      background: #f0fdf4;
+    }
+    .card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+    .card p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .card .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 1rem;
+    }
+    .tag {
+      font-size: 0.67rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      padding: 3px 9px;
+      border-radius: 20px;
+    }
+    .tag-green { background: #e6f4f0; color: #00573d; }
+    .tag-blue { background: #dbeafe; color: #1e40af; }
+    .tag-purple { background: #ede9fe; color: #5b21b6; }
+    .tag-amber { background: #fef3c7; color: #92400e; }
+
+    /* ── HIGHLIGHT BAND ── */
+    .band {
+      background: linear-gradient(135deg, var(--green-dark), var(--green));
+      color: white;
+      padding: 5rem 2rem;
+    }
+    .band-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .band h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .band p {
+      font-size: 0.95rem;
+      opacity: 0.8;
+      line-height: 1.7;
+    }
+    .band-points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .band-points li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+    .band-points li .check {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem;
+      margin-top: 1px;
+    }
+
+    /* ── TIMELINE / ROADMAP ── */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+      padding-left: 2rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 12px;
+      bottom: 12px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--green), #a7f3d0);
+    }
+    .tl-item {
+      position: relative;
+      padding: 0 0 2.5rem 2rem;
+    }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-dot {
+      position: absolute;
+      left: -1.95rem;
+      top: 4px;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      border: 3px solid white;
+      box-shadow: 0 0 0 2px var(--green);
+      background: var(--green);
+    }
+    .tl-dot.future { background: white; box-shadow: 0 0 0 2px #9ca3af; }
+    .tl-era {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--green);
+      margin-bottom: 4px;
+    }
+    .tl-era.future { color: var(--muted); }
+    .tl-item h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .tl-item p {
+      font-size: 0.83rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── QUOTE ── */
+    .quote-section {
+      background: white;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 4rem 2rem;
+    }
+    .quote-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .quote-inner blockquote {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--ink-soft);
+      line-height: 1.6;
+      font-style: italic;
+      margin-bottom: 1.25rem;
+    }
+    .quote-inner cite {
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    /* ── B2B SECTION ── */
+    .b2b-use-cases {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+    .use-case {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+    .use-case .uc-num {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #e5e7eb;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .use-case h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+    .use-case p {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: var(--ink);
+      color: white;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+    .cta-section p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      max-width: 480px;
+      margin: 0 auto 2rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green);
+      color: white;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn:hover { background: var(--green-light); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: white;
+      border-top: 1px solid var(--border);
+      padding: 1.75rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    footer .f-logo { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; font-weight: 600; color: var(--muted); }
+    footer p { font-size: 0.78rem; color: var(--muted); }
+
+    @media (max-width: 700px) {
+      .band-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-stats { gap: 1.5rem; }
+      .hero-divider { display: none; }
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <svg viewBox="0 0 109 124" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M74.7 14.8C74.6 14.1 74 13.7 73.5 13.7C73 13.7 62.8 13.4 62.8 13.4C62.8 13.4 55.3 5.9 54.5 5.2C53.7 4.5 52.1 4.7 51.5 4.9C51.5 4.9 50 5.4 47.6 6.1C47.1 4.5 46.3 2.5 45.1 0.6C41.1-6 35.3-0.6 33.2 3.7C31.7 6.8 30.7 10 30.1 13.1C27.3 14 25.4 14.6 25.4 14.6C23 15.4 22.9 15.5 22.6 17.8C22.4 19.5 16 67.9 16 67.9L63.2 76.5L85.5 71.1C85.5 71.1 74.8 15.5 74.7 14.8ZM46.4 7.8C44.7 8.4 42.8 9 40.9 9.6C41.4 7.3 42.3 5 43.6 3.2C44.1 2.5 44.8 1.7 45.6 1.2C46.8 3.2 47.5 5.5 46.4 7.8ZM51.3 6.3C50.2 6.6 49 6.9 47.9 7.3C48.8 5.1 50 3 51.5 1.3C52.8 3.2 53.4 5.1 51.3 6.3Z" fill="#008060"/>
+      <path d="M73.5 13.7C73 13.7 62.8 13.4 62.8 13.4C62.8 13.4 55.3 5.9 54.5 5.2C54.2 4.9 53.8 4.8 53.5 4.7L63.2 76.5L85.5 71.1C85.5 71.1 74.8 15.5 74.7 14.8C74.6 14.1 74 13.7 73.5 13.7Z" fill="#004C3F"/>
+    </svg>
+    <span>Shopify</span>
+  </a>
+  <span class="nav-tag">AI Platform Overview</span>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">
+    <span class="dot"></span>
+    Prepared for Feniex Industries
+  </div>
+  <h1>
+    The AI-Powered<br/>
+    <span class="highlight">Commerce Platform</span>
+  </h1>
+  <p class="sub">
+    How Shopify is embedding intelligence into every layer of commerce — from operations to customer experience to the future of B2B buying.
+  </p>
+  <p class="for-tag">Executive Overview &nbsp;·&nbsp; <strong>Feniex Industries</strong></p>
+
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="val">150M+</div>
+      <div class="lbl">Merchants Worldwide</div>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-stat">
+      <div class="val">$1T+</div>
+      <div class="lbl">GMV Powered</div>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-stat">
+      <div class="val">10%</div>
+      <div class="lbl">of U.S. E-Commerce</div>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-stat">
+      <div class="val">AI-First</div>
+      <div class="lbl">Product Strategy</div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOPIFY MAGIC -->
+<section class="section">
+  <div class="section-label">Shopify Magic</div>
+  <h2 class="section-title">AI Built Into the Platform — Not Bolted On</h2>
+  <p class="section-sub">Shopify Magic is a suite of AI tools embedded directly into the merchant admin, reducing manual work across every function.</p>
+
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-icon">✍️</div>
+      <h3>AI Content Generation</h3>
+      <p>Generate product descriptions, email campaigns, blog posts, and SEO copy instantly. Trained on commerce-specific data to write like a merchant, not a generic AI.</p>
+      <div class="tag-row">
+        <span class="tag tag-green">Available Now</span>
+        <span class="tag tag-blue">All Plans</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🖼️</div>
+      <h3>AI Image Editing</h3>
+      <p>Remove backgrounds, generate lifestyle imagery, and enhance product photos using AI — no design team required. Turn spec shots into polished catalog assets.</p>
+      <div class="tag-row">
+        <span class="tag tag-green">Available Now</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🧠</div>
+      <h3>Smart Customer Segmentation</h3>
+      <p>AI surfaces pre-built and custom audience segments based on purchase behavior, LTV, and engagement — enabling precise targeting without manual SQL queries.</p>
+      <div class="tag-row">
+        <span class="tag tag-green">Available Now</span>
+        <span class="tag tag-purple">Marketing</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-icon">💬</div>
+      <h3>Inbox AI Replies</h3>
+      <p>Shopify Inbox uses AI to suggest instant, contextual replies to customer messages — pulling from your product catalog, order history, and FAQs.</p>
+      <div class="tag-row">
+        <span class="tag tag-green">Available Now</span>
+        <span class="tag tag-blue">Customer Support</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-icon">📊</div>
+      <h3>AI Analytics Summaries</h3>
+      <p>Instead of parsing dashboards, get plain-language summaries of what's happening in your store — top movers, anomalies, and revenue drivers surfaced automatically.</p>
+      <div class="tag-row">
+        <span class="tag tag-green">Available Now</span>
+        <span class="tag tag-amber">Analytics</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔒</div>
+      <h3>AI Fraud Detection</h3>
+      <p>Machine learning models score every order for fraud risk in real time — analyzing hundreds of signals to approve legitimate orders and flag bad ones automatically.</p>
+      <div class="tag-row">
+        <span class="tag tag-green">Available Now</span>
+        <span class="tag tag-blue">Checkout</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIDEKICK -->
+<div class="band">
+  <div class="band-inner">
+    <div>
+      <h2>Meet Sidekick — Your AI Business Co-Pilot</h2>
+      <p>Sidekick is Shopify's conversational AI assistant, embedded directly in the merchant admin. It understands your store's data and can take action on your behalf.</p>
+    </div>
+    <ul class="band-points">
+      <li>
+        <span class="check">→</span>
+        <span><strong>Ask business questions in plain English</strong> — "What were my top 10 B2B customers last quarter?" and get instant, accurate answers.</span>
+      </li>
+      <li>
+        <span class="check">→</span>
+        <span><strong>Trigger actions through conversation</strong> — "Apply free shipping to all orders over $2,000 this week" — done in seconds.</span>
+      </li>
+      <li>
+        <span class="check">→</span>
+        <span><strong>Get strategic guidance</strong> — Sidekick can suggest pricing strategies, identify at-risk accounts, and recommend catalog improvements.</span>
+      </li>
+      <li>
+        <span class="check">→</span>
+        <span><strong>Proactive alerts</strong> — Sidekick surfaces issues before they become problems: inventory shortfalls, unusual order patterns, cart abandonment spikes.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- B2B AI -->
+<section class="section">
+  <div class="section-label">B2B Intelligence</div>
+  <h2 class="section-title">AI Designed for Complex B2B Commerce</h2>
+  <p class="section-sub">Shopify Plus brings AI to wholesale and B2B operations — the workflows that matter most to companies like Feniex.</p>
+
+  <div class="b2b-use-cases">
+    <div class="use-case">
+      <div class="uc-num">01</div>
+      <h4>Intelligent Pricing Rules</h4>
+      <p>AI-powered volume pricing, customer-specific catalogs, and automated discount structures — no manual price list management.</p>
+    </div>
+    <div class="use-case">
+      <div class="uc-num">02</div>
+      <h4>Self-Service B2B Portal</h4>
+      <p>Buyers place orders, check account balances, and reorder without a sales rep. AI surfaces relevant products based on their purchase history.</p>
+    </div>
+    <div class="use-case">
+      <div class="uc-num">03</div>
+      <h4>Automated Replenishment</h4>
+      <p>AI predicts when key customers will run low and triggers draft orders or reorder reminders before they place a competitor's call.</p>
+    </div>
+    <div class="use-case">
+      <div class="uc-num">04</div>
+      <h4>Smart Order Routing</h4>
+      <p>Shopify Flow + AI routes B2B orders to the right fulfillment location, net terms workflow, or approval chain automatically.</p>
+    </div>
+    <div class="use-case">
+      <div class="uc-num">05</div>
+      <h4>Account Health Scoring</h4>
+      <p>AI flags accounts that are trending down in order frequency so your team can intervene before churn happens.</p>
+    </div>
+    <div class="use-case">
+      <div class="uc-num">06</div>
+      <h4>AI-Powered Search</h4>
+      <p>Semantic product search understands intent — a buyer searching "strobe bar" finds your full SKU range, not just exact text matches.</p>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCES -->
+<section class="section" style="padding-top: 0;">
+  <div class="grid-2">
+    <div class="card" style="border-left: 4px solid var(--green); border-radius: 12px;">
+      <div class="card-icon">🎯</div>
+      <h3>Shopify Audiences — AI Ad Targeting</h3>
+      <p>Shopify builds high-intent lookalike audiences from anonymized purchase data across its entire merchant network. Feed these audiences into Meta and Google to find customers who actually buy — not just click.</p>
+      <p style="margin-top: 0.75rem; font-size: 0.83rem; color: var(--muted);">Merchants using Shopify Audiences report 2–3× improvement in return on ad spend compared to standard targeting.</p>
+      <div class="tag-row">
+        <span class="tag tag-green">Shopify Plus</span>
+        <span class="tag tag-blue">Meta · Google · Pinterest</span>
+      </div>
+    </div>
+    <div class="card" style="border-left: 4px solid #6366f1; border-radius: 12px;">
+      <div class="card-icon">⚡</div>
+      <h3>Shopify Flow — AI-Enhanced Automation</h3>
+      <p>Build workflows that respond to real-time events without code. AI suggestions help design automations for order tagging, fraud holds, restock alerts, loyalty rewards, and B2B account management.</p>
+      <p style="margin-top: 0.75rem; font-size: 0.83rem; color: var(--muted);">Set rules once — Shopify handles the logic automatically, 24/7, without manual intervention.</p>
+      <div class="tag-row">
+        <span class="tag tag-purple">Automation</span>
+        <span class="tag tag-green">Shopify Plus</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-section">
+  <div class="quote-inner">
+    <blockquote>
+      "Shopify is betting big on AI — not as a feature, but as the foundation. Every part of the platform is being rebuilt around intelligence."
+    </blockquote>
+    <cite>— Tobi Lütke, CEO, Shopify</cite>
+  </div>
+</div>
+
+<!-- ROADMAP -->
+<section class="section">
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;" class="roadmap-grid">
+    <div>
+      <div class="section-label">What's Coming</div>
+      <h2 class="section-title">The Agentic Commerce Frontier</h2>
+      <p class="section-sub">Shopify is building toward a world where AI agents handle commerce end-to-end — from procurement to fulfillment.</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-era">Available Now</div>
+          <h4>Shopify Magic + Sidekick</h4>
+          <p>AI content, segmentation, fraud detection, and conversational admin assistant live across all Plus merchants.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-era">Available Now</div>
+          <h4>AI-Native B2B Portal</h4>
+          <p>Personalized buyer portals, self-service ordering, and AI-driven product recommendations for wholesale accounts.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot future"></div>
+          <div class="tl-era future">Emerging</div>
+          <h4>Agentic Commerce</h4>
+          <p>AI agents — including Claude, ChatGPT, and Perplexity — can browse your store and complete purchases on behalf of B2B buyers. Procurement without the friction.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot future"></div>
+          <div class="tl-era future">Horizon</div>
+          <h4>Autonomous B2B Replenishment</h4>
+          <p>Buyer AI agents automatically reorder from your Shopify store based on their own inventory signals — zero human touchpoints required.</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="section-label">Why It Matters for Feniex</div>
+      <h2 class="section-title">Commerce at the Speed of the Field</h2>
+      <p style="font-size: 0.9rem; color: var(--muted); margin-bottom: 1.75rem; line-height: 1.7;">Emergency vehicle equipment lives in a world of urgency — fleets need parts fast, procurement cycles are complex, and field relationships are everything. AI removes the friction.</p>
+
+      <div style="display: flex; flex-direction: column; gap: 1.1rem;">
+        <div class="card" style="padding: 1.25rem; border-radius: 10px;">
+          <h3 style="font-size: 0.88rem; margin-bottom: 0.3rem;">Faster Dealer Ordering</h3>
+          <p style="font-size: 0.8rem;">AI-powered B2B portals let dealers self-serve 24/7 — find the right SKU, check inventory, and place orders without waiting on a rep.</p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border-radius: 10px;">
+          <h3 style="font-size: 0.88rem; margin-bottom: 0.3rem;">Smarter Catalog Management</h3>
+          <p style="font-size: 0.8rem;">Managing thousands of part numbers, configurations, and compatibility specs? Shopify Magic auto-generates descriptions and semantic search makes them findable.</p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border-radius: 10px;">
+          <h3 style="font-size: 0.88rem; margin-bottom: 0.3rem;">Account Intelligence</h3>
+          <p style="font-size: 0.8rem;">Know which fleet accounts are overdue for replenishment, which dealers are trending down, and where to focus your sales team — before the numbers tell you.</p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border-radius: 10px;">
+          <h3 style="font-size: 0.88rem; margin-bottom: 0.3rem;">Agentic Procurement Readiness</h3>
+          <p style="font-size: 0.8rem;">As municipal buyers adopt AI procurement agents, Shopify makes Feniex's catalog discoverable and purchasable by those agents — a competitive moat for what's coming.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY AI -->
+<section class="section" style="padding-bottom: 2rem;">
+  <div class="section-label">The Philosophy</div>
+  <h2 class="section-title">Why Shopify Is Betting Everything on AI</h2>
+
+  <div class="grid-2" style="margin-bottom: 3rem;">
+    <div style="padding-right: 1rem;">
+      <p style="font-size: 1rem; line-height: 1.8; color: var(--ink-soft); margin-bottom: 1.25rem;">
+        Shopify's CEO Tobi Lütke has been direct: AI is not a feature Shopify is adding — it is the foundation Shopify is rebuilding on. The question isn't whether commerce will be AI-powered. It's who gets there first.
+      </p>
+      <p style="font-size: 1rem; line-height: 1.8; color: var(--ink-soft); margin-bottom: 1.25rem;">
+        Shopify's approach is to give every merchant — from a 10-person manufacturer to a $500M enterprise — access to capabilities that used to require a team of data scientists, designers, and marketers.
+      </p>
+      <p style="font-size: 1rem; line-height: 1.8; color: var(--ink-soft);">
+        The result: merchants compete not by having more people, but by having better tools. AI is the great equalizer in commerce.
+      </p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 1rem;">
+      <div style="background: #f0fdf4; border-radius: 12px; padding: 1.5rem; border: 1px solid #bbf7d0;">
+        <div style="font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--green); margin-bottom: 0.5rem;">The Tobi Principle</div>
+        <blockquote style="font-size: 0.95rem; color: var(--ink-soft); line-height: 1.65; font-style: italic;">"Think of AI as a brilliant friend who happens to have the knowledge of a doctor, lawyer, financial advisor, and expert in whatever you need. That's what Shopify is trying to be for every merchant."</blockquote>
+        <cite style="font-size: 0.75rem; color: var(--muted); font-style: normal; display: block; margin-top: 0.75rem;">— Tobi Lütke, CEO, Shopify</cite>
+      </div>
+      <div style="background: #eff6ff; border-radius: 12px; padding: 1.5rem; border: 1px solid #bfdbfe;">
+        <div style="font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #2563eb; margin-bottom: 0.5rem;">The Mandate</div>
+        <p style="font-size: 0.88rem; color: var(--ink-soft); line-height: 1.65;">In 2024, Tobi made AI proficiency a condition of headcount — if a team couldn't show AI wasn't doing their job, new hires weren't approved. Shopify isn't experimenting with AI. It's operating on it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT STATS -->
+<section class="section" style="padding-top: 0;">
+  <div class="section-label">Proven Impact</div>
+  <h2 class="section-title">What AI Is Actually Doing for Merchants</h2>
+  <p class="section-sub">Across Shopify's merchant base, AI capabilities are translating to measurable hours saved, costs reduced, and revenue gained.</p>
+
+  <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-bottom: 3rem;" class="stats-grid">
+    <div style="background: white; border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem; text-align: center;">
+      <div style="font-size: 2.2rem; font-weight: 800; color: var(--green); letter-spacing: -0.04em; line-height: 1;">2–3 hrs</div>
+      <div style="font-size: 0.75rem; color: var(--muted); font-weight: 500; margin-top: 6px; text-transform: uppercase; letter-spacing: 0.06em;">Saved per week<br/>on content creation</div>
+    </div>
+    <div style="background: white; border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem; text-align: center;">
+      <div style="font-size: 2.2rem; font-weight: 800; color: var(--green); letter-spacing: -0.04em; line-height: 1;">65%</div>
+      <div style="font-size: 0.75rem; color: var(--muted); font-weight: 500; margin-top: 6px; text-transform: uppercase; letter-spacing: 0.06em;">Faster customer<br/>support response</div>
+    </div>
+    <div style="background: white; border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem; text-align: center;">
+      <div style="font-size: 2.2rem; font-weight: 800; color: var(--green); letter-spacing: -0.04em; line-height: 1;">2–4×</div>
+      <div style="font-size: 0.75rem; color: var(--muted); font-weight: 500; margin-top: 6px; text-transform: uppercase; letter-spacing: 0.06em;">Better ROAS with<br/>Shopify Audiences</div>
+    </div>
+    <div style="background: white; border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem; text-align: center;">
+      <div style="font-size: 2.2rem; font-weight: 800; color: var(--green); letter-spacing: -0.04em; line-height: 1;">Millions</div>
+      <div style="font-size: 0.75rem; color: var(--muted); font-weight: 500; margin-top: 6px; text-transform: uppercase; letter-spacing: 0.06em;">Tasks automated<br/>monthly via Flow</div>
+    </div>
+  </div>
+
+  <div class="grid-3">
+    <div class="card" style="border-top: 3px solid var(--green);">
+      <div style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--green); margin-bottom: 0.6rem;">Case Study · Manufacturing</div>
+      <h3>Catalog at Scale</h3>
+      <p>A 10,000+ SKU manufacturer used Shopify Magic to generate and optimize product descriptions across their entire catalog. What would have taken a team of writers 6 months was completed in days — with better SEO performance as a bonus.</p>
+      <div class="tag-row">
+        <span class="tag tag-green">Shopify Magic</span>
+        <span class="tag tag-amber">B2B</span>
+      </div>
+    </div>
+    <div class="card" style="border-top: 3px solid #6366f1;">
+      <div style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #6366f1; margin-bottom: 0.6rem;">Case Study · Wholesale</div>
+      <h3>24/7 Order Automation</h3>
+      <p>A specialty distributor replaced their manual after-hours order intake (fax, email) with an AI-powered B2B portal. Dealer orders now process instantly, with net terms and credit limits enforced automatically — no back-office staff required.</p>
+      <div class="tag-row">
+        <span class="tag tag-purple">B2B Portal</span>
+        <span class="tag tag-green">Shopify Flow</span>
+      </div>
+    </div>
+    <div class="card" style="border-top: 3px solid #f59e0b;">
+      <div style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #92400e; margin-bottom: 0.6rem;">Case Study · Customer Service</div>
+      <h3>Support Without Headcount</h3>
+      <p>An equipment brand scaled from 50K to 200K orders per year without adding customer service staff. Shopify Inbox AI handled 68% of inbound inquiries automatically — order status, shipping ETAs, product specs — with human handoff only for escalations.</p>
+      <div class="tag-row">
+        <span class="tag tag-amber">Inbox AI</span>
+        <span class="tag tag-blue">Automation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Commerce is changing.<br/>Shopify is leading it.</h2>
+  <p>Let's talk about what AI-powered commerce looks like specifically for Feniex — and what's possible in the next 90 days.</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo">
+    <svg viewBox="0 0 109 124" fill="none" xmlns="http://www.w3.org/2000/svg" width="18" height="18">
+      <path d="M74.7 14.8C74.6 14.1 74 13.7 73.5 13.7C73 13.7 62.8 13.4 62.8 13.4C62.8 13.4 55.3 5.9 54.5 5.2C53.7 4.5 52.1 4.7 51.5 4.9C51.5 4.9 50 5.4 47.6 6.1C47.1 4.5 46.3 2.5 45.1 0.6C41.1-6 35.3-0.6 33.2 3.7C31.7 6.8 30.7 10 30.1 13.1C27.3 14 25.4 14.6 25.4 14.6C23 15.4 22.9 15.5 22.6 17.8C22.4 19.5 16 67.9 16 67.9L63.2 76.5L85.5 71.1C85.5 71.1 74.8 15.5 74.7 14.8ZM46.4 7.8C44.7 8.4 42.8 9 40.9 9.6C41.4 7.3 42.3 5 43.6 3.2C44.1 2.5 44.8 1.7 45.6 1.2C46.8 3.2 47.5 5.5 46.4 7.8ZM51.3 6.3C50.2 6.6 49 6.9 47.9 7.3C48.8 5.1 50 3 51.5 1.3C52.8 3.2 53.4 5.1 51.3 6.3Z" fill="#008060"/>
+      <path d="M73.5 13.7C73 13.7 62.8 13.4 62.8 13.4C62.8 13.4 55.3 5.9 54.5 5.2C54.2 4.9 53.8 4.8 53.5 4.7L63.2 76.5L85.5 71.1C85.5 71.1 74.8 15.5 74.7 14.8C74.6 14.1 74 13.7 73.5 13.7Z" fill="#004C3F"/>
+    </svg>
+    Shopify AI Platform Overview — Feniex Industries
+  </div>
+  <p>Prepared by Chase McCane · Shopify</p>
+</footer>
+
+<style>
+  @media (max-width: 800px) {
+    .roadmap-grid { grid-template-columns: 1fr !important; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  }
+  @media (max-width: 500px) {
+    .stats-grid { grid-template-columns: 1fr !important; }
+  }
+</style>
+
+</body>
+</html>
