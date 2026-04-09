@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-04-09T04:19:43.069Z",
+  "updated": "2026-04-09T04:19:57.726Z",
   "deals": {
     "feniex": {
       "meddic": {
@@ -56,7 +56,7 @@
     },
     "hedrick": {
       "meddic": {
-        "metrics": "",
+        "metrics": "Enter metrics…test",
         "economic_buyer": "",
         "decision_criteria": "",
         "decision_process": "",
