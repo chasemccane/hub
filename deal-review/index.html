@@ -504,12 +504,17 @@ Champion Yemilyn has urgency — she's tied this to her revenue growth goal. Kee
   },
 ];
 
+// Deals removed from pipeline — prune from any cached localStorage
+const REMOVED_IDS = ['bidk','sourcebooks','steeltube','gtgolf','centuryfire'];
+
 function loadDeals() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) {
-      const saved = JSON.parse(raw);
-      // Merge: add any new DEFAULT_DEALS that aren't in saved data yet
+      let saved = JSON.parse(raw);
+      // Remove stale deals no longer in pipeline
+      saved = saved.filter(d => !REMOVED_IDS.includes(d.id));
+      // Add any new DEFAULT_DEALS that aren't in saved data yet
       DEFAULT_DEALS.forEach(def => {
         if (!saved.find(d => d.id === def.id)) saved.push(JSON.parse(JSON.stringify(def)));
       });
