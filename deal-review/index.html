@@ -322,7 +322,6 @@ const DEFAULT_DEALS = [
     industry: 'Emergency Vehicle Equipment · Austin, TX',
     stage: 'Solution',
     close: 'Jun 17, 2026',
-    arr: 'TBD',
     pbr: 323171,
     se: 'Jordan Murphy',
     map_url: '../../maps/feniex/',
@@ -385,7 +384,6 @@ Champion Yemilyn has urgency — she's tied this to her revenue growth goal. Kee
     industry: 'Construction & Industrial · China Grove, NC',
     stage: 'Demonstrate',
     close: 'May 20, 2026',
-    arr: 'TBD',
     pbr: 376159,
     se: '',
     map_url: '',
@@ -404,7 +402,6 @@ Champion Yemilyn has urgency — she's tied this to her revenue growth goal. Kee
     industry: 'Electronics & Gadgets · City of Industry, CA',
     stage: 'Pre-Qualified',
     close: 'Jun 30, 2026',
-    arr: 'TBD',
     pbr: 0,
     se: '',
     map_url: '',
@@ -423,7 +420,6 @@ Champion Yemilyn has urgency — she's tied this to her revenue growth goal. Kee
     industry: 'B2B Wholesale · Mid Market',
     stage: 'Pre-Qualified',
     close: 'Jun 30, 2026',
-    arr: 'TBD',
     pbr: 102821,
     se: '',
     map_url: '',
@@ -442,7 +438,6 @@ Champion Yemilyn has urgency — she's tied this to her revenue growth goal. Kee
     industry: 'Wholesale Florals · B2B',
     stage: 'Envision',
     close: 'Jun 30, 2026',
-    arr: 'TBD',
     pbr: 102821,
     se: '',
     map_url: '',
@@ -461,7 +456,6 @@ Champion Yemilyn has urgency — she's tied this to her revenue growth goal. Kee
     industry: 'Home Décor & Supply · Stone Park, IL',
     stage: 'Solution',
     close: 'Jun 23, 2026',
-    arr: 'TBD',
     pbr: 147538,
     se: '',
     map_url: '',
@@ -480,7 +474,6 @@ Champion Yemilyn has urgency — she's tied this to her revenue growth goal. Kee
     industry: 'Food & Beverage · Honolulu, HI',
     stage: 'Envision',
     close: 'Aug 26, 2026',
-    arr: 'TBD',
     pbr: 102821,
     se: '',
     map_url: '',
@@ -499,7 +492,6 @@ Champion Yemilyn has urgency — she's tied this to her revenue growth goal. Kee
     industry: 'Transportation & Logistics · B2B',
     stage: 'Pre-Qualified',
     close: 'Jul 31, 2026',
-    arr: 'TBD',
     pbr: 0,
     se: '',
     map_url: '',
@@ -518,7 +510,6 @@ Champion Yemilyn has urgency — she's tied this to her revenue growth goal. Kee
     industry: 'Specialty Wholesale · B2B',
     stage: 'Pre-Qualified',
     close: 'Jul 31, 2026',
-    arr: 'TBD',
     pbr: 99839,
     se: '',
     map_url: '',
@@ -537,7 +528,6 @@ Champion Yemilyn has urgency — she's tied this to her revenue growth goal. Kee
     industry: 'Industrial Equipment · B2B',
     stage: 'Envision',
     close: 'Aug 25, 2026',
-    arr: 'TBD',
     pbr: 0,
     se: '',
     map_url: '',
@@ -701,7 +691,7 @@ function renderSidebar() {
   document.getElementById('deal-list').innerHTML = sorted.map(d => `
     <div class="deal-item ${currentId === d.id ? 'active' : ''}" onclick="openDeal('${d.id}')">
       <div class="di-name">${d.name}</div>
-      <div class="di-meta">${d.close} · ${d.arr}</div>
+      <div class="di-meta">${d.close}</div>
       <span class="di-stage ${stageClass[d.stage] || 's-qualify'}">${d.stage}</span>
     </div>
   `).join('');
@@ -731,7 +721,7 @@ function openDeal(id) {
     <div class="deal-header">
       <div class="dh-left">
         <div class="dh-company">${deal.name}</div>
-        <div class="dh-meta">${deal.industry} · Close ${deal.close} · ${deal.arr} · SE: ${deal.se}</div>
+        <div class="dh-meta">${deal.industry} · Close ${deal.close} · SE: ${deal.se}</div>
         <div class="dh-links">
           ${deal.map_url ? `<a href="${deal.map_url}" target="_blank" class="dh-link dh-link-map">🗺️ Open MAP</a>` : ''}
           ${deal.proposal_url ? `<a href="${deal.proposal_url}" target="_blank" class="dh-link dh-link-prop">📄 View Proposal</a>` : ''}
@@ -935,7 +925,6 @@ window.addDeal = () => {
     industry: 'Industry · Location',
     stage: 'Qualify',
     close: 'TBD',
-    arr: 'TBD',
     se: 'TBD',
     map_url: '',
     proposal_url: '',
