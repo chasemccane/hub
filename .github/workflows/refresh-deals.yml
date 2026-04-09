@@ -22,20 +22,34 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Install Salesforce CLI
+        run: npm install -g @salesforce/cli --silent
+
+      - name: Authenticate Salesforce
+        run: echo "$SF_SFDX_AUTH_URL" | sf org login sfdx-url --sfdx-url-stdin --alias hub
+        env:
+          SF_SFDX_AUTH_URL: ${{ secrets.SF_SFDX_AUTH_URL }}
+
+      - name: Get fresh access token
+        id: sfauth
+        run: |
+          INFO=$(sf org display --target-org hub --json)
+          echo "access_token=$(echo $INFO | python3 -c 'import sys,json; print(json.load(sys.stdin)["result"]["accessToken"])')" >> $GITHUB_OUTPUT
+          echo "instance_url=$(echo $INFO | python3 -c 'import sys,json; print(json.load(sys.stdin)["result"]["instanceUrl"])')" >> $GITHUB_OUTPUT
+
       - name: Install dependencies
-        run: pip install simple-salesforce
+        run: pip install simple-salesforce requests
 
       - name: Run Salesforce refresh
         env:
-          SF_REFRESH_TOKEN: ${{ secrets.SF_REFRESH_TOKEN }}
-          SF_CLIENT_ID:     ${{ secrets.SF_CLIENT_ID }}
-          SF_INSTANCE_URL:  ${{ secrets.SF_INSTANCE_URL }}
+          SF_ACCESS_TOKEN: ${{ steps.sfauth.outputs.access_token }}
+          SF_INSTANCE_URL: ${{ steps.sfauth.outputs.instance_url }}
         run: python scripts/refresh_deals.py
 
       - name: Commit updated deal-data.json
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Auto-refresh: Salesforce deal data ${{ env.CURRENT_DATE }}"
+          commit_message: "Auto-refresh: Salesforce deal data"
           file_pattern: deal-data.json
           commit_user_name: "github-actions[bot]"
           commit_user_email: "github-actions[bot]@users.noreply.github.com"
