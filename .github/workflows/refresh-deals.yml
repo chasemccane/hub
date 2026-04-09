@@ -26,14 +26,14 @@ jobs:
         run: npm install -g @salesforce/cli --silent
 
       - name: Authenticate Salesforce
-        run: echo "$SF_SFDX_AUTH_URL" | sf org login sfdx-url --sfdx-url-stdin --alias hub
+        run: echo "$SF_SFDX_AUTH_URL" | sf org login sfdx-url --sfdx-url-stdin --set-default
         env:
           SF_SFDX_AUTH_URL: ${{ secrets.SF_SFDX_AUTH_URL }}
 
       - name: Get fresh access token
         id: sfauth
         run: |
-          INFO=$(sf org display --target-org hub --json)
+          INFO=$(sf org display --json)
           echo "access_token=$(echo $INFO | python3 -c 'import sys,json; print(json.load(sys.stdin)["result"]["accessToken"])')" >> $GITHUB_OUTPUT
           echo "instance_url=$(echo $INFO | python3 -c 'import sys,json; print(json.load(sys.stdin)["result"]["instanceUrl"])')" >> $GITHUB_OUTPUT
 
