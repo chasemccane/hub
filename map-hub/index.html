@@ -124,6 +124,8 @@
     .btn-prop { background: rgba(59,130,246,.1); border: 1px solid rgba(59,130,246,.2); color: #60a5fa; }
     .btn-prop:hover { background: rgba(59,130,246,.18); border-color: #60a5fa; }
     .btn-tbd { background: var(--border); border: 1px solid transparent; color: var(--muted); cursor: default; opacity: .5; }
+    .btn-sf { background: rgba(99,102,241,.1); border: 1px solid rgba(99,102,241,.2); color: #a5b4fc; }
+    .btn-sf:hover { background: rgba(99,102,241,.18); border-color: #a5b4fc; }
 
     .empty-row td { text-align: center; padding: 48px; color: var(--muted); font-size: 14px; }
 
@@ -178,25 +180,164 @@
 <footer>Chase McCane · Shopify B2B · Internal use only</footer>
 
 <script>
-  // ──────────────────────────────────────────
-  //  DEALS DATA — add new deals here
-  // ──────────────────────────────────────────
+  // ──────────────────────────────────────────────────────────────────
+  //  DEALS DATA — sourced from Salesforce via Copilot API
+  //  close: ISO date string or null (TBD)
+  //  stage: 1–6  (3=Qualify 4=Propose 5=Negotiate 6=Closed Won)
+  //  quarter: 'Q1'–'Q4' or null (shows in All Deals only)
+  //  sf_url: direct Salesforce opportunity link
+  // ──────────────────────────────────────────────────────────────────
   const DEALS = [
     {
       id: 'feniex',
       name: 'Feniex Industries',
       industry: 'Emergency Vehicle Equipment · Austin, TX',
-      type: 'b2b',           // b2b | d2c | both
-      close: '2026-05-09',   // ISO date
-      stage: 4,              // 1–6 (3=Qualify, 4=Propose, 5=Negotiate, 6=Closed Won)
+      type: 'b2b',
+      close: '2026-05-09',
+      stage: 4,
       se: 'Jordan Murphy',
       map_progress: { done: 2, total: 22 },
       next_step: 'Follow up on LOI — confirm SE demo timing',
       map_url: '../../maps/feniex/',
       proposal_url: '../../maps/feniex/#proposal',
+      sf_url: 'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000MJoVtYAL/view',
       quarter: 'Q2',
     },
-    // Add more deals here as objects ↑
+    {
+      id: 'hedrick',
+      name: 'Hedrick Industries',
+      industry: 'Construction & Industrial · China Grove, NC',
+      type: 'b2b',
+      close: null,
+      stage: 3,
+      se: '',
+      map_progress: { done: 0, total: 0 },
+      next_step: '',
+      map_url: '',
+      proposal_url: '',
+      sf_url: 'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000M9BVpYAN/view',
+      quarter: 'Q2',
+    },
+    {
+      id: 'newegg',
+      name: 'Newegg',
+      industry: 'Electronics & Gadgets · City of Industry, CA',
+      type: 'b2b',
+      close: null,
+      stage: 3,
+      se: '',
+      map_progress: { done: 0, total: 0 },
+      next_step: '',
+      map_url: '',
+      proposal_url: '',
+      sf_url: 'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000MTUyvYAH/view',
+      quarter: 'Q2',
+    },
+    {
+      id: 'bidk',
+      name: 'BIDK Home',
+      industry: 'Home Décor · Cold Spring, NY',
+      type: 'b2b',
+      close: null,
+      stage: 3,
+      se: '',
+      map_progress: { done: 0, total: 0 },
+      next_step: '',
+      map_url: '',
+      proposal_url: '',
+      sf_url: 'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000Fn4rRYAR/view',
+      quarter: 'Q2',
+    },
+    {
+      id: 'sourcebooks',
+      name: 'Sourcebooks Inc',
+      industry: 'Media & Communication · Naperville, IL',
+      type: 'b2b',
+      close: null,
+      stage: 3,
+      se: '',
+      map_progress: { done: 0, total: 0 },
+      next_step: '',
+      map_url: '',
+      proposal_url: '',
+      sf_url: 'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000IMAw2YAH/view',
+      quarter: 'Q2',
+    },
+    {
+      id: 'steeltube',
+      name: 'Steel & Tube',
+      industry: 'Construction & Industrial · Auckland, NZ',
+      type: 'b2b',
+      close: null,
+      stage: 3,
+      se: '',
+      map_progress: { done: 0, total: 0 },
+      next_step: '',
+      map_url: '',
+      proposal_url: '',
+      sf_url: 'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000DDLp8YAH/view',
+      quarter: 'Q2',
+    },
+    {
+      id: 'bigrock',
+      name: 'Big Rock Supply',
+      industry: 'Home Décor & Supply · Stone Park, IL',
+      type: 'b2b',
+      close: null,
+      stage: 3,
+      se: '',
+      map_progress: { done: 0, total: 0 },
+      next_step: '',
+      map_url: '',
+      proposal_url: '',
+      sf_url: 'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000MLhN5YAL/view',
+      quarter: 'Q2',
+    },
+    {
+      id: 'kyd',
+      name: 'KYD',
+      industry: 'Food & Beverage · Honolulu, HI',
+      type: 'b2b',
+      close: null,
+      stage: 3,
+      se: '',
+      map_progress: { done: 0, total: 0 },
+      next_step: '',
+      map_url: '',
+      proposal_url: '',
+      sf_url: 'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000MDBU2YAP/view',
+      quarter: 'Q2',
+    },
+    {
+      id: 'gtgolf',
+      name: 'GT Golf Supplies',
+      industry: 'Sports & Recreation · Vista, CA',
+      type: 'b2b',
+      close: null,
+      stage: 3,
+      se: '',
+      map_progress: { done: 0, total: 0 },
+      next_step: '',
+      map_url: '',
+      proposal_url: '',
+      sf_url: 'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000LLluHYAT/view',
+      quarter: 'Q2',
+    },
+    {
+      id: 'centuryfire',
+      name: 'Century Fire Protection',
+      industry: 'Fire Protection Services · Duluth, GA',
+      type: 'b2b',
+      close: null,
+      stage: 3,
+      se: '',
+      map_progress: { done: 0, total: 0 },
+      next_step: '',
+      map_url: '',
+      proposal_url: '',
+      sf_url: 'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000JD53lYAD/view',
+      quarter: 'Q2',
+    },
   ];
 
   const STAGE_LABELS = { 1:'Discovery', 2:'Qualify', 3:'Qualify', 4:'Propose', 5:'Negotiate', 6:'Closed Won' };
@@ -227,7 +368,7 @@
   function renderStats() {
     const active = DEALS.filter(d => d.stage < 6).length;
     const withMap = DEALS.filter(d => d.map_url).length;
-    const closingThis = DEALS.filter(d => { const days = daysUntil(d.close); return days >= 0 && days <= 30; }).length;
+    const closingThis = DEALS.filter(d => d.close && daysUntil(d.close) >= 0 && daysUntil(d.close) <= 30).length;
     const wonQ = DEALS.filter(d => d.stage === 6 && d.quarter === currentQ).length;
 
     document.getElementById('stats-bar').innerHTML = `
@@ -266,13 +407,21 @@
     }
 
     tbody.innerHTML = deals.map(deal => {
-      const days = daysUntil(deal.close);
-      const dateClass = days < 0 ? 'close-overdue' : days <= 14 ? 'close-soon' : '';
       const typeLabel = { b2b:'B2B', d2c:'D2C', both:'B2B + D2C' }[deal.type];
       const typeClass = { b2b:'type-b2b', d2c:'type-d2c', both:'type-both' }[deal.type];
       const stageLabel = STAGE_LABELS[deal.stage] || `Stage ${deal.stage}`;
       const stageClass = STAGE_CLASS[deal.stage] || 'stage-3';
-      const pct = Math.round(deal.map_progress.done / deal.map_progress.total * 100);
+      const hasProg = deal.map_progress.total > 0;
+      const pct = hasProg ? Math.round(deal.map_progress.done / deal.map_progress.total * 100) : 0;
+
+      let closeTd;
+      if (deal.close) {
+        const days = daysUntil(deal.close);
+        const dateClass = days < 0 ? 'close-overdue' : days <= 14 ? 'close-soon' : '';
+        closeTd = `<span class="close-date ${dateClass}">${fmtDate(deal.close)}</span><br><span style="font-size:10px;color:var(--muted)">${days >= 0 ? `${days}d away` : `${Math.abs(days)}d ago`}</span>`;
+      } else {
+        closeTd = `<span style="color:var(--muted);font-size:12px">TBD</span>`;
+      }
 
       const mapBtn = deal.map_url
         ? `<a href="${deal.map_url}" target="_blank" class="map-btn btn-map">🗺️ MAP</a>`
@@ -280,6 +429,9 @@
       const propBtn = deal.proposal_url
         ? `<a href="${deal.proposal_url}" target="_blank" class="map-btn btn-prop">📄 Proposal</a>`
         : `<span class="map-btn btn-tbd">📄 Proposal</span>`;
+      const sfBtn = deal.sf_url
+        ? `<a href="${deal.sf_url}" target="_blank" class="map-btn btn-sf">☁️ SFDC</a>`
+        : '';
 
       return `<tr>
         <td>
@@ -287,17 +439,20 @@
           <div class="deal-industry">${deal.industry}</div>
         </td>
         <td><span class="deal-type ${typeClass}">${typeLabel}</span></td>
-        <td><span class="close-date ${dateClass}">${fmtDate(deal.close)}</span><br><span style="font-size:10px;color:var(--muted)">${days >= 0 ? `${days}d away` : `${Math.abs(days)}d ago`}</span></td>
+        <td>${closeTd}</td>
         <td><span class="stage-pill ${stageClass}">${stageLabel}</span></td>
         <td><div class="person"><div class="person-name">${deal.se || '—'}</div><div class="person-title">Solution Engineer</div></div></td>
         <td>
           <div class="progress-wrap">
-            <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
-            <div class="progress-label">${deal.map_progress.done} / ${deal.map_progress.total} milestones</div>
+            ${hasProg
+              ? `<div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
+                 <div class="progress-label">${deal.map_progress.done} / ${deal.map_progress.total} milestones</div>`
+              : `<div class="progress-label" style="color:var(--muted)">No MAP yet</div>`
+            }
           </div>
         </td>
         <td><div class="next-step">${deal.next_step || '—'}</div></td>
-        <td><div class="btn-row">${mapBtn}${propBtn}</div></td>
+        <td><div class="btn-row">${mapBtn}${propBtn}${sfBtn}</div></td>
       </tr>`;
     }).join('');
   }
