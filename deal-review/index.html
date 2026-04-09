@@ -636,10 +636,12 @@ async function pushRemote(data) {
     } catch(e) {}
   }
   try {
+    const payload = { message:`Update deal data ${new Date().toISOString().slice(0,10)}`, content: b64Enc(JSON.stringify(data,null,2)) };
+    if (fileSha) payload.sha = fileSha;
     const res = await fetch(API_URL, {
       method: 'PUT',
       headers: { Authorization: `token ${token}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message:`Update deal data ${new Date().toISOString().slice(0,10)}`, content: b64Enc(JSON.stringify(data,null,2)), sha: fileSha }),
+      body: JSON.stringify(payload),
     });
     if (res.status === 409) { fileSha = null; return pushRemote(data); } // SHA conflict: retry
     if (res.ok) { const r = await res.json(); fileSha = r.content.sha; localStorage.setItem(STORAGE_KEY, JSON.stringify(DEALS)); return true; }
