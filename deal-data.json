@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-04-08T00:00:00Z",
+  "updated": "2026-04-09T04:19:43.069Z",
   "deals": {
     "feniex": {
       "meddic": {
@@ -13,11 +13,31 @@
       },
       "strategy": "Core play is operational efficiency + dealer experience. Feniex is growing fast but operationally constrained by their current custom platform. The ROI story is: reduce manual order processing, give dealers self-serve tools, and integrate Acumatica so their ops team stops doing manual reconciliation.\n\nPosition Shopify Plus as the only platform that can do B2B natively at scale without a massive custom build. Competitors would require significant integration investment. We have the B2B feature set AND the partner ecosystem for Acumatica.\n\nChampion Yemilyn has urgency — she's tied this to her revenue growth goal. Keep momentum, get SE demo scheduled, move to LOI before end of April.",
       "risks": [
-        { "sev": "high", "text": "Acumatica integration complexity", "mit": "Engage certified Acumatica+Shopify partner early. Validate scope in SE session." },
-        { "sev": "high", "text": "Quote expiry May 9 — deal could slip to Q3", "mit": "Create urgency around pricing lock. Schedule SE demo ASAP to keep velocity." },
-        { "sev": "med", "text": "No identified implementation partner yet", "mit": "Shortlist 2-3 Acumatica-certified Plus partners. Present to Yemilyn before LOI." },
-        { "sev": "med", "text": "Lorena (day-to-day contact) may not have full decision influence", "mit": "Keep Yemilyn looped on all key decisions. Don't let deal stall at operational level." },
-        { "sev": "low", "text": "IT/engineering resistance to platform change", "mit": "Jordan Carlisle handles Amazon channel — may have opinions on platform scope. Address in demo." }
+        {
+          "sev": "high",
+          "text": "Acumatica integration complexity",
+          "mit": "Engage certified Acumatica+Shopify partner early. Validate scope in SE session."
+        },
+        {
+          "sev": "high",
+          "text": "Quote expiry May 9 — deal could slip to Q3",
+          "mit": "Create urgency around pricing lock. Schedule SE demo ASAP to keep velocity."
+        },
+        {
+          "sev": "med",
+          "text": "No identified implementation partner yet",
+          "mit": "Shortlist 2-3 Acumatica-certified Plus partners. Present to Yemilyn before LOI."
+        },
+        {
+          "sev": "med",
+          "text": "Lorena (day-to-day contact) may not have full decision influence",
+          "mit": "Keep Yemilyn looped on all key decisions. Don't let deal stall at operational level."
+        },
+        {
+          "sev": "low",
+          "text": "IT/engineering resistance to platform change",
+          "mit": "Jordan Carlisle handles Amazon channel — may have opinions on platform scope. Address in demo."
+        }
       ],
       "done": [
         "Discovery call completed",
@@ -33,6 +53,141 @@
         "Contract signed by May 9"
       ],
       "notes": "Victoria Forte (Shopify Executive Leadership) is available to join a call if we need executive-to-executive alignment with their leadership team.\n\nFormSubmit trial store form is live in the MAP — follow up with Lorena to walk her through it."
+    },
+    "hedrick": {
+      "meddic": {
+        "metrics": "",
+        "economic_buyer": "",
+        "decision_criteria": "",
+        "decision_process": "",
+        "pain": "",
+        "champion": ""
+      },
+      "strategy": "",
+      "risks": [],
+      "done": [],
+      "left": [],
+      "notes": ""
+    },
+    "newegg": {
+      "meddic": {
+        "metrics": "",
+        "economic_buyer": "",
+        "decision_criteria": "",
+        "decision_process": "",
+        "pain": "",
+        "champion": ""
+      },
+      "strategy": "",
+      "risks": [],
+      "done": [],
+      "left": [],
+      "notes": ""
+    },
+    "excellentia": {
+      "meddic": {
+        "metrics": "",
+        "economic_buyer": "",
+        "decision_criteria": "",
+        "decision_process": "",
+        "pain": "",
+        "champion": ""
+      },
+      "strategy": "",
+      "risks": [],
+      "done": [],
+      "left": [],
+      "notes": ""
+    },
+    "washington-floral": {
+      "meddic": {
+        "metrics": "",
+        "economic_buyer": "",
+        "decision_criteria": "",
+        "decision_process": "",
+        "pain": "",
+        "champion": ""
+      },
+      "strategy": "",
+      "risks": [],
+      "done": [],
+      "left": [],
+      "notes": ""
+    },
+    "bigrock": {
+      "meddic": {
+        "metrics": "",
+        "economic_buyer": "",
+        "decision_criteria": "",
+        "decision_process": "",
+        "pain": "",
+        "champion": ""
+      },
+      "strategy": "",
+      "risks": [],
+      "done": [],
+      "left": [],
+      "notes": ""
+    },
+    "kyd": {
+      "meddic": {
+        "metrics": "",
+        "economic_buyer": "",
+        "decision_criteria": "",
+        "decision_process": "",
+        "pain": "",
+        "champion": ""
+      },
+      "strategy": "",
+      "risks": [],
+      "done": [],
+      "left": [],
+      "notes": ""
+    },
+    "orbital": {
+      "meddic": {
+        "metrics": "",
+        "economic_buyer": "",
+        "decision_criteria": "",
+        "decision_process": "",
+        "pain": "",
+        "champion": ""
+      },
+      "strategy": "",
+      "risks": [],
+      "done": [],
+      "left": [],
+      "notes": ""
+    },
+    "anatomy": {
+      "meddic": {
+        "metrics": "",
+        "economic_buyer": "",
+        "decision_criteria": "",
+        "decision_process": "",
+        "pain": "",
+        "champion": ""
+      },
+      "strategy": "",
+      "risks": [],
+      "done": [],
+      "left": [],
+      "notes": ""
+    },
+    "franklen": {
+      "meddic": {
+        "metrics": "",
+        "economic_buyer": "",
+        "decision_criteria": "",
+        "decision_process": "",
+        "pain": "",
+        "champion": ""
+      },
+      "strategy": "",
+      "risks": [],
+      "done": [],
+      "left": [],
+      "notes": ""
     }
   }
 }
