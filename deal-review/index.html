@@ -71,15 +71,11 @@
     .s-negotiate { background: var(--green-dim); color: var(--green); }
     .s-qualify { background: var(--amber-dim); color: var(--amber); }
 
-    .sort-bar { display: flex; gap: 4px; padding: 6px 12px 8px; border-bottom: 1px solid var(--border); }
-    .sort-btn {
-      flex: 1; font-size: 10px; font-weight: 700; padding: 5px 6px;
-      border-radius: 6px; cursor: pointer; transition: all .15s;
-      background: transparent; border: 1px solid var(--border); color: var(--muted);
-      text-transform: uppercase; letter-spacing: .06em;
+    .qtr-label {
+      font-size: 10px; font-weight: 700; color: var(--green); text-transform: uppercase;
+      letter-spacing: .1em; padding: 14px 16px 6px; border-top: 1px solid var(--border);
     }
-    .sort-btn.active { background: var(--green-dim); border-color: var(--green-glow); color: var(--green); }
-    .sort-btn:hover:not(.active) { border-color: var(--muted); color: var(--text); }
+    .qtr-label:first-child { border-top: none; padding-top: 10px; }
 
     .del-btn {
       flex-shrink: 0; width: 20px; height: 20px; border-radius: 4px;
@@ -295,10 +291,6 @@
   <!-- SIDEBAR -->
   <div class="sidebar">
     <div class="sidebar-label">Active Deals</div>
-    <div class="sort-bar">
-      <button class="sort-btn active" id="sort-close" onclick="setSort('close')">Close Date</button>
-      <button class="sort-btn" id="sort-stage" onclick="setSort('stage')">Stage</button>
-    </div>
     <div id="deal-list"></div>
     <button class="add-deal-btn" onclick="addDeal()">+ New Deal Room</button>
   </div>
@@ -663,38 +655,53 @@ window.saveToken = () => {
 
 let DEALS = JSON.parse(JSON.stringify(DEFAULT_DEALS));
 let currentId = null;
-let sortMode = 'close';
-
-const STAGE_ORDER = { 'Pre-Qualified':1, 'Envision':2, 'Solution':3, 'Demonstrate':4, 'Closed Won':5 };
 
 function parseClose(c) {
-  if (!c || c === 'TBD') return Infinity;
+  if (!c || c === 'TBD') return null;
   const d = new Date(c);
-  return isNaN(d) ? Infinity : d.getTime();
+  return isNaN(d) ? null : d;
 }
 
-window.setSort = (mode) => { sortMode = mode; renderSidebar(); };
+function getQuarter(dateStr) {
+  const d = parseClose(dateStr);
+  if (!d) return 'No Close Date';
+  const q = Math.floor(d.getMonth() / 3) + 1;
+  return `Q${q} ${d.getFullYear()}`;
+}
 
 // ── SIDEBAR ──
 function renderSidebar() {
   const stageClass = { 'Pre-Qualified':'s-qualify', 'Envision':'s-qualify', 'Solution':'s-propose', 'Demonstrate':'s-negotiate', 'Closed Won':'s-negotiate' };
 
-  const sorted = [...DEALS].sort((a,b) =>
-    sortMode === 'close'
-      ? parseClose(a.close) - parseClose(b.close)
-      : (STAGE_ORDER[a.stage] || 99) - (STAGE_ORDER[b.stage] || 99)
-  );
+  const sorted = [...DEALS].sort((a,b) => {
+    const da = parseClose(a.close), db = parseClose(b.close);
+    if (!da && !db) return 0;
+    if (!da) return 1;
+    if (!db) return -1;
+    return da - db;
+  });
 
-  document.getElementById('sort-close').className = 'sort-btn' + (sortMode === 'close' ? ' active' : '');
-  document.getElementById('sort-stage').className = 'sort-btn' + (sortMode === 'stage' ? ' active' : '');
+  // Group by quarter
+  const groups = {};
+  sorted.forEach(d => {
+    const q = getQuarter(d.close);
+    if (!groups[q]) groups[q] = [];
+    groups[q].push(d);
+  });
 
-  document.getElementById('deal-list').innerHTML = sorted.map(d => `
-    <div class="deal-item ${currentId === d.id ? 'active' : ''}" onclick="openDeal('${d.id}')">
-      <div class="di-name">${d.name}</div>
-      <div class="di-meta">${d.close}</div>
-      <span class="di-stage ${stageClass[d.stage] || 's-qualify'}">${d.stage}</span>
-    </div>
-  `).join('');
+  let html = '';
+  for (const [qtr, deals] of Object.entries(groups)) {
+    html += `<div class="qtr-label">${qtr}</div>`;
+    html += deals.map(d => `
+      <div class="deal-item ${currentId === d.id ? 'active' : ''}" onclick="openDeal('${d.id}')">
+        <div class="di-name">${d.name}</div>
+        <div class="di-meta">${d.close}</div>
+        <span class="di-stage ${stageClass[d.stage] || 's-qualify'}">${d.stage}</span>
+      </div>
+    `).join('');
+  }
+
+  document.getElementById('deal-list').innerHTML = html;
 }
 
 // ── DETAIL PANEL ──
