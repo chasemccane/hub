@@ -221,6 +221,7 @@
       quarter: 'Q2',
       pbr: 376159,
       meetings: 7,
+      created: '2026-03-20',
     },
     {
       id: 'feniex',
@@ -238,6 +239,7 @@
       quarter: 'Q2',
       pbr: 323171,
       meetings: 5,
+      created: '2026-03-26',
     },
     {
       id: 'bigrock',
@@ -255,6 +257,7 @@
       quarter: 'Q2',
       pbr: 147538,
       meetings: 4,
+      created: '2026-03-27',
     },
     {
       id: 'excellentia',
@@ -272,6 +275,7 @@
       quarter: 'Q2',
       pbr: 102821,
       meetings: 0,
+      created: '2026-03-23',
     },
     {
       id: 'newegg',
@@ -289,6 +293,7 @@
       quarter: 'Q2',
       pbr: 0,
       meetings: 0,
+      created: '2026-04-01',
     },
     {
       id: 'washington-floral',
@@ -306,6 +311,7 @@
       quarter: 'Q2',
       pbr: 102821,
       meetings: 1,
+      created: '2026-02-18',
     },
     {
       id: 'orbital',
@@ -323,6 +329,7 @@
       quarter: 'Q3',
       pbr: 0,
       meetings: 0,
+      created: '2026-04-07',
     },
     {
       id: 'anatomy',
@@ -340,6 +347,7 @@
       quarter: 'Q3',
       pbr: 99839,
       meetings: 0,
+      created: '2026-04-07',
     },
     {
       id: 'franklen',
@@ -357,6 +365,7 @@
       quarter: 'Q3',
       pbr: 0,
       meetings: 0,
+      created: '2026-04-02',
     },
     {
       id: 'kyd',
@@ -374,6 +383,7 @@
       quarter: 'Q3',
       pbr: 102821,
       meetings: 0,
+      created: '2026-03-23',
     },
   ];
 
@@ -516,9 +526,8 @@
         ? `<a href="${deal.sf_url}" target="_blank" class="map-btn btn-sf">☁️ SFDC</a>`
         : '';
 
-      const daysActive = getOv(deal.id, 'days_active', '');
+      const daysActive = deal.created ? Math.round((new Date() - new Date(deal.created)) / 86400000) : null;
       const meetings   = getOv(deal.id, 'meetings', deal.meetings || 0);
-      const emails     = getOv(deal.id, 'emails', 0);
       const pbr        = getOv(deal.id, 'pbr', deal.pbr || 0);
 
       return `<tr>
@@ -529,9 +538,7 @@
         <td><span class="deal-type ${typeClass}">${typeLabel}</span></td>
         <td>${closeTd}</td>
         <td style="text-align:center">
-          <div class="editable-num" contenteditable="true"
-            onblur="saveNum('${deal.id}','days_active',this)"
-            >${daysActive !== '' ? daysActive : '—'}</div>
+          <div style="font-size:13px;font-weight:600">${daysActive !== null ? daysActive : '—'}</div>
           <div class="editable-num-sub">days</div>
         </td>
         <td><span class="stage-pill ${stageClass}">${stageLabel}</span></td>

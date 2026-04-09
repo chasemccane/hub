@@ -245,14 +245,50 @@
     .save-flash { color: var(--green); font-size: 12px; display: none; }
 
     footer { text-align: center; padding: 20px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); }
+
+    /* Save indicator */
+    .save-indicator { font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 6px; opacity: 0; transition: opacity .3s; }
+    .save-indicator.saving { background: var(--amber-dim); color: var(--amber); opacity: 1; }
+    .save-indicator.saved  { background: var(--green-dim); color: var(--green); opacity: 1; }
+    .save-indicator.error  { background: var(--red-dim); color: var(--red); opacity: 1; }
+    .token-btn { background: var(--card); border: 1px solid var(--border); color: var(--muted); border-radius: 8px; padding: 5px 10px; font-size: 11px; font-weight: 600; cursor: pointer; transition: all .15s; }
+    .token-btn:hover { border-color: var(--green-glow); color: var(--green); }
+
+    /* Token modal */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.65); z-index: 200; display: none; align-items: center; justify-content: center; }
+    .modal-overlay.show { display: flex; }
+    .modal-box { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 32px; width: 420px; }
+    .modal-title { font-size: 16px; font-weight: 800; margin-bottom: 8px; }
+    .modal-sub { font-size: 13px; color: var(--muted); margin-bottom: 20px; line-height: 1.55; }
+    .modal-sub code { background: var(--border); border-radius: 4px; padding: 1px 5px; font-size: 11px; }
+    .modal-input { width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-family: monospace; font-size: 12px; padding: 10px 12px; outline: none; }
+    .modal-input:focus { border-color: var(--green-glow); }
+    .modal-btns { display: flex; gap: 8px; margin-top: 16px; justify-content: flex-end; }
+    .modal-btn-primary { background: var(--green-dim); border: 1px solid var(--green-glow); color: var(--green); font-size: 13px; font-weight: 600; padding: 8px 18px; border-radius: 8px; cursor: pointer; }
+    .modal-btn-secondary { background: transparent; border: 1px solid var(--border); color: var(--muted); font-size: 13px; font-weight: 600; padding: 8px 18px; border-radius: 8px; cursor: pointer; }
   </style>
 </head>
 <body>
+
+<!-- Token modal -->
+<div class="modal-overlay" id="token-modal">
+  <div class="modal-box">
+    <div class="modal-title">GitHub Token</div>
+    <div class="modal-sub">Paste a Personal Access Token with <code>contents:write</code> on <code>chasemccane/hub</code>. Stored in your browser only — never sent anywhere except the GitHub API.</div>
+    <input type="password" class="modal-input" id="token-input" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" />
+    <div class="modal-btns">
+      <button class="modal-btn-secondary" onclick="hideTokenModal()">Cancel</button>
+      <button class="modal-btn-primary" onclick="saveToken()">Save &amp; Sync</button>
+    </div>
+  </div>
+</div>
 
 <header>
   <a href="../" class="back-btn">←</a>
   <span class="hbreadcrumb"><a href="../">Hub</a> / Deal Review</span>
   <span class="htitle">🎯 Deal Review Rooms</span>
+  <span class="save-indicator" id="save-indicator"></span>
+  <button class="token-btn" onclick="showTokenModal()" title="Set GitHub token for shared saving">⚙ Sync</button>
 </header>
 
 <div class="layout">
@@ -526,33 +562,114 @@ function fmtPBR(n) {
   return '$' + n.toLocaleString();
 }
 
-function loadDeals() {
+// ── GitHub-backed storage ────────────────────────────────────────
+const REPO     = 'chasemccane/hub';
+const API_URL  = `https://api.github.com/repos/${REPO}/contents/deal-data.json`;
+const RAW_URL  = `https://raw.githubusercontent.com/${REPO}/main/deal-data.json`;
+const TOKEN_KEY = 'hub-gh-token';
+let fileSha = null;
+let saveTimer = null;
+
+function getToken() { return localStorage.getItem(TOKEN_KEY) || ''; }
+
+function b64Enc(str) { return btoa(unescape(encodeURIComponent(str))); }
+function b64Dec(str) { return decodeURIComponent(escape(atob(str.replace(/\s/g,'')))); }
+
+function setSaveStatus(state) {
+  const el = document.getElementById('save-indicator');
+  if (!el) return;
+  el.className = 'save-indicator' + (state ? ' ' + state : '');
+  const labels = { saving:'Saving…', saved:'✓ Saved', error:'Save failed' };
+  el.textContent = labels[state] || '';
+  if (state === 'saved' || state === 'error') setTimeout(() => { el.className = 'save-indicator'; el.textContent = ''; }, 3000);
+}
+
+function serializeData() {
+  const deals = {};
+  DEALS.forEach(d => {
+    deals[d.id] = { meddic: d.meddic, strategy: d.strategy||'', risks: d.risks||[], done: d.done||[], left: d.left||[], notes: d.notes||'' };
+  });
+  return { version:1, updated: new Date().toISOString(), deals };
+}
+
+function applyRemoteData(data) {
+  if (!data || !data.deals) return;
+  DEALS.forEach(d => {
+    const r = data.deals[d.id];
+    if (!r) return;
+    if (r.meddic)              d.meddic   = r.meddic;
+    if (r.strategy !== undefined) d.strategy = r.strategy;
+    if (r.risks)               d.risks    = r.risks;
+    if (r.done)                d.done     = r.done;
+    if (r.left)                d.left     = r.left;
+    if (r.notes !== undefined) d.notes    = r.notes;
+  });
+}
+
+async function fetchRemote() {
+  const token = getToken();
+  const headers = { Accept: 'application/vnd.github.v3+json' };
+  if (token) headers.Authorization = `token ${token}`;
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) {
-      let saved = JSON.parse(raw);
-      // Remove stale deals no longer in pipeline
-      saved = saved.filter(d => !REMOVED_IDS.includes(d.id));
-      // Add any new DEFAULT_DEALS that aren't in saved data yet
-      DEFAULT_DEALS.forEach(def => {
-        if (!saved.find(d => d.id === def.id)) saved.push(JSON.parse(JSON.stringify(def)));
-      });
-      // Always sync PBR from DEFAULT_DEALS (Salesforce source of truth)
-      saved.forEach(d => {
-        const def = DEFAULT_DEALS.find(x => x.id === d.id);
-        if (def) d.pbr = def.pbr || 0;
-      });
-      return saved;
+    const res = await fetch(API_URL, { headers });
+    if (res.ok) {
+      const meta = await res.json();
+      fileSha = meta.sha;
+      return JSON.parse(b64Dec(meta.content));
     }
   } catch(e) {}
-  return JSON.parse(JSON.stringify(DEFAULT_DEALS));
+  // Fallback: raw URL (no SHA cached)
+  try {
+    const res = await fetch(RAW_URL + '?cb=' + Date.now());
+    if (res.ok) return await res.json();
+  } catch(e) {}
+  return null;
+}
+
+async function pushRemote(data) {
+  const token = getToken();
+  if (!token) { showTokenModal(); return false; }
+  if (!fileSha) {
+    try {
+      const r = await fetch(API_URL, { headers: { Authorization: `token ${token}` } });
+      if (r.ok) { const m = await r.json(); fileSha = m.sha; }
+    } catch(e) {}
+  }
+  try {
+    const res = await fetch(API_URL, {
+      method: 'PUT',
+      headers: { Authorization: `token ${token}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message:`Update deal data ${new Date().toISOString().slice(0,10)}`, content: b64Enc(JSON.stringify(data,null,2)), sha: fileSha }),
+    });
+    if (res.status === 409) { fileSha = null; return pushRemote(data); } // SHA conflict: retry
+    if (res.ok) { const r = await res.json(); fileSha = r.content.sha; localStorage.setItem(STORAGE_KEY, JSON.stringify(DEALS)); return true; }
+    if (res.status === 401) { localStorage.removeItem(TOKEN_KEY); showTokenModal(); return false; }
+  } catch(e) {}
+  return false;
 }
 
 function saveDeals() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(DEALS));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(DEALS)); // immediate local cache
+  clearTimeout(saveTimer);
+  setSaveStatus('saving');
+  saveTimer = setTimeout(async () => {
+    const ok = await pushRemote(serializeData());
+    setSaveStatus(ok ? 'saved' : 'error');
+  }, 1200);
 }
 
-let DEALS = loadDeals();
+// Token modal
+window.showTokenModal = () => {
+  document.getElementById('token-input').value = getToken();
+  document.getElementById('token-modal').classList.add('show');
+};
+window.hideTokenModal = () => { document.getElementById('token-modal').classList.remove('show'); };
+window.saveToken = () => {
+  const val = document.getElementById('token-input').value.trim();
+  if (val) { localStorage.setItem(TOKEN_KEY, val); hideTokenModal(); saveDeals(); }
+};
+
+let DEALS = JSON.parse(JSON.stringify(DEFAULT_DEALS));
 let currentId = null;
 let sortMode = 'close';
 
@@ -833,11 +950,31 @@ window.addDeal = () => {
 };
 
 // ── INIT ──
-renderSidebar();
-// Auto-open first deal or hash
-const hash = location.hash.replace('#','');
-const firstId = hash && DEALS.find(d=>d.id===hash) ? hash : (DEALS[0] ? DEALS[0].id : null);
-if (firstId) openDeal(firstId);
+(async () => {
+  // Show sidebar immediately with default data
+  renderSidebar();
+  const hash = location.hash.replace('#','');
+  let openId = hash && DEALS.find(d=>d.id===hash) ? hash : (DEALS[0] ? DEALS[0].id : null);
+  if (openId) openDeal(openId);
+
+  // Fetch live data from GitHub
+  const remote = await fetchRemote();
+  if (remote) {
+    applyRemoteData(remote);
+  } else {
+    // Fallback: try localStorage cache
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        const saved = JSON.parse(raw).filter(d => !REMOVED_IDS.includes(d.id));
+        applyRemoteData({ deals: Object.fromEntries(saved.map(d => [d.id, d])) });
+      }
+    } catch(e) {}
+  }
+  // Re-render with loaded content
+  renderSidebar();
+  if (openId) openDeal(openId);
+})();
 </script>
 
 </body>
