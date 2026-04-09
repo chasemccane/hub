@@ -39,6 +39,7 @@
     .hbreadcrumb a { color: var(--muted); text-decoration: none; }
     .hbreadcrumb a:hover { color: var(--green); }
     .htitle { font-size: 16px; font-weight: 800; margin-left: auto; }
+    .last-refreshed { font-size: 11px; color: var(--muted); }
 
     main { max-width: 1100px; margin: 0 auto; padding: 36px 32px; }
 
@@ -153,6 +154,7 @@
   <a href="../" class="back-btn">←</a>
   <span class="hbreadcrumb"><a href="../">Hub</a> / MAP Hub</span>
   <span class="htitle">🗺️ MAP Hub</span>
+  <span class="last-refreshed" id="last-refreshed"></span>
 </header>
 
 <main>
@@ -563,7 +565,46 @@
     }).join('');
   }
 
+  const STAGE_STR_TO_NUM = {
+    'Pre-Qualified': 2, 'Envision': 3, 'Solution': 4,
+    'Demonstrate': 5, 'Closed Won': 6
+  };
+
+  function applyRemoteData(data) {
+    if (!data || !data.deals) return;
+    DEALS.forEach(d => {
+      const r = data.deals[d.id];
+      if (!r || !r.sf) return;
+      if (r.sf.pbr !== undefined) d.pbr = r.sf.pbr;
+      if (r.sf.close) d.close = r.sf.close;
+      if (r.sf.created) d.created = r.sf.created;
+      if (r.sf.stage && STAGE_STR_TO_NUM[r.sf.stage]) d.stage = STAGE_STR_TO_NUM[r.sf.stage];
+      // Update quarter based on new close date
+      if (r.sf.close) {
+        const m = new Date(r.sf.close).getMonth();
+        d.quarter = m < 3 ? 'Q1' : m < 6 ? 'Q2' : m < 9 ? 'Q3' : 'Q4';
+      }
+    });
+    if (data.updated) {
+      const dt = new Date(data.updated);
+      const fmt = dt.toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', timeZoneName: 'short' });
+      const el = document.getElementById('last-refreshed');
+      if (el) el.textContent = `SF refreshed ${fmt}`;
+    }
+  }
+
+  // Load immediately, then hydrate from GitHub
   render();
+  (async () => {
+    try {
+      const res = await fetch('https://raw.githubusercontent.com/chasemccane/hub/main/deal-data.json?cb=' + Date.now());
+      if (res.ok) {
+        const data = await res.json();
+        applyRemoteData(data);
+        render();
+      }
+    } catch(e) {}
+  })();
 </script>
 </body>
 </html>

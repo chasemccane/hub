@@ -249,6 +249,7 @@
     .save-indicator.error  { background: var(--red-dim); color: var(--red); opacity: 1; }
     .token-btn { background: var(--card); border: 1px solid var(--border); color: var(--muted); border-radius: 8px; padding: 5px 10px; font-size: 11px; font-weight: 600; cursor: pointer; transition: all .15s; }
     .token-btn:hover { border-color: var(--green-glow); color: var(--green); }
+    .last-refreshed { font-size: 11px; color: var(--muted); margin-left: auto; }
 
     /* Token modal */
     .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.65); z-index: 200; display: none; align-items: center; justify-content: center; }
@@ -284,6 +285,7 @@
   <span class="hbreadcrumb"><a href="../">Hub</a> / Deal Review</span>
   <span class="htitle">🎯 Deal Review Rooms</span>
   <span class="save-indicator" id="save-indicator"></span>
+  <span class="last-refreshed" id="last-refreshed"></span>
   <button class="token-btn" onclick="showTokenModal()" title="Set GitHub token for shared saving">⚙ Sync</button>
 </header>
 
@@ -566,26 +568,61 @@ function setSaveStatus(state) {
   if (state === 'saved' || state === 'error') setTimeout(() => { el.className = 'save-indicator'; el.textContent = ''; }, 3000);
 }
 
+let remoteData = null;
+
+function fmtISODate(iso) {
+  if (!iso) return '';
+  const [y, m, d] = iso.split('-').map(Number);
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return `${months[m-1]} ${d}, ${y}`;
+}
+
 function serializeData() {
   const deals = {};
   DEALS.forEach(d => {
-    deals[d.id] = { meddic: d.meddic, strategy: d.strategy||'', risks: d.risks||[], done: d.done||[], left: d.left||[], notes: d.notes||'' };
+    const prev = remoteData && remoteData.deals && remoteData.deals[d.id];
+    deals[d.id] = {
+      sf: prev && prev.sf ? prev.sf : undefined,
+      meddic: d.meddic,
+      strategy: d.strategy || '',
+      risks: d.risks || [],
+      done: d.done || [],
+      left: d.left || [],
+      notes: d.notes || ''
+    };
   });
-  return { version:1, updated: new Date().toISOString(), deals };
+  // preserve the updated timestamp — only the refresh script should change it
+  return { version: 2, updated: remoteData ? remoteData.updated : new Date().toISOString(), deals };
 }
 
 function applyRemoteData(data) {
   if (!data || !data.deals) return;
+  remoteData = data;
   DEALS.forEach(d => {
     const r = data.deals[d.id];
     if (!r) return;
-    if (r.meddic)              d.meddic   = r.meddic;
+    // Salesforce auto-refreshed fields
+    if (r.sf) {
+      if (r.sf.pbr !== undefined) d.pbr = r.sf.pbr;
+      if (r.sf.stage) d.stage = r.sf.stage;
+      if (r.sf.close) d.close = fmtISODate(r.sf.close);
+      if (r.sf.created) d.created = r.sf.created;
+    }
+    // User-edited fields
+    if (r.meddic)                 d.meddic   = r.meddic;
     if (r.strategy !== undefined) d.strategy = r.strategy;
-    if (r.risks)               d.risks    = r.risks;
-    if (r.done)                d.done     = r.done;
-    if (r.left)                d.left     = r.left;
-    if (r.notes !== undefined) d.notes    = r.notes;
+    if (r.risks)                  d.risks    = r.risks;
+    if (r.done)                   d.done     = r.done;
+    if (r.left)                   d.left     = r.left;
+    if (r.notes !== undefined)    d.notes    = r.notes;
   });
+  // Show last refreshed timestamp
+  if (data.updated) {
+    const dt = new Date(data.updated);
+    const fmt = dt.toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', timeZoneName: 'short' });
+    const el = document.getElementById('last-refreshed');
+    if (el) el.textContent = `SF refreshed ${fmt}`;
+  }
 }
 
 async function fetchRemote() {
