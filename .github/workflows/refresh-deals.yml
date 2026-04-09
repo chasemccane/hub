@@ -27,10 +27,9 @@ jobs:
 
       - name: Run Salesforce refresh
         env:
-          SF_USERNAME:       ${{ secrets.SF_USERNAME }}
-          SF_PASSWORD:       ${{ secrets.SF_PASSWORD }}
-          SF_SECURITY_TOKEN: ${{ secrets.SF_SECURITY_TOKEN }}
-          SF_DOMAIN:         ${{ secrets.SF_DOMAIN }}   # optional — leave blank for production
+          SF_REFRESH_TOKEN: ${{ secrets.SF_REFRESH_TOKEN }}
+          SF_CLIENT_ID:     ${{ secrets.SF_CLIENT_ID }}
+          SF_INSTANCE_URL:  ${{ secrets.SF_INSTANCE_URL }}
         run: python scripts/refresh_deals.py
 
       - name: Commit updated deal-data.json

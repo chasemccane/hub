@@ -11,28 +11,30 @@ import sys
 from datetime import datetime, timezone
 
 try:
-    from simple_salesforce import Salesforce, SalesforceResourceNotFound
+    import requests
+    from simple_salesforce import Salesforce
 except ImportError:
-    print("ERROR: Run 'pip install simple-salesforce' first.")
+    print("ERROR: Run 'pip install simple-salesforce requests' first.")
     sys.exit(1)
 
-# ── Auth ──────────────────────────────────────────────────────────────────────
-SF_USERNAME       = os.environ['SF_USERNAME']
-SF_PASSWORD       = os.environ['SF_PASSWORD']
-SF_SECURITY_TOKEN = os.environ['SF_SECURITY_TOKEN']
-SF_DOMAIN         = os.getenv('SF_DOMAIN', '')       # set to 'test' for sandbox
+# ── Auth via OAuth refresh token (works with Okta SSO) ───────────────────────
+SF_REFRESH_TOKEN = os.environ['SF_REFRESH_TOKEN']
+SF_CLIENT_ID     = os.environ['SF_CLIENT_ID']
+SF_INSTANCE_URL  = os.environ['SF_INSTANCE_URL'].rstrip('/')
 
-auth_kwargs = dict(
-    username=SF_USERNAME,
-    password=SF_PASSWORD,
-    security_token=SF_SECURITY_TOKEN,
-)
-if SF_DOMAIN:
-    auth_kwargs['domain'] = SF_DOMAIN
+print("Getting Salesforce access token…")
+res = requests.post(f"{SF_INSTANCE_URL}/services/oauth2/token", data={
+    'grant_type':    'refresh_token',
+    'client_id':     SF_CLIENT_ID,
+    'refresh_token': SF_REFRESH_TOKEN,
+})
+if res.status_code != 200:
+    print(f"ERROR: Token refresh failed ({res.status_code}): {res.text}")
+    sys.exit(1)
 
-print("Connecting to Salesforce…")
-sf = Salesforce(**auth_kwargs)
-print(f"Connected: {sf.sf_instance}")
+access_token = res.json()['access_token']
+sf = Salesforce(session_id=access_token, instance_url=SF_INSTANCE_URL)
+print(f"Connected: {SF_INSTANCE_URL}")
 
 # ── Load deal-data.json ───────────────────────────────────────────────────────
 DATA_FILE = os.path.join(os.path.dirname(__file__), '..', 'deal-data.json')
