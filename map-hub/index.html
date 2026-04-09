@@ -43,7 +43,7 @@
     main { max-width: 1100px; margin: 0 auto; padding: 36px 32px; }
 
     /* Stats bar */
-    .stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
+    .stats-bar { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 32px; }
     .stat-card {
       background: var(--card); border: 1px solid var(--border); border-radius: 12px;
       padding: 18px 20px;
@@ -129,6 +129,21 @@
 
     .empty-row td { text-align: center; padding: 48px; color: var(--muted); font-size: 14px; }
 
+    .table-wrap { overflow-x: auto; }
+
+    .editable-num {
+      display: inline-block; min-width: 28px; text-align: center;
+      font-size: 13px; font-weight: 600; cursor: text;
+      border-radius: 4px; padding: 2px 6px;
+      transition: background .15s; outline: none;
+    }
+    .editable-num:hover { background: rgba(255,255,255,.04); }
+    .editable-num:focus { background: rgba(255,255,255,.07); outline: 1px solid var(--border); }
+    .editable-num-sub { font-size: 10px; color: var(--muted); text-align: center; }
+
+    .pbr-val { font-size: 13px; font-weight: 700; color: var(--green); }
+    .pbr-empty { font-size: 12px; color: var(--muted); font-style: italic; }
+
     footer { text-align: center; padding: 24px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); margin-top: 32px; }
   </style>
 </head>
@@ -164,8 +179,12 @@
           <th>Company</th>
           <th>Type</th>
           <th>Close Date</th>
+          <th>Days Active</th>
           <th>Stage</th>
           <th>SE</th>
+          <th>Meetings</th>
+          <th>Emails</th>
+          <th>PBR</th>
           <th>MAP Progress</th>
           <th>Next Step</th>
           <th>Links</th>
@@ -208,7 +227,7 @@
       close: '2026-06-17',
       stage: 4,
       se: 'Jordan Murphy',
-      map_progress: { done: 2, total: 22 },
+      map_progress: { done: 3, total: 22 },
       next_step: 'Moving to demo on 4/8',
       map_url: '../../maps/feniex/',
       proposal_url: '../../maps/feniex/#proposal',
@@ -340,6 +359,39 @@
   const STAGE_LABELS = { 2:'Pre-Qualified', 3:'Envision', 4:'Solution', 5:'Demonstrate', 6:'Closed Won' };
   const STAGE_CLASS  = { 2:'stage-3', 3:'stage-3', 4:'stage-4', 5:'stage-5', 6:'stage-5' };
 
+  // ── Editable overrides stored in localStorage ──
+  const OV_KEY = 'hub-map-overrides';
+  let overrides = {};
+  try { overrides = JSON.parse(localStorage.getItem(OV_KEY) || '{}'); } catch(e) {}
+  function getOv(id, field, def) {
+    return (overrides[id] && overrides[id][field] !== undefined) ? overrides[id][field] : def;
+  }
+  function setOv(id, field, val) {
+    if (!overrides[id]) overrides[id] = {};
+    overrides[id][field] = val;
+    localStorage.setItem(OV_KEY, JSON.stringify(overrides));
+  }
+  window.saveNum = (id, field, el) => {
+    const raw = el.innerText.replace(/[^0-9]/g,'').trim();
+    const val = parseInt(raw) || 0;
+    el.innerText = val;
+    setOv(id, field, val);
+    if (field === 'pbr') renderStats();
+  };
+  window.savePbr = (id, el) => {
+    const raw = el.innerText.replace(/[^0-9.]/g,'').trim();
+    const val = parseFloat(raw) || 0;
+    el.innerText = val > 0 ? fmtMoney(val) : '—';
+    setOv(id, 'pbr', val);
+    renderStats();
+  };
+
+  function fmtMoney(n) {
+    if (n >= 1000000) return '$' + (n/1000000).toFixed(1) + 'M';
+    if (n >= 1000) return '$' + (n/1000).toFixed(0) + 'k';
+    return '$' + n.toLocaleString();
+  }
+
   let currentQ = 'Q2';
 
   function setQ(q) {
@@ -368,6 +420,14 @@
     const closingThis = DEALS.filter(d => d.close && daysUntil(d.close) >= 0 && daysUntil(d.close) <= 30).length;
     const wonQ = DEALS.filter(d => d.stage === 6 && d.quarter === currentQ).length;
 
+    // PBR = sum of pbr overrides for Envision+ deals in current quarter
+    const pbrDeals = currentQ === 'all'
+      ? DEALS.filter(d => d.stage >= 3)
+      : DEALS.filter(d => d.stage >= 3 && d.quarter === currentQ);
+    const pbrTotal = pbrDeals.reduce((sum, d) => sum + (getOv(d.id, 'pbr', 0) || 0), 0);
+    const pbrLabel = pbrTotal > 0 ? fmtMoney(pbrTotal) : '—';
+    const pbrSub = `${pbrDeals.length} deal${pbrDeals.length !== 1 ? 's' : ''} · Envision+`;
+
     document.getElementById('stats-bar').innerHTML = `
       <div class="stat-card">
         <div class="stat-label">Active Deals</div>
@@ -389,6 +449,11 @@
         <div class="stat-val">${wonQ}</div>
         <div class="stat-sub">deals this quarter</div>
       </div>
+      <div class="stat-card">
+        <div class="stat-label">PBR Pipeline ${currentQ !== 'all' ? currentQ : 'All'}</div>
+        <div class="stat-val stat-green">${pbrLabel}</div>
+        <div class="stat-sub">${pbrSub}</div>
+      </div>
     `;
   }
 
@@ -399,7 +464,7 @@
 
     const tbody = document.getElementById('deal-tbody');
     if (deals.length === 0) {
-      tbody.innerHTML = '<tr class="empty-row"><td colspan="8">No deals in this quarter yet.</td></tr>';
+      tbody.innerHTML = '<tr class="empty-row"><td colspan="12">No deals in this quarter yet.</td></tr>';
       return;
     }
 
@@ -430,6 +495,12 @@
         ? `<a href="${deal.sf_url}" target="_blank" class="map-btn btn-sf">☁️ SFDC</a>`
         : '';
 
+      const daysActive = getOv(deal.id, 'days_active', '');
+      const meetings   = getOv(deal.id, 'meetings', 0);
+      const emails     = getOv(deal.id, 'emails', 0);
+      const pbr        = getOv(deal.id, 'pbr', 0);
+      const pbrDisplay = pbr > 0 ? `<span class="pbr-val">${fmtMoney(pbr)}</span>` : `<span class="pbr-empty">—</span>`;
+
       return `<tr>
         <td>
           <div class="deal-name">${deal.name}</div>
@@ -437,8 +508,29 @@
         </td>
         <td><span class="deal-type ${typeClass}">${typeLabel}</span></td>
         <td>${closeTd}</td>
+        <td style="text-align:center">
+          <div class="editable-num" contenteditable="true"
+            onblur="saveNum('${deal.id}','days_active',this)"
+            >${daysActive !== '' ? daysActive : '—'}</div>
+          <div class="editable-num-sub">days</div>
+        </td>
         <td><span class="stage-pill ${stageClass}">${stageLabel}</span></td>
         <td><div class="person"><div class="person-name">${deal.se || '—'}</div><div class="person-title">Solution Engineer</div></div></td>
+        <td style="text-align:center">
+          <div class="editable-num" contenteditable="true"
+            onblur="saveNum('${deal.id}','meetings',this)"
+            >${meetings}</div>
+        </td>
+        <td style="text-align:center">
+          <div class="editable-num" contenteditable="true"
+            onblur="saveNum('${deal.id}','emails',this)"
+            >${emails}</div>
+        </td>
+        <td style="text-align:center">
+          <div class="editable-num" contenteditable="true"
+            onblur="savePbr('${deal.id}',this)"
+            >${pbr > 0 ? fmtMoney(pbr) : '—'}</div>
+        </td>
         <td>
           <div class="progress-wrap">
             ${hasProg
