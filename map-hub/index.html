@@ -203,6 +203,9 @@
   //  DEALS DATA — sourced live from shopify-dw.sales.sales_opportunities
   //  stage: 2=Pre-Qualified 3=Envision 4=Solution 5=Demonstrate 6=Closed Won
   // ──────────────────────────────────────────────────────────────────
+  // pbr = Projected Billed Revenue from Salesforce (Projected_Billed_Revenue__c)
+  // meetings = count from Fellow meeting notes (as of 2026-04-08)
+  // emails = editable (Gmail MCP auth unavailable; fill manually)
   const DEALS = [
     {
       id: 'hedrick',
@@ -218,6 +221,8 @@
       proposal_url: '',
       sf_url: 'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000M9BVpYAN/view',
       quarter: 'Q2',
+      pbr: 376159,
+      meetings: 7,
     },
     {
       id: 'feniex',
@@ -233,6 +238,8 @@
       proposal_url: '../../maps/feniex/#proposal',
       sf_url: 'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000MJoVtYAL/view',
       quarter: 'Q2',
+      pbr: 323171,
+      meetings: 5,
     },
     {
       id: 'bigrock',
@@ -248,6 +255,8 @@
       proposal_url: '',
       sf_url: 'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000MLhN5YAL/view',
       quarter: 'Q2',
+      pbr: 147538,
+      meetings: 4,
     },
     {
       id: 'excellentia',
@@ -263,6 +272,8 @@
       proposal_url: '',
       sf_url: 'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000MDJjJYAX/view',
       quarter: 'Q2',
+      pbr: 102821,
+      meetings: 0,
     },
     {
       id: 'newegg',
@@ -278,6 +289,8 @@
       proposal_url: '',
       sf_url: 'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000MTUyvYAH/view',
       quarter: 'Q2',
+      pbr: 0,
+      meetings: 0,
     },
     {
       id: 'washington-floral',
@@ -293,6 +306,8 @@
       proposal_url: '',
       sf_url: 'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000LJrChYAL/view',
       quarter: 'Q2',
+      pbr: 102821,
+      meetings: 1,
     },
     {
       id: 'orbital',
@@ -308,6 +323,8 @@
       proposal_url: '',
       sf_url: 'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000McjaYYAR/view',
       quarter: 'Q3',
+      pbr: 0,
+      meetings: 0,
     },
     {
       id: 'anatomy',
@@ -323,6 +340,8 @@
       proposal_url: '',
       sf_url: 'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000McodSYAR/view',
       quarter: 'Q3',
+      pbr: 99839,
+      meetings: 0,
     },
     {
       id: 'franklen',
@@ -338,6 +357,8 @@
       proposal_url: '',
       sf_url: 'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000MVHBDYA5/view',
       quarter: 'Q3',
+      pbr: 0,
+      meetings: 0,
     },
     {
       id: 'kyd',
@@ -353,6 +374,8 @@
       proposal_url: '',
       sf_url: 'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000MDBU2YAP/view',
       quarter: 'Q3',
+      pbr: 102821,
+      meetings: 0,
     },
   ];
 
@@ -424,7 +447,7 @@
     const pbrDeals = currentQ === 'all'
       ? DEALS.filter(d => d.stage >= 3)
       : DEALS.filter(d => d.stage >= 3 && d.quarter === currentQ);
-    const pbrTotal = pbrDeals.reduce((sum, d) => sum + (getOv(d.id, 'pbr', 0) || 0), 0);
+    const pbrTotal = pbrDeals.reduce((sum, d) => sum + (getOv(d.id, 'pbr', d.pbr || 0) || 0), 0);
     const pbrLabel = pbrTotal > 0 ? fmtMoney(pbrTotal) : '—';
     const pbrSub = `${pbrDeals.length} deal${pbrDeals.length !== 1 ? 's' : ''} · Envision+`;
 
@@ -496,10 +519,9 @@
         : '';
 
       const daysActive = getOv(deal.id, 'days_active', '');
-      const meetings   = getOv(deal.id, 'meetings', 0);
+      const meetings   = getOv(deal.id, 'meetings', deal.meetings || 0);
       const emails     = getOv(deal.id, 'emails', 0);
-      const pbr        = getOv(deal.id, 'pbr', 0);
-      const pbrDisplay = pbr > 0 ? `<span class="pbr-val">${fmtMoney(pbr)}</span>` : `<span class="pbr-empty">—</span>`;
+      const pbr        = getOv(deal.id, 'pbr', deal.pbr || 0);
 
       return `<tr>
         <td>

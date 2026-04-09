@@ -118,11 +118,13 @@
     .dh-link-prop:hover { background: rgba(59,130,246,.18); }
     .dh-link-sf { background: rgba(99,102,241,.1); border: 1px solid rgba(99,102,241,.2); color: #a5b4fc; }
     .dh-link-sf:hover { background: rgba(99,102,241,.18); }
+    .dh-score-group { display: flex; gap: 12px; flex-shrink: 0; }
     .dh-score {
       background: var(--card); border: 1px solid var(--border); border-radius: 12px;
       padding: 16px 20px; text-align: center; min-width: 100px;
     }
-    .dh-score-val { font-size: 32px; font-weight: 900; color: var(--green); }
+    .dh-score-val { font-size: 28px; font-weight: 900; color: var(--green); }
+    .dh-score-val.pbr-val { color: var(--blue); }
     .dh-score-sub { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; margin-top: 2px; }
 
     /* Section headers */
@@ -285,6 +287,7 @@ const DEFAULT_DEALS = [
     stage: 'Solution',
     close: 'Jun 17, 2026',
     arr: 'TBD',
+    pbr: 323171,
     se: 'Jordan Murphy',
     map_url: '../../maps/feniex/',
     proposal_url: '../../maps/feniex/#proposal',
@@ -347,6 +350,7 @@ Champion Yemilyn has urgency — she's tied this to her revenue growth goal. Kee
     stage: 'Demonstrate',
     close: 'May 20, 2026',
     arr: 'TBD',
+    pbr: 376159,
     se: '',
     map_url: '',
     proposal_url: '',
@@ -365,6 +369,7 @@ Champion Yemilyn has urgency — she's tied this to her revenue growth goal. Kee
     stage: 'Pre-Qualified',
     close: 'Jun 30, 2026',
     arr: 'TBD',
+    pbr: 0,
     se: '',
     map_url: '',
     proposal_url: '',
@@ -383,6 +388,7 @@ Champion Yemilyn has urgency — she's tied this to her revenue growth goal. Kee
     stage: 'Pre-Qualified',
     close: 'Jun 30, 2026',
     arr: 'TBD',
+    pbr: 102821,
     se: '',
     map_url: '',
     proposal_url: '',
@@ -401,6 +407,7 @@ Champion Yemilyn has urgency — she's tied this to her revenue growth goal. Kee
     stage: 'Envision',
     close: 'Jun 30, 2026',
     arr: 'TBD',
+    pbr: 102821,
     se: '',
     map_url: '',
     proposal_url: '',
@@ -419,6 +426,7 @@ Champion Yemilyn has urgency — she's tied this to her revenue growth goal. Kee
     stage: 'Solution',
     close: 'Jun 23, 2026',
     arr: 'TBD',
+    pbr: 147538,
     se: '',
     map_url: '',
     proposal_url: '',
@@ -437,6 +445,7 @@ Champion Yemilyn has urgency — she's tied this to her revenue growth goal. Kee
     stage: 'Envision',
     close: 'Aug 26, 2026',
     arr: 'TBD',
+    pbr: 102821,
     se: '',
     map_url: '',
     proposal_url: '',
@@ -455,6 +464,7 @@ Champion Yemilyn has urgency — she's tied this to her revenue growth goal. Kee
     stage: 'Pre-Qualified',
     close: 'Jul 31, 2026',
     arr: 'TBD',
+    pbr: 0,
     se: '',
     map_url: '',
     proposal_url: '',
@@ -473,6 +483,7 @@ Champion Yemilyn has urgency — she's tied this to her revenue growth goal. Kee
     stage: 'Pre-Qualified',
     close: 'Jul 31, 2026',
     arr: 'TBD',
+    pbr: 99839,
     se: '',
     map_url: '',
     proposal_url: '',
@@ -491,6 +502,7 @@ Champion Yemilyn has urgency — she's tied this to her revenue growth goal. Kee
     stage: 'Envision',
     close: 'Aug 25, 2026',
     arr: 'TBD',
+    pbr: 0,
     se: '',
     map_url: '',
     proposal_url: '',
@@ -507,6 +519,13 @@ Champion Yemilyn has urgency — she's tied this to her revenue growth goal. Kee
 // Deals removed from pipeline — prune from any cached localStorage
 const REMOVED_IDS = ['bidk','sourcebooks','steeltube','gtgolf','centuryfire'];
 
+function fmtPBR(n) {
+  if (!n || n === 0) return '—';
+  if (n >= 1000000) return '$' + (n/1000000).toFixed(1) + 'M';
+  if (n >= 1000) return '$' + Math.round(n/1000) + 'k';
+  return '$' + n.toLocaleString();
+}
+
 function loadDeals() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -517,6 +536,11 @@ function loadDeals() {
       // Add any new DEFAULT_DEALS that aren't in saved data yet
       DEFAULT_DEALS.forEach(def => {
         if (!saved.find(d => d.id === def.id)) saved.push(JSON.parse(JSON.stringify(def)));
+      });
+      // Always sync PBR from DEFAULT_DEALS (Salesforce source of truth)
+      saved.forEach(d => {
+        const def = DEFAULT_DEALS.find(x => x.id === d.id);
+        if (def) d.pbr = def.pbr || 0;
       });
       return saved;
     }
@@ -595,9 +619,15 @@ function openDeal(id) {
           ${deal.sf_url ? `<a href="${deal.sf_url}" target="_blank" class="dh-link dh-link-sf">☁️ Salesforce</a>` : ''}
         </div>
       </div>
-      <div class="dh-score">
-        <div class="dh-score-val">${score}%</div>
-        <div class="dh-score-sub">MEDDIC Score</div>
+      <div class="dh-score-group">
+        <div class="dh-score">
+          <div class="dh-score-val">${score}%</div>
+          <div class="dh-score-sub">MEDDIC Score</div>
+        </div>
+        <div class="dh-score">
+          <div class="dh-score-val pbr-val">${fmtPBR(deal.pbr)}</div>
+          <div class="dh-score-sub">PBR · Salesforce</div>
+        </div>
       </div>
     </div>
 
