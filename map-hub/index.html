@@ -182,8 +182,6 @@
           <th>Days Active</th>
           <th>Stage</th>
           <th>SE</th>
-          <th>Meetings</th>
-          <th>Emails</th>
           <th>PBR</th>
           <th>MAP Progress</th>
           <th>Next Step</th>
@@ -487,7 +485,7 @@
 
     const tbody = document.getElementById('deal-tbody');
     if (deals.length === 0) {
-      tbody.innerHTML = '<tr class="empty-row"><td colspan="12">No deals in this quarter yet.</td></tr>';
+      tbody.innerHTML = '<tr class="empty-row"><td colspan="10">No deals in this quarter yet.</td></tr>';
       return;
     }
 
@@ -538,16 +536,6 @@
         </td>
         <td><span class="stage-pill ${stageClass}">${stageLabel}</span></td>
         <td><div class="person"><div class="person-name">${deal.se || '—'}</div><div class="person-title">Solution Engineer</div></div></td>
-        <td style="text-align:center">
-          <div class="editable-num" contenteditable="true"
-            onblur="saveNum('${deal.id}','meetings',this)"
-            >${meetings}</div>
-        </td>
-        <td style="text-align:center">
-          <div class="editable-num" contenteditable="true"
-            onblur="saveNum('${deal.id}','emails',this)"
-            >${emails}</div>
-        </td>
         <td style="text-align:center">
           <div class="editable-num" contenteditable="true"
             onblur="savePbr('${deal.id}',this)"
