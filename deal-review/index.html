@@ -71,6 +71,24 @@
     .s-negotiate { background: var(--green-dim); color: var(--green); }
     .s-qualify { background: var(--amber-dim); color: var(--amber); }
 
+    .sort-bar { display: flex; gap: 4px; padding: 6px 12px 8px; border-bottom: 1px solid var(--border); }
+    .sort-btn {
+      flex: 1; font-size: 10px; font-weight: 700; padding: 5px 6px;
+      border-radius: 6px; cursor: pointer; transition: all .15s;
+      background: transparent; border: 1px solid var(--border); color: var(--muted);
+      text-transform: uppercase; letter-spacing: .06em;
+    }
+    .sort-btn.active { background: var(--green-dim); border-color: var(--green-glow); color: var(--green); }
+    .sort-btn:hover:not(.active) { border-color: var(--muted); color: var(--text); }
+
+    .del-btn {
+      flex-shrink: 0; width: 20px; height: 20px; border-radius: 4px;
+      background: transparent; border: none; color: var(--border);
+      font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: all .15s; line-height: 1; padding: 0;
+    }
+    .del-btn:hover { background: var(--red-dim); color: var(--red); }
+
     .add-deal-btn {
       margin: 12px; padding: 9px; border-radius: 8px;
       background: transparent; border: 1px dashed var(--border);
@@ -239,6 +257,10 @@
   <!-- SIDEBAR -->
   <div class="sidebar">
     <div class="sidebar-label">Active Deals</div>
+    <div class="sort-bar">
+      <button class="sort-btn active" id="sort-close" onclick="setSort('close')">Close Date</button>
+      <button class="sort-btn" id="sort-stage" onclick="setSort('stage')">Stage</button>
+    </div>
     <div id="deal-list"></div>
     <button class="add-deal-btn" onclick="addDeal()">+ New Deal Room</button>
   </div>
@@ -503,11 +525,32 @@ function saveDeals() {
 
 let DEALS = loadDeals();
 let currentId = null;
+let sortMode = 'close';
+
+const STAGE_ORDER = { 'Pre-Qualified':1, 'Envision':2, 'Solution':3, 'Demonstrate':4, 'Closed Won':5 };
+
+function parseClose(c) {
+  if (!c || c === 'TBD') return Infinity;
+  const d = new Date(c);
+  return isNaN(d) ? Infinity : d.getTime();
+}
+
+window.setSort = (mode) => { sortMode = mode; renderSidebar(); };
 
 // ── SIDEBAR ──
 function renderSidebar() {
   const stageClass = { 'Pre-Qualified':'s-qualify', 'Envision':'s-qualify', 'Solution':'s-propose', 'Demonstrate':'s-negotiate', 'Closed Won':'s-negotiate' };
-  document.getElementById('deal-list').innerHTML = DEALS.map(d => `
+
+  const sorted = [...DEALS].sort((a,b) =>
+    sortMode === 'close'
+      ? parseClose(a.close) - parseClose(b.close)
+      : (STAGE_ORDER[a.stage] || 99) - (STAGE_ORDER[b.stage] || 99)
+  );
+
+  document.getElementById('sort-close').className = 'sort-btn' + (sortMode === 'close' ? ' active' : '');
+  document.getElementById('sort-stage').className = 'sort-btn' + (sortMode === 'stage' ? ' active' : '');
+
+  document.getElementById('deal-list').innerHTML = sorted.map(d => `
     <div class="deal-item ${currentId === d.id ? 'active' : ''}" onclick="openDeal('${d.id}')">
       <div class="di-name">${d.name}</div>
       <div class="di-meta">${d.close} · ${d.arr}</div>
@@ -660,10 +703,11 @@ function renderRisks(id) {
   el.innerHTML = deal.risks.map((r,i) => `
     <div class="risk-item">
       <span class="risk-sev ${sevClass[r.sev] || 'sev-med'}" title="Click to cycle severity" style="cursor:pointer" onclick="cycleRiskSev('${id}',${i})">${r.sev}</span>
-      <div>
+      <div style="flex:1">
         <div class="risk-text" contenteditable="true" onblur="saveRisk('${id}',${i},'text',this.innerText)">${r.text}</div>
         <div class="risk-mit" contenteditable="true" onblur="saveRisk('${id}',${i},'mit',this.innerText)">→ ${r.mit}</div>
       </div>
+      <button class="del-btn" onclick="deleteRisk('${id}',${i})" title="Delete">×</button>
     </div>
   `).join('');
 }
@@ -684,6 +728,10 @@ window.addRisk = (id) => {
   const deal = DEALS.find(d => d.id === id);
   if (deal) { deal.risks.push({ sev:'med', text:'New risk', mit:'Mitigation TBD' }); saveDeals(); renderRisks(id); touch(id); }
 };
+window.deleteRisk = (id, i) => {
+  const d = DEALS.find(x => x.id === id);
+  if (d) { d.risks.splice(i, 1); saveDeals(); renderRisks(id); touch(id); }
+};
 
 // ── DONE / LEFT ──
 function renderDone(id) {
@@ -693,7 +741,8 @@ function renderDone(id) {
   el.innerHTML = deal.done.map((t,i) => `
     <div class="check-item">
       <div class="check-box check-done">✓</div>
-      <div class="check-text done" contenteditable="true" onblur="saveDone('${id}',${i},this.innerText)">${t}</div>
+      <div class="check-text done" contenteditable="true" onblur="saveDone('${id}',${i},this.innerText)" style="flex:1">${t}</div>
+      <button class="del-btn" onclick="deleteDone('${id}',${i})" title="Delete">×</button>
     </div>
   `).join('');
 }
@@ -705,13 +754,16 @@ function renderLeft(id) {
   el.innerHTML = deal.left.map((t,i) => `
     <div class="check-item">
       <div class="check-box check-todo" title="Click to mark done" style="cursor:pointer" onclick="markDone('${id}',${i})"></div>
-      <div class="check-text" contenteditable="true" onblur="saveLeft('${id}',${i},this.innerText)">${t}</div>
+      <div class="check-text" contenteditable="true" onblur="saveLeft('${id}',${i},this.innerText)" style="flex:1">${t}</div>
+      <button class="del-btn" onclick="deleteLeft('${id}',${i})" title="Delete">×</button>
     </div>
   `).join('');
 }
 
 window.saveDone = (id,i,v) => { const d=DEALS.find(x=>x.id===id); if(d){d.done[i]=v.trim();saveDeals();touch(id);} };
 window.saveLeft = (id,i,v) => { const d=DEALS.find(x=>x.id===id); if(d){d.left[i]=v.trim();saveDeals();touch(id);} };
+window.deleteDone = (id,i) => { const d=DEALS.find(x=>x.id===id); if(d){d.done.splice(i,1);saveDeals();renderDone(id);touch(id);} };
+window.deleteLeft = (id,i) => { const d=DEALS.find(x=>x.id===id); if(d){d.left.splice(i,1);saveDeals();renderLeft(id);touch(id);} };
 window.markDone = (id,i) => {
   const d=DEALS.find(x=>x.id===id);
   if(d){ const t=d.left.splice(i,1)[0]; d.done.push(t); saveDeals(); renderDone(id); renderLeft(id); touch(id); }
