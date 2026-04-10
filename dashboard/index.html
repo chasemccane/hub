@@ -143,6 +143,30 @@
 
     /* ── EMPTY COL ── */
     .empty-col { font-size: 11px; color: var(--muted); padding: 8px 4px; font-style: italic; }
+
+    /* ── THIS WEEK'S CALLS ── */
+    .calls-section { margin-bottom: 28px; }
+    .calls-scroll { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 6px; }
+    .calls-scroll::-webkit-scrollbar { height: 4px; }
+    .calls-scroll::-webkit-scrollbar-track { background: var(--border); border-radius: 2px; }
+    .calls-scroll::-webkit-scrollbar-thumb { background: var(--green-dim); border-radius: 2px; }
+    .call-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 14px 16px; min-width: 210px; max-width: 250px; flex-shrink: 0;
+      display: flex; flex-direction: column; gap: 3px;
+    }
+    .call-card.past { opacity: .4; }
+    .call-day  { font-size: 10px; font-weight: 700; color: var(--green); text-transform: uppercase; letter-spacing: .06em; }
+    .call-time { font-size: 11px; color: var(--muted); }
+    .call-title { font-size: 13px; font-weight: 700; line-height: 1.35; margin: 3px 0 8px; }
+    .call-meta { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: auto; }
+    .call-type { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; padding: 2px 6px; border-radius: 4px; }
+    .type-intro    { background: var(--green-dim); color: var(--green); }
+    .type-workshop { background: var(--blue-dim); color: var(--blue); }
+    .type-partner  { background: rgba(245,158,11,.12); color: var(--amber); }
+    .type-deal     { background: var(--amber-dim); color: var(--amber); }
+    .call-link { font-size: 10px; font-weight: 600; color: var(--green); text-decoration: none; margin-left: auto; }
+    .call-link:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -161,6 +185,11 @@
   </div>
 
   <div class="stats" id="stats-bar"></div>
+
+  <div class="calls-section">
+    <div class="board-title">This Week's Calls</div>
+    <div class="calls-scroll" id="calls-row"></div>
+  </div>
 
   <div class="main-grid">
     <div>
@@ -185,6 +214,17 @@
     { id:'anatomy',          name:'Anatomy Warehouse',         industry:'Specialty Wholesale · B2B',                  stage:'Pre-Qualified', close:'2026-07-31', pbr:99839,  se:'',             map_url:'', sf_url:'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000McodSYAR/view', created:'2026-04-07' },
     { id:'franklen',         name:'Franklen Equipment',        industry:'Industrial Equipment · B2B',                 stage:'Envision',      close:'2026-08-25', pbr:0,      se:'',             map_url:'', sf_url:'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000MVHBDYA5/view', created:'2026-04-02' },
     { id:'kyd',              name:'KYD',                       industry:'Food & Beverage · Honolulu, HI',             stage:'Envision',      close:'2026-08-26', pbr:102821, se:'',             map_url:'', sf_url:'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000MDBU2YAP/view', created:'2026-03-23' },
+  ];
+
+  const CALLS = [
+    { start:'2026-04-10T08:00:00-07:00', time:'8:00–8:45am',   title:'Partner Intro · ioVista + Franklen',   type:'partner',  meet:'https://meet.google.com/mxd-uejg-wud', deal:'franklen' },
+    { start:'2026-04-10T11:30:00-07:00', time:'11:30–12:00pm', title:'Partner Intro · Netalico + Franklen',  type:'partner',  meet:'https://meet.google.com/qzy-yaus-otd', deal:'franklen' },
+    { start:'2026-04-13T08:00:00-07:00', time:'8:00–9:00am',   title:'Technical Workshop · Hedrick',         type:'workshop', meet:'https://meet.google.com/kuu-cmdi-waa', deal:'hedrick' },
+    { start:'2026-04-13T09:30:00-07:00', time:'9:30–10:00am',  title:'Franklen Equipment Discussion',        type:'deal',     meet:'https://meet.google.com/dos-vxbg-sca', deal:'franklen' },
+    { start:'2026-04-13T12:00:00-07:00', time:'12:00–12:30pm', title:'Orbital Transports · Intro',           type:'intro',    meet:'https://meet.google.com/jmz-gacc-phz', deal:'orbital' },
+    { start:'2026-04-13T14:00:00-07:00', time:'2:00–2:30pm',   title:'Partner Intro · Netformic + Franklen', type:'partner',  meet:'https://meet.google.com/ybg-kumj-uwg', deal:'franklen' },
+    { start:'2026-04-15T09:00:00-07:00', time:'9:00–9:30am',   title:'FlexRadio · Intro',                    type:'intro',    meet:'https://meet.google.com/cii-opgt-uza', deal:'' },
+    { start:'2026-04-15T14:00:00-07:00', time:'2:00–2:30pm',   title:'Intro · Newegg',                       type:'intro',    meet:'https://meet.google.com/urs-bbuy-dvj', deal:'newegg' },
   ];
 
   // remote data overlay (risks, left items)
@@ -364,10 +404,40 @@
     `;
   }
 
+  function renderCalls() {
+    const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const now = new Date();
+    const typeLabel = { intro:'Intro', workshop:'Workshop', partner:'Partner Intro', deal:'Deal Call' };
+    const typeCls   = { intro:'type-intro', workshop:'type-workshop', partner:'type-partner', deal:'type-deal' };
+
+    const html = CALLS.map(c => {
+      const d    = new Date(c.start);
+      const past = d < now;
+      const dayStr   = d.toDateString() === now.toDateString() ? 'Today' : days[d.getDay()];
+      const dateLabel = `${dayStr} · ${months[d.getMonth()]} ${d.getDate()}`;
+      const dealLink  = c.deal ? `<a href="../deal-review/#${c.deal}" class="call-link">Deal Room</a>` : '';
+      return `
+        <div class="call-card${past ? ' past' : ''}">
+          <div class="call-day">${dateLabel}</div>
+          <div class="call-time">${c.time}</div>
+          <div class="call-title">${c.title}</div>
+          <div class="call-meta">
+            <span class="call-type ${typeCls[c.type]}">${typeLabel[c.type]}</span>
+            ${dealLink}
+            <a href="${c.meet}" target="_blank" class="call-link">Join →</a>
+          </div>
+        </div>`;
+    }).join('');
+
+    document.getElementById('calls-row').innerHTML = html || '<div class="empty-col">No customer calls this week</div>';
+  }
+
   function render() {
     renderStats();
     renderKanban();
     renderTasks();
+    renderCalls();
   }
 
   // ── INIT ──
