@@ -11,7 +11,7 @@
         "created": "2026-03-26"
       },
       "meddic": {
-        "metrics": "• 30% YoY revenue growth target\n• Reduce manual dealer order errors (currently ~15% of orders require manual correction)\n• Scale to 500+ dealer accounts without proportional headcount increase\n• Dealer portal self-serve adoption: target 70%+ of orders placed online",
+        "metrics": "Revenue Growth: Achieve 30% year-over-year growth on their $28M ARR.\nOperational Cost Savings: Eliminate the 2-3 full-time employees dedicated to manual order entry, representing a $100-150K+ annual hard-cost saving.\nDealer Adoption: Drive dealer portal adoption from a very low current rate to 80% or higher.\nOrder Volume: Successfully process the current ~1,566 orders/month with the capacity to scale by 30%+ without adding operational headcount.\nChannel Revenue: The platform must support their current 85% B2B / 15% D2C revenue split.",
         "economic_buyer": "Yemilyn Mosley — Chief Sales Officer\nDecision authority confirmed. Owns budget and has driven the initiative internally. Engaged and responsive.",
         "decision_criteria": "• Must support B2B dealer portal (tiered pricing, net terms, order history)\n• Acumatica ERP integration — mission critical, non-negotiable\n• Ease of use for dealers (low-friction ordering)\n• Shopify Plus platform stability and enterprise support\n• Competitive pricing vs. BigCommerce + custom build",
         "decision_process": "1. Discovery completed (Apr 2026)\n2. SE demo / solution validation — pending\n3. LOI / intent to move forward\n4. Legal & procurement review\n5. Contract signature by May 9, 2026 (quote expiry)",
@@ -20,11 +20,31 @@
       },
       "strategy": "Core play is operational efficiency + dealer experience. Feniex is growing fast but operationally constrained by their current custom platform. The ROI story is: reduce manual order processing, give dealers self-serve tools, and integrate Acumatica so their ops team stops doing manual reconciliation.\n\nPosition Shopify Plus as the only platform that can do B2B natively at scale without a massive custom build. Competitors would require significant integration investment. We have the B2B feature set AND the partner ecosystem for Acumatica.\n\nChampion Yemilyn has urgency — she's tied this to her revenue growth goal. Keep momentum, get SE demo scheduled, move to LOI before end of April.",
       "risks": [
-        { "sev": "high", "text": "Acumatica integration complexity", "mit": "Engage certified Acumatica+Shopify partner early. Validate scope in SE session." },
-        { "sev": "high", "text": "Quote expiry May 9 — deal could slip to Q3", "mit": "Create urgency around pricing lock. Schedule SE demo ASAP to keep velocity." },
-        { "sev": "med", "text": "No identified implementation partner yet", "mit": "Shortlist 2-3 Acumatica-certified Plus partners. Present to Yemilyn before LOI." },
-        { "sev": "med", "text": "Lorena (day-to-day contact) may not have full decision influence", "mit": "Keep Yemilyn looped on all key decisions. Don't let deal stall at operational level." },
-        { "sev": "low", "text": "IT/engineering resistance to platform change", "mit": "Jordan Carlisle handles Amazon channel — may have opinions on platform scope. Address in demo." }
+        {
+          "sev": "high",
+          "text": "Acumatica integration complexity",
+          "mit": "Engage certified Acumatica+Shopify partner early. Validate scope in SE session."
+        },
+        {
+          "sev": "high",
+          "text": "Quote expiry May 9 — deal could slip to Q3",
+          "mit": "Create urgency around pricing lock. Schedule SE demo ASAP to keep velocity."
+        },
+        {
+          "sev": "med",
+          "text": "No identified implementation partner yet",
+          "mit": "Shortlist 2-3 Acumatica-certified Plus partners. Present to Yemilyn before LOI."
+        },
+        {
+          "sev": "med",
+          "text": "Lorena (day-to-day contact) may not have full decision influence",
+          "mit": "Keep Yemilyn looped on all key decisions. Don't let deal stall at operational level."
+        },
+        {
+          "sev": "low",
+          "text": "IT/engineering resistance to platform change",
+          "mit": "Jordan Carlisle handles Amazon channel — may have opinions on platform scope. Address in demo."
+        }
       ],
       "done": [
         "Discovery call completed",
@@ -49,8 +69,19 @@
         "close": "2026-05-20",
         "created": "2026-03-20"
       },
-      "meddic": { "metrics": "", "economic_buyer": "", "decision_criteria": "", "decision_process": "", "pain": "", "champion": "" },
-      "strategy": "", "risks": [], "done": [], "left": [], "notes": ""
+      "meddic": {
+        "metrics": "",
+        "economic_buyer": "",
+        "decision_criteria": "",
+        "decision_process": "",
+        "pain": "",
+        "champion": ""
+      },
+      "strategy": "",
+      "risks": [],
+      "done": [],
+      "left": [],
+      "notes": ""
     },
     "newegg": {
       "sf": {
@@ -60,8 +91,19 @@
         "close": "2026-06-30",
         "created": "2026-04-01"
       },
-      "meddic": { "metrics": "", "economic_buyer": "", "decision_criteria": "", "decision_process": "", "pain": "", "champion": "" },
-      "strategy": "", "risks": [], "done": [], "left": [], "notes": ""
+      "meddic": {
+        "metrics": "",
+        "economic_buyer": "",
+        "decision_criteria": "",
+        "decision_process": "",
+        "pain": "",
+        "champion": ""
+      },
+      "strategy": "",
+      "risks": [],
+      "done": [],
+      "left": [],
+      "notes": ""
     },
     "excellentia": {
       "sf": {
@@ -71,8 +113,19 @@
         "close": "2026-06-30",
         "created": "2026-03-23"
       },
-      "meddic": { "metrics": "", "economic_buyer": "", "decision_criteria": "", "decision_process": "", "pain": "", "champion": "" },
-      "strategy": "", "risks": [], "done": [], "left": [], "notes": ""
+      "meddic": {
+        "metrics": "",
+        "economic_buyer": "",
+        "decision_criteria": "",
+        "decision_process": "",
+        "pain": "",
+        "champion": ""
+      },
+      "strategy": "",
+      "risks": [],
+      "done": [],
+      "left": [],
+      "notes": ""
     },
     "washington-floral": {
       "sf": {
@@ -82,8 +135,19 @@
         "close": "2026-06-30",
         "created": "2026-02-18"
       },
-      "meddic": { "metrics": "", "economic_buyer": "", "decision_criteria": "", "decision_process": "", "pain": "", "champion": "" },
-      "strategy": "", "risks": [], "done": [], "left": [], "notes": ""
+      "meddic": {
+        "metrics": "",
+        "economic_buyer": "",
+        "decision_criteria": "",
+        "decision_process": "",
+        "pain": "",
+        "champion": ""
+      },
+      "strategy": "",
+      "risks": [],
+      "done": [],
+      "left": [],
+      "notes": ""
     },
     "bigrock": {
       "sf": {
@@ -93,8 +157,19 @@
         "close": "2026-06-23",
         "created": "2026-03-27"
       },
-      "meddic": { "metrics": "", "economic_buyer": "", "decision_criteria": "", "decision_process": "", "pain": "", "champion": "" },
-      "strategy": "", "risks": [], "done": [], "left": [], "notes": ""
+      "meddic": {
+        "metrics": "",
+        "economic_buyer": "",
+        "decision_criteria": "",
+        "decision_process": "",
+        "pain": "",
+        "champion": ""
+      },
+      "strategy": "",
+      "risks": [],
+      "done": [],
+      "left": [],
+      "notes": ""
     },
     "kyd": {
       "sf": {
@@ -104,8 +179,19 @@
         "close": "2026-08-26",
         "created": "2026-03-23"
       },
-      "meddic": { "metrics": "", "economic_buyer": "", "decision_criteria": "", "decision_process": "", "pain": "", "champion": "" },
-      "strategy": "", "risks": [], "done": [], "left": [], "notes": ""
+      "meddic": {
+        "metrics": "",
+        "economic_buyer": "",
+        "decision_criteria": "",
+        "decision_process": "",
+        "pain": "",
+        "champion": ""
+      },
+      "strategy": "",
+      "risks": [],
+      "done": [],
+      "left": [],
+      "notes": ""
     },
     "orbital": {
       "sf": {
@@ -115,8 +201,19 @@
         "close": "2026-07-31",
         "created": "2026-04-07"
       },
-      "meddic": { "metrics": "", "economic_buyer": "", "decision_criteria": "", "decision_process": "", "pain": "", "champion": "" },
-      "strategy": "", "risks": [], "done": [], "left": [], "notes": ""
+      "meddic": {
+        "metrics": "",
+        "economic_buyer": "",
+        "decision_criteria": "",
+        "decision_process": "",
+        "pain": "",
+        "champion": ""
+      },
+      "strategy": "",
+      "risks": [],
+      "done": [],
+      "left": [],
+      "notes": ""
     },
     "anatomy": {
       "sf": {
@@ -126,8 +223,19 @@
         "close": "2026-07-31",
         "created": "2026-04-07"
       },
-      "meddic": { "metrics": "", "economic_buyer": "", "decision_criteria": "", "decision_process": "", "pain": "", "champion": "" },
-      "strategy": "", "risks": [], "done": [], "left": [], "notes": ""
+      "meddic": {
+        "metrics": "",
+        "economic_buyer": "",
+        "decision_criteria": "",
+        "decision_process": "",
+        "pain": "",
+        "champion": ""
+      },
+      "strategy": "",
+      "risks": [],
+      "done": [],
+      "left": [],
+      "notes": ""
     },
     "franklen": {
       "sf": {
@@ -137,8 +245,19 @@
         "close": "2026-08-25",
         "created": "2026-04-02"
       },
-      "meddic": { "metrics": "", "economic_buyer": "", "decision_criteria": "", "decision_process": "", "pain": "", "champion": "" },
-      "strategy": "", "risks": [], "done": [], "left": [], "notes": ""
+      "meddic": {
+        "metrics": "",
+        "economic_buyer": "",
+        "decision_criteria": "",
+        "decision_process": "",
+        "pain": "",
+        "champion": ""
+      },
+      "strategy": "",
+      "risks": [],
+      "done": [],
+      "left": [],
+      "notes": ""
     }
   }
 }
