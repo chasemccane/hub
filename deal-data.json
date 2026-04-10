@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updated": "2026-04-10T00:00:00Z",
+  "updated": "2026-04-10",
   "deals": {
     "hedrick": {
       "sf": {
@@ -166,10 +166,10 @@
       "done": [
         "Intro call",
         "Internal SE sync with Jordan Schwartz (3/30) \u2014 confirmed Cart.com migration, identified contacts Sonny Rodriguez + Junior Campos, flagged budget/pricing as key hurdle",
-        "Technical discovery with Sonny + Junior + Jordan (4/3) \u2014 confirmed BC365 cloud integration, ShipperHQ, Mailchimp, Authorize.net, POS interest, and demo scheduled for week of 4/20"
+        "Technical discovery with Sonny + Junior + Jordan (4/3) \u2014 confirmed BC365 cloud integration, ShipperHQ, Mailchimp, Authorize.net, POS interest, and demo scheduled for week of 4/20",
+        "Demo week of 4/20 \u2014 full stakeholder group (owner, Jim/Ops Director, pricing dept, Sonny, Junior)"
       ],
       "left": [
-        "Demo week of 4/20 \u2014 full stakeholder group (owner, Jim/Ops Director, pricing dept, Sonny, Junior)",
         "Champion coaching: prep Sonny + Junior to bring owner into the room and pre-sell the ROI story",
         "Qualify budget range before or at demo",
         "Executive workshop post-demo",
