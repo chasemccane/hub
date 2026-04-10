@@ -146,27 +146,8 @@
 
     /* ── THIS WEEK'S CALLS ── */
     .calls-section { margin-bottom: 28px; }
-    .calls-scroll { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 6px; }
-    .calls-scroll::-webkit-scrollbar { height: 4px; }
-    .calls-scroll::-webkit-scrollbar-track { background: var(--border); border-radius: 2px; }
-    .calls-scroll::-webkit-scrollbar-thumb { background: var(--green-dim); border-radius: 2px; }
-    .call-card {
-      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
-      padding: 14px 16px; min-width: 210px; max-width: 250px; flex-shrink: 0;
-      display: flex; flex-direction: column; gap: 3px;
-    }
-    .call-card.past { opacity: .4; }
-    .call-day  { font-size: 10px; font-weight: 700; color: var(--green); text-transform: uppercase; letter-spacing: .06em; }
-    .call-time { font-size: 11px; color: var(--muted); }
-    .call-title { font-size: 13px; font-weight: 700; line-height: 1.35; margin: 3px 0 8px; }
-    .call-meta { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: auto; }
-    .call-type { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; padding: 2px 6px; border-radius: 4px; }
-    .type-intro    { background: var(--green-dim); color: var(--green); }
-    .type-workshop { background: var(--blue-dim); color: var(--blue); }
-    .type-partner  { background: rgba(245,158,11,.12); color: var(--amber); }
-    .type-deal     { background: var(--amber-dim); color: var(--amber); }
-    .call-link { font-size: 10px; font-weight: 600; color: var(--green); text-decoration: none; margin-left: auto; }
-    .call-link:hover { text-decoration: underline; }
+    .calls-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; }
+    @media (max-width: 900px) { .calls-grid { grid-template-columns: repeat(3, 1fr); } }
   </style>
 </head>
 <body>
@@ -188,7 +169,7 @@
 
   <div class="calls-section">
     <div class="board-title">This Week's Calls</div>
-    <div class="calls-scroll" id="calls-row"></div>
+    <div class="calls-grid" id="calls-row"></div>
   </div>
 
   <div class="main-grid">
@@ -405,32 +386,23 @@
   }
 
   function renderCalls() {
-    const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    const now = new Date();
-    const typeLabel = { intro:'Intro', workshop:'Workshop', partner:'Partner Intro', deal:'Deal Call' };
-    const typeCls   = { intro:'type-intro', workshop:'type-workshop', partner:'type-partner', deal:'type-deal' };
+    const cats = [
+      { key:'intro',     label:'Intro Calls' },
+      { key:'demo',      label:'Demos' },
+      { key:'discovery', label:'Technical Disco' },
+      { key:'workshop',  label:'Workshops' },
+      { key:'partner',   label:'Partner Calls' },
+      { key:'proposal',  label:'Proposal Calls' },
+    ];
+    const counts = {};
+    cats.forEach(c => counts[c.key] = 0);
+    CALLS.forEach(c => { if (counts[c.type] !== undefined) counts[c.type]++; });
 
-    const html = CALLS.map(c => {
-      const d    = new Date(c.start);
-      const past = d < now;
-      const dayStr   = d.toDateString() === now.toDateString() ? 'Today' : days[d.getDay()];
-      const dateLabel = `${dayStr} · ${months[d.getMonth()]} ${d.getDate()}`;
-      const dealLink  = c.deal ? `<a href="../deal-review/#${c.deal}" class="call-link">Deal Room</a>` : '';
-      return `
-        <div class="call-card${past ? ' past' : ''}">
-          <div class="call-day">${dateLabel}</div>
-          <div class="call-time">${c.time}</div>
-          <div class="call-title">${c.title}</div>
-          <div class="call-meta">
-            <span class="call-type ${typeCls[c.type]}">${typeLabel[c.type]}</span>
-            ${dealLink}
-            <a href="${c.meet}" target="_blank" class="call-link">Join →</a>
-          </div>
-        </div>`;
-    }).join('');
-
-    document.getElementById('calls-row').innerHTML = html || '<div class="empty-col">No customer calls this week</div>';
+    document.getElementById('calls-row').innerHTML = cats.map(c => `
+      <div class="stat-card">
+        <div class="stat-label">${c.label}</div>
+        <div class="stat-val ${counts[c.key] > 0 ? 'val-green' : ''}" style="${counts[c.key] === 0 ? 'color:var(--muted)' : ''}">${counts[c.key]}</div>
+      </div>`).join('');
   }
 
   function render() {
