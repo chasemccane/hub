@@ -737,6 +737,7 @@ function renderSidebar() {
 // ── DETAIL PANEL ──
 function openDeal(id) {
   currentId = id;
+  history.replaceState(null, '', '#' + id);
   renderSidebar();
   const deal = DEALS.find(d => d.id === id);
   if (!deal) return;
