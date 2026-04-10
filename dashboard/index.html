@@ -134,6 +134,28 @@
     .calls-section { margin-bottom: 28px; }
     .calls-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; }
     @media (max-width: 900px) { .calls-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    /* ── FORECAST ── */
+    .forecast-section { margin-bottom: 32px; }
+    .forecast-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 700px) { .forecast-grid { grid-template-columns: 1fr; } }
+    .forecast-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+      padding: 20px 22px;
+    }
+    .fc-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+    .fc-label { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+    .fc-pct { font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 6px; }
+    .fc-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 12px; }
+    .fc-val { font-size: 36px; font-weight: 900; line-height: 1; cursor: pointer; }
+    .fc-val:focus { outline: 2px solid var(--green); border-radius: 4px; }
+    .fc-sep { font-size: 18px; font-weight: 300; color: var(--muted); }
+    .fc-goal { font-size: 18px; font-weight: 700; color: var(--muted); cursor: pointer; }
+    .fc-goal:focus { outline: 2px solid var(--green); border-radius: 4px; }
+    .fc-sublabel { font-size: 10px; color: var(--muted); margin-top: 2px; }
+    .fc-bar-track { width: 100%; height: 6px; border-radius: 4px; background: rgba(255,255,255,.06); margin-top: 14px; overflow: hidden; }
+    .fc-bar-fill { height: 6px; border-radius: 4px; transition: width .5s ease; }
+    .fc-hint { font-size: 10px; color: var(--muted); margin-top: 8px; font-style: italic; opacity: .6; }
   </style>
 </head>
 <body>
@@ -152,6 +174,11 @@
   </div>
 
   <div class="stats" id="stats-bar"></div>
+
+  <div class="forecast-section">
+    <div class="board-title">My Forecast</div>
+    <div class="forecast-grid" id="forecast-grid"></div>
+  </div>
 
   <div class="calls-section">
     <div class="board-title">This Week's Calls</div>
@@ -390,8 +417,101 @@
       </div>`).join('');
   }
 
+  // ── FORECAST ──
+  const FC_KEY = 'hub-forecast';
+  const FC_DEFAULTS = { opps: 4, opps_goal: 7, pbr: 800000, pbr_quota: 1041000 };
+  let fc = Object.assign({}, FC_DEFAULTS);
+  try { const s = localStorage.getItem(FC_KEY); if (s) fc = {...FC_DEFAULTS, ...JSON.parse(s)}; } catch(e) {}
+
+  function saveFc() { localStorage.setItem(FC_KEY, JSON.stringify(fc)); }
+
+  function parsePbr(raw) {
+    const s = raw.replace(/[$,\s]/g, '').toUpperCase();
+    if (s.endsWith('M')) return Math.round(parseFloat(s) * 1000000);
+    if (s.endsWith('K')) return Math.round(parseFloat(s) * 1000);
+    return parseInt(s) || 0;
+  }
+
+  function renderForecast() {
+    const pctOpps = fc.opps_goal > 0 ? Math.round(fc.opps / fc.opps_goal * 100) : 0;
+    const pctPbr  = fc.pbr_quota > 0 ? Math.round(fc.pbr  / fc.pbr_quota  * 100) : 0;
+
+    function barColor(pct) {
+      if (pct >= 80) return 'linear-gradient(90deg,#00a86b,#00d4a0)';
+      if (pct >= 50) return 'linear-gradient(90deg,#f59e0b,#fbbf24)';
+      return 'linear-gradient(90deg,#ff3000,#ff6b35)';
+    }
+    function pctColor(pct) {
+      if (pct >= 80) return { bg:'var(--green-dim)', color:'var(--green)' };
+      if (pct >= 50) return { bg:'var(--amber-dim)', color:'var(--amber)' };
+      return { bg:'var(--red-dim)', color:'var(--red)' };
+    }
+
+    const ocol = pctColor(pctOpps), pcol = pctColor(pctPbr);
+    const needed_opps = Math.max(0, fc.opps_goal - fc.opps);
+    const needed_pbr  = Math.max(0, fc.pbr_quota - fc.pbr);
+
+    document.getElementById('forecast-grid').innerHTML = `
+      <div class="forecast-card">
+        <div class="fc-header">
+          <div class="fc-label">Opportunities</div>
+          <div class="fc-pct" style="background:${ocol.bg};color:${ocol.color}">${pctOpps}% of goal</div>
+        </div>
+        <div class="fc-row">
+          <div class="fc-val ${pctOpps >= 80 ? 'val-green' : pctOpps >= 50 ? 'val-amber' : 'val-red'}"
+               contenteditable spellcheck="false"
+               title="Click to edit"
+               onblur="fc.opps=parseInt(this.textContent)||0;saveFc();renderForecast()"
+               onkeydown="if(event.key==='Enter'){event.preventDefault();this.blur()}"
+               >${fc.opps}</div>
+          <div class="fc-sep">/</div>
+          <div class="fc-goal"
+               contenteditable spellcheck="false"
+               title="Click to edit goal"
+               onblur="fc.opps_goal=parseInt(this.textContent)||0;saveFc();renderForecast()"
+               onkeydown="if(event.key==='Enter'){event.preventDefault();this.blur()}"
+               >${fc.opps_goal}</div>
+          <div>
+            <div class="fc-sublabel">calling</div>
+            <div class="fc-sublabel">goal</div>
+          </div>
+        </div>
+        <div class="fc-bar-track"><div class="fc-bar-fill" style="width:${Math.min(pctOpps,100)}%;background:${barColor(pctOpps)}"></div></div>
+        ${needed_opps > 0 ? `<div class="fc-hint">${needed_opps} more to hit goal</div>` : `<div class="fc-hint" style="color:var(--green);opacity:1">Goal reached</div>`}
+      </div>
+
+      <div class="forecast-card">
+        <div class="fc-header">
+          <div class="fc-label">PBR</div>
+          <div class="fc-pct" style="background:${pcol.bg};color:${pcol.color}">${pctPbr}% of quota</div>
+        </div>
+        <div class="fc-row">
+          <div class="fc-val ${pctPbr >= 80 ? 'val-green' : pctPbr >= 50 ? 'val-amber' : 'val-red'}"
+               contenteditable spellcheck="false"
+               title="Click to edit (e.g. 800k or 1.2M)"
+               onblur="fc.pbr=parsePbr(this.textContent);saveFc();renderForecast()"
+               onkeydown="if(event.key==='Enter'){event.preventDefault();this.blur()}"
+               >${fmtMoney(fc.pbr)}</div>
+          <div class="fc-sep">/</div>
+          <div class="fc-goal"
+               contenteditable spellcheck="false"
+               title="Click to edit quota"
+               onblur="fc.pbr_quota=parsePbr(this.textContent);saveFc();renderForecast()"
+               onkeydown="if(event.key==='Enter'){event.preventDefault();this.blur()}"
+               >${fmtMoney(fc.pbr_quota)}</div>
+          <div>
+            <div class="fc-sublabel">calling</div>
+            <div class="fc-sublabel">quota</div>
+          </div>
+        </div>
+        <div class="fc-bar-track"><div class="fc-bar-fill" style="width:${Math.min(pctPbr,100)}%;background:${barColor(pctPbr)}"></div></div>
+        ${needed_pbr > 0 ? `<div class="fc-hint">${fmtMoney(needed_pbr)} to quota</div>` : `<div class="fc-hint" style="color:var(--green);opacity:1">Quota attained</div>`}
+      </div>`;
+  }
+
   function render() {
     renderStats();
+    renderForecast();
     renderKanban();
     renderTasks();
     renderCalls();
