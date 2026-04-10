@@ -188,17 +188,49 @@
         "created": "2026-02-18"
       },
       "meddic": {
-        "metrics": "",
-        "economic_buyer": "",
-        "decision_criteria": "",
-        "decision_process": "",
-        "pain": "",
-        "champion": ""
+        "metrics": "Wholesale floral distributor \u2014 3 locations (Seattle area, Spokane, Boise). Majority B2B; warehouses operate like restaurant supply for the floral trade (customers push carts). Currently 10-15% of business done online across two channels: own in-stock portal (outdated) and a third-party floral marketplace. Majority of orders placed via phone/email/text with assigned sales reps. QuickBooks being stressed at current scale.",
+        "economic_buyer": "Mark (last name not captured) \u2014 appears to be owner or senior decision-maker. He is personally evaluating platforms, has the authority to choose, and is the one with the backup plan. Grant Dugas (Shopify SDR) introduced us. No committee or other stakeholders mentioned yet.",
+        "decision_criteria": "Unified system (everything in one place \u2014 prior pain from daily data sync failures). Online portal that is modern and usable (current one looks like 1998). Ability to handle advance orders \u2014 flowers sold before inventory and pricing are known. Support for both B2B wholesale customers (net 30/ACH) and retail (pay in advance). Sales rep order entry and tracking internally (not just customer-facing \u2014 this is a key short-term requirement Mark flagged as a common gap). Flexible payment processing (not locked to one payment provider). QuickBooks integration or path off QuickBooks long-term.",
+        "decision_process": "Mark evaluating independently \u2192 SE technical call (30 min, late week of 4/7 or early week of 4/14) \u2192 Mark assessing platform fit from content care package + SE call \u2192 decision. No formal committee mentioned. Mark has a backup plan ready and is open-minded but skeptical \u2014 Shopify is one option he is exploring.",
+        "pain": "Industry-specific platform being discontinued \u2014 drop dead date already passed (7 days before 4/8 call), timeline extended but urgent. Current online portal is 10+ years out of date \u2014 Mark calls it 1998-level, customers are patient but it is costing credibility. System cannot handle advance orders (flowers sold before inventory/pricing is known \u2014 this is a large portion of their business). QuickBooks is being stressed at current company size. Two siloed online channels (own portal + third-party marketplace) with no unified view.",
+        "champion": "Mark is both the evaluator and the likely EB \u2014 no separation. Grant Dugas surfaced and introduced the opportunity. No internal champion advocating separately; Mark is driving the eval himself. This means there is no champion inside to coach \u2014 relationship with Mark is everything."
       },
-      "strategy": "",
-      "risks": [],
-      "done": [],
-      "left": [],
+      "strategy": "Platform discontinuation creates urgency but Mark has a backup plan and is not panicking. He sees Shopify as a long-term front-end play for online/customer-facing, not a full ERP. The SE call (next step) is critical \u2014 need to show that Shopify can handle: (1) internal sales rep order entry + tracking (his flagged gap), (2) advance orders with deferred pricing, (3) B2B + DTC + POS unified. If we solve the short-term sales rep order entry problem, Shopify becomes both the short and long-term answer. If we cannot, he uses a backup for short-term and potentially chooses whatever ERP integrates best for front-end long-term.",
+      "risks": [
+        {
+          "sev": "high",
+          "text": "Mark activates his backup plan before we get to SE call \u2014 urgency dissipates, deal stalls indefinitely because the platform discontinuation pressure is gone.",
+          "mit": "Move fast. Get the content care package out same day, get the SE call on the calendar within 48 hours. Create urgency around showing Shopify as the short-term solution too, not just long-term."
+        },
+        {
+          "sev": "high",
+          "text": "Shopify cannot convincingly solve internal sales rep order entry and tracking \u2014 Mark told us this is the key short-term requirement that past platforms have failed on. If we fail this bar, deal is dead.",
+          "mit": "Prep Jordan (SE) specifically on this use case before the call. Research Shopify draft orders, B2B rep-linked ordering, and any app ecosystem solutions. Lead with a live demo of rep order entry in the SE session."
+        },
+        {
+          "sev": "medium",
+          "text": "Mark chooses a full ERP that bundles a front-end \u2014 if he goes with an industry-specific ERP that has a built-in online portal, Shopify loses both the short and long-term opportunity.",
+          "mit": "Position Shopify as the stronger front-end even when paired with an ERP. Offer to present a Shopify + QuickBooks or Shopify + ERP integration story. Do not concede the front-end decision by accident."
+        },
+        {
+          "sev": "low",
+          "text": "Deal moves very slowly \u2014 Mark is thoughtful, has no hard deadline now, and is evaluating multiple options. Without momentum, this slips quarters.",
+          "mit": "Set a clear SE call date on the 4/8 intro call follow-up. After SE call, propose a specific next step with a date. Keep Mark engaged with relevant content between calls."
+        }
+      ],
+      "done": [
+        "Intro call with Mark via Grant Dugas (4/8) \u2014 confirmed platform discontinuation urgency, 3 locations, B2B + DTC + POS opportunity, advance order challenge, sales rep order entry as key requirement",
+        "Content care package email committed (Chase to send post-call)"
+      ],
+      "left": [
+        "Send content care package email to Mark (payment options, POS info, B2B portal overview, videos)",
+        "Schedule 30-min SE technical call (late week of 4/14 or early week of 4/21)",
+        "SE call \u2014 lead with sales rep order entry use case, advance orders, B2B + DTC + POS demo",
+        "Determine QuickBooks integration path or ERP migration story",
+        "Discovery: understand Mark's backup plan and timeline pressure",
+        "Demo / executive alignment",
+        "Contract"
+      ],
       "notes": ""
     },
     "newegg": {
