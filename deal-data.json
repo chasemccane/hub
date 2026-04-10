@@ -70,17 +70,56 @@
         "created": "2026-03-20"
       },
       "meddic": {
-        "metrics": "",
-        "economic_buyer": "",
-        "decision_criteria": "",
-        "decision_process": "",
-        "pain": "",
-        "champion": ""
+        "metrics": "In-Store POS Revenue: $16.5M total annual revenue across 3 stores (Southern Concrete); ~$1.5M processed by credit card today.\nQuarry/COD Credit Card Volume: $25–30M in COD concrete sales processed by credit card at quarry locations — potential full consolidation to Shopify Payments.\nStore Count: 3 current locations, 4th standalone store planned.\nHard Implementation Deadline: Current ERP (readymix software) goes end-of-life December 2025 — POS must launch in conjunction with NetSuite go-live.\nDecision Timeline: Logan committed to making a platform decision within 1–2 months of 3/20 call (~by mid-May).",
+        "economic_buyer": "Unconfirmed — Logan Hundley (Assistant Controller) is the primary contact but sits in finance ops and has stated he is not the final decision-maker for the store side. Kevin Fender (Store/Operations Manager) is the closest operational authority identified and was present on both the Technical Disco and Demo.\nAmy Goudy (3rd-party NetSuite consultant) stated after the Demo that 'a decision is needed now to allow the parallel NetSuite project to move forward' — indicating there is an unnamed executive at Hedrick/Southern Concrete whose sign-off is required.\nRisk: True Economic Buyer has not been identified or engaged directly. Logan and Kevin are both influencers, not confirmed budget owners.",
+        "decision_criteria": "NetSuite Integration (Non-Negotiable #1): All Shopify transactions must feed into NetSuite as cash sales with inventory sync. This is the primary evaluation filter — NetSuite's own team pointed Hedrick to Shopify as a preferred connector.\nModern POS to Replace ERP Checkout: Current process has cashiers opening/closing the ERP for every transaction — unacceptable. New system must be intuitive, tablet-based, and decoupled from the ERP.\nInventory Management: Real-time inventory tracking across 3+ locations, replacing fully manual processes.\nContractor/B2B Pricing Support: Must support varied contractor pricing lists (currently managed as coupons). Shopify B2B catalogues directly address this — key Plus differentiator.\nCustomer Data Capture: Must capture customer identity for COD/one-off credit card buyers to build historical purchase records (currently zero tracking for these buyers).\nPayment Consolidation: Strong preference to consolidate all credit card processing (retail + quarry COD) under one provider — Shopify Payments is the path.\nCompetitive Evaluation: Hedrick is evaluating a short list of competitors alongside Shopify (specific names unknown).",
+        "decision_process": "Logan Hundley (assistant controller) is the project coordinator — he schedules calls, loops in stakeholders, and manages the evaluation.\nKevin Fender (operations/store manager) is the operational decision voice — most engaged in technical and demo calls.\nAmy Goudy (3rd-party NetSuite consultant) acts as technical sounding board and integration validator.\nUnnamed Executive at Hedrick/Southern Concrete — ultimate sign-off authority (not yet engaged directly).\nCurrent stage: Demo completed 4/1. Next step is a proposal/commercial call (Chase + Logan to schedule, was due week of 4/7 — not yet confirmed).\nEvaluation is competitive — Shopify is on a short list but competitor names are unknown.\nNo formal procurement or legal process has been mentioned yet.",
+        "pain": "Operational Pain: Cashiers use the ERP directly for checkout — a non-POS system being forced into a retail role. Entirely manual inventory, slow and error-prone.\nForced Urgency: Current readymix ERP hits end-of-life at end of 2025. They have a hard deadline to replace both the ERP (NetSuite) and POS simultaneously.\nNo Customer Intelligence: One-off COD buyers (credit card) are completely untracked. No purchase history, no customer records, no ability to identify repeat buyers.\nPricing Workaround: Contractor pricing is handled via coupons in the current ERP — informal, inconsistent, and unscalable.\nSpecial Order Reporting Issues: Kevin Fender is reusing a single 'bulk sale' item code for all special orders, causing cost/reporting conflicts when costs change multiple times in a month.\nFragmented Payments: Credit card processing split across multiple providers (First Citizens reader at quarries, separate store setup) — operational complexity and no consolidated view.",
+        "champion": "Logan Hundley (Assistant Controller) — initiated the relationship, drives scheduling, and is coordinating the internal evaluation. Understands the NetSuite timeline pressure. However, limited operational depth — he defers store-specific questions to Kevin.\nKevin Fender (Store/Operations Manager) — the day-to-day pain owner. Most engaged on inventory, pricing, special orders, and fulfillment scenarios during the Technical Disco and Demo. Best positioned to advocate internally for Shopify solving real workflow problems.\nAmy Goudy (NetSuite Consultant, 3rd party) — not a Shopify champion per se, but is a strong validator. She confirmed Shopify's transactions integrate cleanly into NetSuite as cash sales and is not blocking the deal. Her endorsement carries weight since she owns the NetSuite side."
       },
-      "strategy": "",
-      "risks": [],
-      "done": [],
-      "left": [],
+      "strategy": "Shopify came into this deal with a significant tailwind — NetSuite's own implementation team referred Hedrick to us as a preferred POS connector. That's the foundation: we're not selling against skepticism, we're confirming a recommendation.\n\nThe primary play is NetSuite integration + operational modernization. Their current process (cashiers opening an ERP at checkout, fully manual inventory, zero customer tracking) is visibly broken and has a hard deadline attached — ERP goes end-of-life at year-end. We don't need to create urgency; it already exists.\n\nThe Plus justification has to be built around B2B catalogues, not just credit card rates. Contractor pricing is currently handled via coupons — a clear gap that Shopify B2B catalogues solve natively. This is the angle Jordan Murphy flagged internally and the one Kevin Fender will feel most directly.\n\nThe quarry COD consolidation ($25–30M in credit card volume) is upside that surfaced organically. If Shopify Payments can own that processing too, the rate savings alone make a meaningful ROI case — and it simplifies their payment stack.\n\nImmediate priority: get the commercial proposal in front of Logan and Kevin before momentum stalls. The Demo was 4/1 and Amy Goudy has signaled that a decision is a blocker for the NetSuite project. That pressure works in our favor — use it.",
+      "risks": [
+        {
+          "sev": "high",
+          "text": "Unknown EB kills deal on cost",
+          "mit": "Logan/Kevin are influencers — the true budget owner hasn't been engaged. If we land a proposal with them and the EB says no on price without us ever having a conversation with them, we lose with no recourse. Get EB identified and in the room before or during proposal."
+        },
+        {
+          "sev": "high",
+          "text": "Competitor wins on NetSuite-native integration",
+          "mit": "If a competitor (e.g., a NetSuite SuiteCommerce partner or purpose-built construction POS) positions their NetSuite integration as tighter or simpler than ours, we lose on the #1 decision criterion. Need Jordan to clearly demonstrate our pre-built connector and own the integration narrative."
+        },
+        {
+          "sev": "med",
+          "text": "Deal stalls into inaction",
+          "mit": "Proposal call is already overdue (was week of 4/7). If Chase doesn't get it scheduled immediately, NetSuite implementation momentum slows and Hedrick defaults to kicking the POS decision down the road — 'do nothing' wins by default."
+        },
+        {
+          "sev": "med",
+          "text": "Lose on price — can't justify Plus",
+          "mit": "If the Plus pitch is just 'better credit card rates,' a savvy buyer downgrades to POS Pro or picks a cheaper competitor. Must anchor Plus value in B2B catalogues solving the contractor pricing coupon problem — that's the real differentiator Kevin will feel."
+        },
+        {
+          "sev": "low",
+          "text": "Amy Goudy steers to a competitor",
+          "mit": "As 3rd-party NetSuite consultant, Amy is a key validator. If she has a prior relationship with a competing POS vendor or finds a cleaner integration story elsewhere, she could quietly de-position us with Logan/Kevin. Keep her warm and make her feel like the integration is built for her."
+        }
+      ],
+      "done": [
+        "Intro call completed — Logan Hundley, Chase, Thomas Gilliatt (3/20)",
+        "Internal SE kickoff / KT with Jordan Murphy (3/23)",
+        "Technical Discovery completed — Amy Goudy, Logan, Kevin Fender, Chase, Jordan (3/25)",
+        "Platform Demo delivered — full team + Victoria Forte observing (4/1)"
+      ],
+      "left": [
+        "Schedule and deliver commercial proposal (overdue — was week of 4/7)",
+        "Identify and engage true Economic Buyer",
+        "Understand competitive shortlist and differentiate",
+        "Jordan to confirm: multi-staff POS login / unfinished order handoff",
+        "Jordan to confirm: NetSuite unit conversion sync details",
+        "Legal / procurement review",
+        "Contract signed"
+      ],
       "notes": ""
     },
     "newegg": {
