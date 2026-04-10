@@ -115,23 +115,25 @@
       background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 18px;
     }
     .uc-row {
-      display: flex; align-items: center; gap: 14px;
-      padding: 10px 0; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 16px;
+      padding: 11px 0; border-bottom: 1px solid var(--border);
     }
     .uc-row:last-child { border-bottom: none; padding-bottom: 0; }
-    .uc-deal { font-size: 13px; font-weight: 600; flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .uc-deal { font-size: 13px; font-weight: 600; width: 200px; flex-shrink: 0; }
+    .uc-pills { display: flex; flex-wrap: wrap; gap: 8px; flex: 1; }
+    .uc-pill { display: flex; align-items: center; gap: 6px; }
     .uc-type {
       font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 4px;
       text-transform: uppercase; letter-spacing: .05em; flex-shrink: 0;
     }
-    .uc-intro    { background: var(--blue-dim); color: var(--blue); }
-    .uc-demo     { background: var(--green-dim); color: var(--green); }
-    .uc-partner  { background: var(--amber-dim); color: var(--amber); }
-    .uc-workshop { background: rgba(168,85,247,.12); color: #a855f7; }
-    .uc-deal-type { background: var(--border); color: var(--muted); }
-    .uc-proposal { background: var(--red-dim); color: var(--red); }
+    .uc-intro     { background: var(--blue-dim); color: var(--blue); }
+    .uc-demo      { background: var(--green-dim); color: var(--green); }
+    .uc-partner   { background: var(--amber-dim); color: var(--amber); }
+    .uc-workshop  { background: rgba(168,85,247,.12); color: #a855f7; }
+    .uc-discussion { background: var(--border); color: var(--muted); }
+    .uc-proposal  { background: var(--red-dim); color: var(--red); }
     .uc-discovery { background: var(--blue-dim); color: var(--blue); }
-    .uc-when { font-size: 11px; color: var(--muted); flex-shrink: 0; text-align: right; min-width: 120px; }
+    .uc-when { font-size: 11px; color: var(--muted); }
 
     /* ── THIS WEEK'S CALLS ── */
     .calls-section { margin-bottom: 28px; }
@@ -193,8 +195,8 @@
   const CALLS = [
     { start:'2026-04-10T08:00:00-07:00', time:'8:00–8:45am',   title:'Partner Intro · ioVista + Franklen',   type:'partner',  meet:'https://meet.google.com/mxd-uejg-wud', deal:'franklen' },
     { start:'2026-04-10T11:30:00-07:00', time:'11:30–12:00pm', title:'Partner Intro · Netalico + Franklen',  type:'partner',  meet:'https://meet.google.com/qzy-yaus-otd', deal:'franklen' },
-    { start:'2026-04-13T08:00:00-07:00', time:'8:00–9:00am',   title:'Demo · Hedrick',                       type:'demo',     meet:'https://meet.google.com/kuu-cmdi-waa', deal:'hedrick' },
-    { start:'2026-04-13T09:30:00-07:00', time:'9:30–10:00am',  title:'Franklen Equipment Discussion',        type:'deal',     meet:'https://meet.google.com/dos-vxbg-sca', deal:'franklen' },
+    { start:'2026-04-13T08:00:00-07:00', time:'8:00–9:00am',   title:'Technical Workshop · Hedrick',         type:'workshop', meet:'https://meet.google.com/kuu-cmdi-waa', deal:'hedrick' },
+    { start:'2026-04-13T09:30:00-07:00', time:'9:30–10:00am',  title:'Franklen Equipment Discussion',        type:'discussion', meet:'https://meet.google.com/dos-vxbg-sca', deal:'franklen' },
     { start:'2026-04-13T12:00:00-07:00', time:'12:00–12:30pm', title:'Orbital Transports · Intro',           type:'intro',    meet:'https://meet.google.com/jmz-gacc-phz', deal:'orbital' },
     { start:'2026-04-13T14:00:00-07:00', time:'2:00–2:30pm',   title:'Partner Intro · Netformic + Franklen', type:'partner',  meet:'https://meet.google.com/ybg-kumj-uwg', deal:'franklen' },
     { start:'2026-04-15T09:00:00-07:00', time:'9:00–9:30am',   title:'FlexRadio · Intro',                    type:'intro',    meet:'https://meet.google.com/cii-opgt-uza', deal:'' },
@@ -319,7 +321,7 @@
     const typeLabel = {
       intro: 'Intro', demo: 'Demo', partner: 'Partner Intro',
       workshop: 'Technical Workshop', discovery: 'Technical Disco',
-      proposal: 'Proposal', deal: 'Call',
+      proposal: 'Proposal', discussion: 'Discussion',
     };
 
     const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
@@ -339,19 +341,35 @@
       return `${dayStr} · ${hr}${min}${ampm}`;
     }
 
-    const rows = CALLS
-      .filter(c => new Date(c.start) >= new Date(new Date().toDateString()))
+    // Group by deal, preserving earliest-call order per group
+    const grouped = new Map();
+    CALLS
+      .filter(c => {
+        const t = new Date(c.start);
+        const now = new Date(new Date().toDateString());
+        const cap = new Date(now); cap.setDate(cap.getDate() + 30);
+        return t >= now && t <= cap;
+      })
       .sort((a, b) => new Date(a.start) - new Date(b.start))
-      .map(c => {
-        const dealName = c.deal ? (dealMap[c.deal] || c.deal) : c.title.split('·')[0].trim();
-        const label = typeLabel[c.type] || c.type;
-        return `
-          <div class="uc-row">
-            <div class="uc-deal">${dealName}</div>
-            <span class="uc-type uc-${c.type}">${label}</span>
-            <div class="uc-when">${fmtWhen(c.start)}</div>
-          </div>`;
-      }).join('');
+      .forEach(c => {
+        const key = c.deal || c.title;
+        const name = c.deal ? (dealMap[c.deal] || c.deal) : c.title.split('·')[0].trim();
+        if (!grouped.has(key)) grouped.set(key, { name, calls: [] });
+        grouped.get(key).calls.push(c);
+      });
+
+    const rows = [...grouped.values()].map(({ name, calls }) => {
+      const pills = calls.map(c => `
+        <span class="uc-pill">
+          <span class="uc-type uc-${c.type}">${typeLabel[c.type] || c.type}</span>
+          <span class="uc-when">${fmtWhen(c.start)}</span>
+        </span>`).join('');
+      return `
+        <div class="uc-row">
+          <div class="uc-deal">${name}</div>
+          <div class="uc-pills">${pills}</div>
+        </div>`;
+    }).join('');
 
     document.getElementById('tasks-panel').innerHTML = `
       <div class="upcoming-calls">
