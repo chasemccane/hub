@@ -11,7 +11,7 @@
         "created": "2026-03-26"
       },
       "meddic": {
-        "metrics": "Revenue Growth: Achieve 30% year-over-year growth on their $28M ARR.\nOperational Cost Savings: Eliminate the 2-3 full-time employees dedicated to manual order entry, representing a $100-150K+ annual hard-cost saving.\nDealer Adoption: Drive dealer portal adoption from a very low current rate to 80% or higher.\nOrder Volume: Successfully process the current ~1,566 orders/month with the capacity to scale by 30%+ without adding operational headcount.\nChannel Revenue: The platform must support their current 85% B2B / 15% D2C revenue split.",
+        "metrics": "Revenue Growth: Achieve 30% year-over-year growth on their $28M ARR.\nOperational Cost Savings: Eliminate the 2-3 full-time employees dedicated to manual order entry, representing a $100-150K+ annual hard-cost saving.\nDealer Adoption: Drive dealer portal adoption from a very low current rate to 80% or higher.\nOrder Volume: Successfully process the current ~1,566 orders/month with the capacity to scale by 30%+ without adding operational headhead.\nChannel Revenue: The platform must support their current 85% B2B / 15% D2C revenue split.",
         "economic_buyer": "Primary Budget Owner/Influencer: Yemilyn Mosley (CSO). She owns the revenue goals and the operational efficiency of the sales and digital teams. She is building the business case.\nUltimate Economic Buyer (Unconfirmed but Highly Likely): Hamza Deyaf (CEO). Yemilyn stated she needs to \"present a unified picture—including cost and timeline—to internal stakeholders.\" Given the project's strategic importance and the CEO's noted frustration with brand presentation (pixelated images), he is the ultimate decision-maker with final sign-off authority.\nRisk: We have no direct contact with the CEO. Our entire business case is being filtered through our Champion (Yemilyn).",
         "decision_criteria": "UI/UX & Brand Presentation (Stated #1 Priority): The platform and partner must be able to deliver a world-class, modern look and feel that aligns with their brand leadership. The CEO's AI-generated website concept is a key influence here.\nAcumatica Integration: The solution must provide a seamless, real-time, bidirectional integration with Acumatica to eliminate manual order entry. This is the core of the ROI and is non-negotiable.\nB2B Functionality: Must natively handle their complex, revenue-based, multi-tiered dealer pricing structure without workarounds (i.e., no more Google Sheets).\nCustom Tool Migration: The ability to strategically handle their 16 years of custom tools (\"Rapid Ordering,\" \"Build a Car\") through embedding or rebuilding is a critical technical hurdle.\nPartner Competence: The selected partner's ability to demonstrate deep backend expertise and a strong UI/UX portfolio is a primary decision factor.\nTotal Cost of Ownership & ROI: The business case must be clear. Yemilyn specifically requested an executive summary with ROI data points to present internally.",
         "decision_process": "Partner Vetting (Current Stage): Yemilyn is leading the evaluation of 4 shortlisted VIP partners in parallel with platform discovery.\nPartner Demos & Scoping: Each partner will conduct discovery and provide a demo, focusing first on backend capabilities and then on UI/UX.\nProposal & SOW Review: Yemilyn will receive formal proposals, timelines, and cost breakdowns from the selected partners.\nInternal Business Case Presentation: Yemilyn will consolidate the findings, platform costs, and partner SOW into a \"unified picture\" to present to the CEO and other internal stakeholders.\nFinal Stakeholder Approval: The CEO will provide the final go/no-go decision.\nTimeline: They want to move quickly to support growth, but no hard \"sign-by\" date has been established. A 4-6 month project timeline is the current expectation.",
@@ -20,31 +20,11 @@
       },
       "strategy": "Core play is operational efficiency + dealer experience. Feniex is growing fast but operationally constrained by their current custom platform. The ROI story is: reduce manual order processing, give dealers self-serve tools, and integrate Acumatica so their ops team stops doing manual reconciliation.\n\nPosition Shopify Plus as the only platform that can do B2B natively at scale without a massive custom build. Competitors would require significant integration investment. We have the B2B feature set AND the partner ecosystem for Acumatica.\n\nChampion Yemilyn has urgency — she's tied this to her revenue growth goal. Keep momentum, get SE demo scheduled, move to LOI before end of April.",
       "risks": [
-        {
-          "sev": "high",
-          "text": "CEO Rejects the Business Case",
-          "mit": "No direct access to Economic Buyer)"
-        },
-        {
-          "sev": "med",
-          "text": "\"Sticker Shock\" from Partner SOW",
-          "mit": "(High cost to migrate 16 years of custom tools)"
-        },
-        {
-          "sev": "med",
-          "text": "No identified implementation partner yet",
-          "mit": "4-5 partners have been introduced"
-        },
-        {
-          "sev": "med",
-          "text": "Inertia & Analysis Paralysis",
-          "mit": "(\"Do nothing\" wins due to perceived complexity)"
-        },
-        {
-          "sev": "low",
-          "text": "We Fail the \"Brand & Vibe\" Check",
-          "mit": "(Lose on subjective UI/UX grounds)"
-        }
+        { "sev": "high", "text": "CEO Rejects the Business Case", "mit": "No direct access to Economic Buyer)" },
+        { "sev": "med", "text": "\"Sticker Shock\" from Partner SOW", "mit": "(High cost to migrate 16 years of custom tools)" },
+        { "sev": "med", "text": "No identified implementation partner yet", "mit": "4-5 partners have been introduced" },
+        { "sev": "med", "text": "Inertia & Analysis Paralysis", "mit": "(\"Do nothing\" wins due to perceived complexity)" },
+        { "sev": "low", "text": "We Fail the \"Brand & Vibe\" Check", "mit": "(Lose on subjective UI/UX grounds)" }
       ],
       "done": [
         "Discovery call completed",
@@ -69,85 +49,8 @@
         "close": "2026-05-20",
         "created": "2026-03-20"
       },
-      "meddic": {
-        "metrics": "",
-        "economic_buyer": "",
-        "decision_criteria": "",
-        "decision_process": "",
-        "pain": "",
-        "champion": ""
-      },
-      "strategy": "",
-      "risks": [],
-      "done": [],
-      "left": [],
-      "notes": ""
-    },
-    "newegg": {
-      "sf": {
-        "id": "006OG00000MTUyvYAH",
-        "pbr": 0,
-        "stage": "Pre-Qualified",
-        "close": "2026-06-30",
-        "created": "2026-04-01"
-      },
-      "meddic": {
-        "metrics": "",
-        "economic_buyer": "",
-        "decision_criteria": "",
-        "decision_process": "",
-        "pain": "",
-        "champion": ""
-      },
-      "strategy": "",
-      "risks": [],
-      "done": [],
-      "left": [],
-      "notes": ""
-    },
-    "excellentia": {
-      "sf": {
-        "id": "006OG00000MDJjJYAX",
-        "pbr": 102821,
-        "stage": "Pre-Qualified",
-        "close": "2026-06-30",
-        "created": "2026-03-23"
-      },
-      "meddic": {
-        "metrics": "",
-        "economic_buyer": "",
-        "decision_criteria": "",
-        "decision_process": "",
-        "pain": "",
-        "champion": ""
-      },
-      "strategy": "",
-      "risks": [],
-      "done": [],
-      "left": [],
-      "notes": ""
-    },
-    "washington-floral": {
-      "sf": {
-        "id": "006OG00000LJrChYAL",
-        "pbr": 102821,
-        "stage": "Envision",
-        "close": "2026-06-30",
-        "created": "2026-02-18"
-      },
-      "meddic": {
-        "metrics": "",
-        "economic_buyer": "",
-        "decision_criteria": "",
-        "decision_process": "",
-        "pain": "",
-        "champion": ""
-      },
-      "strategy": "",
-      "risks": [],
-      "done": [],
-      "left": [],
-      "notes": ""
+      "meddic": { "metrics": "", "economic_buyer": "", "decision_criteria": "", "decision_process": "", "pain": "", "champion": "" },
+      "strategy": "", "risks": [], "done": [], "left": [], "notes": ""
     },
     "bigrock": {
       "sf": {
@@ -157,41 +60,30 @@
         "close": "2026-06-23",
         "created": "2026-03-27"
       },
-      "meddic": {
-        "metrics": "",
-        "economic_buyer": "",
-        "decision_criteria": "",
-        "decision_process": "",
-        "pain": "",
-        "champion": ""
-      },
-      "strategy": "",
-      "risks": [],
-      "done": [],
-      "left": [],
-      "notes": ""
+      "meddic": { "metrics": "", "economic_buyer": "", "decision_criteria": "", "decision_process": "", "pain": "", "champion": "" },
+      "strategy": "", "risks": [], "done": [], "left": [], "notes": ""
     },
-    "kyd": {
+    "newegg": {
       "sf": {
-        "id": "006OG00000MDBU2YAP",
+        "id": "006OG00000MTUyvYAH",
+        "pbr": 0,
+        "stage": "Pre-Qualified",
+        "close": "2026-06-30",
+        "created": "2026-04-01"
+      },
+      "meddic": { "metrics": "", "economic_buyer": "", "decision_criteria": "", "decision_process": "", "pain": "", "champion": "" },
+      "strategy": "", "risks": [], "done": [], "left": [], "notes": ""
+    },
+    "washington-floral": {
+      "sf": {
+        "id": "006OG00000LJrChYAL",
         "pbr": 102821,
         "stage": "Envision",
-        "close": "2026-08-26",
-        "created": "2026-03-23"
+        "close": "2026-06-30",
+        "created": "2026-02-18"
       },
-      "meddic": {
-        "metrics": "",
-        "economic_buyer": "",
-        "decision_criteria": "",
-        "decision_process": "",
-        "pain": "",
-        "champion": ""
-      },
-      "strategy": "",
-      "risks": [],
-      "done": [],
-      "left": [],
-      "notes": ""
+      "meddic": { "metrics": "", "economic_buyer": "", "decision_criteria": "", "decision_process": "", "pain": "", "champion": "" },
+      "strategy": "", "risks": [], "done": [], "left": [], "notes": ""
     },
     "orbital": {
       "sf": {
@@ -201,19 +93,8 @@
         "close": "2026-07-31",
         "created": "2026-04-07"
       },
-      "meddic": {
-        "metrics": "",
-        "economic_buyer": "",
-        "decision_criteria": "",
-        "decision_process": "",
-        "pain": "",
-        "champion": ""
-      },
-      "strategy": "",
-      "risks": [],
-      "done": [],
-      "left": [],
-      "notes": ""
+      "meddic": { "metrics": "", "economic_buyer": "", "decision_criteria": "", "decision_process": "", "pain": "", "champion": "" },
+      "strategy": "", "risks": [], "done": [], "left": [], "notes": ""
     },
     "anatomy": {
       "sf": {
@@ -223,19 +104,8 @@
         "close": "2026-07-31",
         "created": "2026-04-07"
       },
-      "meddic": {
-        "metrics": "",
-        "economic_buyer": "",
-        "decision_criteria": "",
-        "decision_process": "",
-        "pain": "",
-        "champion": ""
-      },
-      "strategy": "",
-      "risks": [],
-      "done": [],
-      "left": [],
-      "notes": ""
+      "meddic": { "metrics": "", "economic_buyer": "", "decision_criteria": "", "decision_process": "", "pain": "", "champion": "" },
+      "strategy": "", "risks": [], "done": [], "left": [], "notes": ""
     },
     "franklen": {
       "sf": {
@@ -245,19 +115,19 @@
         "close": "2026-08-25",
         "created": "2026-04-02"
       },
-      "meddic": {
-        "metrics": "",
-        "economic_buyer": "",
-        "decision_criteria": "",
-        "decision_process": "",
-        "pain": "",
-        "champion": ""
+      "meddic": { "metrics": "", "economic_buyer": "", "decision_criteria": "", "decision_process": "", "pain": "", "champion": "" },
+      "strategy": "", "risks": [], "done": [], "left": [], "notes": ""
+    },
+    "kyd": {
+      "sf": {
+        "id": "006OG00000MDBU2YAP",
+        "pbr": 102821,
+        "stage": "Envision",
+        "close": "2026-08-26",
+        "created": "2026-03-23"
       },
-      "strategy": "",
-      "risks": [],
-      "done": [],
-      "left": [],
-      "notes": ""
+      "meddic": { "metrics": "", "economic_buyer": "", "decision_criteria": "", "decision_process": "", "pain": "", "champion": "" },
+      "strategy": "", "risks": [], "done": [], "left": [], "notes": ""
     }
   }
 }
