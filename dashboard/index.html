@@ -324,6 +324,13 @@
       proposal: 'Proposal', discussion: 'Discussion',
     };
 
+    // Week bounds: Mon 00:00 → next Mon 00:00
+    const now = new Date();
+    const dayOfWeek = now.getDay(); // 0=Sun
+    const toMonday = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
+    const weekStart = new Date(now.getFullYear(), now.getMonth(), now.getDate() + toMonday);
+    const weekEnd   = new Date(weekStart); weekEnd.setDate(weekStart.getDate() + 7);
+
     const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
     const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
@@ -346,9 +353,8 @@
     CALLS
       .filter(c => {
         const t = new Date(c.start);
-        const now = new Date(new Date().toDateString());
-        const cap = new Date(now); cap.setDate(cap.getDate() + 30);
-        return t >= now && t <= cap;
+        const cap = new Date(weekEnd); cap.setDate(weekEnd.getDate() + 30);
+        return t >= weekEnd && t < cap;
       })
       .sort((a, b) => new Date(a.start) - new Date(b.start))
       .forEach(c => {
@@ -386,9 +392,13 @@
       { key:'partner',   label:'Partner Calls' },
       { key:'proposal',  label:'Proposal Calls' },
     ];
+    const dow = new Date().getDay();
+    const wkStart = new Date(); wkStart.setDate(wkStart.getDate() + (dow === 0 ? -6 : 1 - dow)); wkStart.setHours(0,0,0,0);
+    const wkEnd = new Date(wkStart); wkEnd.setDate(wkStart.getDate() + 7);
     const counts = {};
     cats.forEach(c => counts[c.key] = 0);
-    CALLS.forEach(c => { if (counts[c.type] !== undefined) counts[c.type]++; });
+    CALLS.filter(c => { const t = new Date(c.start); return t >= wkStart && t < wkEnd; })
+         .forEach(c => { if (counts[c.type] !== undefined) counts[c.type]++; });
 
     document.getElementById('calls-row').innerHTML = cats.map(c => `
       <div class="stat-card">
