@@ -133,17 +133,50 @@
         "created": "2026-03-27"
       },
       "meddic": {
-        "metrics": "",
-        "economic_buyer": "",
-        "decision_criteria": "",
-        "decision_process": "",
-        "pain": "",
-        "champion": ""
+        "metrics": "Industrial supply distributor \u2014 safety, electrical, and emergency products. Ships nationwide + Canada, physical retail store + online B2B/DTC. Local (Chicago-area) customer pricing tier vs national pricing. Currently on Cart.com; migrating to support growth. Jordan Schwartz (SE) engaged.",
+        "economic_buyer": "Owner (unnamed \u2014 not yet engaged directly). Director of Operations Jim is a key stakeholder (was out week of 4/13). Pricing department contact also involved in final decision. Sonny Rodriguez (coordinator/buyer contact) and Junior Campos (8-yr website mgr) are day-to-day contacts but are not the final EBs.",
+        "decision_criteria": "Business Central 365 cloud integration (must use off-the-shelf Shopify connector, BC = system of truth). Native compatibility with ShipperHQ (freight quoting), Mailchimp (email), and Authorize.net (payments). Tiered/loyalty pricing for local Chicago-area accounts. POS solution for physical store (Shopify POS included in Plus). Unified backend for B2B + DTC. Implementation agency with strong communication and fair pricing.",
+        "decision_process": "Sonny + Junior evaluating \u2192 demo week of 4/20 with full stakeholder group (owner, Jim/Ops Director, pricing dept) \u2192 executive workshop post-demo \u2192 agency shortlist and intros \u2192 contract before summer \u2192 EOY launch target. Competitive shortlist based on integration fit (BC365, ShipperHQ, etc.).",
+        "pain": "Customers must call sales reps to place orders \u2014 no self-serve B2B portal. Manual freight quoting: rep gets quote, calls back customer, manually updates order. Local pricing tiers are offline \u2014 Chicago-area customers call to get local rates, cannot self-serve. Manual fraud checks: address mismatch triggers manual review per order. Cart.com lacks native integrations for BC365, ShipperHQ, and marketing stack.",
+        "champion": "Sonny Rodriguez \u2014 driving the evaluation, primary point of contact, arranging stakeholder demos. Junior Campos \u2014 8-year website manager, deep technical knowledge of integrations, validation layer for platform fit. Neither has final budget authority. Owner (EB) not yet engaged \u2014 champion coaching needed before demo."
       },
-      "strategy": "",
-      "risks": [],
-      "done": [],
-      "left": [],
+      "strategy": "Unified commerce play. Cart.com is misaligned with their technical stack and growth direction \u2014 no native BC365, ShipperHQ, or marketing integrations. Shopify Plus solves everything natively: BC365 cloud connector, ShipperHQ app, Mailchimp, Authorize.net, and Shopify POS for the physical store. Technical fit confirmed in discovery (4/3). Main hurdle is budget \u2014 owner and Jim (Ops Director) need to be brought into the value conversation before the demo. Demo week of 4/20 must include the full stakeholder group to unlock a pre-summer close.",
+      "risks": [
+        {
+          "sev": "high",
+          "text": "Owner rejects on price without ever engaging \u2014 we lose because Sonny and Junior cannot close without EB buy-in, and we never got in the room with the owner.",
+          "mit": "Coach Sonny and Junior to bring the owner into the 4/20 demo. Frame the ROI story around labor reduction (manual ordering, freight quoting, fraud checks) before the meeting so they walk in with a business case, not just a platform pitch."
+        },
+        {
+          "sev": "high",
+          "text": "Budget unknown \u2014 Plus license and implementation partner cost lands above their threshold and deal stalls or dies after demo.",
+          "mit": "Qualify budget range before or at the 4/20 demo. Work with Jordan on a cost story that bundles the efficiency savings. Identify if a phased implementation approach reduces initial sticker shock."
+        },
+        {
+          "sev": "medium",
+          "text": "Competitor wins by leading with a tighter BC365 integration story \u2014 BigCommerce or Adobe pitches native ERP integration and we lose the technical evaluation.",
+          "mit": "Proactively demo the Shopify BC365 cloud connector with real data in the 4/20 session. Get ahead of the competitive narrative with Sonny + Junior before the full stakeholder meeting."
+        },
+        {
+          "sev": "medium",
+          "text": "Deal slips past summer deadline \u2014 Jim returns late, exec workshop never gets scheduled, and we miss the contract window, pushing to Q3 or later.",
+          "mit": "Nail down the 4/20 demo date now, confirm Jim is back and able to attend. After demo, propose a specific exec workshop date within 2 weeks. Keep deal momentum visible to Sonny and Junior."
+        }
+      ],
+      "done": [
+        "Intro call",
+        "Internal SE sync with Jordan Schwartz (3/30) \u2014 confirmed Cart.com migration, identified contacts Sonny Rodriguez + Junior Campos, flagged budget/pricing as key hurdle",
+        "Technical discovery with Sonny + Junior + Jordan (4/3) \u2014 confirmed BC365 cloud integration, ShipperHQ, Mailchimp, Authorize.net, POS interest, and demo scheduled for week of 4/20"
+      ],
+      "left": [
+        "Demo week of 4/20 \u2014 full stakeholder group (owner, Jim/Ops Director, pricing dept, Sonny, Junior)",
+        "Champion coaching: prep Sonny + Junior to bring owner into the room and pre-sell the ROI story",
+        "Qualify budget range before or at demo",
+        "Executive workshop post-demo",
+        "Agency shortlist and partner intros",
+        "Contract signed before summer",
+        "EOY launch"
+      ],
       "notes": ""
     },
     "washington-floral": {
