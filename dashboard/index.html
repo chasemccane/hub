@@ -66,8 +66,10 @@
     .val-blue { color: var(--blue); }
 
     /* ── MAIN GRID ── */
-    .main-grid { display: grid; grid-template-columns: 1fr 320px; gap: 20px; align-items: start; }
-    @media (max-width: 1100px) { .main-grid { grid-template-columns: 1fr; } }
+    .main-grid { display: grid; grid-template-columns: 1fr; gap: 20px; align-items: start; }
+    .tasks-below { margin-top: 28px; }
+    .tasks-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 900px) { .tasks-panel { grid-template-columns: 1fr; } }
 
     /* ── KANBAN ── */
     .board-title { font-size: 13px; font-weight: 800; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 14px; }
@@ -110,7 +112,6 @@
     .tag-se   { background: var(--blue-dim); color: var(--blue); }
 
     /* ── TASKS PANEL ── */
-    .tasks-panel { display: flex; flex-direction: column; gap: 16px; }
     .task-section {
       background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 18px;
     }
@@ -177,6 +178,10 @@
       <div class="board-title">Pipeline Board</div>
       <div class="kanban" id="kanban"></div>
     </div>
+  </div>
+
+  <div class="tasks-below">
+    <div class="board-title">Urgent Tasks</div>
     <div class="tasks-panel" id="tasks-panel"></div>
   </div>
 </main>
@@ -206,6 +211,13 @@
     { start:'2026-04-13T14:00:00-07:00', time:'2:00–2:30pm',   title:'Partner Intro · Netformic + Franklen', type:'partner',  meet:'https://meet.google.com/ybg-kumj-uwg', deal:'franklen' },
     { start:'2026-04-15T09:00:00-07:00', time:'9:00–9:30am',   title:'FlexRadio · Intro',                    type:'intro',    meet:'https://meet.google.com/cii-opgt-uza', deal:'' },
     { start:'2026-04-15T14:00:00-07:00', time:'2:00–2:30pm',   title:'Intro · Newegg',                       type:'intro',    meet:'https://meet.google.com/urs-bbuy-dvj', deal:'newegg' },
+  ];
+
+  // Manually surfaced urgent items from email + call review (refresh weekly)
+  const MANUAL_URGENT = [
+    { text: 'Book Netformic + Franklen intro — Tim confirmed Mon 4pm CT, decision 1–2 weeks out', deal: 'Franklen Equipment', badge: 'high' },
+    { text: 'ioVista call issue — Tim said "just waiting, my invite said 10:30 CST" (was 10am CT). Confirm what happened + agree on next steps', deal: 'Franklen Equipment', badge: 'high' },
+    { text: 'Send post-demo follow-up to Feniex — demo was Apr 8, no follow-up sent. Recap highlights + confirm next steps', deal: 'Feniex Industries', badge: 'high' },
   ];
 
   // remote data overlay (risks, left items)
@@ -319,7 +331,7 @@
   }
 
   function renderTasks() {
-    const urgent = [];
+    const urgent = [...MANUAL_URGENT];
     const followups = [];
 
     DEALS.forEach(d => {
