@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "updated": "2026-04-08T13:00:00Z",
+  "updated": "2026-04-10T00:00:00Z",
   "deals": {
     "feniex": {
       "sf": {
         "id": "006OG00000MJoVtYAL",
         "pbr": 323171,
-        "stage": "Solution",
+        "stage": "Demonstrate",
         "close": "2026-06-17",
         "created": "2026-03-26"
       },
