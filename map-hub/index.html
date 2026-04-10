@@ -205,6 +205,7 @@
   // ──────────────────────────────────────────────────────────────────
   // pbr = Projected Billed Revenue from Salesforce (Projected_Billed_Revenue__c)
   // meetings = count from Fellow meeting notes (as of 2026-04-08)
+  const SF_REFRESHED = 'Apr 10, 2026';
   // emails = editable (Gmail MCP auth unavailable; fill manually)
   const DEALS = [
     {
@@ -216,7 +217,7 @@
       stage: 5,
       se: '',
       map_progress: { done: 0, total: 0 },
-      next_step: 'Technical workshop Apr 13 · Logan, Artie, Marty + Amy from Hedrick confirmed · Jordan Murphy on',
+      next_step: '4/9: Technical workshop on 4/13',
       map_url: '',
       proposal_url: '',
       sf_url: 'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000M9BVpYAN/view',
@@ -234,7 +235,7 @@
       stage: 4,
       se: 'Jordan Murphy',
       map_progress: { done: 3, total: 22 },
-      next_step: 'Partner intros in flight: Silk Commerce, Netalico, Fusionary · Silk flagged concern on differentiation Apr 10',
+      next_step: '4/9: Chase working with partner for SOW & then to schedule proposal call',
       map_url: '../../maps/feniex/',
       proposal_url: '../../maps/feniex/#proposal',
       sf_url: 'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000MJoVtYAL/view',
@@ -252,7 +253,7 @@
       stage: 4,
       se: '',
       map_progress: { done: 0, total: 0 },
-      next_step: 'Demo confirmed Apr 23 · Uncap/Ryan partner intro in flight · Awaiting email address for intro',
+      next_step: '4/9: introduced partners and moving to SOW - then Demo on 4/23',
       map_url: '',
       proposal_url: '',
       sf_url: 'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000MLhN5YAL/view',
@@ -271,7 +272,7 @@
       stage: 2,
       se: '',
       map_progress: { done: 0, total: 0 },
-      next_step: 'Intro Apr 15 · Seaver J. Ding (Newegg) + Jordan Murphy confirmed',
+      next_step: '4/2: Meeting booked for April 15th',
       map_url: '',
       proposal_url: '',
       sf_url: 'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000MTUyvYAH/view',
@@ -289,7 +290,7 @@
       stage: 3,
       se: '',
       map_progress: { done: 0, total: 0 },
-      next_step: 'Intro Apr 8 done · Content package sent Apr 9 · Chase followed up Apr 10 · Awaiting reply from Mark',
+      next_step: '4/9: Intro went well - moving to technical disco to flush out near term goals',
       map_url: '',
       proposal_url: '',
       sf_url: 'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000LJrChYAL/view',
@@ -307,7 +308,7 @@
       stage: 2,
       se: '',
       map_progress: { done: 0, total: 0 },
-      next_step: 'Intro call confirmed Apr 13 · Grant Dugas on the call',
+      next_step: 'GD - scheduling meeting with merchant',
       map_url: '',
       proposal_url: '',
       sf_url: 'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000McjaYYAR/view',
@@ -325,7 +326,7 @@
       stage: 2,
       se: '',
       map_progress: { done: 0, total: 0 },
-      next_step: 'Yotpo alignment in progress (Kyra Young) · Liz Huff asking about pricing · Grant Dugas coordinating',
+      next_step: 'GD - ceo asking for pricing and interested',
       map_url: '',
       proposal_url: '',
       sf_url: 'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000McodSYAR/view',
@@ -343,7 +344,7 @@
       stage: 3,
       se: '',
       map_progress: { done: 0, total: 0 },
-      next_step: 'Partner blitz week: ioVista + Netalico done Apr 10 · Netformic + discussion call Apr 13',
+      next_step: 'GD - Merchant meeting april 6',
       map_url: '',
       proposal_url: '',
       sf_url: 'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000MVHBDYA5/view',
@@ -361,7 +362,7 @@
       stage: 3,
       se: '',
       map_progress: { done: 0, total: 0 },
-      next_step: '⚠️ Content package sent · Follow-up to Brendon Apr 2 — no reply in 8 days · May be going cold',
+      next_step: '3/25: Chase to send technical doc write up then schedule Technical discovery',
       map_url: '',
       proposal_url: '',
       sf_url: 'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000MDBU2YAP/view',
@@ -575,6 +576,10 @@
       if (el) el.textContent = `SF refreshed ${fmt}`;
     }
   }
+
+  // Set static SF refresh stamp; GitHub JSON may override with a precise timestamp
+  const sfStampEl = document.getElementById('last-refreshed');
+  if (sfStampEl) sfStampEl.textContent = `SF refreshed ${SF_REFRESHED}`;
 
   // Load immediately, then hydrate from GitHub
   render();
