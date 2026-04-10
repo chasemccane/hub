@@ -51,8 +51,8 @@
     .hero-role { font-size: 13px; color: var(--green); font-weight: 500; margin-top: 3px; }
 
     /* ── STAT CARDS ── */
-    .stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-bottom: 32px; }
-    @media (max-width: 900px) { .stats { grid-template-columns: repeat(3, 1fr); } }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 32px; }
+    @media (max-width: 900px) { .stats { grid-template-columns: repeat(2, 1fr); } }
     .stat-card {
       background: var(--card); border: 1px solid var(--border); border-radius: 14px;
       padding: 20px 18px;
@@ -89,14 +89,10 @@
 
     .deal-card {
       background: var(--card); border: 1px solid var(--border); border-radius: 10px;
-      padding: 12px; margin-bottom: 8px; border-left: 3px solid transparent;
+      padding: 12px; margin-bottom: 8px;
       transition: all .15s; cursor: pointer; text-decoration: none; display: block; color: inherit;
     }
     .deal-card:hover { border-color: var(--green); box-shadow: 0 4px 16px rgba(0,0,0,.3); transform: translateY(-1px); }
-    .deal-card.hot   { border-left-color: var(--red); }
-    .deal-card.warm  { border-left-color: var(--amber); }
-    .deal-card.cool  { border-left-color: var(--blue); }
-    .deal-card.new   { border-left-color: var(--muted); }
     .dc-name { font-size: 12px; font-weight: 700; margin-bottom: 3px; }
     .dc-industry { font-size: 10px; color: var(--muted); margin-bottom: 8px; line-height: 1.3; }
     .dc-pbr { font-size: 12px; font-weight: 700; color: var(--green); margin-bottom: 4px; }
@@ -106,7 +102,6 @@
       font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 4px;
       text-transform: uppercase; letter-spacing: .04em;
     }
-    .tag-hot  { background: var(--red-dim); color: var(--red); }
     .tag-map  { background: var(--green-dim); color: var(--green); }
     .tag-se   { background: var(--blue-dim); color: var(--blue); }
 
@@ -229,23 +224,12 @@
     return ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+m-1] + ' ' + +d;
   }
 
-  function cardHeat(deal) {
-    const r = remoteDeals[deal.id];
-    const hasHighRisk = r && r.risks && r.risks.some(x => x.sev === 'high');
-    const days = daysUntil(deal.close);
-    if (hasHighRisk || days <= 14) return 'hot';
-    if (days <= 45) return 'warm';
-    if (deal.stage === 'Solution' || deal.stage === 'Demonstrate') return 'cool';
-    return 'new';
-  }
-
   function renderStats() {
     const active = DEALS.filter(d => d.stage !== 'Closed Won').length;
     const pbrTotal = DEALS.filter(d => ['Envision','Solution','Demonstrate','Closed Won'].includes(d.stage))
                          .reduce((s, d) => s + (d.pbr||0), 0);
     const closing30 = DEALS.filter(d => { const x = daysUntil(d.close); return x >= 0 && x <= 30; }).length;
     const advanced  = DEALS.filter(d => ['Solution','Demonstrate'].includes(d.stage)).length;
-    const hotDeals  = DEALS.filter(d => cardHeat(d) === 'hot').length;
 
     document.getElementById('stats-bar').innerHTML = `
       <div class="stat-card">
@@ -268,11 +252,6 @@
         <div class="stat-val val-blue">${advanced}</div>
         <div class="stat-sub">Solution or Demonstrate</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-label">Hot Deals</div>
-        <div class="stat-val val-red">${hotDeals}</div>
-        <div class="stat-sub">high risk or closing soon</div>
-      </div>
     `;
   }
 
@@ -291,17 +270,14 @@
       const cards = deals.length === 0
         ? `<div class="empty-col">No deals</div>`
         : deals.map(d => {
-            const heat = cardHeat(d);
             const days = daysUntil(d.close);
             const closeStr = `${fmtDate(d.close)} · ${days >= 0 ? days + 'd away' : Math.abs(days) + 'd ago'}`;
             const tags = [
-              heat === 'hot' ? `<span class="dc-tag tag-hot">🔥 Hot</span>` : '',
               d.map_url ? `<span class="dc-tag tag-map">MAP</span>` : '',
               d.se      ? `<span class="dc-tag tag-se">SE: ${d.se.split(' ')[0]}</span>` : '',
             ].filter(Boolean).join('');
-            const link = d.sf_url || `../deal-review/#${d.id}`;
             return `
-              <a href="../deal-review/#${d.id}" class="deal-card ${heat}">
+              <a href="../deal-review/#${d.id}" class="deal-card">
                 <div class="dc-name">${d.name}</div>
                 <div class="dc-industry">${d.industry}</div>
                 ${d.pbr > 0 ? `<div class="dc-pbr">${fmtMoney(d.pbr)}</div>` : ''}
