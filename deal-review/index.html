@@ -122,6 +122,13 @@
     .dh-score-val { font-size: 28px; font-weight: 900; color: var(--green); }
     .dh-score-val.pbr-val { color: var(--blue); }
     .dh-score-sub { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; margin-top: 2px; }
+    .dh-date-input {
+      background: transparent; border: none; outline: none;
+      font-size: 16px; font-weight: 700; color: var(--text);
+      text-align: center; width: 100%; cursor: pointer; font-family: inherit;
+      padding: 4px 0;
+    }
+    .dh-date-input::-webkit-calendar-picker-indicator { opacity: 0.35; cursor: pointer; margin-left: 2px; }
 
     /* Section headers */
     .section-title {
@@ -570,7 +577,9 @@ function serializeData() {
       risks: d.risks || [],
       done: d.done || [],
       left: d.left || [],
-      notes: d.notes || ''
+      notes: d.notes || '',
+      last_call: d.last_call || '',
+      next_call: d.next_call || ''
     };
   });
   // preserve the updated timestamp — only the refresh script should change it
@@ -591,12 +600,14 @@ function applyRemoteData(data) {
       if (r.sf.created) d.created = r.sf.created;
     }
     // User-edited fields
-    if (r.meddic)                 d.meddic   = r.meddic;
-    if (r.strategy !== undefined) d.strategy = r.strategy;
-    if (r.risks)                  d.risks    = r.risks;
-    if (r.done)                   d.done     = r.done;
-    if (r.left)                   d.left     = r.left;
-    if (r.notes !== undefined)    d.notes    = r.notes;
+    if (r.meddic)                  d.meddic    = r.meddic;
+    if (r.strategy !== undefined)  d.strategy  = r.strategy;
+    if (r.risks)                   d.risks     = r.risks;
+    if (r.done)                    d.done      = r.done;
+    if (r.left)                    d.left      = r.left;
+    if (r.notes !== undefined)     d.notes     = r.notes;
+    if (r.last_call !== undefined) d.last_call = r.last_call;
+    if (r.next_call !== undefined) d.next_call = r.next_call;
   });
   // Show last refreshed timestamp
   if (data.updated) {
@@ -739,10 +750,6 @@ function openDeal(id) {
     { key:'champion',       label:'Champion',         icon:'⭐', sub:'Internal advocate' },
   ];
 
-  // Compute a simple MEDDIC score (% of fields with content > 40 chars)
-  const filled = medFields.filter(f => (deal.meddic[f.key] || '').length > 40).length;
-  const score = Math.round(filled / medFields.length * 100);
-
   document.getElementById('detail').innerHTML = `
     <div class="deal-header">
       <div class="dh-left">
@@ -756,8 +763,12 @@ function openDeal(id) {
       </div>
       <div class="dh-score-group">
         <div class="dh-score">
-          <div class="dh-score-val">${score}%</div>
-          <div class="dh-score-sub">MEDDIC Score</div>
+          <input class="dh-date-input" type="date" value="${deal.last_call || ''}" onchange="saveCallDate('${id}','last_call',this.value)" title="Last call date">
+          <div class="dh-score-sub">Last Call</div>
+        </div>
+        <div class="dh-score">
+          <input class="dh-date-input" type="date" value="${deal.next_call || ''}" onchange="saveCallDate('${id}','next_call',this.value)" title="Next call date">
+          <div class="dh-score-sub">Next Call</div>
         </div>
         <div class="dh-score">
           <div class="dh-score-val pbr-val">${fmtPBR(deal.pbr)}</div>
@@ -857,6 +868,11 @@ window.saveStrategy = (id, val) => {
 window.saveNotes = (id, val) => {
   const deal = DEALS.find(d => d.id === id);
   if (deal) { deal.notes = val; saveDeals(); touch(id); }
+};
+
+window.saveCallDate = (id, field, val) => {
+  const deal = DEALS.find(d => d.id === id);
+  if (deal) { deal[field] = val; saveDeals(); touch(id); }
 };
 
 function touch(id) {
