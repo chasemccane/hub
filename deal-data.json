@@ -38,7 +38,7 @@
         {
           "sev": "med",
           "text": "Inertia & Analysis Paralysis",
-          "mit": "Keep Yemilyn looped on all key decisions. Don't let deal stall at operational level."
+          "mit": "(\"Do nothing\" wins due to perceived complexity)"
         },
         {
           "sev": "low",
