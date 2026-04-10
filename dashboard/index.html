@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sales Dashboard · Chase McCane</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #090d10;
+      --surface: #111820;
+      --border: #1e2a35;
+      --green: #00a86b;
+      --green-dim: rgba(0,168,107,.12);
+      --green-glow: rgba(0,168,107,.25);
+      --red: #ff3000;
+      --red-dim: rgba(255,48,0,.1);
+      --amber: #f59e0b;
+      --amber-dim: rgba(245,158,11,.1);
+      --blue: #3b82f6;
+      --blue-dim: rgba(59,130,246,.1);
+      --text: #e8edf2;
+      --muted: #6b7a8a;
+      --card: #141d26;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; min-height: 100vh; }
+
+    header {
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 14px 28px; display: flex; align-items: center; gap: 16px;
+    }
+    .back-btn {
+      width: 32px; height: 32px; background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      text-decoration: none; color: var(--muted); font-size: 16px; transition: all .15s;
+    }
+    .back-btn:hover { border-color: var(--green); color: var(--green); }
+    .hbreadcrumb { font-size: 12px; color: var(--muted); }
+    .hbreadcrumb a { color: var(--muted); text-decoration: none; }
+    .hbreadcrumb a:hover { color: var(--green); }
+    .htitle { font-size: 16px; font-weight: 800; margin-left: auto; }
+    .last-refreshed { font-size: 11px; color: var(--muted); }
+
+    main { max-width: 1400px; margin: 0 auto; padding: 32px 28px; }
+
+    /* ── HERO ── */
+    .hero { margin-bottom: 32px; }
+    .hero-name { font-size: 26px; font-weight: 900; }
+    .hero-role { font-size: 13px; color: var(--green); font-weight: 500; margin-top: 3px; }
+
+    /* ── STAT CARDS ── */
+    .stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-bottom: 32px; }
+    @media (max-width: 900px) { .stats { grid-template-columns: repeat(3, 1fr); } }
+    .stat-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+      padding: 20px 18px;
+    }
+    .stat-label { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; }
+    .stat-val { font-size: 32px; font-weight: 900; line-height: 1; margin-bottom: 6px; }
+    .stat-sub { font-size: 11px; color: var(--muted); }
+    .val-green { color: var(--green); }
+    .val-amber { color: var(--amber); }
+    .val-red { color: var(--red); }
+    .val-blue { color: var(--blue); }
+
+    /* ── MAIN GRID ── */
+    .main-grid { display: grid; grid-template-columns: 1fr 320px; gap: 20px; align-items: start; }
+    @media (max-width: 1100px) { .main-grid { grid-template-columns: 1fr; } }
+
+    /* ── KANBAN ── */
+    .board-title { font-size: 13px; font-weight: 800; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 14px; }
+    .kanban { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+    @media (max-width: 1200px) { .kanban { grid-template-columns: repeat(3, 1fr); } }
+
+    .col-header {
+      font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em;
+      padding: 6px 10px; border-radius: 6px; margin-bottom: 10px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .col-preq  { background: rgba(107,122,138,.1); color: var(--muted); }
+    .col-env   { background: var(--amber-dim); color: var(--amber); }
+    .col-sol   { background: var(--blue-dim); color: var(--blue); }
+    .col-demo  { background: var(--green-dim); color: var(--green); }
+    .col-won   { background: rgba(0,168,107,.2); color: var(--green); }
+    .col-count { font-size: 11px; font-weight: 800; opacity: .7; }
+
+    .deal-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+      padding: 12px; margin-bottom: 8px; border-left: 3px solid transparent;
+      transition: all .15s; cursor: pointer; text-decoration: none; display: block; color: inherit;
+    }
+    .deal-card:hover { border-color: var(--green); box-shadow: 0 4px 16px rgba(0,0,0,.3); transform: translateY(-1px); }
+    .deal-card.hot   { border-left-color: var(--red); }
+    .deal-card.warm  { border-left-color: var(--amber); }
+    .deal-card.cool  { border-left-color: var(--blue); }
+    .deal-card.new   { border-left-color: var(--muted); }
+    .dc-name { font-size: 12px; font-weight: 700; margin-bottom: 3px; }
+    .dc-industry { font-size: 10px; color: var(--muted); margin-bottom: 8px; line-height: 1.3; }
+    .dc-pbr { font-size: 12px; font-weight: 700; color: var(--green); margin-bottom: 4px; }
+    .dc-close { font-size: 10px; color: var(--muted); }
+    .dc-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+    .dc-tag {
+      font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 4px;
+      text-transform: uppercase; letter-spacing: .04em;
+    }
+    .tag-hot  { background: var(--red-dim); color: var(--red); }
+    .tag-map  { background: var(--green-dim); color: var(--green); }
+    .tag-se   { background: var(--blue-dim); color: var(--blue); }
+
+    /* ── TASKS PANEL ── */
+    .tasks-panel { display: flex; flex-direction: column; gap: 16px; }
+    .task-section {
+      background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 18px;
+    }
+    .task-section-title {
+      font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em;
+      margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+    }
+    .task-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .dot-red   { background: var(--red); }
+    .dot-amber { background: var(--amber); }
+    .task-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 8px 0; border-bottom: 1px solid var(--border);
+    }
+    .task-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .task-check {
+      width: 16px; height: 16px; border-radius: 4px; border: 1.5px solid var(--border);
+      flex-shrink: 0; margin-top: 1px; cursor: pointer; transition: all .15s;
+    }
+    .task-check:hover { border-color: var(--green); background: var(--green-dim); }
+    .task-body { flex: 1; min-width: 0; }
+    .task-text { font-size: 12px; font-weight: 500; line-height: 1.4; }
+    .task-deal { font-size: 10px; color: var(--muted); margin-top: 2px; }
+    .task-badge {
+      font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 4px;
+      text-transform: uppercase; flex-shrink: 0;
+    }
+    .badge-high { background: var(--red-dim); color: var(--red); }
+    .badge-med  { background: var(--amber-dim); color: var(--amber); }
+
+    /* ── EMPTY COL ── */
+    .empty-col { font-size: 11px; color: var(--muted); padding: 8px 4px; font-style: italic; }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="../" class="back-btn">←</a>
+  <span class="hbreadcrumb"><a href="../">Hub</a> / Dashboard</span>
+  <span class="htitle">📊 Sales Dashboard</span>
+  <span class="last-refreshed" id="last-refreshed"></span>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="hero-name">Chase McCane</div>
+    <div class="hero-role">Sr. Account Executive · Shopify Plus B2B AMER</div>
+  </div>
+
+  <div class="stats" id="stats-bar"></div>
+
+  <div class="main-grid">
+    <div>
+      <div class="board-title">Pipeline Board</div>
+      <div class="kanban" id="kanban"></div>
+    </div>
+    <div class="tasks-panel" id="tasks-panel"></div>
+  </div>
+</main>
+
+<script>
+  const RAW_URL = 'https://raw.githubusercontent.com/chasemccane/hub/main/deal-data.json';
+
+  const DEALS = [
+    { id:'feniex',           name:'Feniex Industries',         industry:'Emergency Vehicle Equipment · Austin, TX',  stage:'Solution',      close:'2026-06-17', pbr:323171, se:'Jordan Murphy', map_url:'../maps/feniex/', sf_url:'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000MJoVtYAL/view', created:'2026-03-26' },
+    { id:'hedrick',          name:'Hedrick Industries',        industry:'Construction & Industrial · China Grove, NC', stage:'Demonstrate',   close:'2026-05-20', pbr:376159, se:'',             map_url:'', sf_url:'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000M9BVpYAN/view', created:'2026-03-20' },
+    { id:'bigrock',          name:'Big Rock Supply',           industry:'Home Décor & Supply · Stone Park, IL',       stage:'Solution',      close:'2026-06-23', pbr:147538, se:'',             map_url:'', sf_url:'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000MLhN5YAL/view', created:'2026-03-27' },
+    { id:'excellentia',      name:'Excellentia International', industry:'B2B Wholesale · Mid Market',                 stage:'Pre-Qualified', close:'2026-06-30', pbr:102821, se:'',             map_url:'', sf_url:'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000MDJjJYAX/view', created:'2026-03-23' },
+    { id:'newegg',           name:'Newegg',                    industry:'Electronics & Gadgets · City of Industry, CA', stage:'Pre-Qualified', close:'2026-06-30', pbr:0,      se:'',             map_url:'', sf_url:'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000MTUyvYAH/view', created:'2026-04-01' },
+    { id:'washington-floral',name:'Washington Floral Service', industry:'Wholesale Florals · B2B',                    stage:'Envision',      close:'2026-06-30', pbr:102821, se:'',             map_url:'', sf_url:'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000LJrChYAL/view', created:'2026-02-18' },
+    { id:'orbital',          name:'Orbital Transports',        industry:'Transportation & Logistics · B2B',           stage:'Pre-Qualified', close:'2026-07-31', pbr:0,      se:'',             map_url:'', sf_url:'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000McjaYYAR/view', created:'2026-04-07' },
+    { id:'anatomy',          name:'Anatomy Warehouse',         industry:'Specialty Wholesale · B2B',                  stage:'Pre-Qualified', close:'2026-07-31', pbr:99839,  se:'',             map_url:'', sf_url:'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000McodSYAR/view', created:'2026-04-07' },
+    { id:'franklen',         name:'Franklen Equipment',        industry:'Industrial Equipment · B2B',                 stage:'Envision',      close:'2026-08-25', pbr:0,      se:'',             map_url:'', sf_url:'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000MVHBDYA5/view', created:'2026-04-02' },
+    { id:'kyd',              name:'KYD',                       industry:'Food & Beverage · Honolulu, HI',             stage:'Envision',      close:'2026-08-26', pbr:102821, se:'',             map_url:'', sf_url:'https://banff.lightning.force.com/lightning/r/Opportunity/006OG00000MDBU2YAP/view', created:'2026-03-23' },
+  ];
+
+  // remote data overlay (risks, left items)
+  let remoteDeals = {};
+
+  function fmtMoney(n) {
+    if (n >= 1000000) return '$' + (n/1000000).toFixed(1) + 'M';
+    if (n >= 1000) return '$' + Math.round(n/1000) + 'k';
+    return '$' + n.toLocaleString();
+  }
+
+  function daysUntil(iso) {
+    const d = new Date(iso); const now = new Date(); now.setHours(0,0,0,0);
+    return Math.round((d - now) / 86400000);
+  }
+
+  function fmtDate(iso) {
+    const [y,m,d] = iso.split('-');
+    return ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+m-1] + ' ' + +d;
+  }
+
+  function cardHeat(deal) {
+    const r = remoteDeals[deal.id];
+    const hasHighRisk = r && r.risks && r.risks.some(x => x.sev === 'high');
+    const days = daysUntil(deal.close);
+    if (hasHighRisk || days <= 14) return 'hot';
+    if (days <= 45) return 'warm';
+    if (deal.stage === 'Solution' || deal.stage === 'Demonstrate') return 'cool';
+    return 'new';
+  }
+
+  function renderStats() {
+    const active = DEALS.filter(d => d.stage !== 'Closed Won').length;
+    const pbrTotal = DEALS.filter(d => ['Envision','Solution','Demonstrate','Closed Won'].includes(d.stage))
+                         .reduce((s, d) => s + (d.pbr||0), 0);
+    const closing30 = DEALS.filter(d => { const x = daysUntil(d.close); return x >= 0 && x <= 30; }).length;
+    const advanced  = DEALS.filter(d => ['Solution','Demonstrate'].includes(d.stage)).length;
+    const hotDeals  = DEALS.filter(d => cardHeat(d) === 'hot').length;
+
+    document.getElementById('stats-bar').innerHTML = `
+      <div class="stat-card">
+        <div class="stat-label">Active Deals</div>
+        <div class="stat-val val-green">${active}</div>
+        <div class="stat-sub">${DEALS.length} total in pipeline</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">PBR Pipeline</div>
+        <div class="stat-val val-green">${fmtMoney(pbrTotal)}</div>
+        <div class="stat-sub">Envision+ deals</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Closing ≤ 30 Days</div>
+        <div class="stat-val val-amber">${closing30}</div>
+        <div class="stat-sub">urgent attention needed</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Advanced Stage</div>
+        <div class="stat-val val-blue">${advanced}</div>
+        <div class="stat-sub">Solution or Demonstrate</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Hot Deals</div>
+        <div class="stat-val val-red">${hotDeals}</div>
+        <div class="stat-sub">high risk or closing soon</div>
+      </div>
+    `;
+  }
+
+  function renderKanban() {
+    const stages = [
+      { key: 'Pre-Qualified', label: 'Pre-Qualified', cls: 'col-preq' },
+      { key: 'Envision',      label: 'Envision',      cls: 'col-env'  },
+      { key: 'Solution',      label: 'Solution',      cls: 'col-sol'  },
+      { key: 'Demonstrate',   label: 'Demonstrate',   cls: 'col-demo' },
+      { key: 'Closed Won',    label: 'Closed Won',    cls: 'col-won'  },
+    ];
+
+    document.getElementById('kanban').innerHTML = stages.map(({ key, label, cls }) => {
+      const deals = DEALS.filter(d => d.stage === key).sort((a,b) => new Date(a.close) - new Date(b.close));
+      const cards = deals.length === 0
+        ? `<div class="empty-col">No deals</div>`
+        : deals.map(d => {
+            const heat = cardHeat(d);
+            const days = daysUntil(d.close);
+            const closeStr = `${fmtDate(d.close)} · ${days >= 0 ? days + 'd away' : Math.abs(days) + 'd ago'}`;
+            const tags = [
+              heat === 'hot' ? `<span class="dc-tag tag-hot">🔥 Hot</span>` : '',
+              d.map_url ? `<span class="dc-tag tag-map">MAP</span>` : '',
+              d.se      ? `<span class="dc-tag tag-se">SE: ${d.se.split(' ')[0]}</span>` : '',
+            ].filter(Boolean).join('');
+            const link = d.sf_url || `../deal-review/#${d.id}`;
+            return `
+              <a href="../deal-review/#${d.id}" class="deal-card ${heat}">
+                <div class="dc-name">${d.name}</div>
+                <div class="dc-industry">${d.industry}</div>
+                ${d.pbr > 0 ? `<div class="dc-pbr">${fmtMoney(d.pbr)}</div>` : ''}
+                <div class="dc-close">Close ${closeStr}</div>
+                ${tags ? `<div class="dc-tags">${tags}</div>` : ''}
+              </a>`;
+          }).join('');
+
+      return `
+        <div>
+          <div class="col-header ${cls}">
+            <span>${label}</span>
+            <span class="col-count">${deals.length}</span>
+          </div>
+          ${cards}
+        </div>`;
+    }).join('');
+  }
+
+  function renderTasks() {
+    const urgent = [];
+    const followups = [];
+
+    DEALS.forEach(d => {
+      const r = remoteDeals[d.id];
+      // High risks → urgent
+      if (r && r.risks) {
+        r.risks.filter(x => x.sev === 'high').forEach(risk => {
+          urgent.push({ text: risk.text, deal: d.name, badge: 'high' });
+        });
+      }
+      // Closing ≤ 14 days → urgent
+      const days = daysUntil(d.close);
+      if (days >= 0 && days <= 14) {
+        urgent.push({ text: `Closes in ${days} day${days !== 1 ? 's' : ''} — push to next step`, deal: d.name, badge: 'high' });
+      }
+      // Left-to-close items → follow-ups
+      if (r && r.left) {
+        r.left.slice(0, 2).forEach(item => {
+          followups.push({ text: item, deal: d.name });
+        });
+      }
+    });
+
+    // Dedupe closing urgents by deal name
+    const seen = new Set();
+    const deduped = urgent.filter(u => {
+      const k = u.deal + u.text;
+      if (seen.has(k)) return false;
+      seen.add(k); return true;
+    });
+
+    const taskItem = (t, badge) => `
+      <div class="task-item">
+        <div class="task-check"></div>
+        <div class="task-body">
+          <div class="task-text">${t.text}</div>
+          <div class="task-deal">${t.deal}</div>
+        </div>
+        ${badge ? `<span class="task-badge badge-${t.badge}">${t.badge}</span>` : ''}
+      </div>`;
+
+    const urgentHtml = deduped.length
+      ? deduped.map(t => taskItem(t, true)).join('')
+      : `<div class="empty-col">No urgent items</div>`;
+
+    const followHtml = followups.length
+      ? followups.map(t => taskItem(t, false)).join('')
+      : `<div class="empty-col">No open items — add left-to-close in Deal Review</div>`;
+
+    document.getElementById('tasks-panel').innerHTML = `
+      <div class="task-section">
+        <div class="task-section-title">
+          <div class="task-dot dot-red"></div> Urgent
+        </div>
+        ${urgentHtml}
+      </div>
+      <div class="task-section">
+        <div class="task-section-title">
+          <div class="task-dot dot-amber"></div> Left to Close
+        </div>
+        ${followHtml}
+      </div>
+    `;
+  }
+
+  function render() {
+    renderStats();
+    renderKanban();
+    renderTasks();
+  }
+
+  // ── INIT ──
+  render();
+  (async () => {
+    try {
+      const res = await fetch(RAW_URL + '?cb=' + Date.now());
+      if (!res.ok) return;
+      const data = await res.json();
+      if (data.deals) {
+        remoteDeals = data.deals;
+        // Apply sf overrides
+        DEALS.forEach(d => {
+          const r = data.deals[d.id];
+          if (r && r.sf) {
+            if (r.sf.pbr !== undefined) d.pbr = r.sf.pbr;
+            if (r.sf.stage) d.stage = r.sf.stage;
+            if (r.sf.close) d.close = r.sf.close;
+          }
+        });
+      }
+      if (data.updated) {
+        const dt = new Date(data.updated);
+        const fmt = dt.toLocaleString('en-US', { month:'short', day:'numeric', hour:'numeric', minute:'2-digit', timeZoneName:'short' });
+        const el = document.getElementById('last-refreshed');
+        if (el) el.textContent = `SF refreshed ${fmt}`;
+      }
+      render();
+    } catch(e) {}
+  })();
+</script>
+</body>
+</html>
