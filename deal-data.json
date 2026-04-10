@@ -26,7 +26,7 @@
           "mit": "No direct access to Economic Buyer)"
         },
         {
-          "sev": "high",
+          "sev": "med",
           "text": "\"Sticker Shock\" from Partner SOW",
           "mit": "(High cost to migrate 16 years of custom tools)"
         },
