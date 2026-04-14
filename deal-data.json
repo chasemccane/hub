@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updated": "2026-04-13T18:00:00Z",
+  "updated": "2026-04-14T10:00:00Z",
   "deals": {
     "feniex": {
       "sf": {
@@ -114,18 +114,20 @@
         "Internal SE kickoff / KT with Jordan Murphy (3/23)",
         "Technical Discovery completed \u2014 Amy Goudy, Logan, Kevin Fender, Chase, Jordan (3/25)",
         "Platform Demo delivered \u2014 full team + Victoria Forte observing (4/1)",
-        "Technical Workshop (4/13) \u2014 multi-staff POS + NetSuite data flows (Chase, Jordan, Logan, Kevin)"
+        "Technical Workshop (4/13) \u2014 multi-staff POS + NetSuite data flows (Chase, Jordan, Logan, Kevin)",
+        "Post-workshop follow-up sent to Logan (4/14) \u2014 proposing 1:1 strategy call to map revenue streams before broader proposal"
       ],
       "left": [
-        "Schedule and deliver commercial proposal (SOW planning \u2014 ~2 weeks per their internal timeline)",
-        "Identify and engage true Economic Buyer",
+        "1:1 strategy call with Logan \u2014 Thu 4/16 or Fri 4/17 (pending confirmation)",
+        "Identify and engage true Economic Buyer in that call",
+        "Deliver commercial proposal",
         "Understand competitive shortlist and differentiate",
         "Legal / procurement review",
         "Contract signed"
       ],
       "notes": "",
       "last_call": "2026-04-13",
-      "next_call": "2026-04-27"
+      "next_call": "2026-04-16"
     },
     "newegg": {
       "sf": {
@@ -250,19 +252,20 @@
         "Intro call",
         "Internal SE sync with Jordan Schwartz (3/30) \u2014 confirmed Cart.com migration, identified contacts Sonny Rodriguez + Junior Campos, flagged budget/pricing as key hurdle",
         "Technical discovery with Sonny + Junior + Jordan (4/3) \u2014 confirmed BC365 cloud integration, ShipperHQ, Mailchimp, Authorize.net, POS interest, and demo scheduled for week of 4/20",
-        "Demo week of 4/20 \u2014 full stakeholder group (owner, Jim/Ops Director, pricing dept, Sonny, Junior)"
+        "Arctic Grey partner intro sent (4/13)",
+        "Uncap partner intro sent (4/7) \u2014 Sonny confirmed call with Ryan @ Uncap for 4/15 at 10am CT"
       ],
       "left": [
-        "Champion coaching: prep Sonny + Junior to bring owner into the room and pre-sell the ROI story",
+        "Uncap partner call with Sonny + Junior (4/15 10am CT)",
+        "Demo 4/23 \u2014 full stakeholder group (owner, Jim/Ops Director, pricing dept, Sonny, Junior)",
+        "Champion coaching: prep Sonny + Junior to bring owner into the room and pre-sell ROI story",
         "Qualify budget range before or at demo",
         "Executive workshop post-demo",
-        "Agency shortlist and partner intros",
-        "Contract signed before summer",
-        "EOY launch"
+        "Contract signed before summer"
       ],
       "notes": "",
       "last_call": "2026-04-03",
-      "next_call": "2026-04-23"
+      "next_call": "2026-04-15"
     },
     "kyd": {
       "sf": {
@@ -305,9 +308,11 @@
       ],
       "done": [
         "Intro call with Brendon Yamada (3/25)",
-        "Content care package sent"
+        "Content care package sent",
+        "Chase X Eric Osborne (PSM) connect (4/14) \u2014 Eric introduced Chase to Daren Wang at Satel (B2B agency with relevant experience)"
       ],
       "left": [
+        "Connect with Daren Wang (Satel) this week \u2014 Daren responded and wants a quick chat",
         "Schedule SE technical discovery call",
         "Scope Infor A+ ERP integration (native connector vs custom)",
         "Validate Punch Out / EDI support for large accounts",
@@ -315,7 +320,7 @@
         "Maintain quarterly engagement through 2026 toward 2027 close"
       ],
       "notes": "",
-      "last_call": "2026-03-25",
+      "last_call": "2026-04-14",
       "next_call": ""
     },
     "anatomy": {
@@ -323,7 +328,7 @@
         "id": "006OG00000McodSYAR",
         "pbr": 99839,
         "stage": "Pre-Qualified",
-        "close": "2026-07-31",
+        "close": "2026-07-15",
         "created": "2026-04-07"
       },
       "meddic": {
@@ -368,7 +373,7 @@
         "id": "006OG00000MVHBDYA5",
         "pbr": 0,
         "stage": "Envision",
-        "close": "2026-08-25",
+        "close": "2026-07-15",
         "created": "2026-04-02"
       },
       "meddic": {
