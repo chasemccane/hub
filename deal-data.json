@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updated": "2026-04-10",
+  "updated": "2026-04-13T18:00:00Z",
   "deals": {
     "feniex": {
       "sf": {
@@ -113,20 +113,19 @@
         "Intro call completed \u2014 Logan Hundley, Chase, Thomas Gilliatt (3/20)",
         "Internal SE kickoff / KT with Jordan Murphy (3/23)",
         "Technical Discovery completed \u2014 Amy Goudy, Logan, Kevin Fender, Chase, Jordan (3/25)",
-        "Platform Demo delivered \u2014 full team + Victoria Forte observing (4/1)"
+        "Platform Demo delivered \u2014 full team + Victoria Forte observing (4/1)",
+        "Technical Workshop (4/13) \u2014 multi-staff POS + NetSuite data flows (Chase, Jordan, Logan, Kevin)"
       ],
       "left": [
-        "Schedule and deliver commercial proposal (overdue \u2014 was week of 4/7)",
+        "Schedule and deliver commercial proposal (SOW planning \u2014 ~2 weeks per their internal timeline)",
         "Identify and engage true Economic Buyer",
         "Understand competitive shortlist and differentiate",
-        "Jordan to confirm: multi-staff POS login / unfinished order handoff",
-        "Jordan to confirm: NetSuite unit conversion sync details",
         "Legal / procurement review",
         "Contract signed"
       ],
       "notes": "",
-      "last_call": "2026-04-01",
-      "next_call": "2026-04-13"
+      "last_call": "2026-04-13",
+      "next_call": "2026-04-27"
     },
     "newegg": {
       "sf": {
@@ -337,11 +336,13 @@
       },
       "strategy": "",
       "risks": [],
-      "done": [],
+      "done": [
+        "Intro call \u2014 David Hurst + Grant Dugas (4/13)"
+      ],
       "left": [],
       "notes": "",
-      "last_call": "",
-      "next_call": "2026-04-13"
+      "last_call": "2026-04-13",
+      "next_call": ""
     },
     "anatomy": {
       "sf": {
@@ -352,19 +353,36 @@
         "created": "2026-04-07"
       },
       "meddic": {
-        "metrics": "",
-        "economic_buyer": "",
-        "decision_criteria": "",
-        "decision_process": "",
-        "pain": "",
-        "champion": ""
+        "metrics": "Website performance, UX, and site speed improvements are stated priorities. Operational inefficiencies in product management are the secondary pain. No quantified metrics captured yet \u2014 to be developed in discovery.",
+        "economic_buyer": "Stuart Foster \u2014 identified via Yotpo partner (Michal Ashkenazi) as the key decision-maker and budget authority. Has not been engaged directly. Liz Huff (CEO) is our current entry point and has surfaced the interest but has not pushed us further into the org yet.",
+        "decision_criteria": "Website performance and UX upgrades (stated #1 priority from Liz Huff). Site speed improvements. Operational efficiency in product management. ERP partner involvement (BrightPearl is being evaluated in parallel for ERP aid). Full criteria not yet scoped.",
+        "decision_process": "Liz Huff (CEO) is current contact \u2014 she came back to discuss project on a separate call (4/13). Stuart Foster is the actual decision-maker but has not been directly engaged. Matt Adler is an evaluator layer between Liz and Stuart. Yotpo (Michal Ashkenazi) is a partner involved in the ecosystem evaluation. Decision process and formal steps not yet mapped.",
+        "pain": "Website performance and UX gaps (slow site, poor experience). Operational inefficiencies in product management. Likely ERP alignment challenges (BrightPearl involvement suggests current ops stack is being restructured). Full pain discovery not yet completed.",
+        "champion": "Liz Huff (CEO) \u2014 our current entry point. She surfaced the opportunity and came back to discuss (4/13). She has not yet connected us to Stuart Foster (the EB). Risk: Liz may not be a champion in the traditional sense if Stuart controls the budget and Liz is not advocating internally.\nMichal Ashkenazi (Yotpo partner) \u2014 introduced Stuart Foster and Matt Adler as key contacts. Could serve as an ecosystem champion if they are aligned on a Shopify + Yotpo solution."
       },
-      "strategy": "",
-      "risks": [],
+      "strategy": "Early-stage deal surfaced through Liz Huff (CEO) who has expressed interest in improving their site. The real economic buyer is Stuart Foster (per Yotpo partner intel). The path forward is to get Liz to introduce us to Stuart while also showing value through the Yotpo ecosystem connection. BrightPearl involvement (ERP) may create a broader platform conversation \u2014 position Shopify as the commerce layer that integrates cleanly with any ERP.",
+      "risks": [
+        {
+          "sev": "high",
+          "text": "We never get to Stuart Foster and deal dies at Liz layer",
+          "mit": "Stuart is the EB and Matt Adler is the evaluator. If Liz doesn't push us into the org or Stuart deprioritizes the project, we have no path forward. Ask Liz directly to set up a call with Stuart before investing significant discovery time."
+        },
+        {
+          "sev": "med",
+          "text": "BrightPearl ERP evaluation delays or reframes the commerce decision",
+          "mit": "If they are mid-ERP evaluation, a commerce platform decision may get bundled with or deferred to the ERP selection. Stay close to the BrightPearl timeline and position Shopify as the complementary commerce front-end, not a competing system."
+        }
+      ],
       "done": [],
-      "left": [],
+      "left": [
+        "Arrange call with Stuart Foster (EB) through Liz Huff",
+        "Full discovery: pain quantification, budget, timeline, current stack",
+        "Understand BrightPearl ERP evaluation scope and how it impacts the decision",
+        "Align with Yotpo (Michal Ashkenazi) on joint value story",
+        "Demo / proposal"
+      ],
       "notes": "",
-      "last_call": "",
+      "last_call": "2026-04-13",
       "next_call": ""
     },
     "franklen": {
@@ -415,18 +433,19 @@
         "Intro call with Tim Rusniak (4/6)",
         "Partner intro: Crimson Agility + Tim (4/8)",
         "Partner intro: ioVista + Tim (4/10)",
-        "Partner intro: Netalico + Tim (4/10)"
+        "Partner intro: Netalico + Tim (4/10)",
+        "Partner intro: Netformic + Tim (4/13)"
       ],
       "left": [
-        "Tim provides BigCommerce admin access to partner finalists (this week)",
-        "Partner quotes received (Netalico follow-up week of 4/20\u201324; Crimson Agility + ioVista TBD)",
-        "Tim narrows to 2 finalists and presents to boss",
-        "Get intro call with Tim's boss before final presentation (if possible)",
+        "Tim provides BigCommerce admin access to partner finalists this week",
+        "Partner quotes received (follow-up calls week of 4/20\u201324)",
+        "Tim shortlisting to 2 finalists \u2014 decision expected 1\u20132 weeks",
+        "Get intro call with Tim's boss before final presentation",
         "Contract signed"
       ],
       "notes": "",
-      "last_call": "2026-04-10",
-      "next_call": "2026-04-13"
+      "last_call": "2026-04-13",
+      "next_call": ""
     }
   }
 }
