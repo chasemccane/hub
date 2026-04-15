@@ -633,6 +633,17 @@
 </head>
 <body>
 
+<div id="lock-overlay">
+  <div class="lock-box">
+    <div class="lock-logo">🛍️</div>
+    <div class="lock-title">Shopify Advanced vs Plus</div>
+    <div class="lock-sub">Enter passcode to continue</div>
+    <input class="lock-input" id="lock-input" type="password" placeholder="Passcode"
+           autocomplete="off" onkeydown="if(event.key==='Enter')checkPass()">
+    <button class="lock-submit" onclick="checkPass()">Continue →</button>
+    <div class="lock-error" id="lock-err"></div>
+  </div>
+</div>
 
 <header>
   <div class="header-accent-bar"></div>
