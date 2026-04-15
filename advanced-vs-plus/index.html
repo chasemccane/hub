@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" class="light">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shopify Advanced vs Plus — Full Comparison</title>
 <style>
   :root {
-    --bg: #0f1117;
-    --surface: #1a1d27;
-    --surface2: #22263a;
-    --border: #2e3250;
-    --adv: #ffc857;
-    --adv-dim: rgba(255,200,87,.12);
-    --plus: #6c63ff;
-    --plus-dim: rgba(108,99,255,.12);
-    --plus-light: #a8a3ff;
-    --accent2: #00d4aa;
-    --danger: #ff5f6d;
-    --ok: #2ecc71;
-    --text: #e8eaf6;
-    --muted: #8892b0;
+    --bg:          #f7f7f7;
+    --surface:     #ffffff;
+    --surface2:    #f0f0f0;
+    --border:      #d1d1d1;
+    --adv:         #c06000;
+    --adv-dim:     rgba(192,96,0,.10);
+    --plus:        #008060;
+    --plus-dim:    rgba(0,128,96,.10);
+    --plus-light:  #006649;
+    --accent2:     #008060;
+    --danger:      #d72c0d;
+    --ok:          #008060;
+    --text:        #1a1a1a;
+    --muted:       #4a4a4a;
     --card-radius: 14px;
     --font: 'Inter', system-ui, sans-serif;
   }
@@ -29,7 +29,7 @@
 
   /* ── HEADER ── */
   header {
-    background: linear-gradient(135deg, #1a1d27 0%, #0f1117 65%);
+    background: linear-gradient(135deg, #004c3f 0%, #006649 55%, #008060 100%);
     border-bottom: 1px solid var(--border);
     padding: 44px 40px 0;
     position: relative; overflow: hidden;
@@ -375,7 +375,7 @@
   .modal {
     background: var(--surface); border: 1px solid var(--border); border-radius: 18px;
     padding: 36px 40px; width: 100%; max-width: 520px;
-    box-shadow: 0 24px 60px rgba(0,0,0,.6); animation: fadeUp .25s ease both;
+    box-shadow: 0 24px 60px rgba(0,0,0,.12); animation: fadeUp .25s ease both;
   }
   .modal-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 6px; }
   .modal-title { font-size: 1.15rem; font-weight: 800; color: var(--text); }
@@ -396,7 +396,7 @@
   .modal-cancel { padding: 10px 20px; border-radius: 8px; font-size: .85rem; font-weight: 700; background: none; border: 1px solid var(--border); color: var(--muted); cursor: pointer; font-family: var(--font); }
   .modal-cancel:hover { border-color: var(--text); color: var(--text); }
   .modal-send { padding: 10px 24px; border-radius: 8px; font-size: .85rem; font-weight: 700; background: var(--plus); border: none; color: #fff; cursor: pointer; font-family: var(--font); transition: background .15s; }
-  .modal-send:hover { background: #5850e6; }
+  .modal-send:hover { background: #006649; }
 
   /* ── TOAST ── */
   .toast { position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--plus); color: #fff; padding: 11px 22px; border-radius: 30px; font-weight: 700; font-size: .88rem; transition: transform .3s cubic-bezier(.34,1.56,.64,1); z-index: 100; pointer-events: none; white-space: nowrap; }
@@ -427,8 +427,6 @@
     footer  { padding: 0 16px; padding-top: 20px; margin-top: 36px; flex-direction: column; align-items: flex-start; gap: 8px; }
 
     /* Theme toggle — icon-only on mobile to save space */
-    .theme-toggle { top: 10px; right: 10px; padding: 6px 8px; font-size: .7rem; }
-    #themeLabel { display: none; }
 
     /* Shopify logo — slightly smaller */
     .header-shopify-bg { width: 160px; height: 180px; right: -10px; }
@@ -508,129 +506,129 @@
     .impl-card { padding: 14px; }
   }
 
-  /* ── LIGHT MODE — Shopify brand palette ── */
-  html.light {
-    --bg:          #f7f7f7;          /* clean off-white page */
-    --surface:     #ffffff;          /* white cards */
-    --surface2:    #f0f0f0;          /* light grey secondary surfaces */
-    --border:      #d1d1d1;          /* neutral grey borders */
-    --text:        #1a1a1a;          /* near-black for strong contrast */
-    --muted:       #4a4a4a;
-    --plus:        #008060;          /* Shopify green */
-    --plus-light:  #006649;
-    --plus-dim:    rgba(0,128,96,.10);
-    --adv:         #c06000;          /* warm amber for Advanced */
-    --adv-dim:     rgba(192,96,0,.10);
-    --accent2:     #008060;
-    --ok:          #008060;
-    --danger:      #d72c0d;
-  }
-  html.light body { background: var(--bg); }
 
   /* Header — deep Shopify green, strong contrast against white page */
-  html.light header {
+  header {
     background: linear-gradient(135deg, #004c3f 0%, #006649 55%, #008060 100%);
     border-bottom-color: #003d30;
   }
-  html.light header::before { background: radial-gradient(circle, rgba(150,255,210,.15) 0%, transparent 70%); }
-  html.light header::after  { background: radial-gradient(circle, rgba(255,200,87,.12) 0%, transparent 70%); }
-  html.light .header-shopify-bg { opacity: .06; }
-  html.light .header-dots { background-image: radial-gradient(circle, rgba(255,255,255,.12) 1px, transparent 1px); }
-  html.light .header-eyebrow { color: rgba(255,255,255,.65); }
-  html.light .header-shopify-wordmark { color: rgba(255,255,255,.5); }
-  html.light .eyebrow-adv  { background: rgba(255,200,87,.20); border-color: rgba(255,200,87,.45); color: #ffd27a; }
-  html.light .eyebrow-plus { background: rgba(255,255,255,.15); border-color: rgba(255,255,255,.35); color: #fff; }
-  html.light .header-inner p { color: rgba(255,255,255,.72); }
-  html.light .header-inner h1 {
+  header::before { background: radial-gradient(circle, rgba(150,255,210,.15) 0%, transparent 70%); }
+  header::after  { background: radial-gradient(circle, rgba(255,200,87,.12) 0%, transparent 70%); }
+  .header-shopify-bg { opacity: .06; }
+  .header-dots { background-image: radial-gradient(circle, rgba(255,255,255,.12) 1px, transparent 1px); }
+  .header-eyebrow { color: rgba(255,255,255,.65); }
+  .header-shopify-wordmark { color: rgba(255,255,255,.5); }
+  .eyebrow-adv  { background: rgba(255,200,87,.20); border-color: rgba(255,200,87,.45); color: #ffd27a; }
+  .eyebrow-plus { background: rgba(255,255,255,.15); border-color: rgba(255,255,255,.35); color: #fff; }
+  .header-inner p { color: rgba(255,255,255,.72); }
+  .header-inner h1 {
     background: linear-gradient(90deg, #ffc857 0%, #ffffff 45%, #96ffcf 100%);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   }
-  html.light .ask-btn { background: rgba(255,255,255,.15); border-color: rgba(255,255,255,.35); color: #fff; }
-  html.light .ask-btn:hover { background: rgba(255,255,255,.25); }
+  .ask-btn { background: rgba(255,255,255,.15); border-color: rgba(255,255,255,.35); color: #fff; }
+  .ask-btn:hover { background: rgba(255,255,255,.25); }
 
   /* Tab bar — white with Shopify green active indicator */
-  html.light .tab-bar { background: #fff; border-bottom: 2px solid #e0e0e0; }
-  html.light .tab-btn { color: #4a4a4a; }
-  html.light .tab-btn:hover { color: #1a1a1a; }
-  html.light .tab-btn.active { color: #006649; border-bottom-color: #008060; }
+  .tab-bar { background: #fff; border-bottom: 2px solid #e0e0e0; }
+  .tab-btn { color: #4a4a4a; }
+  .tab-btn:hover { color: #1a1a1a; }
+  .tab-btn.active { color: #006649; border-bottom-color: #008060; }
 
   /* Stat cards — white with green accent tops */
-  html.light .stat-card { background: #fff; border-color: #d1d1d1; }
-  html.light .stat-card:hover { box-shadow: 0 12px 32px rgba(0,0,0,.10); }
-  html.light .stat-card .s-label { color: #4a4a4a; }
-  html.light .stat-card .s-sub   { color: #4a4a4a; }
-  html.light .stat-card .s-value.plus { color: #006649; }
-  html.light .stat-card.plus::after { background: #008060; }
-  html.light .stat-card.teal::after { background: #008060; }
+  .stat-card { background: #fff; border-color: #d1d1d1; }
+  .stat-card:hover { box-shadow: 0 12px 32px rgba(0,0,0,.10); }
+  .stat-card .s-label { color: #4a4a4a; }
+  .stat-card .s-sub   { color: #4a4a4a; }
+  .stat-card .s-value.plus { color: #006649; }
+  .stat-card.plus::after { background: #008060; }
+  .stat-card.teal::after { background: #008060; }
 
   /* Section labels */
-  html.light .section-label { color: #4a4a4a; }
-  html.light .section-label::after { background: #d1d1d1; }
+  .section-label { color: #4a4a4a; }
+  .section-label::after { background: #d1d1d1; }
 
   /* Hero compare — Advanced white, Plus with a green wash */
-  html.light .hero-compare { border-color: #d1d1d1; }
-  html.light .hc-col { background: #fff; }
-  html.light .hc-col.plus-col { background: #f0faf5; }
-  html.light .hc-divider { background: #f0f0f0; border-color: #d1d1d1; color: #4a4a4a; }
-  html.light .hc-plan-tag.plus { background: rgba(0,128,96,.10); border-color: rgba(0,128,96,.3); color: #006649; }
-  html.light .hc-name.plus { color: #006649; }
-  html.light .hc-list li { color: #4a4a4a; }
-  html.light .hc-list li.upgrade { color: #1a1a1a; }
-  html.light .hc-list li.upgrade .ci { color: #008060; }
+  .hero-compare { border-color: #d1d1d1; }
+  .hc-col { background: #fff; }
+  .hc-col.plus-col { background: #f0faf5; }
+  .hc-divider { background: #f0f0f0; border-color: #d1d1d1; color: #4a4a4a; }
+  .hc-plan-tag.plus { background: rgba(0,128,96,.10); border-color: rgba(0,128,96,.3); color: #006649; }
+  .hc-name.plus { color: #006649; }
+  .hc-list li { color: #4a4a4a; }
+  .hc-list li.upgrade { color: #1a1a1a; }
+  .hc-list li.upgrade .ci { color: #008060; }
 
   /* Tables */
-  html.light .table-wrap { border-color: #d1d1d1; }
-  html.light thead { background: #f0f0f0; }
-  html.light thead th { color: #4a4a4a; border-bottom-color: #d1d1d1; }
-  html.light thead th.plus-col { color: #006649; }
-  html.light thead th.adv-col  { color: #c06000; }
-  html.light tbody tr { background: #fff; border-bottom-color: #e8e8e8; }
-  html.light tbody tr:hover { background: #f5fbf8; }
-  html.light tbody tr.cat-row { background: #f0f0f0; }
-  html.light .feature-name { color: #1a1a1a; }
-  html.light .check { background: rgba(0,128,96,.12); color: #006649; }
-  html.light .val-unlimited { background: rgba(0,128,96,.10); color: #006649; border-color: rgba(0,128,96,.28); }
-  html.light .upgrade-tag   { background: rgba(0,128,96,.10); color: #006649; border-color: rgba(0,128,96,.25); }
+  .table-wrap { border-color: #d1d1d1; }
+  thead { background: #f0f0f0; }
+  thead th { color: #4a4a4a; border-bottom-color: #d1d1d1; }
+  thead th.plus-col { color: #006649; }
+  thead th.adv-col  { color: #c06000; }
+  tbody tr { background: #fff; border-bottom-color: #e8e8e8; }
+  tbody tr:hover { background: #f5fbf8; }
+  tbody tr.cat-row { background: #f0f0f0; }
+  .feature-name { color: #1a1a1a; }
+  .check { background: rgba(0,128,96,.12); color: #006649; }
+  .val-unlimited { background: rgba(0,128,96,.10); color: #006649; border-color: rgba(0,128,96,.28); }
+  .upgrade-tag   { background: rgba(0,128,96,.10); color: #006649; border-color: rgba(0,128,96,.25); }
 
   /* Implication cards */
-  html.light .impl-card { background: #fff; border-color: #d1d1d1; }
-  html.light .impl-card:hover { box-shadow: 0 12px 32px rgba(0,0,0,.10); }
-  html.light .impl-card.plus::before { background: #008060; }
-  html.light .impl-body { color: #4a4a4a; }
-  html.light .impl-body strong { color: #1a1a1a; }
-  html.light .impl-implication { border-top-color: #e0e0e0; color: #4a4a4a; }
-  html.light .impl-implication strong { color: #006649; }
-  html.light .impl-plan-tag.plus { background: rgba(0,128,96,.10); color: #006649; border-color: rgba(0,128,96,.28); }
-  html.light .impl-tag { background: #f0f0f0; border-color: #d1d1d1; color: #4a4a4a; }
-  html.light .impl-expand-btn { color: #006649; border-color: #d1d1d1; }
-  html.light .impl-expand-btn:hover { background: rgba(0,128,96,.08); border-color: rgba(0,128,96,.3); }
+  .impl-card { background: #fff; border-color: #d1d1d1; }
+  .impl-card:hover { box-shadow: 0 12px 32px rgba(0,0,0,.10); }
+  .impl-card.plus::before { background: #008060; }
+  .impl-body { color: #4a4a4a; }
+  .impl-body strong { color: #1a1a1a; }
+  .impl-implication { border-top-color: #e0e0e0; color: #4a4a4a; }
+  .impl-implication strong { color: #006649; }
+  .impl-plan-tag.plus { background: rgba(0,128,96,.10); color: #006649; border-color: rgba(0,128,96,.28); }
+  .impl-tag { background: #f0f0f0; border-color: #d1d1d1; color: #4a4a4a; }
+  .impl-expand-btn { color: #006649; border-color: #d1d1d1; }
+  .impl-expand-btn:hover { background: rgba(0,128,96,.08); border-color: rgba(0,128,96,.3); }
 
   /* Plus Exclusives cards */
-  html.light .excl-card { background: #fff; border-color: #d1d1d1; }
-  html.light .excl-card:hover { box-shadow: 0 14px 36px rgba(0,0,0,.10); border-color: rgba(0,128,96,.4); }
-  html.light .excl-card::after { background: #008060; }
-  html.light .excl-card-title { color: #1a1a1a; }
-  html.light .excl-card-desc  { color: #4a4a4a; }
-  html.light .excl-card-tag   { background: rgba(0,128,96,.10); border-color: rgba(0,128,96,.25); color: #006649; }
-  html.light .excl-card-cta   { color: #006649; }
+  .excl-card { background: #fff; border-color: #d1d1d1; }
+  .excl-card:hover { box-shadow: 0 14px 36px rgba(0,0,0,.10); border-color: rgba(0,128,96,.4); }
+  .excl-card::after { background: #008060; }
+  .excl-card-title { color: #1a1a1a; }
+  .excl-card-desc  { color: #4a4a4a; }
+  .excl-card-tag   { background: rgba(0,128,96,.10); border-color: rgba(0,128,96,.25); color: #006649; }
+  .excl-card-cta   { color: #006649; }
 
   /* Footer */
-  html.light footer { border-top-color: #d1d1d1; }
-  html.light .footer-brand { color: #006649; }
-  html.light .footer-text  { color: #4a4a4a; }
+  footer { border-top-color: #d1d1d1; }
+  .footer-brand { color: #006649; }
+  .footer-text  { color: #4a4a4a; }
 
-  /* ── THEME TOGGLE BUTTON ── */
-  .theme-toggle {
-    position: fixed; top: 16px; right: 20px; z-index: 200;
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: 50px; padding: 6px 14px 6px 10px;
-    display: flex; align-items: center; gap: 7px;
-    font-size: .75rem; font-weight: 700; color: var(--muted);
-    cursor: pointer; transition: background .2s, border-color .2s, color .2s;
-    box-shadow: 0 2px 8px rgba(0,0,0,.18);
+
+  /* ── PASSCODE LOCK ── */
+  #lock-overlay {
+    position: fixed; inset: 0; z-index: 9999;
+    background: #f7f7f7;
+    display: flex; align-items: center; justify-content: center;
   }
-  .theme-toggle:hover { color: var(--text); border-color: var(--plus); }
-  .theme-toggle svg { flex-shrink: 0; }
+  .lock-box {
+    background: #fff; border: 1px solid #d1d1d1; border-radius: 18px;
+    padding: 44px 48px; width: 100%; max-width: 380px; text-align: center;
+    box-shadow: 0 12px 40px rgba(0,0,0,.10);
+  }
+  .lock-logo { font-size: 2.2rem; margin-bottom: 14px; }
+  .lock-title { font-size: 1.1rem; font-weight: 800; color: #1a1a1a; margin-bottom: 4px; }
+  .lock-sub { font-size: .83rem; color: #4a4a4a; margin-bottom: 28px; }
+  .lock-input {
+    width: 100%; background: #f0f0f0; border: 1px solid #d1d1d1;
+    border-radius: 10px; padding: 12px 16px; font-size: .95rem;
+    color: #1a1a1a; font-family: var(--font); outline: none;
+    text-align: center; letter-spacing: 2px; transition: border-color .15s;
+    margin-bottom: 14px;
+  }
+  .lock-input:focus { border-color: #008060; }
+  .lock-submit {
+    width: 100%; padding: 12px; border-radius: 10px; font-size: .9rem;
+    font-weight: 700; background: #008060; border: none; color: #fff;
+    cursor: pointer; font-family: var(--font); transition: background .15s;
+  }
+  .lock-submit:hover { background: #006649; }
+  .lock-error { font-size: .78rem; color: #d72c0d; margin-top: 10px; height: 18px; }
 </style>
 </head>
 <body>
@@ -2914,34 +2912,9 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.style.cssText = 'cursor:pointer;padding:5px 14px;border-radius:20px;font-size:.78rem;font-weight:600;border:1px solid var(--border);background:var(--surface2);color:var(--muted);transition:all .15s;';
   });
   initExpandBtns();
-  // Light mode is default; apply dark only if explicitly saved
-  if (localStorage.getItem('theme') === 'dark') applyDark();
-  else applyLight();
+
 });
 
-// ═══════════════ THEME TOGGLE ═══════════════
-const moonSVG = `<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>`;
-const sunSVG   = `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>`;
-
-function applyLight() {
-  document.documentElement.classList.add('light');
-  document.getElementById('themeIcon').innerHTML = sunSVG;
-  document.getElementById('themeLabel').textContent = 'Dark mode';
-}
-function applyDark() {
-  document.documentElement.classList.remove('light');
-  document.getElementById('themeIcon').innerHTML = moonSVG;
-  document.getElementById('themeLabel').textContent = 'Light mode';
-}
-function toggleTheme() {
-  if (document.documentElement.classList.contains('light')) {
-    applyDark();
-    localStorage.setItem('theme', 'dark');
-  } else {
-    applyLight();
-    localStorage.setItem('theme', 'light');
-  }
-}
 
 // ═══════════════ TABS ═══════════════
 function switchTab(id, btn) {
@@ -3044,6 +3017,33 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAskModa
 buildDiffTable();
 renderFullTable();
 buildImplications();
+
+
+// ═══════════════ PASSCODE ═══════════════
+(function() {
+  if (sessionStorage.getItem('avp_auth') === '1') {
+    document.getElementById('lock-overlay').style.display = 'none';
+    return;
+  }
+  // Focus input on load
+  document.addEventListener('DOMContentLoaded', function() {
+    var el = document.getElementById('lock-input');
+    if (el) el.focus();
+  });
+})();
+
+function checkPass() {
+  var val = document.getElementById('lock-input').value;
+  var err = document.getElementById('lock-err');
+  if (val === 'Shopify123') {
+    sessionStorage.setItem('avp_auth', '1');
+    document.getElementById('lock-overlay').style.display = 'none';
+  } else {
+    err.textContent = 'Incorrect passcode';
+    document.getElementById('lock-input').value = '';
+    setTimeout(function(){ err.textContent = ''; }, 2500);
+  }
+}
 </script>
 </body>
 </html>
