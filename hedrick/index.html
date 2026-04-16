@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shopify × Hedrick Industries — Unified Commerce</title>
+  <style>
+    :root {
+      --shopify-green: #008060;
+      --shopify-green-light: #e3f5f0;
+      --shopify-green-mid: #b3dfd3;
+      --ink: #1a1a2e;
+      --ink-mid: #3d3d5c;
+      --ink-light: #6b7280;
+      --surface: #ffffff;
+      --surface-2: #f8f9fa;
+      --surface-3: #f1f5f9;
+      --border: #e5e7eb;
+      --gold: #c8932a;
+      --gold-light: #fef3e0;
+      --radius: 12px;
+      --shadow: 0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.06);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,.10);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--ink);
+      background: var(--surface);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: .95rem;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-brand .dot { color: var(--ink-light); font-weight: 300; margin: 0 2px; }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: .85rem;
+      font-weight: 500;
+      color: var(--ink-light);
+      text-decoration: none;
+      transition: color .15s;
+    }
+    .nav-links a:hover { color: var(--shopify-green); }
+    .nav-cta {
+      background: var(--shopify-green);
+      color: #fff !important;
+      padding: .4rem 1rem;
+      border-radius: 6px;
+    }
+    .nav-cta:hover { background: #006e52 !important; color: #fff !important; }
+
+    /* ── SECTIONS ── */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--shopify-green);
+      margin-bottom: .75rem;
+    }
+    h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.1; }
+    h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 800; line-height: 1.2; }
+    h3 { font-size: 1.15rem; font-weight: 700; }
+    p { color: var(--ink-mid); }
+
+    /* ── HERO ── */
+    #hero {
+      background: linear-gradient(160deg, #f0faf6 0%, #ffffff 50%, #fafafa 100%);
+      padding: 6rem 2rem 5rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    .logo-pill {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 100px;
+      padding: .5rem 1.25rem .5rem .75rem;
+      font-weight: 700;
+      font-size: .95rem;
+      box-shadow: var(--shadow);
+    }
+    .logo-pill svg { flex-shrink: 0; }
+    .hero-x {
+      font-size: 1.4rem;
+      color: var(--ink-light);
+      font-weight: 300;
+    }
+    #hero h1 { margin-bottom: 1.25rem; }
+    #hero h1 em { font-style: normal; color: var(--shopify-green); }
+    .hero-sub {
+      max-width: 640px;
+      margin: 0 auto 2.5rem;
+      font-size: 1.15rem;
+      color: var(--ink-mid);
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .75rem;
+      margin-bottom: 3rem;
+    }
+    .badge {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: .35rem .9rem;
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--ink-mid);
+    }
+    .badge.green {
+      background: var(--shopify-green-light);
+      border-color: var(--shopify-green-mid);
+      color: var(--shopify-green);
+    }
+    .hero-stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2px;
+    }
+    .hero-stat {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 2rem;
+      min-width: 160px;
+      box-shadow: var(--shadow);
+    }
+    .hero-stat .num {
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: var(--shopify-green);
+      line-height: 1;
+    }
+    .hero-stat .lbl { font-size: .75rem; color: var(--ink-light); margin-top: .25rem; font-weight: 500; }
+
+    /* ── CHALLENGE ── */
+    #challenge { background: var(--surface-2); }
+    .challenge-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .challenge-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+    .challenge-card .icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      background: #fee2e2;
+    }
+    .challenge-card h3 { margin-bottom: .4rem; color: var(--ink); }
+    .challenge-card p { font-size: .875rem; }
+
+    /* ── PHILOSOPHY ── */
+    #philosophy { background: var(--surface); }
+    .philosophy-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-top: 2.5rem;
+    }
+    .vs-stack { display: flex; flex-direction: column; gap: 1rem; }
+    .vs-row {
+      display: flex;
+      gap: .75rem;
+      align-items: flex-start;
+    }
+    .vs-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .85rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .vs-icon.no { background: #fee2e2; color: #dc2626; }
+    .vs-icon.yes { background: var(--shopify-green-light); color: var(--shopify-green); }
+    .vs-row p { font-size: .9rem; }
+    .arch-diagram {
+      background: var(--surface-3);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+    }
+    .arch-node {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: .75rem 1.25rem;
+      text-align: center;
+      font-weight: 700;
+      font-size: .9rem;
+      box-shadow: var(--shadow);
+    }
+    .arch-node.shopify {
+      border-color: var(--shopify-green);
+      background: var(--shopify-green-light);
+      color: var(--shopify-green);
+    }
+    .arch-node.netsuite {
+      border-color: #6366f1;
+      background: #eef2ff;
+      color: #4338ca;
+    }
+    .arch-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink-light);
+      font-size: .75rem;
+      font-weight: 600;
+      gap: .4rem;
+      padding: .5rem 0;
+    }
+    .arch-arrow svg { color: var(--shopify-green); }
+    .arch-channels {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .5rem;
+      margin-bottom: 1rem;
+    }
+    .arch-ch {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: .5rem .75rem;
+      font-size: .78rem;
+      font-weight: 600;
+      text-align: center;
+      color: var(--ink-mid);
+    }
+
+    /* ── CHANNELS ── */
+    #channels { background: var(--surface-2); }
+    .channels-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .channel-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .channel-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--shopify-green);
+    }
+    .channel-num {
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--shopify-green);
+      margin-bottom: .5rem;
+    }
+    .channel-card h3 { font-size: 1.1rem; margin-bottom: .6rem; }
+    .channel-card .sub { font-size: .8rem; color: var(--ink-light); font-weight: 500; margin-bottom: 1rem; }
+    .feature-list { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: .5rem;
+      font-size: .85rem;
+      color: var(--ink-mid);
+    }
+    .feature-list li::before {
+      content: '✓';
+      color: var(--shopify-green);
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── PAYMENTS ── */
+    #payments { background: var(--surface); }
+    .payments-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 2.5rem;
+      align-items: start;
+    }
+    .payment-scenario {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .scenario-header {
+      padding: 1rem 1.25rem;
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .scenario-header.old { background: #fee2e2; color: #991b1b; }
+    .scenario-header.new { background: var(--shopify-green-light); color: var(--shopify-green); }
+    .scenario-body { padding: 1.25rem; }
+    .scenario-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: .6rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: .875rem;
+    }
+    .scenario-row:last-child { border-bottom: none; }
+    .scenario-row .channel { font-weight: 600; color: var(--ink); }
+    .scenario-row .processor { color: var(--ink-light); }
+    .scenario-row .processor.unified { color: var(--shopify-green); font-weight: 600; }
+    .scenario-row .vol { font-size: .75rem; color: var(--ink-light); }
+    .payment-highlight {
+      background: var(--shopify-green-light);
+      border: 1px solid var(--shopify-green-mid);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+    .payment-highlight h3 { color: var(--shopify-green); margin-bottom: .75rem; }
+    .payment-highlight ul { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+    .payment-highlight li {
+      font-size: .875rem;
+      display: flex;
+      align-items: flex-start;
+      gap: .5rem;
+      color: var(--ink-mid);
+    }
+    .payment-highlight li::before { content: '→'; color: var(--shopify-green); font-weight: 700; }
+
+    /* ── NETSUITE ── */
+    #netsuite { background: #f8f7ff; }
+    .ns-flow {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .ns-step {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .ns-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--shopify-green);
+      color: #fff;
+      font-weight: 800;
+      font-size: .875rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .ns-content h3 { font-size: 1rem; margin-bottom: .2rem; }
+    .ns-content p { font-size: .875rem; }
+    .ns-connector {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      box-shadow: var(--shadow);
+    }
+    .ns-sync-item {
+      text-align: center;
+      padding: 1rem;
+    }
+    .ns-sync-item .icon { font-size: 1.5rem; margin-bottom: .4rem; }
+    .ns-sync-item .label { font-size: .8rem; font-weight: 700; color: var(--ink); }
+    .ns-sync-item .dir { font-size: .7rem; color: var(--ink-light); margin-top: .15rem; }
+
+    /* ── SCALE ── */
+    #scale-integration {
+      background: var(--surface-2);
+    }
+    .scale-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      max-width: 800px;
+      margin: 2.5rem auto 0;
+    }
+    .scale-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      background: var(--gold-light);
+      border: 1px solid #f3d08a;
+      border-radius: 100px;
+      padding: .3rem .9rem;
+      font-size: .75rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+    }
+    .scale-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .scale-col h4 { font-size: .85rem; font-weight: 700; color: var(--ink-light); text-transform: uppercase; letter-spacing: .08em; margin-bottom: .75rem; }
+    .scale-col ul { list-style: none; display: flex; flex-direction: column; gap: .4rem; }
+    .scale-col li { font-size: .875rem; color: var(--ink-mid); display: flex; align-items: flex-start; gap: .5rem; }
+    .scale-col li::before { content: '•'; color: var(--shopify-green); font-weight: 800; }
+
+    /* ── WHY SHOPIFY ── */
+    #why { background: var(--surface); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .why-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+    }
+    .why-card h3 { margin-bottom: .5rem; }
+    .why-card p { font-size: .875rem; }
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2.5rem;
+      font-size: .875rem;
+    }
+    .compare-table th {
+      padding: .75rem 1rem;
+      text-align: left;
+      font-weight: 700;
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      background: var(--surface-3);
+      border: 1px solid var(--border);
+    }
+    .compare-table th.shopify-col { color: var(--shopify-green); background: var(--shopify-green-light); }
+    .compare-table td {
+      padding: .85rem 1rem;
+      border: 1px solid var(--border);
+      vertical-align: top;
+      color: var(--ink-mid);
+    }
+    .compare-table tr:nth-child(even) td { background: var(--surface-2); }
+    .compare-table td.shopify-col { color: var(--ink); background: #f0fdf9; }
+    .compare-table td.checkmark { color: var(--shopify-green); font-weight: 800; }
+    .compare-table td.xmark { color: #dc2626; }
+    .compare-table td.partmark { color: var(--gold); }
+
+    /* ── TIMELINE ── */
+    #timeline { background: var(--surface-2); }
+    .timeline-track {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .timeline-item {
+      display: flex;
+      gap: 1.5rem;
+      padding-bottom: 2rem;
+      position: relative;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+      width: 40px;
+    }
+    .timeline-dot {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--shopify-green);
+      color: #fff;
+      font-weight: 800;
+      font-size: .8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      z-index: 1;
+    }
+    .timeline-dot.done { background: var(--shopify-green); }
+    .timeline-dot.next { background: var(--surface); border: 2px solid var(--shopify-green); color: var(--shopify-green); }
+    .timeline-dot.future { background: var(--surface-3); border: 2px solid var(--border); color: var(--ink-light); }
+    .timeline-line {
+      flex: 1;
+      width: 2px;
+      background: var(--border);
+      margin-top: 4px;
+    }
+    .timeline-item:last-child .timeline-line { display: none; }
+    .timeline-content {
+      padding-top: .5rem;
+      flex: 1;
+    }
+    .timeline-content .date {
+      font-size: .75rem;
+      font-weight: 700;
+      color: var(--shopify-green);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: .25rem;
+    }
+    .timeline-content h3 { font-size: 1rem; margin-bottom: .25rem; }
+    .timeline-content p { font-size: .875rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,.7);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+    footer .footer-brand {
+      font-weight: 700;
+      color: #fff;
+      font-size: 1rem;
+      margin-bottom: .5rem;
+    }
+    footer p { font-size: .8rem; }
+    footer a { color: var(--shopify-green-mid); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      .philosophy-wrap,
+      .payments-layout,
+      .scale-cols { grid-template-columns: 1fr; gap: 1.5rem; }
+      .nav-links { display: none; }
+      #hero { padding: 4rem 1.5rem 3rem; }
+      section { padding: 3.5rem 1.5rem; }
+      .hero-stat-row { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#">
+    <svg width="22" height="22" viewBox="0 0 44 44" fill="none"><path d="M28.5 5.5C28.5 5.5 27.9 5.6 27.1 5.8C26.5 4.1 25.3 2.6 23.2 2.6C23.1 2.6 23 2.6 22.9 2.6C22.3 1.8 21.5 1.5 20.9 1.5C16.5 1.5 14.4 6.9 13.7 9.8C11.9 10.3 10.7 10.7 10.5 10.7C9.5 11 9.5 11 9.3 12C9.2 12.7 6.5 33.8 6.5 33.8L28.7 38L37.5 35.9C37.5 35.9 28.6 5.8 28.5 5.5ZM22.8 7L22.8 7.2C21.4 7.6 19.9 8 18.4 8.5C18.9 6.6 20 5.5 20.9 4.9C21.4 5.9 22 6.6 22.8 7ZM20.8 3.3C21 3.3 21.3 3.4 21.5 3.6C20.5 4.1 19.4 5.4 18.9 7.6C17.7 8 16.6 8.4 15.6 8.7C16.4 5.9 18 3.3 20.8 3.3ZM23 30.8L28 29.3L26.8 23.4L23 30.8ZM23.4 7.5C24.6 7.8 25.5 8.7 26.1 10L19.5 11.9C20.2 9.5 21.7 8.1 23.4 7.5Z" fill="#95BF47"/></svg>
+    Shopify
+    <span class="dot">×</span>
+    Hedrick Industries
+  </a>
+  <ul class="nav-links">
+    <li><a href="#challenge">Challenge</a></li>
+    <li><a href="#channels">Channels</a></li>
+    <li><a href="#payments">Payments</a></li>
+    <li><a href="#netsuite">NetSuite</a></li>
+    <li><a href="#why">Why Shopify</a></li>
+    <li><a href="#timeline" class="nav-cta">Timeline</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-logos">
+      <div class="logo-pill">
+        <svg width="20" height="20" viewBox="0 0 44 44" fill="none"><path d="M28.5 5.5C28.5 5.5 27.9 5.6 27.1 5.8C26.5 4.1 25.3 2.6 23.2 2.6C23.1 2.6 23 2.6 22.9 2.6C22.3 1.8 21.5 1.5 20.9 1.5C16.5 1.5 14.4 6.9 13.7 9.8C11.9 10.3 10.7 10.7 10.5 10.7C9.5 11 9.5 11 9.3 12C9.2 12.7 6.5 33.8 6.5 33.8L28.7 38L37.5 35.9C37.5 35.9 28.6 5.8 28.5 5.5ZM22.8 7L22.8 7.2C21.4 7.6 19.9 8 18.4 8.5C18.9 6.6 20 5.5 20.9 4.9C21.4 5.9 22 6.6 22.8 7ZM20.8 3.3C21 3.3 21.3 3.4 21.5 3.6C20.5 4.1 19.4 5.4 18.9 7.6C17.7 8 16.6 8.4 15.6 8.7C16.4 5.9 18 3.3 20.8 3.3ZM23 30.8L28 29.3L26.8 23.4L23 30.8ZM23.4 7.5C24.6 7.8 25.5 8.7 26.1 10L19.5 11.9C20.2 9.5 21.7 8.1 23.4 7.5Z" fill="#95BF47"/></svg>
+        Shopify
+      </div>
+      <span class="hero-x">×</span>
+      <div class="logo-pill" style="background:#1a1a2e;border-color:#3d3d5c;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="4" fill="#c8932a"/><text x="12" y="16" text-anchor="middle" font-size="10" font-weight="800" fill="white" font-family="sans-serif">H</text></svg>
+        <span style="color:#fff;">Hedrick Industries</span>
+      </div>
+    </div>
+
+    <h1>One Commerce Platform.<br/><em>Every Channel. One Source of Truth.</em></h1>
+    <p class="hero-sub">
+      A unified strategy for Southern Concrete's retail stores, B2B contractor sales, and COD quarry operations — all powered by Shopify and synced seamlessly to NetSuite.
+    </p>
+
+    <div class="hero-badges">
+      <span class="badge green">✓ NetSuite Integration</span>
+      <span class="badge green">✓ Shopify Payments</span>
+      <span class="badge green">✓ B2B Contractor Pricing</span>
+      <span class="badge green">✓ Retail POS Pro</span>
+      <span class="badge">3–4 Store Locations</span>
+      <span class="badge">Target Go-Live: Nov 2026</span>
+    </div>
+
+    <div class="hero-stat-row">
+      <div class="hero-stat">
+        <div class="num">$16.5M</div>
+        <div class="lbl">Annual retail store volume</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">$25–30M</div>
+        <div class="lbl">COD quarry credit card volume</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">4</div>
+        <div class="lbl">Commerce channels unified</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">1</div>
+        <div class="lbl">Payment processor for all</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHALLENGE -->
+<section id="challenge">
+  <div class="container">
+    <div class="section-label">Where Things Stand Today</div>
+    <h2>Built on workarounds. Ready for something better.</h2>
+    <p style="margin-top:.75rem;max-width:600px;">The team at Southern Concrete has done a heroic job making disconnected systems function — but the foundation is showing its age.</p>
+
+    <div class="challenge-grid">
+      <div class="challenge-card">
+        <div class="icon">🔧</div>
+        <h3>POS That Wasn't Built for Retail</h3>
+        <p>The readymix ERP was configured to act as a POS. Staff open and close the full ERP system to process each transaction — slow, manual, and not designed for retail floor use.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="icon">📋</div>
+        <h3>Manual Inventory Every Month</h3>
+        <p>Inventory management is entirely manual. No real-time visibility across the 3 store locations. The goal of this project is to put those habits behind you for good.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="icon">👤</div>
+        <h3>COD Buyers Are Invisible</h3>
+        <p>Trucks roll up at the quarry, pick up concrete, and pay by credit card — but there's no way to capture who they are. Repeat buyers remain unknown. Relationship-building is impossible.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="icon">🏷️</div>
+        <h3>Contractor Pricing via Coupons</h3>
+        <p>Customers with negotiated contractor rates are handled through manual coupon discounts — a fragile, error-prone process that creates guesswork at the register.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="icon">💳</div>
+        <h3>Multiple Payment Processors</h3>
+        <p>Retail stores and quarry COD sales each use separate credit card systems. Reconciliation is complex, rates aren't optimized, and there's no unified view of payment activity.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="icon">🔄</div>
+        <h3>NetSuite Implementation at Risk</h3>
+        <p>The parallel NetSuite rollout cannot advance until a POS decision is made. The clock is ticking — the legacy ERP reaches end-of-life at year's end.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section id="philosophy">
+  <div class="container">
+    <div class="section-label">The Core Philosophy</div>
+    <h2>Shopify owns the commerce.<br/>NetSuite owns the books.</h2>
+
+    <div class="philosophy-wrap">
+      <div>
+        <p style="margin-bottom:1.5rem;">The debate isn't whether to use NetSuite — it's about <strong>how much commerce logic to push into NetSuite</strong> versus keeping it where it belongs: in a purpose-built commerce platform.</p>
+        <p style="margin-bottom:1.5rem;">When NetSuite takes on 50–60% of your payment processing and POS operations, you're asking an accounting system to do a retail job. The result is complexity, manual workarounds, and brittle integrations.</p>
+        <p style="margin-bottom:1.5rem;"><strong>The Shopify approach is the inverse:</strong> Shopify handles every customer touchpoint — in-store, B2B, COD, field orders — and passes clean, reliable data to NetSuite as cash sales. NetSuite does what it's great at: accounting, reporting, and ERP.</p>
+
+        <div class="vs-stack" style="margin-top:1.75rem;">
+          <div class="vs-row">
+            <div class="vs-icon no">✕</div>
+            <p><strong>NetSuite-led processing:</strong> ERP manages the POS experience, staff open accounting software at the register, custom integrations break when NetSuite updates</p>
+          </div>
+          <div class="vs-row">
+            <div class="vs-icon yes">✓</div>
+            <p><strong>Shopify-led commerce:</strong> Staff use a purpose-built iPad POS, every transaction flows automatically to NetSuite as a cash sale, inventory is consumed in real time</p>
+          </div>
+          <div class="vs-row">
+            <div class="vs-icon yes">✓</div>
+            <p><strong>Pre-built connector:</strong> No custom development needed. Shopify ↔ NetSuite sync is off-the-shelf, bidirectional, and battle-tested</p>
+          </div>
+          <div class="vs-row">
+            <div class="vs-icon yes">✓</div>
+            <p><strong>One source of truth:</strong> Pricing, customers, inventory, and orders all live in Shopify — NetSuite inherits the data it needs automatically</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="arch-diagram">
+          <p style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-light);text-align:center;margin-bottom:1rem;">System Architecture</p>
+          <div class="arch-channels">
+            <div class="arch-ch">🏪 Retail POS</div>
+            <div class="arch-ch">🏗️ B2B / Contractor</div>
+            <div class="arch-ch">🚛 COD / Quarry</div>
+            <div class="arch-ch">📋 Field Orders</div>
+          </div>
+          <div class="arch-arrow">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            All channels
+          </div>
+          <div class="arch-node shopify" style="margin-bottom:.75rem;">
+            ⚡ Shopify — Commerce Layer<br/>
+            <span style="font-size:.75rem;font-weight:400;">POS · Payments · B2B · Customer Data</span>
+          </div>
+          <div class="arch-arrow">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Bidirectional sync via pre-built connector
+          </div>
+          <div class="arch-node netsuite">
+            📊 NetSuite — ERP / Accounting<br/>
+            <span style="font-size:.75rem;font-weight:400;">Cash Sales · Inventory · Reporting · Pricing</span>
+          </div>
+          <div style="margin-top:1rem;padding:.75rem;background:var(--surface);border-radius:8px;border:1px solid var(--border);">
+            <p style="font-size:.75rem;color:var(--ink-light);text-align:center;">Every Shopify transaction → NetSuite as a <strong style="color:var(--ink);">cash sale</strong><br/>Pricing &amp; inventory sync → Shopify from <strong style="color:var(--ink);">NetSuite</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHANNELS -->
+<section id="channels">
+  <div class="container">
+    <div class="section-label">Unified Commerce Channels</div>
+    <h2>Four channels. One platform.</h2>
+    <p style="margin-top:.75rem;max-width:600px;">Every customer interaction — walk-in retail, contractor account, COD quarry sale, or special order — runs through Shopify and lands in NetSuite automatically.</p>
+
+    <div class="channels-grid">
+      <div class="channel-card">
+        <div class="channel-num">Channel 01</div>
+        <h3>Retail POS — Southern Concrete Stores</h3>
+        <p class="sub">3 locations today → 4th planned · POS Pro on iPad</p>
+        <ul class="feature-list">
+          <li>Tablet-based — no ERP on the register</li>
+          <li>Barcode scanning + manual product entry</li>
+          <li>Real-time inventory across all locations</li>
+          <li>Staff PINs, roles &amp; permissions</li>
+          <li>Hardware flexibility — iPads, Bluetooth scanners, card readers</li>
+          <li>Cash, card, split payments, manual entry</li>
+          <li>Save &amp; resume carts across devices</li>
+          <li>Staff sales attribution per line item</li>
+        </ul>
+      </div>
+
+      <div class="channel-card">
+        <div class="channel-num">Channel 02</div>
+        <h3>B2B — Contractor Accounts &amp; Pricing</h3>
+        <p class="sub">Custom price lists · Net 10 terms · PO support</p>
+        <ul class="feature-list">
+          <li>Customer lookup at checkout (name, email, phone)</li>
+          <li>Auto-applies catalog pricing — no manual discounts</li>
+          <li>Eliminates coupon workaround for contractor rates</li>
+          <li>Net terms: invoice at sale, pay later</li>
+          <li>PO number attachment on B2B orders</li>
+          <li>Vaulted credit cards for account holders</li>
+          <li>Pricing synced from NetSuite price lists</li>
+          <li>Shared customers across CM &amp; Ready-Mix</li>
+        </ul>
+      </div>
+
+      <div class="channel-card">
+        <div class="channel-num">Channel 03</div>
+        <h3>COD Sales — Quarry &amp; Ready-Mix</h3>
+        <p class="sub">$25–30M annual · Credit card consolidation</p>
+        <ul class="feature-list">
+          <li>Replace First Citizens reader with Shopify Payments</li>
+          <li>Capture customer name &amp; info from card transactions</li>
+          <li>Track repeat COD buyers for the first time</li>
+          <li>Transactions feed to NetSuite automatically</li>
+          <li>Manual card entry supported for phone-ahead orders</li>
+          <li>Scale integration research underway (Cardinal, US Scales)</li>
+          <li>ACH payment support included</li>
+          <li>One provider for retail + quarry processing</li>
+        </ul>
+      </div>
+
+      <div class="channel-card">
+        <div class="channel-num">Channel 04</div>
+        <h3>Special Orders &amp; Field Sales</h3>
+        <p class="sub">Draft orders · Admin keying · Custom line items</p>
+        <ul class="feature-list">
+          <li>Custom sale line items replace dummy SKU workaround</li>
+          <li>Draft orders keyed in Shopify admin by sales reps</li>
+          <li>Send invoice links to customers for online payment</li>
+          <li>Special orders tracked to pickup — no shipping required</li>
+          <li>Custom pricing, titles &amp; tax control per line item</li>
+          <li>All data feeds to NetSuite consistently</li>
+          <li>Delivery fees &amp; services as dedicated line items</li>
+          <li>Clean reporting — no more reused item codes</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAYMENTS -->
+<section id="payments">
+  <div class="container">
+    <div class="section-label">Payment Consolidation</div>
+    <h2>One processor.<br/>Every dollar, every channel.</h2>
+
+    <div class="payments-layout">
+      <div>
+        <div class="payment-scenario" style="margin-bottom:1.25rem;">
+          <div class="scenario-header old">Today — Fragmented</div>
+          <div class="scenario-body">
+            <div class="scenario-row">
+              <span class="channel">Retail stores</span>
+              <span class="processor">Readymix ERP processor</span>
+            </div>
+            <div class="scenario-row">
+              <span class="channel">COD quarry sales</span>
+              <span class="processor">First Citizens reader</span>
+            </div>
+            <div class="scenario-row">
+              <span class="channel">Invoiced accounts</span>
+              <span class="processor">Manual / separate</span>
+            </div>
+            <div class="scenario-row" style="background:#fef2f2;">
+              <span class="channel" style="color:#dc2626;">Result</span>
+              <span class="processor" style="color:#dc2626;">3 vendors, 3 reconciliations, no unified view</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="payment-scenario">
+          <div class="scenario-header new">With Shopify — Unified</div>
+          <div class="scenario-body">
+            <div class="scenario-row">
+              <span class="channel">Retail stores</span>
+              <span class="processor unified">Shopify Payments</span>
+              <span class="vol">$1.5M cc</span>
+            </div>
+            <div class="scenario-row">
+              <span class="channel">COD quarry sales</span>
+              <span class="processor unified">Shopify Payments</span>
+              <span class="vol">$25–30M</span>
+            </div>
+            <div class="scenario-row">
+              <span class="channel">Net terms / invoices</span>
+              <span class="processor unified">Shopify Payments</span>
+              <span class="vol">Auto-trigger</span>
+            </div>
+            <div class="scenario-row" style="background:#f0fdf9;">
+              <span class="channel" style="color:var(--shopify-green);">Result</span>
+              <span class="processor unified">1 provider, 1 dashboard, same-day payouts</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="payment-highlight">
+          <h3>Why Shopify Payments</h3>
+          <ul>
+            <li>Natively built-in — no external gateway setup or fees</li>
+            <li>Same-day payouts available</li>
+            <li>Competitive rates with volume pricing potential at scale</li>
+            <li>Customer recognition via Shop account across all Shopify stores</li>
+            <li>Supports card, tap-to-pay, cash, manual entry, ACH, and invoice</li>
+            <li>Vaulted cards for B2B account holders on net terms</li>
+            <li>All payment data flows to NetSuite as cash sales</li>
+            <li>Single reconciliation across all channels</li>
+          </ul>
+        </div>
+
+        <div style="margin-top:1.25rem;padding:1.25rem;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);">
+          <p style="font-size:.8rem;font-weight:700;color:var(--ink-light);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.75rem;">Annual Payment Volume Unified</p>
+          <div style="display:flex;flex-direction:column;gap:.5rem;">
+            <div style="display:flex;justify-content:space-between;font-size:.875rem;">
+              <span>Retail (credit card)</span>
+              <strong>$1.5M</strong>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:.875rem;">
+              <span>COD quarry (credit card)</span>
+              <strong>$25–30M</strong>
+            </div>
+            <div style="border-top:2px solid var(--shopify-green);margin-top:.25rem;padding-top:.5rem;display:flex;justify-content:space-between;font-size:.95rem;">
+              <strong>Total under Shopify Payments</strong>
+              <strong style="color:var(--shopify-green);">~$27–32M</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NETSUITE -->
+<section id="netsuite">
+  <div class="container">
+    <div class="section-label">NetSuite Integration</div>
+    <h2>The integration story is already written.</h2>
+    <p style="margin-top:.75rem;max-width:600px;">Shopify has a pre-built, bidirectional NetSuite connector. No custom development, no bespoke ERP work — just configuration and go-live.</p>
+
+    <div class="ns-flow">
+      <div class="ns-step">
+        <div class="ns-num">1</div>
+        <div class="ns-content">
+          <h3>NetSuite owns the price lists</h3>
+          <p>Contractor catalogs, tiered pricing, and product definitions live in NetSuite. Shopify pulls them automatically — no manual updates at the register.</p>
+        </div>
+      </div>
+      <div class="ns-step">
+        <div class="ns-num">2</div>
+        <div class="ns-content">
+          <h3>Shopify owns the transaction</h3>
+          <p>Every sale — POS, B2B, COD, or draft order — is processed through Shopify. Staff never touch NetSuite on the floor. The POS just works.</p>
+        </div>
+      </div>
+      <div class="ns-step">
+        <div class="ns-num">3</div>
+        <div class="ns-content">
+          <h3>NetSuite receives a clean cash sale</h3>
+          <p>Each transaction flows into NetSuite as a cash sale. Money is captured immediately. Inventory is consumed. No lag, no manual reconciliation, no separate fulfillment step.</p>
+        </div>
+      </div>
+      <div class="ns-step">
+        <div class="ns-num">4</div>
+        <div class="ns-content">
+          <h3>Inventory stays in sync — automatically</h3>
+          <p>Products, SKUs, and stock levels move bidirectionally. NetSuite manages warehouse transfers and purchase orders. Shopify reflects real-time availability across all store locations.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ns-connector">
+      <div class="ns-sync-item">
+        <div class="icon">🏷️</div>
+        <div class="label">Products &amp; Pricing</div>
+        <div class="dir">NetSuite → Shopify</div>
+      </div>
+      <div class="ns-sync-item">
+        <div class="icon">📦</div>
+        <div class="label">Inventory Levels</div>
+        <div class="dir">Bidirectional</div>
+      </div>
+      <div class="ns-sync-item">
+        <div class="icon">💰</div>
+        <div class="label">Orders as Cash Sales</div>
+        <div class="dir">Shopify → NetSuite</div>
+      </div>
+      <div class="ns-sync-item">
+        <div class="icon">👥</div>
+        <div class="label">Customers &amp; Accounts</div>
+        <div class="dir">Bidirectional</div>
+      </div>
+      <div class="ns-sync-item">
+        <div class="icon">📏</div>
+        <div class="label">Units of Measure</div>
+        <div class="dir">NetSuite → Shopify</div>
+      </div>
+      <div class="ns-sync-item">
+        <div class="icon">🔌</div>
+        <div class="label">Pre-built Connector</div>
+        <div class="dir">No custom dev required</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCALE INTEGRATION -->
+<section id="scale-integration">
+  <div class="container">
+    <div class="section-label">Expanding Scope</div>
+    <h2>Scale integration — connecting the quarry.</h2>
+
+    <div class="scale-card">
+      <div class="scale-badge">
+        🔬 In Research
+      </div>
+      <h3 style="margin-bottom:.5rem;">Connecting Weighing Systems to Shopify</h3>
+      <p style="font-size:.875rem;">Trucks at the quarry are weighed in and out using an Apex-connected Moxa box system. The team is exploring whether this weighing data can route directly into Shopify for automated ticket creation, payment capture, and NetSuite sync — eliminating the manual hand-keying step.</p>
+
+      <div class="scale-cols">
+        <div class="scale-col">
+          <h4>Systems Being Evaluated</h4>
+          <ul>
+            <li>Cardinal Scales</li>
+            <li>US Scales</li>
+            <li>Fast Way solutions</li>
+            <li>Shopify partner integrations with weighing systems</li>
+          </ul>
+        </div>
+        <div class="scale-col">
+          <h4>What This Would Enable</h4>
+          <ul>
+            <li>Auto-generated ticket from truck weight → Shopify order</li>
+            <li>Shopify Payments captures COD credit card on the spot</li>
+            <li>Customer record created or matched automatically</li>
+            <li>Cash sale flows to NetSuite with full transaction detail</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY SHOPIFY -->
+<section id="why">
+  <div class="container">
+    <div class="section-label">Why Shopify</div>
+    <h2>Built for exactly this complexity.</h2>
+    <p style="margin-top:.75rem;max-width:660px;">Hedrick's operation isn't a simple retail store. It's a multi-channel, multi-customer-type, high-volume operation with specific ERP requirements — and Shopify is designed for exactly this.</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Capability</th>
+          <th class="shopify-col">Shopify</th>
+          <th>Square</th>
+          <th>NetSuite POS (discontinued)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>B2B contractor pricing / catalogs</td>
+          <td class="shopify-col checkmark">✓ Native, auto-applies at POS</td>
+          <td class="partmark">⚠ Limited</td>
+          <td class="xmark">✕ No longer available</td>
+        </tr>
+        <tr>
+          <td>Net terms &amp; PO number support</td>
+          <td class="shopify-col checkmark">✓ Built into B2B checkout</td>
+          <td class="xmark">✕ Not supported</td>
+          <td class="xmark">✕ End-of-life</td>
+        </tr>
+        <tr>
+          <td>Pre-built NetSuite integration</td>
+          <td class="shopify-col checkmark">✓ Bidirectional, off-the-shelf</td>
+          <td class="partmark">⚠ Custom required</td>
+          <td class="xmark">✕ Not applicable</td>
+        </tr>
+        <tr>
+          <td>Multi-location inventory tracking</td>
+          <td class="shopify-col checkmark">✓ Real-time across all stores</td>
+          <td class="checkmark" style="color:#16a34a;">✓ Available</td>
+          <td class="xmark">✕ End-of-life</td>
+        </tr>
+        <tr>
+          <td>Payments for COD &amp; invoicing</td>
+          <td class="shopify-col checkmark">✓ Shopify Payments handles all</td>
+          <td class="partmark">⚠ Square Payments, separate invoicing</td>
+          <td class="xmark">✕ Not applicable</td>
+        </tr>
+        <tr>
+          <td>Weight / volume product handling</td>
+          <td class="shopify-col checkmark">✓ App ecosystem (Measur, etc.)</td>
+          <td class="partmark">⚠ Manual workarounds</td>
+          <td class="xmark">✕ End-of-life</td>
+        </tr>
+        <tr>
+          <td>Special orders / draft orders</td>
+          <td class="shopify-col checkmark">✓ Admin keying, invoice send</td>
+          <td class="partmark">⚠ Limited draft support</td>
+          <td class="xmark">✕ Not applicable</td>
+        </tr>
+        <tr>
+          <td>Future e-commerce capability</td>
+          <td class="shopify-col checkmark">✓ Same platform, same products</td>
+          <td class="partmark">⚠ Separate setup required</td>
+          <td class="xmark">✕ Not applicable</td>
+        </tr>
+        <tr>
+          <td>Scale / weighing integration path</td>
+          <td class="shopify-col checkmark">✓ Partner ecosystem being explored</td>
+          <td class="xmark">✕ No known path</td>
+          <td class="xmark">✕ Not applicable</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="container">
+    <div class="section-label">Implementation Journey</div>
+    <h2>From decision to launch.</h2>
+    <p style="margin-top:.75rem;max-width:600px;">The NetSuite implementation is already in motion. Aligning on Shopify now keeps both parallel tracks moving — and meets the end-of-year ERP deadline.</p>
+
+    <div class="timeline-track" style="margin-top:2.5rem;">
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-dot done">✓</div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="date">Mar 2026 — Complete</div>
+          <h3>Discovery &amp; Technical Alignment</h3>
+          <p>Intro call, internal KT, technical discovery with Amy (NetSuite), and full platform demo completed. Requirements confirmed: NetSuite integration, B2B pricing, COD payments, and scale scope.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-dot done">✓</div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="date">Apr 2026 — Complete</div>
+          <h3>Technical Workshop &amp; Scope Expansion</h3>
+          <p>Deep-dive on scale integration, payment reconciliation strategy, and COD workflow design. Research initiated on Cardinal, US Scales, and Fast Way weighing systems.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-dot next">→</div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="date">Now — Decision Point</div>
+          <h3>Commercial Proposal &amp; Decision</h3>
+          <p>Packaging, pricing, and implementation plan presented. Decision needed to unblock the parallel NetSuite implementation. Evaluating Shopify vs. Square.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-dot future">4</div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="date">May–Aug 2026</div>
+          <h3>Configuration &amp; Integration Build</h3>
+          <p>NetSuite connector setup, product catalog migration, B2B catalog configuration, Shopify Payments onboarding, staff training, and POS hardware deployment across 3 locations.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-dot future">5</div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="date">Sep–Oct 2026</div>
+          <h3>Testing &amp; Parallel Run</h3>
+          <p>Shopify and NetSuite tested in tandem. Unit conversion mapping confirmed. COD payment flows validated. Staff hands-on with POS before go-live.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-dot future" style="background:var(--shopify-green);color:#fff;border:none;">🚀</div>
+        </div>
+        <div class="timeline-content">
+          <div class="date">November 1, 2026 — Target</div>
+          <h3>Go-Live Across All Channels</h3>
+          <p>Shopify POS live across all 3 store locations. Shopify Payments active for retail and COD. NetSuite receiving clean cash sales automatically. Legacy ERP retired ahead of end-of-life date.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Shopify × Hedrick Industries</div>
+  <p>Prepared by Chase McCane, Senior Account Executive — Shopify B2B AMER</p>
+  <p style="margin-top:.35rem;"><a href="mailto:chase.mccane@shopify.com">chase.mccane@shopify.com</a> · Built on <a href="https://shopify.com">Shopify</a></p>
+</footer>
+
+</body>
+</html>
