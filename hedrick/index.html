@@ -4,18 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shopify × Hedrick Industries — Unified Commerce</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --shopify-green: #008060;
       --shopify-green-light: #e3f5f0;
       --shopify-green-mid: #b3dfd3;
-      --ink: #1a1a2e;
-      --ink-mid: #3d3d5c;
+      --hedrick-green: #2B5329;
+      --hedrick-green-light: #eaf2e8;
+      --hedrick-green-mid: #c0d9bc;
+      --ink: #1a1a1a;
+      --ink-mid: #4a4a4a;
       --ink-light: #6b7280;
       --surface: #ffffff;
-      --surface-2: #f8f9fa;
-      --surface-3: #f1f5f9;
-      --border: #e5e7eb;
+      --surface-2: #f8f9f7;
+      --surface-3: #f1f5f0;
+      --border: #e2e8df;
       --gold: #c8932a;
       --gold-light: #fef3e0;
       --radius: 12px;
@@ -25,10 +31,16 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       color: var(--ink);
       background: var(--surface);
       line-height: 1.6;
+    }
+    .hedrick-heading {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .02em;
     }
 
     /* ── NAV ── */
@@ -67,34 +79,49 @@
       text-decoration: none;
       transition: color .15s;
     }
-    .nav-links a:hover { color: var(--shopify-green); }
+    .nav-links a:hover { color: var(--hedrick-green); }
     .nav-cta {
-      background: var(--shopify-green);
+      background: var(--hedrick-green);
       color: #fff !important;
       padding: .4rem 1rem;
       border-radius: 6px;
     }
-    .nav-cta:hover { background: #006e52 !important; color: #fff !important; }
+    .nav-cta:hover { background: #1e3d1c !important; color: #fff !important; }
 
     /* ── SECTIONS ── */
     section { padding: 5rem 2rem; }
     .container { max-width: 1100px; margin: 0 auto; }
     .section-label {
-      font-size: .75rem;
-      font-weight: 700;
-      letter-spacing: .12em;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: .18em;
       text-transform: uppercase;
-      color: var(--shopify-green);
+      color: var(--hedrick-green);
       margin-bottom: .75rem;
     }
-    h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.1; }
-    h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 800; line-height: 1.2; }
-    h3 { font-size: 1.15rem; font-weight: 700; }
+    h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2.4rem, 5.5vw, 4rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .01em;
+      line-height: 1.05;
+    }
+    h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .01em;
+      line-height: 1.1;
+    }
+    h3 { font-size: 1.1rem; font-weight: 700; }
     p { color: var(--ink-mid); }
 
     /* ── HERO ── */
     #hero {
-      background: linear-gradient(160deg, #f0faf6 0%, #ffffff 50%, #fafafa 100%);
+      background: linear-gradient(160deg, #eaf2e8 0%, #ffffff 55%, #f8f9f7 100%);
       padding: 6rem 2rem 5rem;
       text-align: center;
       border-bottom: 1px solid var(--border);
@@ -125,7 +152,7 @@
       font-weight: 300;
     }
     #hero h1 { margin-bottom: 1.25rem; }
-    #hero h1 em { font-style: normal; color: var(--shopify-green); }
+    #hero h1 em { font-style: normal; color: var(--hedrick-green); }
     .hero-sub {
       max-width: 640px;
       margin: 0 auto 2.5rem;
@@ -149,9 +176,9 @@
       color: var(--ink-mid);
     }
     .badge.green {
-      background: var(--shopify-green-light);
-      border-color: var(--shopify-green-mid);
-      color: var(--shopify-green);
+      background: var(--hedrick-green-light);
+      border-color: var(--hedrick-green-mid);
+      color: var(--hedrick-green);
     }
     .hero-stat-row {
       display: flex;
@@ -168,9 +195,10 @@
       box-shadow: var(--shadow);
     }
     .hero-stat .num {
-      font-size: 1.9rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2.2rem;
       font-weight: 800;
-      color: var(--shopify-green);
+      color: var(--hedrick-green);
       line-height: 1;
     }
     .hero-stat .lbl { font-size: .75rem; color: var(--ink-light); margin-top: .25rem; font-weight: 500; }
@@ -231,7 +259,7 @@
       margin-top: 2px;
     }
     .vs-icon.no { background: #fee2e2; color: #dc2626; }
-    .vs-icon.yes { background: var(--shopify-green-light); color: var(--shopify-green); }
+    .vs-icon.yes { background: var(--hedrick-green-light); color: var(--hedrick-green); }
     .vs-row p { font-size: .9rem; }
     .arch-diagram {
       background: var(--surface-3);
@@ -250,9 +278,9 @@
       box-shadow: var(--shadow);
     }
     .arch-node.shopify {
-      border-color: var(--shopify-green);
-      background: var(--shopify-green-light);
-      color: var(--shopify-green);
+      border-color: var(--hedrick-green);
+      background: var(--hedrick-green-light);
+      color: var(--hedrick-green);
     }
     .arch-node.netsuite {
       border-color: #6366f1;
@@ -269,7 +297,7 @@
       gap: .4rem;
       padding: .5rem 0;
     }
-    .arch-arrow svg { color: var(--shopify-green); }
+    .arch-arrow svg { color: var(--hedrick-green); }
     .arch-channels {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -308,15 +336,16 @@
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--shopify-green);
+      height: 4px;
+      background: var(--hedrick-green);
     }
     .channel-num {
-      font-size: .7rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: .75rem;
       font-weight: 800;
-      letter-spacing: .1em;
+      letter-spacing: .15em;
       text-transform: uppercase;
-      color: var(--shopify-green);
+      color: var(--hedrick-green);
       margin-bottom: .5rem;
     }
     .channel-card h3 { font-size: 1.1rem; margin-bottom: .6rem; }
@@ -331,7 +360,7 @@
     }
     .feature-list li::before {
       content: '✓';
-      color: var(--shopify-green);
+      color: var(--hedrick-green);
       font-weight: 800;
       flex-shrink: 0;
       margin-top: 1px;
@@ -360,7 +389,7 @@
       text-transform: uppercase;
     }
     .scenario-header.old { background: #fee2e2; color: #991b1b; }
-    .scenario-header.new { background: var(--shopify-green-light); color: var(--shopify-green); }
+    .scenario-header.new { background: var(--hedrick-green-light); color: var(--hedrick-green); }
     .scenario-body { padding: 1.25rem; }
     .scenario-row {
       display: flex;
@@ -373,15 +402,15 @@
     .scenario-row:last-child { border-bottom: none; }
     .scenario-row .channel { font-weight: 600; color: var(--ink); }
     .scenario-row .processor { color: var(--ink-light); }
-    .scenario-row .processor.unified { color: var(--shopify-green); font-weight: 600; }
+    .scenario-row .processor.unified { color: var(--hedrick-green); font-weight: 600; }
     .scenario-row .vol { font-size: .75rem; color: var(--ink-light); }
     .payment-highlight {
-      background: var(--shopify-green-light);
-      border: 1px solid var(--shopify-green-mid);
+      background: var(--hedrick-green-light);
+      border: 1px solid var(--hedrick-green-mid);
       border-radius: var(--radius);
       padding: 1.5rem;
     }
-    .payment-highlight h3 { color: var(--shopify-green); margin-bottom: .75rem; }
+    .payment-highlight h3 { color: var(--hedrick-green); margin-bottom: .75rem; }
     .payment-highlight ul { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
     .payment-highlight li {
       font-size: .875rem;
@@ -390,10 +419,10 @@
       gap: .5rem;
       color: var(--ink-mid);
     }
-    .payment-highlight li::before { content: '→'; color: var(--shopify-green); font-weight: 700; }
+    .payment-highlight li::before { content: '→'; color: var(--hedrick-green); font-weight: 700; }
 
     /* ── NETSUITE ── */
-    #netsuite { background: #f8f7ff; }
+    #netsuite { background: var(--surface-2); }
     .ns-flow {
       margin-top: 2.5rem;
       display: flex;
@@ -412,10 +441,11 @@
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      background: var(--shopify-green);
+      background: var(--hedrick-green);
       color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
       font-weight: 800;
-      font-size: .875rem;
+      font-size: 1rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -477,7 +507,7 @@
     .scale-col h4 { font-size: .85rem; font-weight: 700; color: var(--ink-light); text-transform: uppercase; letter-spacing: .08em; margin-bottom: .75rem; }
     .scale-col ul { list-style: none; display: flex; flex-direction: column; gap: .4rem; }
     .scale-col li { font-size: .875rem; color: var(--ink-mid); display: flex; align-items: flex-start; gap: .5rem; }
-    .scale-col li::before { content: '•'; color: var(--shopify-green); font-weight: 800; }
+    .scale-col li::before { content: '•'; color: var(--hedrick-green); font-weight: 800; }
 
     /* ── WHY SHOPIFY ── */
     #why { background: var(--surface); }
@@ -511,7 +541,7 @@
       background: var(--surface-3);
       border: 1px solid var(--border);
     }
-    .compare-table th.shopify-col { color: var(--shopify-green); background: var(--shopify-green-light); }
+    .compare-table th.shopify-col { color: var(--hedrick-green); background: var(--hedrick-green-light); }
     .compare-table td {
       padding: .85rem 1rem;
       border: 1px solid var(--border);
@@ -519,8 +549,8 @@
       color: var(--ink-mid);
     }
     .compare-table tr:nth-child(even) td { background: var(--surface-2); }
-    .compare-table td.shopify-col { color: var(--ink); background: #f0fdf9; }
-    .compare-table td.checkmark { color: var(--shopify-green); font-weight: 800; }
+    .compare-table td.shopify-col { color: var(--ink); background: #f1f7f0; }
+    .compare-table td.checkmark { color: var(--hedrick-green); font-weight: 800; }
     .compare-table td.xmark { color: #dc2626; }
     .compare-table td.partmark { color: var(--gold); }
 
@@ -550,18 +580,19 @@
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background: var(--shopify-green);
+      background: var(--hedrick-green);
       color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
       font-weight: 800;
-      font-size: .8rem;
+      font-size: .9rem;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
       z-index: 1;
     }
-    .timeline-dot.done { background: var(--shopify-green); }
-    .timeline-dot.next { background: var(--surface); border: 2px solid var(--shopify-green); color: var(--shopify-green); }
+    .timeline-dot.done { background: var(--hedrick-green); }
+    .timeline-dot.next { background: var(--surface); border: 2px solid var(--hedrick-green); color: var(--hedrick-green); }
     .timeline-dot.future { background: var(--surface-3); border: 2px solid var(--border); color: var(--ink-light); }
     .timeline-line {
       flex: 1;
@@ -575,11 +606,12 @@
       flex: 1;
     }
     .timeline-content .date {
-      font-size: .75rem;
-      font-weight: 700;
-      color: var(--shopify-green);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: .8rem;
+      font-weight: 800;
+      color: var(--hedrick-green);
       text-transform: uppercase;
-      letter-spacing: .08em;
+      letter-spacing: .12em;
       margin-bottom: .25rem;
     }
     .timeline-content h3 { font-size: 1rem; margin-bottom: .25rem; }
@@ -599,7 +631,7 @@
       margin-bottom: .5rem;
     }
     footer p { font-size: .8rem; }
-    footer a { color: var(--shopify-green-mid); text-decoration: none; }
+    footer a { color: var(--hedrick-green-mid); text-decoration: none; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 700px) {
@@ -642,9 +674,9 @@
         Shopify
       </div>
       <span class="hero-x">×</span>
-      <div class="logo-pill" style="background:#1a1a2e;border-color:#3d3d5c;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="4" fill="#c8932a"/><text x="12" y="16" text-anchor="middle" font-size="10" font-weight="800" fill="white" font-family="sans-serif">H</text></svg>
-        <span style="color:#fff;">Hedrick Industries</span>
+      <div class="logo-pill" style="background:var(--hedrick-green);border-color:#1e3d1c;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="4" fill="rgba(255,255,255,.15)"/><text x="12" y="16" text-anchor="middle" font-size="10" font-weight="800" fill="white" font-family="'Barlow Condensed',sans-serif" letter-spacing="1">H</text></svg>
+        <span style="color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.08em;font-size:1rem;">Hedrick Industries</span>
       </div>
     </div>
 
@@ -914,8 +946,8 @@
               <span class="processor unified">Shopify Payments</span>
               <span class="vol">Auto-trigger</span>
             </div>
-            <div class="scenario-row" style="background:#f0fdf9;">
-              <span class="channel" style="color:var(--shopify-green);">Result</span>
+            <div class="scenario-row" style="background:#f1f7f0;">
+              <span class="channel" style="color:var(--hedrick-green);">Result</span>
               <span class="processor unified">1 provider, 1 dashboard, same-day payouts</span>
             </div>
           </div>
@@ -948,9 +980,9 @@
               <span>COD quarry (credit card)</span>
               <strong>$25–30M</strong>
             </div>
-            <div style="border-top:2px solid var(--shopify-green);margin-top:.25rem;padding-top:.5rem;display:flex;justify-content:space-between;font-size:.95rem;">
+            <div style="border-top:2px solid var(--hedrick-green);margin-top:.25rem;padding-top:.5rem;display:flex;justify-content:space-between;font-size:.95rem;">
               <strong>Total under Shopify Payments</strong>
-              <strong style="color:var(--shopify-green);">~$27–32M</strong>
+              <strong style="color:var(--hedrick-green);">~$27–32M</strong>
             </div>
           </div>
         </div>
@@ -1215,7 +1247,7 @@
 
       <div class="timeline-item">
         <div class="timeline-left">
-          <div class="timeline-dot future" style="background:var(--shopify-green);color:#fff;border:none;">🚀</div>
+          <div class="timeline-dot future" style="background:var(--hedrick-green);color:#fff;border:none;">🚀</div>
         </div>
         <div class="timeline-content">
           <div class="date">November 1, 2026 — Target</div>
