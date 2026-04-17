@@ -242,7 +242,7 @@
       "next_call": "",
       "manager_q": {
         "compelling_event": "• Current industry-specific software is being DISCONTINUED — forced migration, not optional\n• Platform EOL already passed 7 days before our intro call (Apr 8); timeline extended but clock is ticking\n• 3 locations + B2B + DTC + POS all need to transition simultaneously — complexity adds urgency\n• Miss it: platform goes dark with no replacement ready — operational crisis across all locations",
-        "map_created": null,
+        "map_created": true,
         "map_shared": null,
         "map_agreed": null,
         "map_notes": "MAP file exists — confirm if shared with Mark. Next real opportunity is post-Mother's Day (~May 15).",
