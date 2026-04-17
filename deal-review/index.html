@@ -289,6 +289,7 @@
     .map-flag:hover { border-color: var(--green-glow); color: var(--green); }
     .map-flag.f-yes { background: var(--green-dim); border-color: var(--green-glow); color: var(--green); }
     .map-flag.f-no  { background: var(--red-dim);   border-color: rgba(255,48,0,.3);  color: var(--red); }
+    .mq-question { font-size: 11px; color: var(--muted); font-style: italic; margin-bottom: 8px; line-height: 1.5; }
   </style>
 </head>
 <body>
@@ -919,10 +920,10 @@ function renderMQ(id) {
   const mq = deal.manager_q;
 
   const fields = [
-    { key:'compelling_event', icon:'⚡', label:'Compelling Event',   sub:'ROI + consequence of missing it',    ph:'What forces a decision? What is the ROI? What happens if they miss it?' },
-    { key:'who_signs',        icon:'✍️', label:'Who Signs?',          sub:'Do we have access to them?',         ph:'Name and title. Are we speaking to this person?' },
-    { key:'urgency',          icon:'⏱️', label:'Urgency',             sub:'Natural or manufactured?',           ph:'What drives timeline pressure? If none, how do we build it?' },
-    { key:'risk_to_close',    icon:'🚫', label:'Why It Won\'t Close', sub:'Be honest',                          ph:'Biggest blocker. Real talk.' },
+    { key:'compelling_event', icon:'⚡', label:'Compelling Event',   sub:'ROI + consequence of missing it',    q:'What is the compelling event? Is there ROI associated with it? What happens if they miss it?',             ph:'Enter your answer…' },
+    { key:'who_signs',        icon:'✍️', label:'Who Signs?',          sub:'Do we have access to them?',         q:'Who signs the contract? Are we currently speaking with — or do we have direct access to — that person?', ph:'Enter your answer…' },
+    { key:'urgency',          icon:'⏱️', label:'Urgency',             sub:'Natural or manufactured?',           q:'What urgency is associated with the timeline? If there isn\'t any natural urgency, how do we build it?', ph:'Enter your answer…' },
+    { key:'risk_to_close',    icon:'🚫', label:'Why It Won\'t Close', sub:'Be honest',                          q:'Why would this deal NOT close? What is the single biggest thing standing in the way?',                   ph:'Enter your answer…' },
   ];
 
   const gut = mq.gut || 0;
@@ -932,7 +933,8 @@ function renderMQ(id) {
     const val = mq[f.key] || '';
     const isEmpty = !val.trim();
     return `<div class="mq-card">
-      <div class="mq-header"><span class="mq-icon">${f.icon}</span><span class="mq-label">${f.label}</span><span class="mq-sub">${f.sub}</span></div>
+      <div class="mq-header"><span class="mq-icon">${f.icon}</span><span class="mq-label">${f.label}</span></div>
+      <div class="mq-question">${f.q}</div>
       <div class="med-content" contenteditable="true" data-mqfield="${f.key}" data-empty="${isEmpty}"
         oninput="saveMQ('${id}','${f.key}',this)"
         onfocus="if(this.dataset.empty==='true'){this.textContent='';this.dataset.empty='false';}"
@@ -941,7 +943,8 @@ function renderMQ(id) {
     </div>`;
   }).join('') + `
     <div class="mq-card">
-      <div class="mq-header"><span class="mq-icon">🗺️</span><span class="mq-label">Mutual Action Plan</span><span class="mq-sub">Created · Shared · Agreed upon?</span></div>
+      <div class="mq-header"><span class="mq-icon">🗺️</span><span class="mq-label">Mutual Action Plan</span></div>
+      <div class="mq-question">Do you have a mutual action plan? Has it been created, shared with the merchant, and agreed upon by both sides?</div>
       <div class="map-flags">
         <button class="map-flag ${mqFlagClass(mq.map_created)}" id="mf-${id}-map_created" onclick="cycleMAPFlag('${id}','map_created')">${mqFlagLabel('Created',mq.map_created)}</button>
         <button class="map-flag ${mqFlagClass(mq.map_shared)}"  id="mf-${id}-map_shared"  onclick="cycleMAPFlag('${id}','map_shared')">${mqFlagLabel('Shared',mq.map_shared)}</button>
@@ -954,7 +957,8 @@ function renderMQ(id) {
         >${mq.map_notes ? mq.map_notes.replace(/</g,'&lt;') : 'Notes on MAP status...'}</div>
     </div>
     <div class="mq-card" style="grid-column:span 2">
-      <div class="mq-header"><span class="mq-icon">🎯</span><span class="mq-label">Gut Score</span><span class="mq-sub">Out of 10 — what do you really think?</span></div>
+      <div class="mq-header"><span class="mq-icon">🎯</span><span class="mq-label">Gut Score</span></div>
+      <div class="mq-question">What is your gut score out of 10 that this deal comes in this quarter?</div>
       <div class="gut-row" id="gut-row-${id}">${renderGutBtns(id)}</div>
       <div style="font-size:11px;color:var(--muted)">${gutHint}</div>
     </div>`;
