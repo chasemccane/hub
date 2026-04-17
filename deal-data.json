@@ -414,14 +414,14 @@
       "next_call": "",
       "manager_q": {
         "compelling_event": "• Broken discount system in BigCommerce causing pricing errors — live revenue impact\n• SIM 7 ERP sync issues causing \"mysterious inventory adjustments\" — reliability and ops problem\n• Manual quoting for government/B2G accounts is operationally costly and slow\n• Need to find: when does their BigCommerce contract renew? That date is the hard deadline",
-        "map_created": null,
+        "map_created": true,
         "map_shared": null,
         "map_agreed": null,
         "map_notes": "Day 1 intro call Apr 15 — no MAP shared yet. SE technical call scheduled for next week.",
         "who_signs": "• Need to find — not yet confirmed\n• Andy (andy@flex-radio.com) is most technically engaged but appears to be IT/technical lead\n• Lori (lori@flex-radio.com) and Mike (mike@flex-radio.com) also on intro call — roles unclear\n• Action needed: clarify who has budget authority and who signs the contract",
         "urgency": "• Medium — strong platform pain surfaced on day 1, suggests active frustration\n• No hard deadline confirmed yet\n• Build it: find BC contract renewal date; quantify lost revenue from broken discounts and inventory errors\n• SE technical call next week — use to surface renewal date and identify budget authority",
         "risk_to_close": "• Andy's skepticism: does not want 17,000 Shopify apps to replace 17,000 BC apps — must address early and directly\n• SIM 7 ERP two-way integration complexity — needs SE to validate and scope before we promise anything\n• Government/B2G account requirements (per-login portals, PO attachments, quote management) add evaluation complexity\n• EB not identified",
-        "gut": 0
+        "gut": 5
       }
     },
     "anatomy": {
