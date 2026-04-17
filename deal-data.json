@@ -314,7 +314,7 @@
         "map_created": true,
         "map_shared": null,
         "map_agreed": null,
-        "map_notes": "MAP file exists — confirm if shared with Sonny and Junior. Owner needs to be in the room at Apr 23 demo.",
+        "map_notes": "",
         "who_signs": "• Owner (unnamed) — holds final budget authority, has NOT been engaged yet\n• Jim (Director of Operations) is a key stakeholder — was out week of 4/13, confirm he is in the Apr 23 demo\n• Sonny Rodriguez + Junior Campos are evaluating but have NO final authority\n• Pricing department also involved in the final decision\n• Action needed: get owner and Jim confirmed for the Apr 23 demo",
         "urgency": "• Q4 launch target tied to Business Central ERP — external hard deadline creates real urgency\n• Build it: connect Cart.com's daily operational pain (manual freight, phone orders) to labor cost",
         "risk_to_close": "• Owner rejects on price without us ever being in the room with them\n• Budget unknown — Plus + implementation may exceed threshold and stall after demo\n• Jim (Ops Director) not yet engaged and is a key voice in the final decision",
