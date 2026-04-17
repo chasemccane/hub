@@ -8,16 +8,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #090d10;
-      --surface: #111820;
-      --border: #1e2a35;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --border: #e2e8f0;
       --green: #00a86b;
-      --green-dim: rgba(0,168,107,.12);
-      --green-glow: rgba(0,168,107,.25);
-      --red: #ff3000;
-      --text: #e8edf2;
-      --muted: #6b7a8a;
-      --card: #141d26;
+      --green-dim: rgba(0,168,107,.10);
+      --green-glow: rgba(0,168,107,.30);
+      --red: #dc2626;
+      --text: #0f172a;
+      --muted: #64748b;
+      --card: #f1f5f9;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; min-height: 100vh; display: flex; flex-direction: column; }
@@ -84,7 +84,7 @@
       transition: all .2s; position: relative; overflow: hidden;
     }
     .section-card:hover:not(.disabled) {
-      border-color: var(--green); box-shadow: 0 0 0 1px var(--green-glow), 0 8px 32px rgba(0,0,0,.4);
+      border-color: var(--green); box-shadow: 0 0 0 1px var(--green-glow), 0 8px 32px rgba(0,0,0,.10);
       transform: translateY(-2px);
     }
     .section-card.disabled { opacity: .45; cursor: default; }

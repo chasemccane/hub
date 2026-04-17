@@ -8,18 +8,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #090d10;
-      --surface: #111820;
-      --border: #1e2a35;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --border: #e2e8f0;
       --green: #00a86b;
-      --green-dim: rgba(0,168,107,.12);
-      --green-glow: rgba(0,168,107,.25);
-      --red: #ff3000;
-      --amber: #f59e0b;
-      --blue: #3b82f6;
-      --text: #e8edf2;
-      --muted: #6b7a8a;
-      --card: #141d26;
+      --green-dim: rgba(0,168,107,.10);
+      --green-glow: rgba(0,168,107,.30);
+      --red: #dc2626;
+      --amber: #d97706;
+      --blue: #2563eb;
+      --text: #0f172a;
+      --muted: #64748b;
+      --card: #f1f5f9;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; min-height: 100vh; }
@@ -78,7 +78,7 @@
     }
     tbody tr { border-bottom: 1px solid var(--border); transition: background .1s; }
     tbody tr:last-child { border-bottom: none; }
-    tbody tr:hover { background: rgba(255,255,255,.02); }
+    tbody tr:hover { background: rgba(0,0,0,.03); }
     td { padding: 14px 16px; vertical-align: middle; }
 
     .deal-name { font-weight: 700; font-size: 14px; }
@@ -87,9 +87,9 @@
       font-size: 10px; font-weight: 600; padding: 3px 7px; border-radius: 4px;
       text-transform: uppercase; letter-spacing: .05em; white-space: nowrap;
     }
-    .type-b2b { background: rgba(59,130,246,.15); color: #60a5fa; }
-    .type-d2c { background: rgba(168,85,247,.15); color: #c084fc; }
-    .type-both { background: rgba(245,158,11,.15); color: #fbbf24; }
+    .type-b2b { background: rgba(37,99,235,.10); color: #2563eb; }
+    .type-d2c { background: rgba(124,58,237,.10); color: #7c3aed; }
+    .type-both { background: rgba(217,119,6,.12); color: #d97706; }
 
     .close-date { font-size: 13px; font-weight: 500; white-space: nowrap; }
     .close-soon { color: var(--amber); }
@@ -100,7 +100,7 @@
       white-space: nowrap;
     }
     .stage-3 { background: rgba(245,158,11,.12); color: var(--amber); }
-    .stage-4 { background: rgba(59,130,246,.12); color: #60a5fa; }
+    .stage-4 { background: rgba(37,99,235,.10); color: #2563eb; }
     .stage-5 { background: rgba(0,168,107,.12); color: var(--green); }
 
     .person { font-size: 12px; }
@@ -122,11 +122,11 @@
     }
     .btn-map { background: var(--green-dim); border: 1px solid var(--green-glow); color: var(--green); }
     .btn-map:hover { background: rgba(0,168,107,.2); border-color: var(--green); }
-    .btn-prop { background: rgba(59,130,246,.1); border: 1px solid rgba(59,130,246,.2); color: #60a5fa; }
-    .btn-prop:hover { background: rgba(59,130,246,.18); border-color: #60a5fa; }
-    .btn-tbd { background: var(--border); border: 1px solid transparent; color: var(--muted); cursor: default; opacity: .5; }
-    .btn-sf { background: rgba(99,102,241,.1); border: 1px solid rgba(99,102,241,.2); color: #a5b4fc; }
-    .btn-sf:hover { background: rgba(99,102,241,.18); border-color: #a5b4fc; }
+    .btn-prop { background: rgba(37,99,235,.08); border: 1px solid rgba(37,99,235,.20); color: #2563eb; }
+    .btn-prop:hover { background: rgba(37,99,235,.15); border-color: #2563eb; }
+    .btn-tbd { background: var(--card); border: 1px solid var(--border); color: var(--muted); cursor: default; opacity: .5; }
+    .btn-sf { background: rgba(99,102,241,.08); border: 1px solid rgba(99,102,241,.18); color: #6366f1; }
+    .btn-sf:hover { background: rgba(99,102,241,.15); border-color: #6366f1; }
 
     .empty-row td { text-align: center; padding: 48px; color: var(--muted); font-size: 14px; }
 
@@ -138,8 +138,8 @@
       border-radius: 4px; padding: 2px 6px;
       transition: background .15s; outline: none;
     }
-    .editable-num:hover { background: rgba(255,255,255,.04); }
-    .editable-num:focus { background: rgba(255,255,255,.07); outline: 1px solid var(--border); }
+    .editable-num:hover { background: rgba(0,0,0,.04); }
+    .editable-num:focus { background: rgba(0,0,0,.06); outline: 1px solid var(--border); }
     .editable-num-sub { font-size: 10px; color: var(--muted); text-align: center; }
 
     .pbr-val { font-size: 13px; font-weight: 700; color: var(--green); }
