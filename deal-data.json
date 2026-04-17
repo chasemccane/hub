@@ -543,7 +543,7 @@
       "next_call": "",
       "manager_q": {
         "compelling_event": "• Theme lock-in: changing BigCommerce themes destroys their exploded view functionality — boss wants a new look but every attempt breaks the site\n• Manual pricing updates take 3+ days/month across 20–40 manufacturers (28K SKUs) — recurring operational cost\n• Boss is visibly frustrated with the dated site — that frustration is the urgency lever\n• Miss it: keep paying labor hours every month for manual pricing; site stays dated; competitive risk grows",
-        "map_created": null,
+        "map_created": true,
         "map_shared": null,
         "map_agreed": null,
         "map_notes": "MAP file exists — too early to share. Tim is in partner selection phase; MAP should be shared once a partner is confirmed.",
