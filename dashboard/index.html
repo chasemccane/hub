@@ -368,8 +368,8 @@
     CALLS
       .filter(c => {
         const t = new Date(c.start);
-        const cap = new Date(weekEnd); cap.setDate(weekEnd.getDate() + 30);
-        return t >= weekEnd && t < cap;
+        const cap = new Date(now); cap.setDate(now.getDate() + 30);
+        return t >= now && t < cap;
       })
       .sort((a, b) => new Date(a.start) - new Date(b.start))
       .forEach(c => {
