@@ -480,6 +480,44 @@
         "gut": 0
       }
     },
+    "bulldog-tools": {
+      "sf": {
+        "id": "006OG00000MqmVMYAZ",
+        "pbr": 0,
+        "stage": "Pre-Qualified",
+        "close": "2026-06-30",
+        "created": "2026-04-16"
+      },
+      "meddic": {
+        "metrics": "Need to find: Quantifiable impact of moving to Shopify Plus",
+        "economic_buyer": "Need to find: Who owns the platform decision at Bulldog Tools",
+        "decision_criteria": "• Shopify Plus platform fit for B2B\n• Custom shipping billing: buyers need to charge freight to their own FedEx/UPS account numbers\n• Need to find: Additional technical requirements",
+        "decision_process": "• Partner-led: Atwix (implementation partner) driving the opportunity\n• Need to find: Internal decision-making process and timeline",
+        "pain": "• Custom freight billing to buyer FedEx/UPS accounts — needs to be solved via app or custom dev\n• Need to find: Core platform pain driving the move to Shopify Plus",
+        "champion": "Need to find: Internal champion at Bulldog Tools"
+      },
+      "strategy": "Partner-sourced deal via Atwix. Early stage — need to identify EB, understand current platform, and validate B2B use case.",
+      "risks": [
+        {"sev": "high", "text": "No EB identified yet", "mit": "Identify decision-maker in Atwix partner call 4/17"},
+        {"sev": "med", "text": "Custom shipping billing requirement may be complex", "mit": "Validate app solutions in SE session"}
+      ],
+      "done": ["Partner intro call scheduled with Atwix 4/17"],
+      "left": ["Identify Economic Buyer", "Discovery call with Bulldog Tools team", "Validate custom shipping billing solution", "Build out MEDDIC", "SE engagement"],
+      "notes": "Partner: Atwix (c.shadonix@atwix.com, f.reyes@atwix.com). Juan Jacinto (Shopify) also involved.",
+      "last_call": "",
+      "next_call": "2026-04-17",
+      "manager_q": {
+        "compelling_event": "Need to find: What is driving the timeline for this deal?",
+        "map_created": null,
+        "map_shared": null,
+        "map_agreed": null,
+        "map_notes": "",
+        "who_signs": "Need to find: Who signs the contract at Bulldog Tools?",
+        "urgency": "Need to find: Is there natural urgency or do we need to build it?",
+        "risk_to_close": "• Very early stage — deal not yet properly qualified\n• Custom shipping billing requirement (FedEx/UPS buyer accounts) needs to be validated as solvable",
+        "gut": 0
+      }
+    },
     "franklen": {
       "sf": {
         "id": "006OG00000MVHBDYA5",
