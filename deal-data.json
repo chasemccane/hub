@@ -249,7 +249,7 @@
         "who_signs": "• Mark Berglund (mberglund@washingtonfloral.com) — appears to be owner or senior decision-maker\n• He is evaluating independently with no committee mentioned\n• YES — we have direct access to Mark, he is our main contact\n• Note: confirm Mark is the actual owner/signer, not just a senior manager",
         "urgency": "• Natural: software discontinuation is a forced event — platform is going dark\n• Short-term blocker: Mother's Day (mid-May) is consuming all attention right now\n• Mark confirmed Apr 15: \"not back burnered\" — intent is there, just timing\n• Re-engage post-Mother's Day (~May 15)\n• Risk: if EOL timeline keeps getting extended, urgency dissipates",
         "risk_to_close": "• Mark has a backup plan ready — if we are too slow or fail the SE call, he activates it and urgency evaporates\n• Advance order workflow (flowers sold before inventory and pricing are known) is complex — SE must validate\n• Mother's Day is a real blocker until mid-May; deal will not move before then\n• Another EOL extension from the vendor could remove the forcing event entirely",
-        "gut": 0
+        "gut": 4
       }
     },
     "bigrock": {
@@ -480,44 +480,6 @@
         "gut": 0
       }
     },
-    "bulldog-tools": {
-      "sf": {
-        "id": "006OG00000MqmVMYAZ",
-        "pbr": 108954,
-        "stage": "Envision",
-        "close": "2026-06-30",
-        "created": "2026-04-16"
-      },
-      "meddic": {
-        "metrics": "Need to find: Quantifiable impact of moving to Shopify Plus",
-        "economic_buyer": "Need to find: Who owns the platform decision at Bulldog Tools",
-        "decision_criteria": "• Shopify Plus platform fit for B2B\n• Custom shipping billing: buyers need to charge freight to their own FedEx/UPS account numbers\n• Need to find: Additional technical requirements",
-        "decision_process": "• Partner-led: Atwix (implementation partner) driving the opportunity\n• Need to find: Internal decision-making process and timeline",
-        "pain": "• Custom freight billing to buyer FedEx/UPS accounts — needs to be solved via app or custom dev\n• Need to find: Core platform pain driving the move to Shopify Plus",
-        "champion": "Need to find: Internal champion at Bulldog Tools"
-      },
-      "strategy": "Partner-sourced deal via Atwix. Early stage — need to identify EB, understand current platform, and validate B2B use case.",
-      "risks": [
-        {"sev": "high", "text": "No EB identified yet", "mit": "Identify decision-maker in Atwix partner call 4/17"},
-        {"sev": "med", "text": "Custom shipping billing requirement may be complex", "mit": "Validate app solutions in SE session"}
-      ],
-      "done": ["Partner intro call scheduled with Atwix 4/17"],
-      "left": ["Identify Economic Buyer", "Discovery call with Bulldog Tools team", "Validate custom shipping billing solution", "Build out MEDDIC", "SE engagement"],
-      "notes": "Partner: Atwix (c.shadonix@atwix.com, f.reyes@atwix.com). Juan Jacinto (Shopify) also involved.",
-      "last_call": "",
-      "next_call": "2026-04-17",
-      "manager_q": {
-        "compelling_event": "Need to find: What is driving the timeline for this deal?",
-        "map_created": null,
-        "map_shared": null,
-        "map_agreed": null,
-        "map_notes": "",
-        "who_signs": "Need to find: Who signs the contract at Bulldog Tools?",
-        "urgency": "Need to find: Is there natural urgency or do we need to build it?",
-        "risk_to_close": "• Very early stage — deal not yet properly qualified\n• Custom shipping billing requirement (FedEx/UPS buyer accounts) needs to be validated as solvable",
-        "gut": 0
-      }
-    },
     "franklen": {
       "sf": {
         "id": "006OG00000MVHBDYA5",
@@ -588,6 +550,60 @@
         "who_signs": "• Tim Rusniak's boss (name unknown) — holds full budget authority, makes the final decision\n• Tim Rusniak (IT/technical evaluator) will recommend top 2 options to his boss\n• We have NO direct access to the boss — everything runs through Tim's recommendation\n• Action needed: ask Tim to arrange a brief intro call with his boss before the final presentation",
         "urgency": "• Medium-high — Tim is moving fast: 4 partner intros in 7 days, already fired Netalico\n• No hard external deadline; boss's frustration with dated site is the urgency lever\n• Tim commented on \"strong performance of other potential partners\" — competitive urgency is real\n• Theme lock-in has been known since August 2025 — they waited 8 months, but momentum is high now",
         "risk_to_close": "• Boss's real budget may be below $50K — Tim's estimate is informal and could be far off\n• Netalico mis-step (sticker shock + dropped email) may have dented Chase's credibility as a partner advisor\n• Tim has 3 active finalists comparing — could move fast without us if a partner impresses\n• EB (boss) has no relationship with us — Tim's filter is the only path and it is fragile\n• Complex custom requirements (exploded views app, bulk pricing CSV) = high SOW risk",
+        "gut": 0
+      }
+    },
+    "bulldog-tools": {
+      "sf": {
+        "id": "006OG00000MqmVMYAZ",
+        "pbr": 108954,
+        "stage": "Envision",
+        "close": "2026-06-30",
+        "created": "2026-04-16"
+      },
+      "meddic": {
+        "metrics": "Need to find: Quantifiable impact of moving to Shopify Plus",
+        "economic_buyer": "Need to find: Who owns the platform decision at Bulldog Tools",
+        "decision_criteria": "• Shopify Plus platform fit for B2B\n• Custom shipping billing: buyers need to charge freight to their own FedEx/UPS account numbers\n• Need to find: Additional technical requirements",
+        "decision_process": "• Partner-led: Atwix (implementation partner) driving the opportunity\n• Need to find: Internal decision-making process and timeline",
+        "pain": "• Custom freight billing to buyer FedEx/UPS accounts — needs to be solved via app or custom dev\n• Need to find: Core platform pain driving the move to Shopify Plus",
+        "champion": "Need to find: Internal champion at Bulldog Tools"
+      },
+      "strategy": "Partner-sourced deal via Atwix. Early stage — need to identify EB, understand current platform, and validate B2B use case.",
+      "risks": [
+        {
+          "sev": "high",
+          "text": "No EB identified yet",
+          "mit": "Identify decision-maker in Atwix partner call 4/17"
+        },
+        {
+          "sev": "med",
+          "text": "Custom shipping billing requirement may be complex",
+          "mit": "Validate app solutions in SE session"
+        }
+      ],
+      "done": [
+        "Partner intro call scheduled with Atwix 4/17"
+      ],
+      "left": [
+        "Identify Economic Buyer",
+        "Discovery call with Bulldog Tools team",
+        "Validate custom shipping billing solution",
+        "Build out MEDDIC",
+        "SE engagement"
+      ],
+      "notes": "Partner: Atwix (c.shadonix@atwix.com, f.reyes@atwix.com). Juan Jacinto (Shopify) also involved.",
+      "last_call": "",
+      "next_call": "2026-04-17",
+      "manager_q": {
+        "compelling_event": "Need to find: What is driving the timeline for this deal?",
+        "map_created": null,
+        "map_shared": null,
+        "map_agreed": null,
+        "map_notes": "",
+        "who_signs": "Need to find: Who signs the contract at Bulldog Tools?",
+        "urgency": "Need to find: Is there natural urgency or do we need to build it?",
+        "risk_to_close": "• Very early stage — deal not yet properly qualified\n• Custom shipping billing requirement (FedEx/UPS buyer accounts) needs to be validated as solvable",
         "gut": 0
       }
     }
