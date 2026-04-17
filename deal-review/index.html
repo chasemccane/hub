@@ -8,21 +8,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #090d10;
-      --surface: #111820;
-      --border: #1e2a35;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --border: #e2e8f0;
       --green: #00a86b;
-      --green-dim: rgba(0,168,107,.12);
-      --green-glow: rgba(0,168,107,.25);
-      --red: #ff3000;
-      --red-dim: rgba(255,48,0,.12);
-      --amber: #f59e0b;
-      --amber-dim: rgba(245,158,11,.12);
-      --blue: #3b82f6;
-      --blue-dim: rgba(59,130,246,.1);
-      --text: #e8edf2;
-      --muted: #6b7a8a;
-      --card: #141d26;
+      --green-dim: rgba(0,168,107,.10);
+      --green-glow: rgba(0,168,107,.30);
+      --red: #dc2626;
+      --red-dim: rgba(220,38,38,.10);
+      --amber: #d97706;
+      --amber-dim: rgba(217,119,6,.12);
+      --blue: #2563eb;
+      --blue-dim: rgba(37,99,235,.08);
+      --text: #0f172a;
+      --muted: #64748b;
+      --card: #f1f5f9;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; min-height: 100vh; display: flex; flex-direction: column; }
@@ -67,7 +67,7 @@
       font-size: 10px; font-weight: 600; padding: 2px 6px; border-radius: 4px;
       margin-top: 6px; display: inline-block;
     }
-    .s-propose { background: rgba(59,130,246,.12); color: #60a5fa; }
+    .s-propose { background: rgba(37,99,235,.10); color: #2563eb; }
     .s-negotiate { background: var(--green-dim); color: var(--green); }
     .s-qualify { background: var(--amber-dim); color: var(--amber); }
 
@@ -110,10 +110,10 @@
     }
     .dh-link-map { background: var(--green-dim); border: 1px solid var(--green-glow); color: var(--green); }
     .dh-link-map:hover { background: rgba(0,168,107,.2); }
-    .dh-link-prop { background: var(--blue-dim); border: 1px solid rgba(59,130,246,.2); color: #60a5fa; }
-    .dh-link-prop:hover { background: rgba(59,130,246,.18); }
-    .dh-link-sf { background: rgba(99,102,241,.1); border: 1px solid rgba(99,102,241,.2); color: #a5b4fc; }
-    .dh-link-sf:hover { background: rgba(99,102,241,.18); }
+    .dh-link-prop { background: var(--blue-dim); border: 1px solid rgba(37,99,235,.20); color: #2563eb; }
+    .dh-link-prop:hover { background: rgba(37,99,235,.15); }
+    .dh-link-sf { background: rgba(99,102,241,.08); border: 1px solid rgba(99,102,241,.18); color: #6366f1; }
+    .dh-link-sf:hover { background: rgba(99,102,241,.15); }
     .dh-score-group { display: flex; gap: 12px; flex-shrink: 0; }
     .dh-score {
       background: var(--card); border: 1px solid var(--border); border-radius: 12px;
@@ -161,8 +161,8 @@
       outline: none; border-radius: 6px; padding: 6px 8px; margin: -6px -8px;
       transition: background .15s;
     }
-    .med-content:hover { background: rgba(255,255,255,.03); }
-    .med-content:focus { background: rgba(255,255,255,.05); outline: 1px solid var(--border); }
+    .med-content:hover { background: rgba(0,0,0,.03); }
+    .med-content:focus { background: rgba(0,0,0,.05); outline: 1px solid var(--border); }
     .med-content[data-empty="true"] { color: var(--muted); font-style: italic; }
 
     /* Two-col sections */
@@ -212,7 +212,7 @@
 
     /* Notes */
     .notes-area {
-      width: 100%; background: rgba(255,255,255,.03); border: 1px solid var(--border);
+      width: 100%; background: var(--surface); border: 1px solid var(--border);
       border-radius: 8px; color: var(--text); font-family: 'Inter', sans-serif;
       font-size: 13px; line-height: 1.6; padding: 12px 14px; resize: vertical;
       min-height: 100px; transition: border-color .15s;
@@ -265,7 +265,7 @@
     .modal-title { font-size: 16px; font-weight: 800; margin-bottom: 8px; }
     .modal-sub { font-size: 13px; color: var(--muted); margin-bottom: 20px; line-height: 1.55; }
     .modal-sub code { background: var(--border); border-radius: 4px; padding: 1px 5px; font-size: 11px; }
-    .modal-input { width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-family: monospace; font-size: 12px; padding: 10px 12px; outline: none; }
+    .modal-input { width: 100%; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-family: monospace; font-size: 12px; padding: 10px 12px; outline: none; }
     .modal-input:focus { border-color: var(--green-glow); }
     .modal-btns { display: flex; gap: 8px; margin-top: 16px; justify-content: flex-end; }
     .modal-btn-primary { background: var(--green-dim); border: 1px solid var(--green-glow); color: var(--green); font-size: 13px; font-weight: 600; padding: 8px 18px; border-radius: 8px; cursor: pointer; }
