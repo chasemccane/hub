@@ -577,7 +577,7 @@
     DEALS.forEach(d => {
       const r = data.deals[d.id];
       if (!r || !r.sf) return;
-      if (r.sf.pbr !== undefined) d.pbr = r.sf.pbr;
+      if (r.sf.pbr !== undefined) { d.pbr = r.sf.pbr; setOv(d.id, 'pbr', r.sf.pbr); }
       if (r.sf.close) d.close = r.sf.close;
       if (r.sf.created) d.created = r.sf.created;
       if (r.sf.stage && STAGE_STR_TO_NUM[r.sf.stage]) d.stage = STAGE_STR_TO_NUM[r.sf.stage];
