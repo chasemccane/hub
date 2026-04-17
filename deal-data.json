@@ -392,9 +392,9 @@
     "flexradio": {
       "sf": {
         "id": "006OG00000MeMegYAF",
-        "pbr": 0,
-        "stage": "Pre-Qualified",
-        "close": "2026-07-31",
+        "pbr": 168501,
+        "stage": "Envision",
+        "close": "2026-07-15",
         "created": "2026-04-13"
       },
       "meddic": {
@@ -483,8 +483,8 @@
     "bulldog-tools": {
       "sf": {
         "id": "006OG00000MqmVMYAZ",
-        "pbr": 0,
-        "stage": "Pre-Qualified",
+        "pbr": 108954,
+        "stage": "Envision",
         "close": "2026-06-30",
         "created": "2026-04-16"
       },
