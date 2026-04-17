@@ -66,7 +66,7 @@
       "next_call": "",
       "manager_q": {
         "compelling_event": "• Fy27 growth targets by end of year +30% in revenue\n• 2–3 FTEs doing manual Acumatica order entry ($100–150K/yr hard cost)\n• 1,100 dealers ordering by phone, email, and PDF — no self-serve portal\n• Miss it: keep hiring to cover manual order volume; dealer friction grows; 30% YoY growth target at risk",
-        "map_created": null,
+        "map_created": true,
         "map_shared": null,
         "map_agreed": null,
         "map_notes": "MAP file exists at chasemccane.github.io/maps/feniex/map.html — confirm if this has been shared with and walked through with Yemilyn",
