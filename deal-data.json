@@ -66,7 +66,7 @@
       "next_call": "",
       "manager_q": {
         "compelling_event": "",
-        "map_created": true,
+        "map_created": null,
         "map_shared": null,
         "map_agreed": null,
         "map_notes": "",
