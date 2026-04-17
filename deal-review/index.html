@@ -270,6 +270,25 @@
     .modal-btns { display: flex; gap: 8px; margin-top: 16px; justify-content: flex-end; }
     .modal-btn-primary { background: var(--green-dim); border: 1px solid var(--green-glow); color: var(--green); font-size: 13px; font-weight: 600; padding: 8px 18px; border-radius: 8px; cursor: pointer; }
     .modal-btn-secondary { background: transparent; border: 1px solid var(--border); color: var(--muted); font-size: 13px; font-weight: 600; padding: 8px 18px; border-radius: 8px; cursor: pointer; }
+
+    /* Manager Review */
+    .mq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 28px; }
+    .mq-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+    .mq-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+    .mq-icon { font-size: 16px; }
+    .mq-label { font-size: 12px; font-weight: 700; flex: 1; }
+    .mq-sub { font-size: 10px; color: var(--muted); }
+    .gut-row { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 6px; }
+    .gut-btn { width: 32px; height: 32px; border-radius: 7px; border: 1px solid var(--border); background: transparent; color: var(--muted); font-size: 12px; font-weight: 700; cursor: pointer; transition: all .15s; }
+    .gut-btn:hover { border-color: var(--amber); color: var(--amber); background: var(--amber-dim); }
+    .gut-btn.g-low  { background: var(--red-dim);   border-color: rgba(255,48,0,.4);   color: var(--red); }
+    .gut-btn.g-mid  { background: var(--amber-dim); border-color: rgba(245,158,11,.4); color: var(--amber); }
+    .gut-btn.g-high { background: var(--green-dim); border-color: var(--green-glow);   color: var(--green); }
+    .map-flags { display: flex; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
+    .map-flag { font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 5px; border: 1px solid var(--border); cursor: pointer; transition: all .15s; color: var(--muted); background: transparent; }
+    .map-flag:hover { border-color: var(--green-glow); color: var(--green); }
+    .map-flag.f-yes { background: var(--green-dim); border-color: var(--green-glow); color: var(--green); }
+    .map-flag.f-no  { background: var(--red-dim);   border-color: rgba(255,48,0,.3);  color: var(--red); }
   </style>
 </head>
 <body>
@@ -604,7 +623,8 @@ function serializeData() {
       left: d.left || [],
       notes: d.notes || '',
       last_call: d.last_call || '',
-      next_call: d.next_call || ''
+      next_call: d.next_call || '',
+      manager_q: d.manager_q || {}
     };
   });
   // preserve the updated timestamp — only the refresh script should change it
@@ -633,6 +653,7 @@ function applyRemoteData(data) {
     if (r.notes !== undefined)     d.notes     = r.notes;
     if (r.last_call !== undefined) d.last_call = r.last_call;
     if (r.next_call !== undefined) d.next_call = r.next_call;
+    if (r.manager_q)               d.manager_q = r.manager_q;
   });
   // Show last refreshed timestamp
   if (data.updated) {
@@ -803,6 +824,10 @@ function openDeal(id) {
       </div>
     </div>
 
+    <!-- MANAGER REVIEW -->
+    <div class="section-title">Manager Review</div>
+    <div class="mq-grid" id="mq-grid-${id}"></div>
+
     <!-- MEDDIC -->
     <div class="section-title">MEDDIC Qualification</div>
     <div class="meddic-grid">
@@ -830,7 +855,7 @@ function openDeal(id) {
     <div class="two-col">
       <div class="panel">
         <div class="panel-title">🧠 Strategy & Narrative</div>
-        <textarea class="notes-area" id="strategy-${id}" onblur="saveStrategy('${id}',this.value)" placeholder="Deal strategy, positioning narrative, competitive notes…" rows="8">${deal.strategy || ''}</textarea>
+        <textarea class="notes-area" id="strategy-${id}" oninput="saveStrategy('${id}',this.value)" placeholder="Deal strategy, positioning narrative, competitive notes…" rows="8">${deal.strategy || ''}</textarea>
       </div>
       <div class="panel">
         <div class="panel-title">⚠️ Risks & Mitigations</div>
@@ -857,17 +882,121 @@ function openDeal(id) {
     <div class="one-col">
       <div class="section-title">Notes</div>
       <div class="panel">
-        <textarea class="notes-area" id="notes-${id}" onblur="saveNotes('${id}',this.value)" placeholder="Anything else — call recaps, stakeholder dynamics, open questions…" rows="5">${deal.notes || ''}</textarea>
+        <textarea class="notes-area" id="notes-${id}" oninput="saveNotes('${id}',this.value)" placeholder="Anything else — call recaps, stakeholder dynamics, open questions…" rows="5">${deal.notes || ''}</textarea>
       </div>
     </div>
 
     <div class="last-updated" id="last-updated-${id}">Last saved: never</div>
   `;
 
+  renderMQ(id);
   renderRisks(id);
   renderDone(id);
   renderLeft(id);
 }
+
+// ── MANAGER REVIEW ──
+const MQ_DEFAULTS = { compelling_event:'', map_created:null, map_shared:null, map_agreed:null, map_notes:'', who_signs:'', urgency:'', risk_to_close:'', gut:0 };
+
+function mqFlagClass(v) { return v===true ? 'f-yes' : v===false ? 'f-no' : ''; }
+function mqFlagLabel(name, v) { return (v===true ? '✓ ' : v===false ? '✗ ' : '? ') + name; }
+
+function renderGutBtns(id) {
+  const deal = DEALS.find(d => d.id === id);
+  const gut = deal && deal.manager_q ? (deal.manager_q.gut || 0) : 0;
+  return [1,2,3,4,5,6,7,8,9,10].map(n => {
+    const active = gut === n;
+    const cls = active ? (n<=4 ? 'g-low' : n<=7 ? 'g-mid' : 'g-high') : '';
+    return `<button class="gut-btn ${cls}" onclick="setGut('${id}',${n})">${n}</button>`;
+  }).join('');
+}
+
+function renderMQ(id) {
+  const deal = DEALS.find(d => d.id === id);
+  const el = document.getElementById(`mq-grid-${id}`);
+  if (!deal || !el) return;
+  deal.manager_q = Object.assign({}, MQ_DEFAULTS, deal.manager_q || {});
+  const mq = deal.manager_q;
+
+  const fields = [
+    { key:'compelling_event', icon:'⚡', label:'Compelling Event',   sub:'ROI + consequence of missing it',    ph:'What forces a decision? What is the ROI? What happens if they miss it?' },
+    { key:'who_signs',        icon:'✍️', label:'Who Signs?',          sub:'Do we have access to them?',         ph:'Name and title. Are we speaking to this person?' },
+    { key:'urgency',          icon:'⏱️', label:'Urgency',             sub:'Natural or manufactured?',           ph:'What drives timeline pressure? If none, how do we build it?' },
+    { key:'risk_to_close',    icon:'🚫', label:'Why It Won\'t Close', sub:'Be honest',                          ph:'Biggest blocker. Real talk.' },
+  ];
+
+  const gut = mq.gut || 0;
+  const gutHint = gut ? (gut<=4 ? '⚠️ Low confidence — what needs to change?' : gut<=7 ? '📊 What would push this higher?' : '💪 High confidence — protect it.') : 'Click a number to score your confidence.';
+
+  el.innerHTML = fields.map(f => {
+    const val = mq[f.key] || '';
+    const isEmpty = !val.trim();
+    return `<div class="mq-card">
+      <div class="mq-header"><span class="mq-icon">${f.icon}</span><span class="mq-label">${f.label}</span><span class="mq-sub">${f.sub}</span></div>
+      <div class="med-content" contenteditable="true" data-mqfield="${f.key}" data-empty="${isEmpty}"
+        oninput="saveMQ('${id}','${f.key}',this)"
+        onfocus="if(this.dataset.empty==='true'){this.textContent='';this.dataset.empty='false';}"
+        onblur="if(!this.textContent.trim()){this.dataset.empty='true';this.textContent='${f.ph}';}"
+        >${isEmpty ? f.ph : val.replace(/</g,'&lt;')}</div>
+    </div>`;
+  }).join('') + `
+    <div class="mq-card">
+      <div class="mq-header"><span class="mq-icon">🗺️</span><span class="mq-label">Mutual Action Plan</span><span class="mq-sub">Created · Shared · Agreed upon?</span></div>
+      <div class="map-flags">
+        <button class="map-flag ${mqFlagClass(mq.map_created)}" id="mf-${id}-map_created" onclick="cycleMAPFlag('${id}','map_created')">${mqFlagLabel('Created',mq.map_created)}</button>
+        <button class="map-flag ${mqFlagClass(mq.map_shared)}"  id="mf-${id}-map_shared"  onclick="cycleMAPFlag('${id}','map_shared')">${mqFlagLabel('Shared',mq.map_shared)}</button>
+        <button class="map-flag ${mqFlagClass(mq.map_agreed)}"  id="mf-${id}-map_agreed"  onclick="cycleMAPFlag('${id}','map_agreed')">${mqFlagLabel('Agreed',mq.map_agreed)}</button>
+      </div>
+      <div class="med-content" contenteditable="true" data-mqfield="map_notes" data-empty="${!mq.map_notes}"
+        oninput="saveMQ('${id}','map_notes',this)"
+        onfocus="if(this.dataset.empty==='true'){this.textContent='';this.dataset.empty='false';}"
+        onblur="if(!this.textContent.trim()){this.dataset.empty='true';this.textContent='Notes on MAP status...';}"
+        >${mq.map_notes ? mq.map_notes.replace(/</g,'&lt;') : 'Notes on MAP status...'}</div>
+    </div>
+    <div class="mq-card" style="grid-column:span 2">
+      <div class="mq-header"><span class="mq-icon">🎯</span><span class="mq-label">Gut Score</span><span class="mq-sub">Out of 10 — what do you really think?</span></div>
+      <div class="gut-row" id="gut-row-${id}">${renderGutBtns(id)}</div>
+      <div style="font-size:11px;color:var(--muted)">${gutHint}</div>
+    </div>`;
+}
+
+window.saveMQ = (id, field, el) => {
+  const deal = DEALS.find(d => d.id === id);
+  if (!deal) return;
+  if (!deal.manager_q) deal.manager_q = Object.assign({}, MQ_DEFAULTS);
+  const val = el.textContent.trim();
+  deal.manager_q[field] = val;
+  el.dataset.empty = val ? 'false' : 'true';
+  saveDeals(); touch(id);
+};
+
+window.setGut = (id, n) => {
+  const deal = DEALS.find(d => d.id === id);
+  if (!deal) return;
+  if (!deal.manager_q) deal.manager_q = Object.assign({}, MQ_DEFAULTS);
+  deal.manager_q.gut = deal.manager_q.gut === n ? 0 : n;
+  saveDeals(); touch(id);
+  const rowEl = document.getElementById(`gut-row-${id}`);
+  if (rowEl) rowEl.innerHTML = renderGutBtns(id);
+  const gut = deal.manager_q.gut || 0;
+  const hint = gut ? (gut<=4 ? '⚠️ Low confidence — what needs to change?' : gut<=7 ? '📊 What would push this higher?' : '💪 High confidence — protect it.') : 'Click a number to score your confidence.';
+  if (rowEl && rowEl.nextSibling) rowEl.nextSibling.textContent = hint;
+};
+
+window.cycleMAPFlag = (id, field) => {
+  const deal = DEALS.find(d => d.id === id);
+  if (!deal) return;
+  if (!deal.manager_q) deal.manager_q = Object.assign({}, MQ_DEFAULTS);
+  const cur = deal.manager_q[field];
+  deal.manager_q[field] = cur === null ? true : cur === true ? false : null;
+  saveDeals(); touch(id);
+  const btn = document.getElementById(`mf-${id}-${field}`);
+  if (btn) {
+    const v = deal.manager_q[field];
+    btn.className = 'map-flag ' + mqFlagClass(v);
+    btn.textContent = mqFlagLabel(field.replace('map_','').charAt(0).toUpperCase() + field.replace('map_','').slice(1), v);
+  }
+};
 
 // ── MEDDIC save ──
 window.saveMed = (id, field, el) => {
@@ -997,6 +1126,7 @@ window.addDeal = () => {
     map_url: '',
     proposal_url: '',
     meddic: { metrics:'', economic_buyer:'', decision_criteria:'', decision_process:'', pain:'', champion:'' },
+    manager_q: { compelling_event:'', map_created:null, map_shared:null, map_agreed:null, map_notes:'', who_signs:'', urgency:'', risk_to_close:'', gut:0 },
     strategy: '',
     risks: [],
     done: [],
