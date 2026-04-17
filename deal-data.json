@@ -597,7 +597,7 @@
       "next_call": "2026-04-17",
       "manager_q": {
         "compelling_event": "Need to find: What is driving the timeline for this deal?",
-        "map_created": null,
+        "map_created": true,
         "map_shared": null,
         "map_agreed": null,
         "map_notes": "",
