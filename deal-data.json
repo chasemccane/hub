@@ -310,7 +310,7 @@
       "last_call": "2026-04-15",
       "next_call": "2026-04-17",
       "manager_q": {
-        "compelling_event": "• Business Central ERP implementation planned — Q4 launch target, platform migration must align with it\n• Cart.com has no native BC365, ShipperHQ, or marketing stack integrations — they are building on a dead end\n• Manual freight quoting and phone-only ordering costs real labor hours daily\n• Miss it: ERP goes live Q4 with no aligned platform, creating integration debt and double work for the team",
+        "compelling_event": "• Business Central ERP implementation planned — Q4 launch target, platform migration must align with it\n• Cart.com has no native BC365, ShipperHQ, or marketing stack integrations — they are building on a dead end\n• Manual freight quoting and phone-only ordering costs real labor hours daily\n• Miss it: ERP &ShipperHQ goes live Q4 with no aligned platform, creating integration debt and double work for the team",
         "map_created": null,
         "map_shared": null,
         "map_agreed": null,
