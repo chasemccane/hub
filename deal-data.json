@@ -604,7 +604,7 @@
         "who_signs": "Need to find: Who signs the contract at Bulldog Tools?",
         "urgency": "Need to find: Is there natural urgency or do we need to build it?",
         "risk_to_close": "• Very early stage — deal not yet properly qualified\n• Custom shipping billing requirement (FedEx/UPS buyer accounts) needs to be validated as solvable",
-        "gut": 0
+        "gut": 5
       }
     }
   }
