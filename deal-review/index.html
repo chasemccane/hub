@@ -956,7 +956,7 @@ function renderMQ(id) {
         onblur="if(!this.textContent.trim()){this.dataset.empty='true';this.textContent='Notes on MAP status...';}"
         >${mq.map_notes ? mq.map_notes.replace(/</g,'&lt;') : 'Notes on MAP status...'}</div>
     </div>
-    <div class="mq-card" style="grid-column:span 2">
+    <div class="mq-card">
       <div class="mq-header"><span class="mq-icon">🎯</span><span class="mq-label">Gut Score</span></div>
       <div class="mq-question">What is your gut score out of 10 that this deal comes in this quarter?</div>
       <div class="gut-row" id="gut-row-${id}">${renderGutBtns(id)}</div>

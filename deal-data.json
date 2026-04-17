@@ -11,7 +11,7 @@
         "created": "2026-03-26"
       },
       "meddic": {
-        "metrics": "Revenue Growth: Achieve 30% year-over-year growth on their $28M ARR.\nOperational Cost Savings: Eliminate the 2-3 full-time employees dedicated to manual order entry, representing a $100-150K+ annual hard-cost saving.\nDealer Adoption: Drive dealer portal adoption from a very low current rate to 80% or higher.\nOrder Volume: Successfully process the current ~1,566 orders/month with the capacity to scale by 30%+ without adding operational headhead.\nChannel Revenue: The platform must support their current 85% B2B / 15% D2C revenue split.",
+        "metrics": "Revenue Growth: Achieve 30% year-over-year growth on their $28M ARR.\nOperational Cost Savings: Eliminate the 2-3 full-time employees dedicated to manual order entry, representing a $100-150K+ annual hard-cost saving.\nDealer Adoption: Drive dealer portal adoption from a very low current rate to 80% or higher.\nOrder Volume: Successfully process the current ~1,566 orders/month with the capacity to scale by 30%+ without adding operational headcount.\nChannel Revenue: The platform must support their current 85% B2B / 15% D2C revenue split.",
         "economic_buyer": "Primary Budget Owner/Influencer: Yemilyn Mosley (CSO). She owns the revenue goals and the operational efficiency of the sales and digital teams. She is building the business case.\nUltimate Economic Buyer (Unconfirmed but Highly Likely): Hamza Deyaf (CEO). Yemilyn stated she needs to \"present a unified picture—including cost and timeline—to internal stakeholders.\" Given the project's strategic importance and the CEO's noted frustration with brand presentation (pixelated images), he is the ultimate decision-maker with final sign-off authority.\nRisk: We have no direct contact with the CEO. Our entire business case is being filtered through our Champion (Yemilyn).",
         "decision_criteria": "UI/UX & Brand Presentation (Stated #1 Priority): The platform and partner must be able to deliver a world-class, modern look and feel that aligns with their brand leadership. The CEO's AI-generated website concept is a key influence here.\nAcumatica Integration: The solution must provide a seamless, real-time, bidirectional integration with Acumatica to eliminate manual order entry. This is the core of the ROI and is non-negotiable.\nB2B Functionality: Must natively handle their complex, revenue-based, multi-tiered dealer pricing structure without workarounds (i.e., no more Google Sheets).\nCustom Tool Migration: The ability to strategically handle their 16 years of custom tools (\"Rapid Ordering,\" \"Build a Car\") through embedding or rebuilding is a critical technical hurdle.\nPartner Competence: The selected partner's ability to demonstrate deep backend expertise and a strong UI/UX portfolio is a primary decision factor.\nTotal Cost of Ownership & ROI: The business case must be clear. Yemilyn specifically requested an executive summary with ROI data points to present internally.",
         "decision_process": "Partner Vetting (Current Stage): Yemilyn is leading the evaluation of 4 shortlisted VIP partners in parallel with platform discovery.\nPartner Demos & Scoping: Each partner will conduct discovery and provide a demo, focusing first on backend capabilities and then on UI/UX.\nProposal & SOW Review: Yemilyn will receive formal proposals, timelines, and cost breakdowns from the selected partners.\nInternal Business Case Presentation: Yemilyn will consolidate the findings, platform costs, and partner SOW into a \"unified picture\" to present to the CEO and other internal stakeholders.\nFinal Stakeholder Approval: The CEO will provide the final go/no-go decision.\nTimeline: They want to move quickly to support growth, but no hard \"sign-by\" date has been established. A 4-6 month project timeline is the current expectation.",
@@ -65,14 +65,14 @@
       "last_call": "2026-04-09",
       "next_call": "",
       "manager_q": {
-        "compelling_event": "",
+        "compelling_event": "• $28M ARR on a 16-year-old custom PHP site — tech debt is scaling with revenue\n• 2–3 FTEs doing manual Acumatica order entry ($100–150K/yr hard cost)\n• 1,100 dealers ordering by phone, email, and PDF — no self-serve portal\n• Quote expires May 9 — pricing lock is a hard anchor we can use\n• Miss it: keep hiring to cover manual order volume; dealer friction grows; 30% YoY growth target at risk",
         "map_created": null,
         "map_shared": null,
         "map_agreed": null,
-        "map_notes": "",
-        "who_signs": "",
-        "urgency": "",
-        "risk_to_close": "",
+        "map_notes": "MAP file exists at chasemccane.github.io/maps/feniex/map.html — confirm if this has been shared with and walked through with Yemilyn",
+        "who_signs": "• Hamza Deyaf (CEO) — unconfirmed but highly likely the final sign-off authority\n• Yemilyn Mosley (CSO) builds the business case and presents to Hamza internally\n• We have NO direct access to Hamza — everything is filtered through Yemilyn\n• Action needed: push for a 30-min CEO briefing before LOI",
+        "urgency": "• Quote expires May 9 — use as a hard anchor\n• Currently LOW — Yemilyn said Apr 16 she is tied up on other revenue projects\n• Build it: every week of delay = continued manual order entry cost + declining dealer experience\n• Frame: delay directly threatens their stated 30% YoY growth target",
+        "risk_to_close": "• Yemilyn is distracted and deprioritizing — stall risk is real right now\n• CEO (Hamza) not engaged — we are pitching blind through a filter with no fallback path\n• Partner situation unresolved: originating partner vs. our recs (Conrad McDougall loop-in pending)\n• Partner SOW sticker shock: 16 years of custom tools will generate large implementation estimates\n• No LOI yet — deal is not formalized",
         "gut": 0
       }
     },
@@ -140,14 +140,14 @@
       "last_call": "2026-04-13",
       "next_call": "2026-04-16",
       "manager_q": {
-        "compelling_event": "",
+        "compelling_event": "• Legacy ERP going end-of-life — POS must launch in tandem with NetSuite go-live (hard deadline)\n• Amy Goudy (NetSuite consultant) said a platform decision is needed NOW to unblock the parallel NetSuite project\n• NetSuite's own team referred them to Shopify — we are confirming a recommendation, not competing uphill\n• ROI: $25–30M quarry credit card volume consolidated to Shopify Payments = meaningful rate savings\n• Miss it: cashiers continue using legacy ERP at checkout with no fix before EOL — operational crisis incoming",
         "map_created": null,
         "map_shared": null,
         "map_agreed": null,
-        "map_notes": "",
-        "who_signs": "",
-        "urgency": "",
-        "risk_to_close": "",
+        "map_notes": "MAP file exists at chasemccane.github.io/maps/hedrick/map.html — confirm if this has been shared with Logan and Kevin",
+        "who_signs": "• UNKNOWN — true Economic Buyer has NOT been identified or engaged\n• Logan Hundley (Asst Controller) drives the eval but has confirmed he is NOT the final decision-maker\n• Kevin Fender (Store/Ops Mgr) is most engaged but also not confirmed as signer\n• Amy Goudy's comment implies an unnamed executive at Hedrick/Southern Concrete holds final sign-off\n• Action needed: get Logan to name the EB and bring them into the proposal call",
+        "urgency": "• Natural: legacy ERP end-of-life at year-end — hard external deadline\n• Amy Goudy said decision needed now to unblock the parallel NetSuite project\n• Close date May 20 — less than 5 weeks away\n• Competitive evaluation running — urgency if a competitor is moving faster\n• Proposal call is OVERDUE (was week of 4/7) — momentum is at risk if not scheduled now",
+        "risk_to_close": "• True EB never engaged — deal can die on cost without us ever speaking to the decision-maker\n• Competitor wins on NetSuite-native integration story (their #1 criterion — we must own this narrative)\n• Proposal call overdue — inaction becomes the default winner if not scheduled immediately\n• We do not know the competitive shortlist or how we are positioned against it",
         "gut": 0
       }
     },
@@ -174,7 +174,17 @@
       "notes": "",
       "last_call": "",
       "next_call": "2026-04-15",
-      "manager_q": {}
+      "manager_q": {
+        "compelling_event": "• 100+ developers maintaining homegrown front and back-end systems — massive ongoing cost\n• Lynn Dong stopped by Shopify booth at ShopTalk — they came to us\n• Decision made on intro call (Apr 15) to explore consolidating B2B + DTC onto a single Shopify platform\n• Need to find: what is the internal deadline or forcing function driving this exploration?",
+        "map_created": null,
+        "map_shared": null,
+        "map_agreed": null,
+        "map_notes": "Day 1 intro call Apr 15 — no MAP created or shared yet",
+        "who_signs": "• Need to find — no economic buyer identified yet\n• Lynn Dong (Lead Apps Eng/Ecommerce Tech) and Seaver Ding (Platform lead) are our technical contacts\n• \"Daisy\" (DTC lead) needs to be aligned — not yet engaged\n• B2B team member still to be invited to next meeting\n• Enterprise deal — sign-off authority is likely 2–3 levels above current contacts",
+        "urgency": "• LOW — day 1 intro call Apr 15, no urgency signals surfaced\n• No hard deadline or forcing event identified\n• Build it: calculate developer maintenance cost of homegrown systems; consolidation = faster iteration speed + cost savings\n• Long-cycle enterprise deal — urgency will take multiple calls to develop",
+        "risk_to_close": "• No EB identified — significant internal navigation required to reach decision-maker\n• 100+ developers have vested interest in homegrown systems — change management is a real obstacle\n• Complex org alignment needed: DTC + B2B teams + platform team all must agree\n• Enterprise sales cycles are long — this deal is in very early innings",
+        "gut": 0
+      }
     },
     "washington-floral": {
       "sf": {
@@ -217,21 +227,30 @@
       ],
       "done": [
         "Intro call with Mark via Grant Dugas (4/8) — confirmed platform discontinuation urgency, 3 locations, B2B + DTC + POS opportunity, advance order challenge, sales rep order entry as key requirement",
-        "Content care package email committed (Chase to send post-call)"
+        "Content care package email sent to Mark"
       ],
       "left": [
-        "Send content care package email to Mark (payment options, POS info, B2B portal overview, videos)",
-        "Schedule 30-min SE technical call (late week of 4/14 or early week of 4/21)",
+        "Schedule 30-min SE technical call (post-Mother's Day — target week of May 18)",
         "SE call — lead with sales rep order entry use case, advance orders, B2B + DTC + POS demo",
         "Determine QuickBooks integration path or ERP migration story",
-        "Discovery: understand Mark's backup plan and timeline pressure",
+        "Discovery: understand Mark's backup plan and actual EOL timeline",
         "Demo / executive alignment",
         "Contract"
       ],
       "notes": "",
       "last_call": "2026-04-08",
       "next_call": "",
-      "manager_q": {}
+      "manager_q": {
+        "compelling_event": "• Current industry-specific software is being DISCONTINUED — forced migration, not optional\n• Platform EOL already passed 7 days before our intro call (Apr 8); timeline extended but clock is ticking\n• 3 locations + B2B + DTC + POS all need to transition simultaneously — complexity adds urgency\n• Miss it: platform goes dark with no replacement ready — operational crisis across all locations",
+        "map_created": null,
+        "map_shared": null,
+        "map_agreed": null,
+        "map_notes": "MAP file exists — confirm if shared with Mark. Next real opportunity is post-Mother's Day (~May 15).",
+        "who_signs": "• Mark Berglund (mberglund@washingtonfloral.com) — appears to be owner or senior decision-maker\n• He is evaluating independently with no committee mentioned\n• YES — we have direct access to Mark, he is our main contact\n• Note: confirm Mark is the actual owner/signer, not just a senior manager",
+        "urgency": "• Natural: software discontinuation is a forced event — platform is going dark\n• Short-term blocker: Mother's Day (mid-May) is consuming all attention right now\n• Mark confirmed Apr 15: \"not back burnered\" — intent is there, just timing\n• Re-engage post-Mother's Day (~May 15)\n• Risk: if EOL timeline keeps getting extended, urgency dissipates",
+        "risk_to_close": "• Mark has a backup plan ready — if we are too slow or fail the SE call, he activates it and urgency evaporates\n• Advance order workflow (flowers sold before inventory and pricing are known) is complex — SE must validate\n• Mother's Day is a real blocker until mid-May; deal will not move before then\n• Another EOL extension from the vendor could remove the forcing event entirely",
+        "gut": 0
+      }
     },
     "bigrock": {
       "sf": {
@@ -277,20 +296,30 @@
         "Internal SE sync with Jordan Schwartz (3/30) — confirmed Cart.com migration, identified contacts Sonny Rodriguez + Junior Campos, flagged budget/pricing as key hurdle",
         "Technical discovery with Sonny + Junior + Jordan (4/3) — confirmed BC365 cloud integration, ShipperHQ, Mailchimp, Authorize.net, POS interest, and demo scheduled for week of 4/20",
         "Arctic Grey partner intro sent (4/13)",
-        "Uncap partner intro sent (4/7) — Sonny confirmed call with Ryan @ Uncap for 4/15 at 10am CT"
+        "Uncap partner call with Sonny + Junior (4/15) — deep dive discovery follow-up scheduled Apr 17"
       ],
       "left": [
-        "Uncap partner call with Sonny + Junior (4/15 10am CT)",
-        "Demo 4/23 — full stakeholder group (owner, Jim/Ops Director, pricing dept, Sonny, Junior)",
+        "Deep dive discovery call (Apr 17) — scope, timeline, costs with Uncap + Sonny + Junior",
+        "Demo Apr 23 — full stakeholder group (owner, Jim/Ops Director, pricing dept, Sonny, Junior)",
         "Champion coaching: prep Sonny + Junior to bring owner into the room and pre-sell ROI story",
         "Qualify budget range before or at demo",
         "Executive workshop post-demo",
         "Contract signed before summer"
       ],
       "notes": "",
-      "last_call": "2026-04-03",
-      "next_call": "2026-04-15",
-      "manager_q": {}
+      "last_call": "2026-04-15",
+      "next_call": "2026-04-17",
+      "manager_q": {
+        "compelling_event": "• Business Central ERP implementation planned — Q4 launch target, platform migration must align with it\n• Cart.com has no native BC365, ShipperHQ, or marketing stack integrations — they are building on a dead end\n• Manual freight quoting and phone-only ordering costs real labor hours daily\n• Miss it: ERP goes live Q4 with no aligned platform, creating integration debt and double work for the team",
+        "map_created": null,
+        "map_shared": null,
+        "map_agreed": null,
+        "map_notes": "MAP file exists — confirm if shared with Sonny and Junior. Owner needs to be in the room at Apr 23 demo.",
+        "who_signs": "• Owner (unnamed) — holds final budget authority, has NOT been engaged yet\n• Jim (Director of Operations) is a key stakeholder — was out week of 4/13, confirm he is in the Apr 23 demo\n• Sonny Rodriguez + Junior Campos are evaluating but have NO final authority\n• Pricing department also involved in the final decision\n• Action needed: get owner and Jim confirmed for the Apr 23 demo",
+        "urgency": "• Q4 launch target tied to Business Central ERP — external hard deadline creates real urgency\n• Arctic Grey (competing agency) is also in the mix and moving simultaneously\n• Deep dive discovery Apr 17, full demo Apr 23 — momentum is building\n• Build it: connect Cart.com's daily operational pain (manual freight, phone orders) to labor cost",
+        "risk_to_close": "• Owner rejects on price without us ever being in the room with them\n• Budget unknown — Plus + implementation may exceed threshold and stall after demo\n• Arctic Grey has access and is moving simultaneously — we could get outmaneuvered\n• Jim (Ops Director) not yet engaged and is a key voice in the final decision",
+        "gut": 0
+      }
     },
     "kyd": {
       "sf": {
@@ -334,10 +363,11 @@
       "done": [
         "Intro call with Brendon Yamada (3/25)",
         "Content care package sent",
-        "Chase X Eric Osborne (PSM) connect (4/14) — Eric introduced Chase to Daren Wang at Satel (B2B agency with relevant experience)"
+        "Chase x Eric Osborne (PSM) connect (4/14) — Eric introduced Chase to Daren Wang at Satel (B2B agency with relevant experience)"
       ],
       "left": [
-        "Connect with Daren Wang (Satel) this week — Daren responded and wants a quick chat",
+        "Gameplan call with Daren Wang (Satel) — Mon Apr 20 at 10:30am MDT",
+        "Re-engage Brendon (no reply to Apr 2 or Apr 15 follow-ups)",
         "Schedule SE technical discovery call",
         "Scope Infor A+ ERP integration (native connector vs custom)",
         "Validate Punch Out / EDI support for large accounts",
@@ -347,7 +377,17 @@
       "notes": "",
       "last_call": "2026-04-14",
       "next_call": "",
-      "manager_q": {}
+      "manager_q": {
+        "compelling_event": "• No online ordering channel — every order is manual (phone/email/napkins/Excel guides)\n• Competitors building e-commerce while they remain static — long-term competitive erosion\n• Field reps have no tool for mobile ordering with contracted pricing in the field\n• Need to find: what is the specific trigger for the 2027 target? Any cost pressure or competitive event making this more urgent?",
+        "map_created": null,
+        "map_shared": null,
+        "map_agreed": null,
+        "map_notes": "MAP file exists — too early to share. Re-engage Brendon first (no reply since Mar 25 intro).",
+        "who_signs": "• Brendon Yamada (Executive VP) — likely has significant budget authority as EVP of a family business\n• Family-owned company — other family members/principals may also need to sign off\n• YES — we have direct access to Brendon (he initiated the inquiry)\n• Need to find: who are the other family principals involved in major spending decisions?",
+        "urgency": "• VERY LOW — 2027 target, explicitly described as exploratory, not urgent\n• Brendon has not replied to follow-ups on Apr 2 or Apr 15\n• Build it: cost of manual processing at current scale, competitive landscape in Hawaiian food distribution, lower-tier Shopify cost angle (mentioned in content care package)\n• Satel partner gameplan call Apr 20 — use to rebuild momentum",
+        "risk_to_close": "• No urgency — 2027 target creates endless deferral potential with no forcing event\n• Brendon has gone quiet — re-engagement is not confirmed\n• Infor A+ integration complexity could make economics and timeline unpredictable\n• Family business dynamics (multiple sign-offs not yet mapped) could add surprise blockers\n• Hawaii tax complexity (wholesale/retail distinction) could slow setup expectations",
+        "gut": 0
+      }
     },
     "flexradio": {
       "sf": {
@@ -370,9 +410,19 @@
       "done": [],
       "left": [],
       "notes": "",
-      "last_call": "",
-      "next_call": "2026-04-15",
-      "manager_q": {}
+      "last_call": "2026-04-15",
+      "next_call": "",
+      "manager_q": {
+        "compelling_event": "• Broken discount system in BigCommerce causing pricing errors — live revenue impact\n• SIM 7 ERP sync issues causing \"mysterious inventory adjustments\" — reliability and ops problem\n• Manual quoting for government/B2G accounts is operationally costly and slow\n• Need to find: when does their BigCommerce contract renew? That date is the hard deadline",
+        "map_created": null,
+        "map_shared": null,
+        "map_agreed": null,
+        "map_notes": "Day 1 intro call Apr 15 — no MAP shared yet. SE technical call scheduled for next week.",
+        "who_signs": "• Need to find — not yet confirmed\n• Andy (andy@flex-radio.com) is most technically engaged but appears to be IT/technical lead\n• Lori (lori@flex-radio.com) and Mike (mike@flex-radio.com) also on intro call — roles unclear\n• Action needed: clarify who has budget authority and who signs the contract",
+        "urgency": "• Medium — strong platform pain surfaced on day 1, suggests active frustration\n• No hard deadline confirmed yet\n• Build it: find BC contract renewal date; quantify lost revenue from broken discounts and inventory errors\n• SE technical call next week — use to surface renewal date and identify budget authority",
+        "risk_to_close": "• Andy's skepticism: does not want 17,000 Shopify apps to replace 17,000 BC apps — must address early and directly\n• SIM 7 ERP two-way integration complexity — needs SE to validate and scope before we promise anything\n• Government/B2G account requirements (per-login portals, PO attachments, quote management) add evaluation complexity\n• EB not identified — Andy may not be the budget owner",
+        "gut": 0
+      }
     },
     "anatomy": {
       "sf": {
@@ -395,17 +445,17 @@
         {
           "sev": "high",
           "text": "Discovery call never gets scheduled and Liz goes cold",
-          "mit": "Liz asked good questions in her first email response — momentum exists right now. Respond with value and immediately propose a 30-minute discovery call. Don’t let the thread die in email. The window is this week or next."
+          "mit": "Liz asked good questions in her first email response — momentum exists right now. Respond with value and immediately propose a 30-minute discovery call. Don't let the thread die in email. The window is this week or next."
         },
         {
           "sev": "med",
           "text": "BrightPearl ERP evaluation delays or absorbs the commerce platform decision",
-          "mit": "If they’re mid-ERP evaluation, the commerce decision may get bundled with or deferred to the ERP selection. Position Shopify as the complementary front-end layer, not a competing system. Ask Liz about the BrightPearl timeline early to calibrate urgency."
+          "mit": "If they're mid-ERP evaluation, the commerce decision may get bundled with or deferred to the ERP selection. Position Shopify as the complementary front-end layer, not a competing system. Ask Liz about the BrightPearl timeline early to calibrate urgency."
         },
         {
           "sev": "low",
-          "text": "Liz is evaluating multiple platforms in parallel and we don’t know it",
-          "mit": "Ask directly in discovery: ‘Are you evaluating any other platforms right now?’ Better to know early than after investing discovery time."
+          "text": "Liz is evaluating multiple platforms in parallel and we don't know it",
+          "mit": "Ask directly in discovery: 'Are you evaluating any other platforms right now?' Better to know early than after investing discovery time."
         }
       ],
       "done": [],
@@ -418,7 +468,17 @@
       "notes": "",
       "last_call": "2026-04-13",
       "next_call": "",
-      "manager_q": {}
+      "manager_q": {
+        "compelling_event": "• Site speed and UX issues on BigCommerce hurting conversion and revenue\n• Revenue growth goal is the stated driver — Liz wants to get product updates faster and convert better\n• BrightPearl ERP evaluation running in parallel — may create a bundled decision timeline\n• Need to find: when does their BigCommerce contract renew? That is the hard deadline to surface",
+        "map_created": null,
+        "map_shared": null,
+        "map_agreed": null,
+        "map_notes": "MAP file exists — too early to share. Discovery call with Liz has not yet been scheduled.",
+        "who_signs": "• Liz Huff (CEO) — confirmed budget authority and final decision-maker\n• Stuart Foster — flagged by Yotpo as a key DM/budget authority; need to clarify his role relative to Liz\n• Liz is our entry point but has been price-gating before committing to calls\n• Matt Adler also identified as evaluator\n• Action needed: get discovery call scheduled with Liz first; clarify Stuart Foster's role",
+        "urgency": "• LOW — no hard timeline or renewal deadline surfaced\n• Liz asked for ballpark pricing before committing to calls — price sensitivity could stall momentum\n• BrightPearl ERP timeline may create a natural forcing event if they bundle the decisions\n• Build it: connect site speed improvements directly to conversion rate and revenue uplift numbers",
+        "risk_to_close": "• Liz is a price gatekeeper — if the pricing conversation goes wrong, access to the deal ends\n• Stuart Foster (possible real DM) not yet directly engaged — access and role unclear\n• Discovery call not yet scheduled — momentum depends entirely on email follow-through right now\n• BrightPearl ERP evaluation could delay or absorb the commerce platform decision entirely\n• No urgency signal — deal can drift indefinitely without a forcing event",
+        "gut": 0
+      }
     },
     "franklen": {
       "sf": {
@@ -468,20 +528,30 @@
         "Intro call with Tim Rusniak (4/6)",
         "Partner intro: Crimson Agility + Tim (4/8)",
         "Partner intro: ioVista + Tim (4/10)",
-        "Partner intro: Netalico + Tim (4/10)",
+        "Partner intro: Netalico + Tim (4/10) — Tim has since fired Netalico (sticker shock + dropped email)",
         "Partner intro: Netformic + Tim (4/13)"
       ],
       "left": [
         "Tim provides BigCommerce admin access to partner finalists this week",
         "Partner quotes received (follow-up calls week of 4/20–24)",
         "Tim shortlisting to 2 finalists — decision expected 1–2 weeks",
-        "Get intro call with Tim's boss before final presentation",
+        "Ask Tim to arrange an intro call with his boss before final presentation",
         "Contract signed"
       ],
       "notes": "",
       "last_call": "2026-04-13",
       "next_call": "",
-      "manager_q": {}
+      "manager_q": {
+        "compelling_event": "• Theme lock-in: changing BigCommerce themes destroys their exploded view functionality — boss wants a new look but every attempt breaks the site\n• Manual pricing updates take 3+ days/month across 20–40 manufacturers (28K SKUs) — recurring operational cost\n• Boss is visibly frustrated with the dated site — that frustration is the urgency lever\n• Miss it: keep paying labor hours every month for manual pricing; site stays dated; competitive risk grows",
+        "map_created": null,
+        "map_shared": null,
+        "map_agreed": null,
+        "map_notes": "MAP file exists — too early to share. Tim is in partner selection phase; MAP should be shared once a partner is confirmed.",
+        "who_signs": "• Tim Rusniak's boss (name unknown) — holds full budget authority, makes the final decision\n• Tim Rusniak (IT/technical evaluator) will recommend top 2 options to his boss\n• We have NO direct access to the boss — everything runs through Tim's recommendation\n• Action needed: ask Tim to arrange a brief intro call with his boss before the final presentation",
+        "urgency": "• Medium-high — Tim is moving fast: 4 partner intros in 7 days, already fired Netalico\n• No hard external deadline; boss's frustration with dated site is the urgency lever\n• Tim commented on \"strong performance of other potential partners\" — competitive urgency is real\n• Theme lock-in has been known since August 2025 — they waited 8 months, but momentum is high now",
+        "risk_to_close": "• Boss's real budget may be below $50K — Tim's estimate is informal and could be far off\n• Netalico mis-step (sticker shock + dropped email) may have dented Chase's credibility as a partner advisor\n• Tim has 3 active finalists comparing — could move fast without us if a partner impresses\n• EB (boss) has no relationship with us — Tim's filter is the only path and it is fragile\n• Complex custom requirements (exploded views app, bulk pricing CSV) = high SOW risk",
+        "gut": 0
+      }
     }
   }
 }
