@@ -550,7 +550,7 @@
         "who_signs": "• Tim Rusniak's boss (name unknown) — holds full budget authority, makes the final decision\n• Tim Rusniak (IT/technical evaluator) will recommend top 2 options to his boss\n• We have NO direct access to the boss — everything runs through Tim's recommendation\n• Action needed: ask Tim to arrange a brief intro call with his boss before the final presentation",
         "urgency": "• Medium-high — Tim is moving fast: 4 partner intros in 7 days, already fired Netalico\n• No hard external deadline; boss's frustration with dated site is the urgency lever\n• Tim commented on \"strong performance of other potential partners\" — competitive urgency is real\n• Theme lock-in has been known since August 2025 — they waited 8 months, but momentum is high now",
         "risk_to_close": "• Boss's real budget may be below $50K — Tim's estimate is informal and could be far off\n• Netalico mis-step (sticker shock + dropped email) may have dented Chase's credibility as a partner advisor\n• Tim has 3 active finalists comparing — could move fast without us if a partner impresses\n• EB (boss) has no relationship with us — Tim's filter is the only path and it is fragile\n• Complex custom requirements (exploded views app, bulk pricing CSV) = high SOW risk",
-        "gut": 4
+        "gut": 3
       }
     },
     "bulldog-tools": {
