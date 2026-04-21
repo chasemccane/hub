@@ -84,7 +84,7 @@
         "id": "006OG00000M9BVpYAN",
         "pbr": 376159,
         "stage": "Demonstrate",
-        "close": "2026-05-20",
+        "close": "2026-06-24",
         "created": "2026-03-20"
       },
       "meddic": {
@@ -154,41 +154,6 @@
         "urgency": "• Natural: legacy ERP end-of-life at year-end — hard external deadline\n• Amy Goudy said decision needed now to unblock the parallel NetSuite project\n• Close date May 20 — less than 5 weeks away\n• Competitive evaluation running — urgency if a competitor is moving faster",
         "risk_to_close": "• True EB never engaged — deal can die on cost without us ever speaking to the decision-maker\n• Competitor wins on NetSuite-native integration story (their #1 criterion — we must own this narrative)\n• Proposal call overdue — inaction becomes the default winner if not scheduled immediately\n• We do not know the competitive shortlist or how we are positioned against it - although we know it's Square on POS",
         "gut": 7
-      }
-    },
-    "newegg": {
-      "sf": {
-        "id": "006OG00000MTUyvYAH",
-        "pbr": 0,
-        "stage": "Closed Lost",
-        "close": "2026-04-21",
-        "created": "2026-04-01"
-      },
-      "meddic": {
-        "metrics": "",
-        "economic_buyer": "",
-        "decision_criteria": "",
-        "decision_process": "",
-        "pain": "",
-        "champion": ""
-      },
-      "strategy": "",
-      "risks": [],
-      "done": [],
-      "left": [],
-      "notes": "Closed Lost in Salesforce as of Apr 21, 2026. Lynn Dong (Lead Apps Eng) and Seaver Ding (Platform lead) were our contacts — intro call Apr 15 only.",
-      "last_call": "2026-04-15",
-      "next_call": "",
-      "manager_q": {
-        "compelling_event": "• 100+ developers maintaining homegrown front and back-end systems — massive ongoing cost\n• Lynn Dong stopped by Shopify booth at ShopTalk — they came to us\n• Decision made on intro call (Apr 15) to explore consolidating B2B + DTC onto a single Shopify platform\n• Need to find: what is the internal deadline or forcing function driving this exploration?",
-        "map_created": null,
-        "map_shared": null,
-        "map_agreed": null,
-        "map_notes": "Day 1 intro call Apr 15 — no MAP created or shared yet",
-        "who_signs": "• Need to find — no economic buyer identified yet\n• Lynn Dong (Lead Apps Eng/Ecommerce Tech) and Seaver Ding (Platform lead) are our technical contacts\n• \"Daisy\" (DTC lead) needs to be aligned — not yet engaged\n• B2B team member still to be invited to next meeting\n• Enterprise deal — sign-off authority is likely 2–3 levels above current contacts",
-        "urgency": "• LOW — day 1 intro call Apr 15, no urgency signals surfaced\n• No hard deadline or forcing event identified\n• Build it: calculate developer maintenance cost of homegrown systems; consolidation = faster iteration speed + cost savings\n• Long-cycle enterprise deal — urgency will take multiple calls to develop",
-        "risk_to_close": "• No EB identified — significant internal navigation required to reach decision-maker\n• 100+ developers have vested interest in homegrown systems — change management is a real obstacle\n• Complex org alignment needed: DTC + B2B teams + platform team all must agree\n• Enterprise sales cycles are long — this deal is in very early innings",
-        "gut": 0
       }
     },
     "washington-floral": {
