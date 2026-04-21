@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updated": "2026-04-14T10:00:00Z",
+  "updated": "2026-04-21T09:00:00Z",
   "deals": {
     "feniex": {
       "sf": {
@@ -126,25 +126,27 @@
         "Technical Discovery completed — Amy Goudy, Logan, Kevin Fender, Chase, Jordan (3/25)",
         "Platform Demo delivered — full team + Victoria Forte observing (4/1)",
         "Technical Workshop (4/13) — multi-staff POS + NetSuite data flows (Chase, Jordan, Logan, Kevin)",
-        "Post-workshop follow-up sent to Logan (4/14) — proposing 1:1 strategy call to map revenue streams before broader proposal"
+        "Post-workshop follow-up sent to Logan (4/14) — proposing 1:1 strategy call to map revenue streams before broader proposal",
+        "Project Sync (4/17) — Artie Hattaway + Logan Hundley; walked through dispatching workflow and Shopify integration gaps; MAP shared post-call"
       ],
       "left": [
-        "1:1 strategy call with Logan — Thu 4/16 or Fri 4/17 (pending confirmation)",
-        "Identify and engage true Economic Buyer in that call",
+        "Deliver architecture maps for key integration points (NetSuite sync, scaling/dispatching middleware, B2B portal, payment flows)",
+        "Schedule call with Marty to walk through his data flow vision (critical voice per Apr 17 call)",
+        "Identify and engage true Economic Buyer",
         "Deliver commercial proposal",
         "Understand competitive shortlist and differentiate",
         "Legal / procurement review",
         "Contract signed"
       ],
       "notes": "",
-      "last_call": "2026-04-13",
-      "next_call": "2026-04-16",
+      "last_call": "2026-04-17",
+      "next_call": "",
       "manager_q": {
         "compelling_event": "• Legacy ERP going end-of-life — POS must launch in tandem with NetSuite go-live (hard deadline) - Goal date: 10/1/26 for launch\n• Amy Goudy (NetSuite consultant) said a platform decision is needed NOW to unblock the parallel NetSuite project\n• ROI: $25–30M quarry credit card volume consolidated to Shopify Payments = meaningful rate savings\n• Miss it: cashiers continue using legacy ERP at checkout with no fix before EOL — operational crisis incoming",
         "map_created": true,
-        "map_shared": null,
+        "map_shared": true,
         "map_agreed": null,
-        "map_notes": "",
+        "map_notes": "MAP link shared in Apr 17 post-call email (chasemccane.github.io/hub/hedrick/ — passcode: Hedrick123)",
         "who_signs": "• UNKNOWN — true Economic Buyer has NOT been identified or engaged\n• Logan Hundley (Asst Controller) drives the eval but has confirmed he is NOT the final decision-maker\n• Action needed: get Logan to name the EB and bring them into the proposal call",
         "urgency": "• Natural: legacy ERP end-of-life at year-end — hard external deadline\n• Amy Goudy said decision needed now to unblock the parallel NetSuite project\n• Close date May 20 — less than 5 weeks away\n• Competitive evaluation running — urgency if a competitor is moving faster",
         "risk_to_close": "• True EB never engaged — deal can die on cost without us ever speaking to the decision-maker\n• Competitor wins on NetSuite-native integration story (their #1 criterion — we must own this narrative)\n• Proposal call overdue — inaction becomes the default winner if not scheduled immediately\n• We do not know the competitive shortlist or how we are positioned against it - although we know it's Square on POS",
@@ -155,8 +157,8 @@
       "sf": {
         "id": "006OG00000MTUyvYAH",
         "pbr": 0,
-        "stage": "Pre-Qualified",
-        "close": "2026-08-12",
+        "stage": "Closed Lost",
+        "close": "2026-04-21",
         "created": "2026-04-01"
       },
       "meddic": {
@@ -171,9 +173,9 @@
       "risks": [],
       "done": [],
       "left": [],
-      "notes": "",
-      "last_call": "",
-      "next_call": "2026-04-15",
+      "notes": "Closed Lost in Salesforce as of Apr 21, 2026. Lynn Dong (Lead Apps Eng) and Seaver Ding (Platform lead) were our contacts — intro call Apr 15 only.",
+      "last_call": "2026-04-15",
+      "next_call": "",
       "manager_q": {
         "compelling_event": "• 100+ developers maintaining homegrown front and back-end systems — massive ongoing cost\n• Lynn Dong stopped by Shopify booth at ShopTalk — they came to us\n• Decision made on intro call (Apr 15) to explore consolidating B2B + DTC onto a single Shopify platform\n• Need to find: what is the internal deadline or forcing function driving this exploration?",
         "map_created": null,
@@ -191,7 +193,7 @@
         "id": "006OG00000LJrChYAL",
         "pbr": 102821,
         "stage": "Envision",
-        "close": "2026-06-30",
+        "close": "2026-08-26",
         "created": "2026-02-18"
       },
       "meddic": {
@@ -299,16 +301,15 @@
         "Uncap partner call with Sonny + Junior (4/15) — deep dive discovery follow-up scheduled Apr 17"
       ],
       "left": [
-        "Deep dive discovery call (Apr 17) — scope, timeline, costs with Uncap + Sonny + Junior",
         "Demo Apr 23 — full stakeholder group (owner, Jim/Ops Director, pricing dept, Sonny, Junior)",
-        "Champion coaching: prep Sonny + Junior to bring owner into the room and pre-sell ROI story",
+        "Champion coaching: prep Sonny + Junior to bring owner into room and pre-sell ROI story",
         "Qualify budget range before or at demo",
         "Executive workshop post-demo",
         "Contract signed before summer"
       ],
       "notes": "",
-      "last_call": "2026-04-15",
-      "next_call": "2026-04-17",
+      "last_call": "2026-04-17",
+      "next_call": "2026-04-23",
       "manager_q": {
         "compelling_event": "• Business Central ERP implementation planned — Q4 launch target, platform migration must align with it\n• Cart.com has no native BC365, ShipperHQ, or marketing stack integrations — they are building on a dead end\n• Manual freight quoting and phone-only ordering costs real labor hours daily\n• Miss it: ERP & ShipperHQ goes live Q4 with no aligned platform, creating integration debt and double work for the team",
         "map_created": true,
@@ -363,11 +364,13 @@
       "done": [
         "Intro call with Brendon Yamada (3/25)",
         "Content care package sent",
-        "Chase x Eric Osborne (PSM) connect (4/14) — Eric introduced Chase to Daren Wang at Satel (B2B agency with relevant experience)"
+        "Chase x Eric Osborne (PSM) connect (4/14) — Eric introduced Chase to Daren Wang at Satel (B2B agency with relevant experience)",
+        "Strategy call with Daren Wang (Satel) (4/20) — aligned on KYD modernization goals, TCO approach, consultative readiness assessment; plan to intro Satel to Brendon for 3-way discovery call"
       ],
       "left": [
-        "Gameplan call with Daren Wang (Satel) — Mon Apr 20 at 10:30am MDT",
-        "Re-engage Brendon (no reply to Apr 2 or Apr 15 follow-ups)",
+        "Send intro email connecting Brendon Yamada with Daren Wang / Satel team",
+        "Schedule 3-way discovery call: Chase + Satel + Brendon",
+        "Re-engage Brendon (no reply to Apr 2, Apr 15 follow-ups)",
         "Schedule SE technical discovery call",
         "Scope Infor A+ ERP integration (native connector vs custom)",
         "Validate Punch Out / EDI support for large accounts",
@@ -583,18 +586,19 @@
         }
       ],
       "done": [
-        "Partner intro call scheduled with Atwix 4/17"
+        "Partner intro call with Atwix team (4/17) — validated Shopify Plus platform fit, discussed custom freight billing to buyer FedEx/UPS accounts (solvable via app/custom)"
       ],
       "left": [
+        "Schedule direct call with Robert Meyer (Bulldog) — out of town week of 4/21, target week of 4/27",
         "Identify Economic Buyer",
-        "Discovery call with Bulldog Tools team",
-        "Validate custom shipping billing solution",
+        "Full discovery call with Bulldog Tools team",
+        "Validate custom shipping billing solution with SE",
         "Build out MEDDIC",
         "SE engagement"
       ],
-      "notes": "Partner: Atwix (c.shadonix@atwix.com, f.reyes@atwix.com). Juan Jacinto (Shopify) also involved.",
-      "last_call": "",
-      "next_call": "2026-04-17",
+      "notes": "Partner: Atwix (c.shadonix@atwix.com, f.reyes@atwix.com). Juan Jacinto (Shopify) also involved. Robert Meyer (rmeyer@bulldogtools.com) is key contact — confirmed out of town week of 4/21.",
+      "last_call": "2026-04-17",
+      "next_call": "",
       "manager_q": {
         "compelling_event": "Need to find: What is driving the timeline for this deal?",
         "map_created": true,

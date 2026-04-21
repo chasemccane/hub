@@ -102,6 +102,7 @@
     .stage-3 { background: rgba(245,158,11,.12); color: var(--amber); }
     .stage-4 { background: rgba(37,99,235,.10); color: #2563eb; }
     .stage-5 { background: rgba(0,168,107,.12); color: var(--green); }
+    .stage-lost { background: rgba(100,116,139,.10); color: var(--muted); text-decoration: line-through; }
 
     .person { font-size: 12px; }
     .person-name { font-weight: 500; }
@@ -268,8 +269,8 @@
       name: 'Newegg',
       industry: 'Electronics & Gadgets · City of Industry, CA',
       type: 'b2b',
-      close: '2026-08-12',
-      stage: 2,
+      close: '2026-04-21',
+      stage: 7,
       se: '',
       map_progress: { done: 0, total: 0 },
       next_step: '4/15: Intro completed — follow up to schedule discovery',
@@ -286,7 +287,7 @@
       name: 'Washington Floral Service',
       industry: 'Wholesale Florals · B2B',
       type: 'b2b',
-      close: '2026-06-30',
+      close: '2026-08-26',
       stage: 3,
       se: 'Jordan Murphy',
       map_progress: { done: 0, total: 0 },
@@ -391,8 +392,8 @@
     },
   ];
 
-  const STAGE_LABELS = { 2:'Pre-Qualified', 3:'Envision', 4:'Solution', 5:'Demonstrate', 6:'Closed Won' };
-  const STAGE_CLASS  = { 2:'stage-3', 3:'stage-3', 4:'stage-4', 5:'stage-5', 6:'stage-5' };
+  const STAGE_LABELS = { 2:'Pre-Qualified', 3:'Envision', 4:'Solution', 5:'Demonstrate', 6:'Closed Won', 7:'Closed Lost' };
+  const STAGE_CLASS  = { 2:'stage-3', 3:'stage-3', 4:'stage-4', 5:'stage-5', 6:'stage-5', 7:'stage-lost' };
 
   // ── Editable overrides stored in localStorage ──
   const OV_KEY = 'hub-map-overrides';
@@ -451,14 +452,14 @@
 
   function renderStats() {
     const active = DEALS.filter(d => d.stage < 6).length;
-    const withMap = DEALS.filter(d => d.map_url).length;
-    const closingThis = DEALS.filter(d => d.close && daysUntil(d.close) >= 0 && daysUntil(d.close) <= 30).length;
+    const withMap = DEALS.filter(d => d.map_url && d.stage < 6).length;
+    const closingThis = DEALS.filter(d => d.stage < 6 && d.close && daysUntil(d.close) >= 0 && daysUntil(d.close) <= 30).length;
     const wonQ = DEALS.filter(d => d.stage === 6 && d.quarter === currentQ).length;
 
-    // PBR = sum of pbr overrides for Envision+ deals in current quarter
+    // PBR = sum of pbr overrides for Envision+ active deals in current quarter
     const pbrDeals = currentQ === 'all'
-      ? DEALS.filter(d => d.stage >= 3)
-      : DEALS.filter(d => d.stage >= 3 && d.quarter === currentQ);
+      ? DEALS.filter(d => d.stage >= 3 && d.stage < 7)
+      : DEALS.filter(d => d.stage >= 3 && d.stage < 7 && d.quarter === currentQ);
     const pbrTotal = pbrDeals.reduce((sum, d) => sum + (getOv(d.id, 'pbr', d.pbr || 0) || 0), 0);
     const pbrLabel = pbrTotal > 0 ? fmtMoney(pbrTotal) : '—';
     const pbrSub = `${pbrDeals.length} deal${pbrDeals.length !== 1 ? 's' : ''} · Envision+`;
@@ -569,7 +570,7 @@
 
   const STAGE_STR_TO_NUM = {
     'Pre-Qualified': 2, 'Envision': 3, 'Solution': 4,
-    'Demonstrate': 5, 'Closed Won': 6
+    'Demonstrate': 5, 'Closed Won': 6, 'Closed Lost': 7
   };
 
   function applyRemoteData(data) {
