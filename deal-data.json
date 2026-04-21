@@ -54,14 +54,17 @@
         "5 implementation partners shortlisted and introduced (4/9)"
       ],
       "left": [
-        "Partner proposals / SOWs reviewed and shortlist confirmed",
+        "Silk Commerce + Feniex intro call — Apr 22 (confirmed, Chase attending)",
+        "Fusionary (Joe Alt) partner call — scheduling Apr 22–29",
+        "ioVista (Mike Patel) partner call — TBD",
+        "Partner SOWs reviewed; shortlist narrowed to 1–2 finalists",
         "Yemilyn builds ROI executive summary for CEO presentation",
         "Get CEO (Hamza Deyaf) directly engaged — briefing or intro call",
         "LOI / intent to proceed signed",
         "Legal and procurement review",
         "Contract signed by close date"
       ],
-      "notes": "  ",
+      "notes": "3 active partners: Silk Commerce (Alex Schreck) — intro call Apr 22 confirmed with Yemilyn; Fusionary (Joe Alt, VP Biz Dev) — scheduling Apr 22–29; ioVista (Mike Patel) — looped in Apr 20. Yemilyn confirmed Apr 16 she's been tied up on urgent revenue projects but is re-engaging. Quote expiry May 9.",
       "last_call": "2026-04-09",
       "next_call": "",
       "manager_q": {
@@ -239,8 +242,8 @@
         "Demo / executive alignment",
         "Contract"
       ],
-      "notes": "",
-      "last_call": "2026-04-08",
+      "notes": "Mark confirmed Apr 15: not back-burnered, but Mother's Day farm orders are consuming all attention right now. He will send scheduling availability in coming days. SE call targeting week of May 18 (post-Mother's Day). Mark has a backup plan — do not let deal go cold between now and the SE call.",
+      "last_call": "2026-04-15",
       "next_call": "",
       "manager_q": {
         "compelling_event": "• Current industry-specific software is being DISCONTINUED — forced migration, not optional\n• Platform EOL already passed 7 days before our intro call (Apr 8); timeline extended but clock is ticking\n• 3 locations + B2B + DTC + POS all need to transition simultaneously — complexity adds urgency\n• Miss it: platform goes dark with no replacement ready — operational crisis across all locations",
@@ -408,11 +411,25 @@
         "pain": "1. SIM 7 ERP one-way push to BC — no sync back; causes mysterious inventory adjustments.\n2. No backorder capability — out-of-stock items cause customers to abandon or generate inbound calls.\n3. 30+ day fulfillment cycles cause credit card auth to expire before capture; can't split payments on backorders.\n4. Manual B2G quoting — Andy manages via BC backend; can't attach POs or track serial numbers.\n5. No EDI support for B2G customers on SAP and other procurement platforms.\n6. Customer-specific discount management in BC is broken — Andy gave up on it.\n7. Reporting inadequate: Paymore lacks flexibility; manually pulling cancelled orders; Klaviyo/BC abandoned cart attribution confusion.\n8. WordPress/BC password sync fails regularly.\n9. QuickBooks address format misaligns with BC (company name split into first/last fields).\n10. Heavy plugin dependency for basic B2B functionality.",
         "champion": "Andy (andy@flex-radio.com) — manages government/commercial side; expressed strongest operational pain (broken B2G quoting, serial numbers, EDI, discount management). Proposed 'outside-in, clean sheet' architecture approach. Most technically engaged contact.\n\nLori (Head of Sales & Marketing, lori@flex-radio.com) — most senior title; the EB path. Needs to be cultivated as the executive sponsor.\n\nMichael (mike@flex-radio.com, back-end/BC admin) — technical enabler, critical for implementation but not a champion.\n\nNo confirmed champion yet — Andy drives the evaluation, Lori is the path to budget."
       },
-      "strategy": "",
-      "risks": [],
-      "done": [],
-      "left": [],
-      "notes": "",
+      "strategy": "15-year BigCommerce customer who is actively and openly evaluating. Day 1 intro surfaced extreme platform pain across 9 distinct areas — almost every key B2B requirement is broken or missing on their current stack. The play is to run a tight SE technical discovery call that maps SIM 7 ERP integration, backorder handling, and B2G quoting directly to Shopify capabilities — then land a full demo with the broader team.\n\nAndy (gov/commercial mgr) is the strongest technical advocate; Lori (Head of Sales & Marketing) is the EB path. Cultivate both in parallel. Find the BC contract renewal date — that's the hard deadline that creates urgency.",
+      "risks": [
+        { "sev": "high", "text": "EB (Lori) not yet confirmed or engaged — deal could stall before she weighs in", "mit": "Confirm budget authority on SE call. Ask Andy directly who signs the platform contract." },
+        { "sev": "high", "text": "SIM 7 ERP two-way integration complexity — if SE can't validate, we lose on their #1 technical req", "mit": "Pre-brief Jordan on SIM 7 before SE call. May need to loop in Paul/Frankie (Shopify SIM 7 specialists)." },
+        { "sev": "med", "text": "Andy's 'no app overload' requirement — must not present Shopify as 17K apps replacing 17K BC plugins", "mit": "Lead with native B2B functionality. Explicitly acknowledge this in SE call and show how Shopify consolidates rather than adds complexity." }
+      ],
+      "done": [
+        "Intro call — Lori, Michael, Andy + Chase + Grant Dugas (4/15)",
+        "Content care package sent to FlexRadio team (4/16) — covered B2B unified platform, custom pricing portals, backorder handling, SIM 7 integration, EDI"
+      ],
+      "left": [
+        "SE technical discovery call — Jordan Murphy (offering Apr 22 or wk Apr 27–May 1; awaiting confirmation)",
+        "Confirm EB: who holds platform budget (Lori vs. another stakeholder)",
+        "Find BigCommerce contract renewal date — this is the hard deadline",
+        "Full platform demo with broader team",
+        "LOI / intent to proceed",
+        "Contract"
+      ],
+      "notes": "Chase sent scheduling email Apr 20 offering Wed Apr 22 and all slots wk of Apr 27–May 1 (CT times). No reply yet. Three contacts: Lori (lori@flex-radio.com), Michael (mike@flex-radio.com), Andy (andy@flex-radio.com). Grant Dugas (Shopify SDR) sourced the deal.",
       "last_call": "2026-04-15",
       "next_call": "",
       "manager_q": {
@@ -541,8 +558,8 @@
         "Ask Tim to arrange an intro call with his boss before final presentation",
         "Contract signed"
       ],
-      "notes": "",
-      "last_call": "2026-04-13",
+      "notes": "Netalico dropped (Tim fired them Apr 14 — sticker shock on $50K min + dropped email). Active finalists: Netformic (Rob Neumann) confirmed Apr 15 he is actively working on the exploded view solution and has meetings with software partners this week. Crimson Agility + ioVista also still in play. Follow-up calls week of Apr 21. Tim is moving fast — Chase's credibility as a partner advisor is on the line. Do not let momentum stall.",
+      "last_call": "2026-04-15",
       "next_call": "",
       "manager_q": {
         "compelling_event": "• Theme lock-in: changing BigCommerce themes destroys their exploded view functionality — boss wants a new look but every attempt breaks the site\n• Manual pricing updates take 3+ days/month across 20–40 manufacturers (28K SKUs) — recurring operational cost\n• Boss is visibly frustrated with the dated site — that frustration is the urgency lever\n• Miss it: keep paying labor hours every month for manual pricing; site stays dated; competitive risk grows",
