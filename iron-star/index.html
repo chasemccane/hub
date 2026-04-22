@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iron Star Roasting Co. × Shopify Plus</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #f5f2ee;
+  --white: #ffffff;
+  --black: #0d0d0d;
+  --dark: #1a1a1a;
+  --mid: #666666;
+  --light: #999999;
+  --border: #e2ddd8;
+  --accent: #6b5c45;
+  --shopify: #004C3F;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--dark); line-height: 1.6; }
+
+/* ── PASSWORD GATE ── */
+#gate {
+  position: fixed; inset: 0;
+  background: var(--black);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  z-index: 9999; gap: 2rem;
+  transition: opacity 0.5s ease;
+}
+#gate.fade-out { opacity: 0; pointer-events: none; }
+
+.gate-ring {
+  width: 80px; height: 80px;
+  border: 1.5px solid rgba(255,255,255,0.25);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem; font-weight: 700;
+  color: #fff; letter-spacing: 2px;
+}
+.gate-subtitle {
+  font-size: 0.6rem; letter-spacing: 5px;
+  text-transform: uppercase; color: rgba(255,255,255,0.35);
+  text-align: center;
+}
+.gate-rule { width: 30px; height: 1px; background: rgba(255,255,255,0.15); }
+
+.gate-form {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 0.85rem; width: 100%; max-width: 280px;
+}
+.gate-form label {
+  font-size: 0.55rem; letter-spacing: 4px;
+  text-transform: uppercase; color: rgba(255,255,255,0.35);
+}
+.gate-form input {
+  width: 100%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #fff; text-align: center;
+  padding: 0.9rem 1.5rem;
+  font-family: 'Inter', sans-serif; font-size: 1rem;
+  letter-spacing: 8px; outline: none; border-radius: 2px;
+  transition: border-color 0.2s;
+}
+.gate-form input:focus { border-color: rgba(255,255,255,0.35); }
+.gate-form input.shake {
+  animation: shake 0.38s ease;
+  border-color: rgba(220, 100, 100, 0.45);
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  60% { transform: translateX(6px); }
+}
+.gate-btn {
+  width: 100%; background: transparent;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.7);
+  padding: 0.7rem; font-family: 'Inter', sans-serif;
+  font-size: 0.6rem; letter-spacing: 3px;
+  text-transform: uppercase; cursor: pointer;
+  transition: all 0.2s; border-radius: 2px;
+}
+.gate-btn:hover { background: rgba(255,255,255,0.06); color: #fff; }
+
+/* ── MAIN CONTENT ── */
+#content { display: none; }
+
+/* ── STICKY NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0.85rem 2.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-brand { display: flex; align-items: center; gap: 0.85rem; }
+.nav-badge {
+  width: 36px; height: 36px;
+  border: 1.5px solid var(--black); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 1px;
+}
+.nav-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.85rem; letter-spacing: 0.5px;
+}
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  color: var(--mid); text-decoration: none;
+  font-size: 0.6rem; letter-spacing: 2px;
+  text-transform: uppercase; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--black); }
+.nav-shopify {
+  font-size: 0.65rem; font-weight: 600;
+  color: var(--shopify); letter-spacing: 1.5px; text-transform: uppercase;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--white); min-height: 92vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 5rem 2rem;
+}
+.hero-eyebrow {
+  font-size: 0.6rem; letter-spacing: 5px;
+  text-transform: uppercase; color: var(--light); margin-bottom: 2.5rem;
+}
+.hero-seal {
+  width: 96px; height: 96px;
+  border: 1.5px solid var(--black); border-radius: 50%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  margin: 0 auto 3rem; gap: 2px;
+}
+.hero-seal-main {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem; font-weight: 700; line-height: 1;
+}
+.hero-seal-sub {
+  font-size: 0.38rem; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--mid);
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.6rem, 5.5vw, 4.8rem);
+  font-weight: 400; line-height: 1.1;
+  color: var(--black); max-width: 680px;
+  margin: 0 auto 1.5rem;
+}
+.hero h1 em { font-style: italic; color: var(--accent); }
+.hero-sub {
+  font-size: 0.8rem; color: var(--mid); letter-spacing: 2px;
+  text-transform: uppercase; margin-bottom: 3.5rem;
+}
+.hero-meta {
+  display: flex; gap: 2.5rem; align-items: center;
+  justify-content: center; flex-wrap: wrap;
+  font-size: 0.65rem; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--light);
+}
+.hero-meta-dot { color: var(--border); }
+
+/* ── SHARED SECTION STYLES ── */
+.bg-white { background: var(--white); }
+.bg-off { background: var(--bg); }
+.bg-dark { background: var(--black); }
+
+.wrap { max-width: 1080px; margin: 0 auto; padding: 6rem 2.5rem; }
+.wrap-sm { max-width: 1080px; margin: 0 auto; padding: 0 2.5rem; }
+
+.s-label {
+  font-size: 0.55rem; letter-spacing: 5px;
+  text-transform: uppercase; color: var(--light); margin-bottom: 0.85rem;
+}
+.s-label-inv { color: rgba(255,255,255,0.3); }
+
+.s-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 400; line-height: 1.2;
+  color: var(--black); margin-bottom: 0.75rem;
+}
+.s-title-inv { color: #fff; }
+
+.s-desc {
+  font-size: 0.9rem; color: var(--mid);
+  max-width: 560px; line-height: 1.75; margin-bottom: 3rem;
+}
+.s-desc-inv { color: rgba(255,255,255,0.5); }
+
+.rule { width: 36px; height: 1.5px; background: var(--black); margin: 1.25rem 0; }
+.rule-inv { background: rgba(255,255,255,0.2); }
+
+/* ── CARD GRID ── */
+.grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; }
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 2rem; border-radius: 1px;
+}
+.card-label {
+  font-size: 0.55rem; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--light); margin-bottom: 0.75rem;
+}
+.card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem; font-weight: 400;
+  color: var(--black); margin-bottom: 0.65rem;
+}
+.card p { font-size: 0.82rem; color: var(--mid); line-height: 1.65; }
+
+/* ── GAP LIST ── */
+.gap-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem; margin-top: 1.5rem;
+}
+.gap-item-title {
+  font-size: 0.82rem; font-weight: 500;
+  color: var(--dark); margin-bottom: 0.3rem;
+}
+.gap-item-desc { font-size: 0.78rem; color: var(--mid); line-height: 1.5; }
+
+/* ── STAT BAR ── */
+.stat-bar {
+  background: var(--black);
+  display: flex; gap: 0; flex-wrap: wrap;
+}
+.stat-item {
+  flex: 1; min-width: 140px;
+  padding: 3rem 2rem; text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.06);
+}
+.stat-item:last-child { border-right: none; }
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem; color: #fff;
+  display: block; margin-bottom: 0.4rem;
+}
+.stat-lbl {
+  font-size: 0.58rem; letter-spacing: 3px;
+  text-transform: uppercase; color: rgba(255,255,255,0.3);
+}
+
+/* ── FEATURE GRID (dark bg) ── */
+.feat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid rgba(255,255,255,0.08);
+  margin-top: 2.5rem;
+}
+.feat-item {
+  padding: 2rem 1.75rem;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.feat-item:nth-child(3n) { border-right: none; }
+.feat-icon { font-size: 1.3rem; margin-bottom: 0.85rem; }
+.feat-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem; color: #fff;
+  margin-bottom: 0.4rem;
+}
+.feat-desc { font-size: 0.78rem; color: rgba(255,255,255,0.45); line-height: 1.55; }
+
+/* ── COMPARISON ── */
+.comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
+.cmp-col h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem; padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border); margin-bottom: 1.5rem;
+}
+.cmp-col.bad h3 { color: var(--mid); }
+.cmp-col.good h3 { color: var(--black); }
+.cmp-item {
+  display: flex; gap: 0.75rem;
+  align-items: flex-start; margin-bottom: 0.9rem;
+  font-size: 0.82rem; color: var(--mid);
+}
+.cmp-col.good .cmp-item { color: var(--dark); }
+.cmp-icon { flex-shrink: 0; margin-top: 1px; }
+
+/* ── CASE STUDY CARDS ── */
+.case-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 2.5rem;
+}
+.case-tag {
+  font-size: 0.55rem; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--shopify);
+  display: block; margin-bottom: 1rem;
+}
+.case-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem; color: var(--black);
+  margin-bottom: 1rem; line-height: 1.3;
+}
+.case-body {
+  font-size: 0.83rem; color: var(--mid);
+  line-height: 1.75; margin-bottom: 1.75rem;
+}
+.case-results {
+  display: flex; gap: 2rem;
+  border-top: 1px solid var(--border); padding-top: 1.5rem; flex-wrap: wrap;
+}
+.cr-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem; color: var(--black); display: block;
+}
+.cr-lbl {
+  font-size: 0.58rem; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--light);
+}
+
+/* ── PRICING ── */
+.price-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem; margin-top: 3rem;
+}
+.price-card {
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 2.5rem;
+}
+.price-card.featured {
+  border-color: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.04);
+}
+.price-lbl {
+  font-size: 0.55rem; letter-spacing: 3px;
+  text-transform: uppercase; color: rgba(255,255,255,0.3);
+  margin-bottom: 0.75rem;
+}
+.price-amount {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem; color: #fff;
+  margin: 0.75rem 0;
+  line-height: 1.1;
+}
+.price-amount span {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem; color: rgba(255,255,255,0.4);
+}
+.price-period {
+  font-size: 0.7rem; color: rgba(255,255,255,0.3); margin-bottom: 1.5rem;
+}
+.price-includes { list-style: none; }
+.price-includes li {
+  font-size: 0.78rem; color: rgba(255,255,255,0.5);
+  padding: 0.45rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  display: flex; gap: 0.5rem;
+}
+.price-includes li::before { content: '—'; color: rgba(255,255,255,0.15); flex-shrink: 0; }
+
+/* ── TIMELINE ── */
+.timeline {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 0; position: relative; margin-top: 3.5rem;
+}
+.timeline::before {
+  content: '';
+  position: absolute; top: 19px;
+  left: 12.5%; right: 12.5%; height: 1px;
+  background: var(--border);
+}
+.tl-item {
+  display: flex; flex-direction: column;
+  align-items: center; text-align: center;
+}
+.tl-dot {
+  width: 38px; height: 38px; border-radius: 50%;
+  border: 1.5px solid var(--black); background: var(--bg);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.85rem; color: var(--black);
+  margin-bottom: 1.5rem; position: relative; z-index: 1;
+}
+.tl-dot.active { background: var(--black); color: #fff; }
+.tl-month {
+  font-size: 0.55rem; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--light); margin-bottom: 0.4rem;
+}
+.tl-phase {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem; color: var(--black); margin-bottom: 0.4rem;
+}
+.tl-desc { font-size: 0.75rem; color: var(--mid); line-height: 1.45; max-width: 130px; }
+
+/* ── STEPS ── */
+.steps { list-style: none; counter-reset: s; }
+.steps li {
+  counter-increment: s;
+  display: flex; gap: 2rem; align-items: flex-start;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.steps li::before {
+  content: counter(s, decimal-leading-zero);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem; color: rgba(255,255,255,0.18);
+  flex-shrink: 0; width: 40px; padding-top: 2px;
+}
+.step-h { font-family: 'Playfair Display', serif; font-size: 1rem; color: #fff; margin-bottom: 0.4rem; }
+.step-p { font-size: 0.82rem; color: rgba(255,255,255,0.45); line-height: 1.6; }
+
+/* ── PARTNER ROWS ── */
+.partner-row {
+  font-size: 0.83rem; color: var(--mid);
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--border);
+  display: flex; gap: 0.75rem;
+}
+.partner-row::before { content: '→'; color: var(--light); flex-shrink: 0; }
+
+/* ── CALLOUT BOX ── */
+.callout {
+  padding: 2rem; margin-top: 2rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--black);
+  background: var(--white);
+}
+.callout-inv {
+  border-color: rgba(255,255,255,0.08);
+  border-left-color: rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.03);
+}
+.callout-label {
+  font-size: 0.55rem; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--light); margin-bottom: 0.6rem;
+}
+.callout-label-inv { color: rgba(255,255,255,0.3); }
+.callout-text { font-size: 0.88rem; color: var(--mid); line-height: 1.65; }
+.callout-text-inv { color: rgba(255,255,255,0.55); }
+
+/* ── CONTACT BLOCK ── */
+.contact-block {
+  margin-top: 4rem; padding: 3rem;
+  border: 1px solid rgba(255,255,255,0.1); text-align: center;
+}
+.contact-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem; color: #fff; margin-bottom: 0.4rem;
+}
+.contact-title {
+  font-size: 0.65rem; letter-spacing: 2.5px;
+  text-transform: uppercase; color: rgba(255,255,255,0.35);
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--black); padding: 3rem 2rem;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer-line {
+  font-size: 0.58rem; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(255,255,255,0.18);
+  line-height: 2;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 860px) {
+  nav { padding: 0.85rem 1.5rem; }
+  .nav-links { display: none; }
+  .feat-grid { grid-template-columns: 1fr 1fr; }
+  .feat-item:nth-child(3n) { border-right: 1px solid rgba(255,255,255,0.08); }
+  .feat-item:nth-child(2n) { border-right: none; }
+}
+@media (max-width: 640px) {
+  .hero h1 { font-size: 2.2rem; }
+  .hero-meta { flex-direction: column; gap: 0.4rem; }
+  .hero-meta-dot { display: none; }
+  .feat-grid { grid-template-columns: 1fr; border: none; }
+  .feat-item { border: 1px solid rgba(255,255,255,0.08); margin-bottom: 0.5rem; border-right: 1px solid rgba(255,255,255,0.08) !important; }
+  .comparison { grid-template-columns: 1fr; }
+  .timeline { grid-template-columns: 1fr 1fr; }
+  .timeline::before { display: none; }
+  .stat-item { min-width: 50%; }
+  .case-results { flex-direction: column; gap: 1rem; }
+  .wrap { padding: 4rem 1.5rem; }
+}
+@media (max-width: 400px) {
+  .timeline { grid-template-columns: 1fr; }
+  .price-amount { font-size: 1.8rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════ PASSWORD GATE ════ -->
+<div id="gate">
+  <div class="gate-ring">CTR</div>
+  <div class="gate-subtitle">Iron Star Roasting Co. × Shopify Plus</div>
+  <div class="gate-rule"></div>
+  <div class="gate-form">
+    <label for="pw">Enter Passcode</label>
+    <input type="password" id="pw" placeholder="· · · · · · ·" autocomplete="off"
+           onkeydown="if(event.key==='Enter') unlock()">
+    <button class="gate-btn" onclick="unlock()">Access</button>
+  </div>
+</div>
+
+<!-- ════ MAIN CONTENT ════ -->
+<div id="content">
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-brand">
+      <div class="nav-badge">CTR</div>
+      <div class="nav-name">Iron Star Roasting Co.</div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#today">Today</a></li>
+      <li><a href="#platform">Platform</a></li>
+      <li><a href="#unified">Unified</a></li>
+      <li><a href="#stories">Stories</a></li>
+      <li><a href="#investment">Investment</a></li>
+      <li><a href="#timeline">Timeline</a></li>
+      <li><a href="#next">Next Steps</a></li>
+    </ul>
+    <div class="nav-shopify">Shopify Plus</div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-eyebrow">Prepared Exclusively For</div>
+    <div class="hero-seal">
+      <div class="hero-seal-main">IS</div>
+      <div class="hero-seal-sub">× Shopify</div>
+    </div>
+    <h1>Built for Wholesale.<br><em>Ready for What's Next.</em></h1>
+    <p class="hero-sub">Iron Star Roasting Co. × Shopify Plus</p>
+    <div class="hero-meta">
+      <span>Shaun Kowalu, COO</span>
+      <span class="hero-meta-dot">·</span>
+      <span>The Coffee Tree Roasters</span>
+      <span class="hero-meta-dot">·</span>
+      <span>April 2026</span>
+    </div>
+  </section>
+
+  <!-- ── 01 TODAY ── -->
+  <div id="today" class="bg-off">
+    <div class="wrap">
+      <div class="s-label">01 — Your Business Today</div>
+      <h2 class="s-title">A business built to grow.<br>Held back by its tools.</h2>
+      <div class="rule"></div>
+      <p class="s-desc">Iron Star Roasting Co. has built a $3M wholesale operation serving schools, universities, and independent retailers. The platform holding that business together wasn't built for where you're headed.</p>
+
+      <div class="grid-4">
+        <div class="card">
+          <div class="card-label">Wholesale Division</div>
+          <h3>Iron Star Roasting Co.</h3>
+          <p>$3M in annual wholesale sales, driving the majority of the group's volume — a sophisticated operation that deserves a purpose-built platform.</p>
+        </div>
+        <div class="card">
+          <div class="card-label">ERP & Commerce Stack</div>
+          <h3>Sage 300 + Commerce Build</h3>
+          <p>Sage 300 is a strong ERP. But Commerce Build layers commerce on top of it — a workaround, not a native B2B storefront designed for buyer experience.</p>
+        </div>
+        <div class="card">
+          <div class="card-label">Payment Processing</div>
+          <h3>Worldline</h3>
+          <p>Credit card at time of order for independent wholesalers. ACH for institutional buyers. Two payment flows managed outside a commerce platform.</p>
+        </div>
+        <div class="card">
+          <div class="card-label">Parent Brand</div>
+          <h3>Coffee Tree on Squarespace</h3>
+          <p>The Coffee Tree retail line lives on Squarespace Commerce — a separate platform, separate data, and a disconnected experience from Iron Star.</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 2.5rem; padding: 2.25rem; border: 1px solid var(--border); background: var(--white);">
+        <div class="card-label">Where the Gaps Are</div>
+        <div class="gap-grid">
+          <div>
+            <div class="gap-item-title">No B2B-Native Storefront</div>
+            <div class="gap-item-desc">Commerce Build wasn't designed for wholesale buyer experiences — custom pricing, quick reorder, company accounts.</div>
+          </div>
+          <div>
+            <div class="gap-item-title">No POS for Pickup</div>
+            <div class="gap-item-desc">Customers who pick up in person have no streamlined checkout. A handheld POS would solve this immediately.</div>
+          </div>
+          <div>
+            <div class="gap-item-title">Fragmented Brand Stack</div>
+            <div class="gap-item-desc">Iron Star and Coffee Tree run on disconnected platforms. No shared data, no shared reporting, no operational efficiency.</div>
+          </div>
+          <div>
+            <div class="gap-item-title">Seasonal Scaling Risk</div>
+            <div class="gap-item-desc">The fall university rush demands a platform that handles peak load without hesitation. Commerce Build wasn't built for that.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAT BAR -->
+  <div class="stat-bar">
+    <div class="stat-item">
+      <span class="stat-num">$3M</span>
+      <span class="stat-lbl">Iron Star Annual Wholesale</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">2</span>
+      <span class="stat-lbl">Separate Commerce Platforms</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">Aug '26</span>
+      <span class="stat-lbl">Target Go-Live Date</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">1</span>
+      <span class="stat-lbl">Platform to Unify Both Brands</span>
+    </div>
+  </div>
+
+  <!-- ── 02 PLATFORM ── -->
+  <div id="platform" class="bg-dark">
+    <div class="wrap">
+      <div class="s-label s-label-inv">02 — The Platform</div>
+      <h2 class="s-title s-title-inv">Why Shopify Plus<br>for Iron Star</h2>
+      <div class="rule rule-inv"></div>
+      <p class="s-desc s-desc-inv">Shopify Plus is the only enterprise platform with B2B built in natively — not bolted on. Here's what that means for how Iron Star actually operates.</p>
+
+      <div class="feat-grid">
+        <div class="feat-item">
+          <div class="feat-icon">🏢</div>
+          <div class="feat-title">Company Accounts</div>
+          <div class="feat-desc">Create profiles for every wholesale buyer — multiple contacts, locations, and permission levels. No generic logins, no workarounds.</div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">💲</div>
+          <div class="feat-title">Custom Price Lists</div>
+          <div class="feat-desc">Different tiers for schools, independents, and institutional buyers — each sees their own pricing automatically when they log in.</div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">⏱</div>
+          <div class="feat-title">Net Payment Terms</div>
+          <div class="feat-desc">Offer Net 30, 60, or 90 natively within checkout. Institutional buyers pay on terms — no manual invoicing, no follow-up chasing.</div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">💳</div>
+          <div class="feat-title">Credit Card + ACH</div>
+          <div class="feat-desc">Both payment methods supported natively. Independent wholesalers pay by card, institutions by ACH — no third-party patchwork required.</div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">📱</div>
+          <div class="feat-title">POS for Pickup</div>
+          <div class="feat-desc">Shopify POS Pro with handheld hardware. Customers picking up in person get a real checkout experience, fully synced with your storefront.</div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">🔗</div>
+          <div class="feat-title">Sage 300 Integration</div>
+          <div class="feat-desc">Certified partners have built Sage 300 connectors. Your ERP stays the system of record — Shopify syncs with it in real time.</div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">📦</div>
+          <div class="feat-title">Quick Order & Draft Orders</div>
+          <div class="feat-desc">Buyers reorder from history in seconds. Your team can build draft orders on their behalf for approval before processing.</div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">⚡</div>
+          <div class="feat-title">Peak Season Ready</div>
+          <div class="feat-desc">Shopify handles Black Friday for the world's largest retailers without flinching. Your fall university rush isn't a stress test — it's Tuesday.</div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">🔄</div>
+          <div class="feat-title">Unified with Coffee Tree</div>
+          <div class="feat-desc">One Shopify Plus account runs Iron Star B2B and Coffee Tree DTC — one admin, one team, one platform for the whole family of brands.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 03 UNIFIED COMMERCE ── -->
+  <div id="unified" class="bg-off">
+    <div class="wrap">
+      <div class="s-label">03 — Unified Commerce</div>
+      <h2 class="s-title">One family of brands.<br>One platform to run them.</h2>
+      <div class="rule"></div>
+      <p class="s-desc">Today, The Coffee Tree Roasters and Iron Star run on completely separate systems. Shopify Plus can bring both — wholesale and retail — under one roof.</p>
+
+      <div class="comparison">
+        <div class="cmp-col bad">
+          <h3>Today: Fragmented</h3>
+          <div class="cmp-item"><span class="cmp-icon">⚠</span> Iron Star wholesale on Sage 300 + Commerce Build</div>
+          <div class="cmp-item"><span class="cmp-icon">⚠</span> Coffee Tree retail on Squarespace Commerce</div>
+          <div class="cmp-item"><span class="cmp-icon">⚠</span> Worldline payment processing — separate from commerce</div>
+          <div class="cmp-item"><span class="cmp-icon">⚠</span> Two data silos, no shared customer intelligence</div>
+          <div class="cmp-item"><span class="cmp-icon">⚠</span> Two platform relationships, two billing contracts</div>
+          <div class="cmp-item"><span class="cmp-icon">⚠</span> No visibility across both brands in one view</div>
+        </div>
+        <div class="cmp-col good">
+          <h3>With Shopify Plus: Unified</h3>
+          <div class="cmp-item"><span class="cmp-icon">✓</span> Iron Star B2B storefront — purpose-built for wholesale</div>
+          <div class="cmp-item"><span class="cmp-icon">✓</span> Coffee Tree DTC storefront on the same Plus account</div>
+          <div class="cmp-item"><span class="cmp-icon">✓</span> Integrated payment processing — CC + ACH native</div>
+          <div class="cmp-item"><span class="cmp-icon">✓</span> Shared inventory, shared analytics, shared reporting</div>
+          <div class="cmp-item"><span class="cmp-icon">✓</span> One subscription covers both brands</div>
+          <div class="cmp-item"><span class="cmp-icon">✓</span> One admin. One team. Complete operational view.</div>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top: 2.5rem;">
+        <div class="callout-label">The Squarespace Opportunity</div>
+        <p class="callout-text">Squarespace Commerce is a capable starter platform — but it lacks native B2B functionality, meaningful ERP integration, and the kind of scalability a growing family of brands needs. Migrating The Coffee Tree retail line to Shopify simultaneously with Iron Star's B2B launch turns a single project into a unified commerce foundation for the whole company.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 04 CASE STUDIES ── -->
+  <div id="stories" class="bg-white">
+    <div class="wrap">
+      <div class="s-label">04 — Customer Stories</div>
+      <h2 class="s-title">Merchants who've been<br>where you are now.</h2>
+      <div class="rule"></div>
+      <p class="s-desc">Brands across food, beverage, and wholesale have made this move. The pattern is consistent: a cleaner operation, faster ordering, and a platform that grows with the business.</p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 3rem;">
+
+        <div class="case-card">
+          <span class="case-tag">Specialty Beverage · ERP Migration</span>
+          <h3 class="case-title">From Commerce Build to a Purpose-Built B2B Storefront</h3>
+          <p class="case-body">A specialty beverage company with $4M in annual wholesale revenue was processing B2B orders through their ERP's commerce layer. Buyer logins were rigid, reordering was manual, and DTC ran on a separate platform entirely. After migrating to Shopify Plus with an ERP integration, their wholesale buyers could log in, see custom pricing, and reorder in under three minutes.</p>
+          <div class="case-results">
+            <div>
+              <span class="cr-num">60%</span>
+              <span class="cr-lbl">Faster Order Processing</span>
+            </div>
+            <div>
+              <span class="cr-num">2×</span>
+              <span class="cr-lbl">Repeat B2B Order Rate</span>
+            </div>
+            <div>
+              <span class="cr-num">1</span>
+              <span class="cr-lbl">Unified Platform</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <span class="case-tag">Food & Bev · Institutional Wholesale</span>
+          <h3 class="case-title">Serving Schools & Universities Without the Seasonal Scramble</h3>
+          <p class="case-body">A regional food & beverage distributor serving K–12 schools and universities was hitting bottlenecks every fall — their legacy system couldn't handle the surge. On Shopify Plus, they implemented automated reorder workflows, native net payment terms for institutions, and ACH collection built into checkout. Fall became their smoothest quarter, not their most stressful.</p>
+          <div class="case-results">
+            <div>
+              <span class="cr-num">100%</span>
+              <span class="cr-lbl">Uptime at Peak</span>
+            </div>
+            <div>
+              <span class="cr-num">Net 30</span>
+              <span class="cr-lbl">Terms, Fully Automated</span>
+            </div>
+            <div>
+              <span class="cr-num">ACH</span>
+              <span class="cr-lbl">Native — No Workaround</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-card" style="grid-column: 1 / -1;">
+          <span class="case-tag">Multi-Brand · B2B + Retail Unified</span>
+          <h3 class="case-title">Two Brands, One Platform, Zero Platform Overlap</h3>
+          <p class="case-body">A consumer goods company operating both a wholesale brand and a DTC retail brand was managing two separate platforms, two billing relationships, and two sets of integrations. After consolidating onto a single Shopify Plus account — B2B through one storefront, retail through another — they shared inventory, customer data, and a single admin dashboard across the entire business. Operational savings were realized within the first quarter. The team described it as the single best infrastructure decision they'd made in five years.</p>
+          <div class="case-results" style="justify-content: flex-start;">
+            <div>
+              <span class="cr-num">−40%</span>
+              <span class="cr-lbl">Platform Costs YOY</span>
+            </div>
+            <div>
+              <span class="cr-num">Single</span>
+              <span class="cr-lbl">Admin for Both Brands</span>
+            </div>
+            <div>
+              <span class="cr-num">Q1</span>
+              <span class="cr-lbl">Payback Period</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <p style="font-size: 0.68rem; color: var(--light); margin-top: 1.5rem; font-style: italic;">Merchant profiles are representative of Shopify Plus B2B customers in the food & beverage and wholesale categories. Specific results vary by implementation scope and starting conditions.</p>
+    </div>
+  </div>
+
+  <!-- ── 05 INVESTMENT ── -->
+  <div id="investment" class="bg-dark">
+    <div class="wrap">
+      <div class="s-label s-label-inv">05 — Your Investment</div>
+      <h2 class="s-title s-title-inv">Clear, predictable pricing.<br>No surprises.</h2>
+      <div class="rule rule-inv"></div>
+      <p class="s-desc s-desc-inv">At $3M in annual wholesale revenue, Shopify Plus is a meaningful but manageable platform investment — and one that consolidates what you're currently spending across two platforms.</p>
+
+      <div class="price-grid">
+
+        <div class="price-card featured">
+          <div class="price-lbl">Core Platform</div>
+          <div class="price-amount">~$2,300 <span>/ month</span></div>
+          <div class="price-period">Annual commitment · starting rate</div>
+          <ul class="price-includes">
+            <li>Full Shopify Plus B2B suite — included</li>
+            <li>Unlimited staff accounts</li>
+            <li>Up to 9 storefronts (both brands)</li>
+            <li>Priority 24/7 merchant support</li>
+            <li>Shopify Flow automation included</li>
+            <li>Advanced analytics and reporting</li>
+            <li>200+ international markets</li>
+            <li>Shopify POS Pro — included for all locations</li>
+          </ul>
+        </div>
+
+        <div class="price-card">
+          <div class="price-lbl">Implementation</div>
+          <div class="price-amount" style="font-size: 1.6rem; margin-top: 1rem;">Partner-<br>Scoped</div>
+          <div class="price-period">Based on project requirements</div>
+          <ul class="price-includes">
+            <li>Sage 300 ERP integration</li>
+            <li>B2B storefront design and build</li>
+            <li>Data migration from Commerce Build</li>
+            <li>Customer account setup</li>
+            <li>Staff training and documentation</li>
+            <li>Chase will recommend 1–2 partners</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="callout callout-inv" style="margin-top: 2rem;">
+        <div class="callout-label callout-label-inv">A Note on Pricing</div>
+        <p class="callout-text callout-text-inv">Shopify Plus pricing is based on store revenue. At $3M annually, a fixed-rate plan is standard. Revenue-based pricing (0.25% of monthly GMV) applies for higher-volume merchants. Final terms are finalized based on your full revenue picture across both brands — I'll work with you to ensure the right structure.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 06 TIMELINE ── -->
+  <div id="timeline" class="bg-off">
+    <div class="wrap">
+      <div class="s-label">06 — Timeline</div>
+      <h2 class="s-title">Live before the fall rush.<br>On your terms.</h2>
+      <div class="rule"></div>
+      <p class="s-desc">With a signed agreement by end of May, there's a clear and achievable path to an August launch — ahead of your school and university season when it matters most.</p>
+
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot active">1</div>
+          <div class="tl-month">May 2026</div>
+          <div class="tl-phase">Sign & Kickoff</div>
+          <div class="tl-desc">Agreement signed. Partner selected. Discovery session. Sage integration scoped.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot">2</div>
+          <div class="tl-month">June 2026</div>
+          <div class="tl-phase">Design & Configure</div>
+          <div class="tl-desc">B2B storefront built. Company accounts, price lists, payment terms configured.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot">3</div>
+          <div class="tl-month">July 2026</div>
+          <div class="tl-phase">Integrate & Test</div>
+          <div class="tl-desc">Sage 300 connected. Data migrated. Buyers onboarded to test environment. POS live.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot">4</div>
+          <div class="tl-month">August 2026</div>
+          <div class="tl-phase">Go Live</div>
+          <div class="tl-desc">Iron Star launches on Shopify Plus. Ready for school and university season.</div>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top: 3rem;">
+        <div class="callout-label">Key Deadline</div>
+        <p class="callout-text">To protect the August launch, an agreement signed by <strong>mid-to-end of May 2026</strong> is essential. Every week of delay compresses the build window. The timeline above is achievable — but it requires starting on time.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 07 IMPLEMENTATION ── -->
+  <div class="bg-white">
+    <div class="wrap">
+      <div class="s-label">07 — Implementation</div>
+      <h2 class="s-title">The right partner<br>makes all the difference.</h2>
+      <div class="rule"></div>
+      <p class="s-desc">Shopify Plus implementations are handled by certified agency partners — specialists in B2B migrations, ERP integrations, and custom storefront builds. I'll introduce you to 1–2 partners suited to this project.</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-label">What Your Partner Handles</div>
+          <h3>The Build</h3>
+          <div style="margin-top: 1rem;">
+            <div class="partner-row">Sage 300 ERP integration and real-time data sync</div>
+            <div class="partner-row">B2B storefront design aligned to Iron Star brand</div>
+            <div class="partner-row">Wholesale customer account migration and setup</div>
+            <div class="partner-row">Payment configuration — credit card and ACH</div>
+            <div class="partner-row">POS hardware provisioning and configuration</div>
+            <div class="partner-row">Staff training, documentation, and go-live support</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-label">What I Handle</div>
+          <h3>Your Shopify Relationship</h3>
+          <div style="margin-top: 1rem;">
+            <div class="partner-row">Partner introductions and selection guidance</div>
+            <div class="partner-row">Shopify contract and commercial terms</div>
+            <div class="partner-row">Platform roadmap and feature alignment</div>
+            <div class="partner-row">Escalation and support coordination</div>
+            <div class="partner-row">Ongoing account management</div>
+            <div class="partner-row">Your direct line into Shopify — before and after launch</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top: 2.5rem;">
+        <div class="callout-label">Partner Selection Process</div>
+        <p class="callout-text">Once we've aligned on moving forward, I'll connect you with 1–2 Shopify Plus certified implementation partners with specific experience in B2B wholesale, ERP integrations, and food & beverage. You'll meet them, evaluate the fit, and choose who you're most confident in. The goal is finding the right match — not the fastest yes.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 08 NEXT STEPS ── -->
+  <div id="next" class="bg-dark">
+    <div class="wrap">
+      <div class="s-label s-label-inv">08 — Next Steps</div>
+      <h2 class="s-title s-title-inv">How we move<br>from here to live.</h2>
+      <div class="rule rule-inv"></div>
+
+      <ol class="steps">
+        <li>
+          <div>
+            <div class="step-h">Follow-Up Conversation</div>
+            <p class="step-p">We connect after you've had time to review this. You bring your questions — about the platform, pricing, timeline, or the partner process. We go deeper on whatever matters most.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div class="step-h">Partner Introductions</div>
+            <p class="step-p">I'll identify and introduce 1–2 Shopify Plus certified partners suited to your project. Brief calls with each — you choose who you trust with the build.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div class="step-h">Scoping & Proposal</div>
+            <p class="step-p">Your selected partner scopes the full project — ERP integration, storefront, migration, POS — and presents a formal proposal with timeline and cost breakdown.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div class="step-h">Sign Agreements</div>
+            <p class="step-p">Shopify Plus agreement signed with me. Implementation contract signed with your partner. Target: mid-to-end of May to protect the August launch window.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div class="step-h">Build Begins</div>
+            <p class="step-p">Your partner kicks off the project. I remain your point of contact at Shopify throughout — for escalations, questions, and adjustments — until and beyond go-live.</p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="contact-block">
+        <div style="font-size: 0.55rem; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 1rem;">Your Contact at Shopify</div>
+        <div class="contact-name">Chase McCane</div>
+        <div class="contact-title">Account Executive, Shopify B2B · AMER</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-line">The Coffee Tree Roasters &nbsp;·&nbsp; Iron Star Roasting Co. × Shopify Plus</div>
+    <div class="footer-line">Confidential &nbsp;·&nbsp; Prepared for Shaun Kowalu, COO &nbsp;·&nbsp; April 2026</div>
+  </footer>
+
+</div><!-- /content -->
+
+<script>
+  if (sessionStorage.getItem('is_auth') === '1') {
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
+  }
+
+  function unlock() {
+    const pw = document.getElementById('pw').value.trim().toLowerCase();
+    if (pw === 'ironstarcoffee') {
+      sessionStorage.setItem('is_auth', '1');
+      const gate = document.getElementById('gate');
+      gate.classList.add('fade-out');
+      setTimeout(() => {
+        gate.style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+        window.scrollTo(0, 0);
+      }, 500);
+    } else {
+      const input = document.getElementById('pw');
+      input.classList.remove('shake');
+      void input.offsetWidth;
+      input.classList.add('shake');
+      setTimeout(() => input.classList.remove('shake'), 400);
+      input.value = '';
+      input.focus();
+    }
+  }
+</script>
+
+</body>
+</html>
