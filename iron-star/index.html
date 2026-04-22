@@ -485,14 +485,14 @@ footer {
   .feat-grid { grid-template-columns: 1fr; border: none; }
   .feat-item { border: 1px solid rgba(255,255,255,0.08); margin-bottom: 0.5rem; border-right: 1px solid rgba(255,255,255,0.08) !important; }
   .comparison { grid-template-columns: 1fr; }
-  .timeline { grid-template-columns: 1fr 1fr; }
+  .timeline { grid-template-columns: 1fr 1fr 1fr !important; }
   .timeline::before { display: none; }
   .stat-item { min-width: 50%; }
   .case-results { flex-direction: column; gap: 1rem; }
   .wrap { padding: 4rem 1.5rem; }
 }
 @media (max-width: 400px) {
-  .timeline { grid-template-columns: 1fr; }
+  .timeline { grid-template-columns: 1fr 1fr !important; }
   .price-amount { font-size: 1.8rem; }
 }
 </style>
@@ -852,27 +852,33 @@ footer {
       <div class="rule"></div>
       <p class="s-desc">With a signed agreement by end of May, there's a clear and achievable path to an August launch — ahead of your school and university season when it matters most.</p>
 
-      <div class="timeline">
+      <div class="timeline" style="grid-template-columns: repeat(5, 1fr);">
         <div class="tl-item">
           <div class="tl-dot active">1</div>
-          <div class="tl-month">May 2026</div>
-          <div class="tl-phase">Sign & Kickoff</div>
-          <div class="tl-desc">Agreement signed. Partner selected. Discovery session. Sage integration scoped.</div>
+          <div class="tl-month">April – Early May</div>
+          <div class="tl-phase">Eval & Partner Selection</div>
+          <div class="tl-desc">Platform evaluation complete. 1–2 certified partners introduced and selected.</div>
         </div>
         <div class="tl-item">
-          <div class="tl-dot">2</div>
-          <div class="tl-month">June 2026</div>
+          <div class="tl-dot active">2</div>
+          <div class="tl-month">Early – Mid May</div>
+          <div class="tl-phase">Sign & Kickoff</div>
+          <div class="tl-desc">Agreements signed. Discovery session begins. Sage integration scoped.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot">3</div>
+          <div class="tl-month">Late May – June</div>
           <div class="tl-phase">Design & Configure</div>
           <div class="tl-desc">B2B storefront built. Company accounts, price lists, payment terms configured.</div>
         </div>
         <div class="tl-item">
-          <div class="tl-dot">3</div>
+          <div class="tl-dot">4</div>
           <div class="tl-month">July 2026</div>
           <div class="tl-phase">Integrate & Test</div>
           <div class="tl-desc">Sage 300 connected. Data migrated. Buyers onboarded to test environment. POS live.</div>
         </div>
         <div class="tl-item">
-          <div class="tl-dot">4</div>
+          <div class="tl-dot">5</div>
           <div class="tl-month">August 2026</div>
           <div class="tl-phase">Go Live</div>
           <div class="tl-desc">Iron Star launches on Shopify Plus. Ready for school and university season.</div>
@@ -880,8 +886,8 @@ footer {
       </div>
 
       <div class="callout" style="margin-top: 3rem;">
-        <div class="callout-label">Key Deadline</div>
-        <p class="callout-text">To protect the August launch, an agreement signed by <strong>mid-to-end of May 2026</strong> is essential. Every week of delay compresses the build window. The timeline above is achievable — but it requires starting on time.</p>
+        <div class="callout-label">Where We Are Now</div>
+        <p class="callout-text">You're in the evaluation phase — the right time to get questions answered and partners lined up. Signing by <strong>early-to-mid May</strong> keeps the full build window intact and protects the August launch.</p>
       </div>
     </div>
   </div>
