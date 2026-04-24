@@ -536,6 +536,84 @@
         "risk_to_close": "\u2022 Very early stage \u2014 deal not yet properly qualified\n\u2022 Custom shipping billing requirement (FedEx/UPS buyer accounts) needs to be validated as solvable",
         "gut": 5
       }
+    },
+    "bigrock": {
+      "sf": {
+        "id": "",
+        "pbr": 120000,
+        "stage": "Demonstrate",
+        "close": "2026-05-30",
+        "created": "2026-03-27"
+      },
+      "meddic": {
+        "metrics": "Replacing Cart.com with Shopify Plus + B2B + POS. Quote: $2,500/mo (1yr) or $2,300/mo (3yr). Scope includes Business Central ERP connector, ShipperHQ, Authorize.net, Shopify B2B portal, and POS for Chicago location.\n\nKey metrics to develop: current Cart.com annual platform cost + support fees, volume of B2B orders manually processed, labor cost of manual order entry, dealer/contractor portal adoption rate today.",
+        "economic_buyer": "Junior Campos (Website & Platform) — identified Champion and Decision Lead. He owns the platform evaluation and has been the primary technical voice across all calls.\nSonny Rodriguez (Operations) — Secondary Decision-Maker. Ops-side sign-off, cares about Business Central integration and fulfillment workflows.\nAction needed: Confirm who holds budget authority and who signs the final contract. Junior may be the technical champion but the financial EB (owner or CFO) has not been confirmed or directly engaged.",
+        "decision_criteria": "1. Shopify B2B portal with contractor/dealer pricing tiers. 2. Business Central ERP integration (order sync, inventory). 3. ShipperHQ for complex shipping rate management. 4. Authorize.net as payment processor. 5. POS for Chicago location(s). 6. Platform stability and modern storefront UX to replace Cart.com. 7. Implementation partner quality — selecting agency week of Apr 24.",
+        "decision_process": "Discovery Call Mar 27 → Technical Discovery Apr 3 → Platform Demo Apr 23 → Partner Selection Apr 24–25 → Technical Workshop & SOW wk Apr 27 → Pricing & Commercial Review → Economic Buyer Engagement → Platform Decision late May → LOI / Contract late May → Build Q2–Q3 → Go-Live Q4 2026.\n\nJunior Campos leading the evaluation. Partner agency being selected Apr 24–25. EB engagement is a planned milestone — not yet completed.",
+        "pain": "Outgrowing Cart.com: platform limitations on B2B pricing, portal UX, and ERP integration.\nManual order friction: contractor/dealer ordering lacks a self-serve portal with account-specific pricing.\nBusiness Central integration gaps: current stack requires manual reconciliation between orders and ERP.\nShipping complexity: multiple freight rules and carrier rates not cleanly handled on current platform.\nPOS gap: Chicago location(s) need integrated POS tied to the same commerce system.",
+        "champion": "Junior Campos (Website & Platform) — identified Champion and Decision Lead. Drove the evaluation, attended all calls, is selecting the implementation partner. He is the internal advocate and the technical decision voice.\nSonny Rodriguez (Operations) — engaged and supportive. His sign-off is needed on the operational and ERP side."
+      },
+      "strategy": "Clean displacement of Cart.com with a full Shopify Plus + B2B + POS stack. Junior Campos is an engaged champion who has moved fast: three touchpoints in four weeks and a demo on Apr 23. The next critical step is partner selection (Apr 24–25) — Chase needs at least one strong agency finalist in the mix.\n\nThe Business Central integration is the technical anchor. Position ShipperHQ + Authorize.net as native ecosystem strengths rather than workarounds. Tom Arehart (Agency Partner Manager) is engaged — leverage him to ensure the right partner gets selected.\n\nEconomic Buyer engagement is a planned but incomplete milestone. Before LOI in late May, Chase must identify who signs and get them in the room.",
+      "risks": [
+        {
+          "sev": "high",
+          "text": "Economic Buyer not yet identified or engaged",
+          "mit": "Junior is Champion and Decision Lead but has not confirmed he holds budget authority. If a CFO, owner, or senior ops leader reviews and rejects on price without us in the room, deal dies late. Get EB identified and engaged before or during the Technical Workshop week."
+        },
+        {
+          "sev": "high",
+          "text": "Partner selection goes wrong — wrong agency undermines confidence",
+          "mit": "Apr 24–25 is the agency shortlist decision. If the selected partner has no BC integration experience, poor B2B track record, or comes in with a sticker-shock SOW, momentum collapses. Tom Arehart must ensure a strong, qualified finalist is in the pool."
+        },
+        {
+          "sev": "med",
+          "text": "Business Central integration complexity delays or kills SOW",
+          "mit": "BC ERP connector scope is not yet fully defined. If the Technical Workshop reveals the BC integration requires significant custom build, the SOW timeline and cost could push the go-live well past Q4 or exceed budget. Pre-scope BC requirements in the workshop and get a connector vendor engaged early."
+        },
+        {
+          "sev": "med",
+          "text": "Cart.com retention play — platform offers concessions to keep Big Rock",
+          "mit": "Cart.com may get wind of the evaluation and come in with pricing concessions or promises of new features. Junior is a motivated champion, but if Cart.com offers a meaningful price cut or roadmap commitment, it could stall the decision. Quantify the platform limitations (not just cost) to make a stay-or-go comparison unfavorable to Cart.com."
+        },
+        {
+          "sev": "low",
+          "text": "Timeline slips past late-May decision — Q4 go-live at risk",
+          "mit": "Every week of delay in signing pushes the build timeline and risks a Q4 launch window. Use the go-live date as a reverse-engineered close milestone and pressure-test it with Junior and the chosen agency."
+        }
+      ],
+      "done": [
+        "Discovery Call — Junior Campos, Sonny Rodriguez, Chase, Jordan (3/27)",
+        "Technical Discovery — full team (4/3)",
+        "Platform Demo — Apr 23"
+      ],
+      "left": [
+        "Partner Selection — Junior shortlisting agency finalists (Apr 24–25)",
+        "Technical Workshop & SOW — week of Apr 27",
+        "Pricing & Commercial Review",
+        "Identify and engage Economic Buyer",
+        "Platform Decision — target late May",
+        "LOI / Letter of Intent",
+        "Submit Contract",
+        "Sign Agreement & Activate Plus — target late May",
+        "BC Integration Config",
+        "Storefront & B2B Portal Build",
+        "POS Setup Chicago",
+        "Go-Live — Q4 2026"
+      ],
+      "notes": "Replacing Cart.com. Implementation team: Junior Campos (Champion), Sonny Rodriguez (Ops/Secondary DM), Evan + Conner + Nick (team). Shopify team: Chase McCane (AE), Jordan Murphy (SE), Tom Arehart (Agency Partner Manager). Quote expires June 6, 2026. Partner selection happening Apr 24–25. BC integration + ShipperHQ + Authorize.net in scope.",
+      "last_call": "2026-04-23",
+      "next_call": "",
+      "manager_q": {
+        "compelling_event": "• Outgrowing Cart.com — B2B portal, pricing tiers, and ERP integration all hitting platform limits\n• Business Central integration is manual and error-prone today — ops team wants clean order sync\n• POS gap for Chicago location — needs unified stack\n• Go-Live target Q4 2026 — reverse-engineered close timeline is late May",
+        "map_created": true,
+        "map_shared": null,
+        "map_agreed": null,
+        "map_notes": "MAP + Proposal at chasemccane.github.io/maps/bigrock/ (passcode: bigrocksupply). MAP-only at chasemccane.github.io/maps/bigrock/map.html.",
+        "who_signs": "• Junior Campos (Champion / Decision Lead) — owns technical evaluation\n• Sonny Rodriguez (Operations) — secondary decision-maker\n• Economic Buyer NOT YET CONFIRMED — need to identify who holds budget authority\n• Action needed: get EB named before Technical Workshop week",
+        "urgency": "• Natural: Q4 2026 go-live target creates a reverse-engineered close window of late May\n• Moving fast: Discovery → Technical → Demo in 4 weeks\n• Partner selection Apr 24–25 — momentum is high right now\n• Build it: quantify Cart.com platform cost + manual ops overhead vs Shopify ROI",
+        "risk_to_close": "• EB not yet identified — late-stage surprise possible\n• Partner selection is a critical dependency — wrong agency stalls everything\n• BC integration scope not yet fully defined — could affect SOW cost and timeline\n• Cart.com may counter with concessions",
+        "gut": 7
+      }
     }
   }
 }
