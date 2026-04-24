@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updated": "2026-04-23T09:00:00Z",
+  "updated": "2026-04-23T14:00:00Z",
   "deals": {
     "feniex": {
       "sf": {
@@ -12,23 +12,28 @@
       },
       "meddic": {
         "metrics": "Revenue Growth: Achieve 30% year-over-year growth on their $28M ARR.\nOperational Cost Savings: Eliminate the 2-3 full-time employees dedicated to manual order entry, representing a $100-150K+ annual hard-cost saving.\nDealer Adoption: Drive dealer portal adoption from a very low current rate to 80% or higher.\nOrder Volume: Successfully process the current ~1,566 orders/month with the capacity to scale by 30%+ without adding operational headcount.\nChannel Revenue: The platform must support their current 85% B2B / 15% D2C revenue split.",
-        "economic_buyer": "Primary Budget Owner/Influencer: Yemilyn Mosley (CSO). She owns the revenue goals and the operational efficiency of the sales and digital teams. She is building the business case.\nUltimate Economic Buyer (Unconfirmed but Highly Likely): Hamza Deyaf (CEO). Yemilyn stated she needs to \"present a unified picture\u2014including cost and timeline\u2014to internal stakeholders.\" Given the project's strategic importance and the CEO's noted frustration with brand presentation (pixelated images), he is the ultimate decision-maker with final sign-off authority.\nRisk: We have no direct contact with the CEO. Our entire business case is being filtered through our Champion (Yemilyn).",
+        "economic_buyer": "Primary Budget Owner/Influencer: Yemilyn Mosley (CSO). She owns the revenue goals and the operational efficiency of the sales and digital teams. She is building the business case.\nUltimate Economic Buyer (Unconfirmed but Highly Likely): Hamza Deyaf (CEO). Yemilyn stated she needs to \"present a unified picture—including cost and timeline—to internal stakeholders.\" Given the project's strategic importance and the CEO's noted frustration with brand presentation (pixelated images), he is the ultimate decision-maker with final sign-off authority.\nRisk: We have no direct contact with the CEO. Our entire business case is being filtered through our Champion (Yemilyn).",
         "decision_criteria": "UI/UX & Brand Presentation (Stated #1 Priority): The platform and partner must be able to deliver a world-class, modern look and feel that aligns with their brand leadership. The CEO's AI-generated website concept is a key influence here.\nAcumatica Integration: The solution must provide a seamless, real-time, bidirectional integration with Acumatica to eliminate manual order entry. This is the core of the ROI and is non-negotiable.\nB2B Functionality: Must natively handle their complex, revenue-based, multi-tiered dealer pricing structure without workarounds (i.e., no more Google Sheets).\nCustom Tool Migration: The ability to strategically handle their 16 years of custom tools (\"Rapid Ordering,\" \"Build a Car\") through embedding or rebuilding is a critical technical hurdle.\nPartner Competence: The selected partner's ability to demonstrate deep backend expertise and a strong UI/UX portfolio is a primary decision factor.\nTotal Cost of Ownership & ROI: The business case must be clear. Yemilyn specifically requested an executive summary with ROI data points to present internally.",
         "decision_process": "Partner Vetting (Current Stage): Yemilyn is leading the evaluation of 4 shortlisted VIP partners in parallel with platform discovery.\nPartner Demos & Scoping: Each partner will conduct discovery and provide a demo, focusing first on backend capabilities and then on UI/UX.\nProposal & SOW Review: Yemilyn will receive formal proposals, timelines, and cost breakdowns from the selected partners.\nInternal Business Case Presentation: Yemilyn will consolidate the findings, platform costs, and partner SOW into a \"unified picture\" to present to the CEO and other internal stakeholders.\nFinal Stakeholder Approval: The CEO will provide the final go/no-go decision.\nTimeline: They want to move quickly to support growth, but no hard \"sign-by\" date has been established. A 4-6 month project timeline is the current expectation.",
         "pain": "Financial Pain: The direct, quantifiable labor cost of $100-150K+ per year for 2-3 FTEs to perform manual data entry.\nOperational Pain: The current manual process is a hard ceiling on their growth. They cannot achieve their 30% YOY growth target without hiring more data entry staff, making their operational costs scale directly with revenue.\nCompetitive/Brand Pain: The 16-year-old custom platform is slow, outdated, and does not reflect their market leadership position. This is a known frustration for the CEO.\nDealer Relationship Pain: The poor portal experience (no tracking, confusing pricing, errors) is causing friction with their 1,100 dealers, leading to high support volume and potentially impacting dealer loyalty and reorder frequency.",
         "champion": "Primary Champion: Yemilyn Mosley (CSO). She is actively driving this entire evaluation. She understands the pain points deeply, has defined clear success metrics (80% adoption, 30% growth), and has explicitly asked for materials (ROI case studies, executive summary) to help her sell the project internally to the CEO.\nSecondary Champion: Lorena Hernandez (Director of Digital Sales). She supports Yemilyn and is focused on the customer experience and conversion analytics. She will advocate for the solution that makes her team's life easier and improves the customer journey.\nPotential Technical Champion: Charles Penn III (VP of AI). He will champion the solution if he is convinced that Shopify Plus provides a robust, API-first foundation for him to build his AI and automation initiatives on top of, rather than being a restrictive \"black box."
       },
-      "strategy": "Core play is operational efficiency + dealer experience. Feniex is growing fast but operationally constrained by their current custom platform. The ROI story is: reduce manual order processing, give dealers self-serve tools, and integrate Acumatica so their ops team stops doing manual reconciliation.\n\nPosition Shopify Plus as the only platform that can do B2B natively at scale without a massive custom build. Competitors would require significant integration investment. We have the B2B feature set AND the partner ecosystem for Acumatica.\n\nChampion Yemilyn has urgency \u2014 she's tied this to her revenue growth goal. Keep momentum, get SE demo scheduled, move to LOI before end of April.",
+      "strategy": "Core play is operational efficiency + dealer experience. Feniex is growing fast but operationally constrained by their current custom platform. The ROI story is: reduce manual order processing, give dealers self-serve tools, and integrate Acumatica so their ops team stops doing manual reconciliation.\n\nPosition Shopify Plus as the only platform that can do B2B natively at scale without a massive custom build. Competitors would require significant integration investment. We have the B2B feature set AND the partner ecosystem for Acumatica.\n\nChampion Yemilyn has urgency — she's tied this to her revenue growth goal. Keep momentum, get SE demo scheduled, move to LOI before end of April.",
       "risks": [
         {
           "sev": "high",
-          "text": "CEO rejects the business case \u2014 we never had access to him",
+          "text": "2027 budget timeline — Yemilyn disclosed project is planned for 2027, not 2026",
+          "mit": "Yemilyn told Silk Commerce on Apr 22 that budget for this project is 2027 unless 2026 growth is strong. Our SF close date is June 17. Need to reframe urgency around cost of delay (manual labor cost per month, dealer churn, competitive risk) and explore whether a 2026 Phase 1 / pilot scope is viable within existing budget authority."
+        },
+        {
+          "sev": "high",
+          "text": "CEO rejects the business case — we never had access to him",
           "mit": "Yemilyn filters everything to Hamza and we have zero direct relationship with him. If her internal pitch misses the mark on ROI or he has a pre-existing bias toward a competitor, the deal dies without us ever having a conversation with the EB. Priority: coach Yemilyn on the exec summary she needs and push to get a 30-minute CEO briefing before LOI."
         },
         {
           "sev": "high",
           "text": "Competitor wins on Acumatica integration story",
-          "mit": "If a competing platform or partner positions a tighter, pre-built Acumatica connector than ours (e.g., native Acumatica commerce module or a certified BigCommerce + Acumatica partner), we lose on their #1 technical requirement. Jordan must own the integration demo \u2014 show the data flow end-to-end, not just talk about it."
+          "mit": "If a competing platform or partner positions a tighter, pre-built Acumatica connector than ours (e.g., native Acumatica commerce module or a certified BigCommerce + Acumatica partner), we lose on their #1 technical requirement. Jordan must own the integration demo — show the data flow end-to-end, not just talk about it."
         },
         {
           "sev": "med",
@@ -37,7 +42,7 @@
         },
         {
           "sev": "med",
-          "text": "Partner vetting stalls \u2014 no one earns Yemilyn's confidence",
+          "text": "Partner vetting stalls — no one earns Yemilyn's confidence",
           "mit": "With 5 partners in parallel, if none deliver a compelling demo or their proposals are unclear, Yemilyn has no horse to ride. The partner void becomes a project-stopper. Stay close to the partner process; if a frontrunner isn't emerging by mid-April, intervene to clarify the shortlist."
         },
         {
@@ -49,33 +54,36 @@
       "done": [
         "Intro call with Yemilyn Mosley + Lorena Hernandez (3/26)",
         "Internal SE kickoff with Jordan Murphy (3/27)",
-        "Technical Discovery \u2014 Yemilyn, Charles Penn III, Chase, Jordan (4/3)",
+        "Technical Discovery — Yemilyn, Charles Penn III, Chase, Jordan (4/3)",
         "Demo delivered (4/8)",
         "5 implementation partners shortlisted and introduced (4/9)",
-        "Silk Commerce + Feniex intro call (4/22) \u2014 Chase attended, Alex Schreck intro\u2019d to Yemilyn Mosley"
+        "Silk Commerce + Feniex intro call (4/22) — Chase attended; Yemilyn liked Alex's AI overview ('spoke in my own language'); 2nd meeting May 7 scheduled",
+        "Fusionary partner call (4/22) — Yemilyn confirmed she met with Fusionary; scheduling one partner per week cadence",
+        "ioVista in-person meeting at Feniex Austin office (4/23, 3:00 PM) — Mike Patel + Albert Wood; confirmed day before by Yemilyn"
       ],
       "left": [
-        "Fusionary (Joe Alt) partner call \u2014 scheduling Apr 22\u201329",
-        "ioVista (Mike Patel) partner call \u2014 TBD",
-        "Partner SOWs reviewed; shortlist narrowed to 1\u20132 finalists",
+        "Silk Commerce 2nd meeting (May 7 — Alex Schreck + Yemilyn)",
+        "Remaining partner calls (1/week cadence through May)",
+        "Partner SOWs reviewed; shortlist narrowed to 1–2 finalists",
+        "Address 2027 budget timeline risk — create urgency for 2026 close or get clarity on FY budget cycle",
         "Yemilyn builds ROI executive summary for CEO presentation",
-        "Get CEO (Hamza Deyaf) directly engaged \u2014 briefing or intro call",
+        "Get CEO (Hamza Deyaf) directly engaged — briefing or intro call",
         "LOI / intent to proceed signed",
         "Legal and procurement review",
         "Contract signed by close date"
       ],
-      "notes": "3 active partners: Silk Commerce (Alex Schreck) \u2014 intro call 4/22 completed, Chase attended; Fusionary (Joe Alt, VP Biz Dev) \u2014 scheduling week of 4/22\u201329; ioVista (Mike Patel) \u2014 looped in 4/20. Yemilyn re-engaging after urgent revenue projects. Quote expiry May 9.",
-      "last_call": "2026-04-22",
+      "notes": "CRITICAL: Yemilyn disclosed to Alex Schreck (Silk Commerce, Apr 22) that they are planning to complete this project in 2027 for budget purposes — could be sooner if 2026 growth is strong. This is a major timeline risk vs. our June 17 close date. Partner status: Silk Commerce call (4/22) completed — Yemilyn liked it, 2nd meeting May 7. Fusionary call (4/22) completed. ioVista in-person at Feniex Austin office (4/23, 3pm) — confirmed. Yemilyn scheduling one partner per week. 3 of 5 partners have now had initial meetings. Quote expiry May 9. Contacts: Yemilyn Mosley (CSO), Lorena Hernandez (lorena.h@feniex.com).",
+      "last_call": "2026-04-23",
       "next_call": "",
       "manager_q": {
-        "compelling_event": "\u2022 Fy27 growth targets by end of year +30% in revenue\n\u2022 2\u20133 FTEs doing manual Acumatica order entry ($100\u2013150K/yr hard cost)\n\u2022 1,100 dealers ordering by phone, email, and PDF \u2014 no self-serve portal\n\u2022 Miss it: keep hiring to cover manual order volume; dealer friction grows; 30% YoY growth target at risk",
+        "compelling_event": "• Fy27 growth targets by end of year +30% in revenue\n• 2–3 FTEs doing manual Acumatica order entry ($100–150K/yr hard cost)\n• 1,100 dealers ordering by phone, email, and PDF — no self-serve portal\n• Miss it: keep hiring to cover manual order volume; dealer friction grows; 30% YoY growth target at risk",
         "map_created": true,
         "map_shared": null,
         "map_agreed": null,
         "map_notes": "",
-        "who_signs": "\u2022 Hamza Deyaf (CEO) \u2014 unconfirmed but highly likely the final sign-off authority\n\u2022 Yemilyn Mosley (CSO) builds the business case and presents to Hamza internally\n\u2022 We have NO direct access to Hamza \u2014 everything is filtered through Yemilyn\n\u2022 Action needed: push for a 30-min CEO briefing before LOI",
-        "urgency": "\u2022 Currently LOW \u2014 Yemilyn said Apr 16 she is tied up on other revenue projects\n\u2022 Build it: every week of delay = continued manual order entry cost + declining dealer experience\n\u2022 Frame: delay directly threatens their stated 30% YoY growth target",
-        "risk_to_close": "\u2022 Yemilyn is distracted and deprioritizing \u2014 stall risk is real right now\n\u2022 CEO (Hamza) not engaged \u2014 we are pitching blind through a filter with no fallback path\n\u2022 Partner situation unresolved: originating partner vs. our recs (Conrad McDougall loop-in pending)\n\u2022 Partner SOW sticker shock: 16 years of custom tools will generate large implementation estimates\n\u2022 No LOI yet \u2014 deal is not formalized",
+        "who_signs": "• Hamza Deyaf (CEO) — unconfirmed but highly likely the final sign-off authority\n• Yemilyn Mosley (CSO) builds the business case and presents to Hamza internally\n• We have NO direct access to Hamza — everything is filtered through Yemilyn\n• Action needed: push for a 30-min CEO briefing before LOI",
+        "urgency": "• CRITICAL NEW RISK: Yemilyn disclosed Apr 22 that they plan to complete this project in 2027 for budget purposes — could move sooner if 2026 growth is strong\n• Our close date is June 17, 2026 — this is a direct conflict with their stated 2027 budget plan\n• Build urgency: frame cost of delay (manual order entry labor = $100-150K/yr, dealer friction growing, 30% YoY growth at risk)\n• Get Yemilyn to champion a 2026 pilot or Phase 1 start — even a partial win keeps the deal alive",
+        "risk_to_close": "• HIGHEST RISK: Yemilyn told Silk Commerce the project is a 2027 budget item — our June close date is unrealistic as-is\n• CEO (Hamza) not engaged — we are pitching blind through a filter with no fallback path\n• Partner SOW sticker shock: 16 years of custom tools will generate large implementation estimates\n• No LOI yet — deal is not formalized\n• Yemilyn is vetting multiple vendors slowly (one per week cadence)",
         "gut": 7
       }
     },
@@ -88,19 +96,19 @@
         "created": "2026-03-20"
       },
       "meddic": {
-        "metrics": "In-Store POS Revenue: $16.5M total annual revenue across 3 stores (Southern Concrete); ~$1.5M processed by credit card today.\nQuarry/COD Credit Card Volume: $25\u201330M in COD concrete sales processed by credit card at quarry locations \u2014 potential full consolidation to Shopify Payments.\nStore Count: 3 current locations, 4th standalone store planned.\nHard Implementation Deadline: Current ERP (readymix software) goes end-of-life December 2025 \u2014 POS must launch in conjunction with NetSuite go-live.\nDecision Timeline: Logan committed to making a platform decision within 1\u20132 months of 3/20 call (~by mid-May).",
-        "economic_buyer": "Unconfirmed \u2014 Logan Hundley (Assistant Controller) is the primary contact but sits in finance ops and has stated he is not the final decision-maker for the store side. Kevin Fender (Store/Operations Manager) is the closest operational authority identified and was present on both the Technical Disco and Demo.\nAmy Goudy (3rd-party NetSuite consultant) stated after the Demo that 'a decision is needed now to allow the parallel NetSuite project to move forward' \u2014 indicating there is an unnamed executive at Hedrick/Southern Concrete whose sign-off is required.\nRisk: True Economic Buyer has not been identified or engaged directly. Logan and Kevin are both influencers, not confirmed budget owners.",
-        "decision_criteria": "NetSuite Integration (Non-Negotiable #1): All Shopify transactions must feed into NetSuite as cash sales with inventory sync. This is the primary evaluation filter \u2014 NetSuite's own team pointed Hedrick to Shopify as a preferred connector.\nModern POS to Replace ERP Checkout: Current process has cashiers opening/closing the ERP for every transaction \u2014 unacceptable. New system must be intuitive, tablet-based, and decoupled from the ERP.\nInventory Management: Real-time inventory tracking across 3+ locations, replacing fully manual processes.\nContractor/B2B Pricing Support: Must support varied contractor pricing lists (currently managed as coupons). Shopify B2B catalogues directly address this \u2014 key Plus differentiator.\nCustomer Data Capture: Must capture customer identity for COD/one-off credit card buyers to build historical purchase records (currently zero tracking for these buyers).\nPayment Consolidation: Strong preference to consolidate all credit card processing (retail + quarry COD) under one provider \u2014 Shopify Payments is the path.\nCompetitive Evaluation: Hedrick is evaluating a short list of competitors alongside Shopify (specific names unknown).",
-        "decision_process": "Logan Hundley (assistant controller) is the project coordinator \u2014 he schedules calls, loops in stakeholders, and manages the evaluation.\nKevin Fender (operations/store manager) is the operational decision voice \u2014 most engaged in technical and demo calls.\nAmy Goudy (3rd-party NetSuite consultant) acts as technical sounding board and integration validator.\nUnnamed Executive at Hedrick/Southern Concrete \u2014 ultimate sign-off authority (not yet engaged directly).\nCurrent stage: Demo completed 4/1. Next step is a proposal/commercial call (Chase + Logan to schedule, was due week of 4/7 \u2014 not yet confirmed).\nEvaluation is competitive \u2014 Shopify is on a short list but competitor names are unknown.\nNo formal procurement or legal process has been mentioned yet.",
-        "pain": "Operational Pain: Cashiers use the ERP directly for checkout \u2014 a non-POS system being forced into a retail role. Entirely manual inventory, slow and error-prone.\nForced Urgency: Current readymix ERP hits end-of-life at end of 2025. They have a hard deadline to replace both the ERP (NetSuite) and POS simultaneously.\nNo Customer Intelligence: One-off COD buyers (credit card) are completely untracked. No purchase history, no customer records, no ability to identify repeat buyers.\nPricing Workaround: Contractor pricing is handled via coupons in the current ERP \u2014 informal, inconsistent, and unscalable.\nSpecial Order Reporting Issues: Kevin Fender is reusing a single 'bulk sale' item code for all special orders, causing cost/reporting conflicts when costs change multiple times in a month.\nFragmented Payments: Credit card processing split across multiple providers (First Citizens reader at quarries, separate store setup) \u2014 operational complexity and no consolidated view.",
-        "champion": "Logan Hundley (Assistant Controller) \u2014 initiated the relationship, drives scheduling, and is coordinating the internal evaluation. Understands the NetSuite timeline pressure. However, limited operational depth \u2014 he defers store-specific questions to Kevin.\nKevin Fender (Store/Operations Manager) \u2014 the day-to-day pain owner. Most engaged on inventory, pricing, special orders, and fulfillment scenarios during the Technical Disco and Demo. Best positioned to advocate internally for Shopify solving real workflow problems.\nAmy Goudy (NetSuite Consultant, 3rd party) \u2014 not a Shopify champion per se, but is a strong validator. She confirmed Shopify's transactions integrate cleanly into NetSuite as cash sales and is not blocking the deal. Her endorsement carries weight since she owns the NetSuite side."
+        "metrics": "In-Store POS Revenue: $16.5M total annual revenue across 3 stores (Southern Concrete); ~$1.5M processed by credit card today.\nQuarry/COD Credit Card Volume: $25–30M in COD concrete sales processed by credit card at quarry locations — potential full consolidation to Shopify Payments.\nStore Count: 3 current locations, 4th standalone store planned.\nHard Implementation Deadline: Current ERP (readymix software) goes end-of-life December 2025 — POS must launch in conjunction with NetSuite go-live.\nDecision Timeline: Logan committed to making a platform decision within 1–2 months of 3/20 call (~by mid-May).",
+        "economic_buyer": "Unconfirmed — Logan Hundley (Assistant Controller) is the primary contact but sits in finance ops and has stated he is not the final decision-maker for the store side. Kevin Fender (Store/Operations Manager) is the closest operational authority identified and was present on both the Technical Disco and Demo.\nAmy Goudy (3rd-party NetSuite consultant) stated after the Demo that 'a decision is needed now to allow the parallel NetSuite project to move forward' — indicating there is an unnamed executive at Hedrick/Southern Concrete whose sign-off is required.\nRisk: True Economic Buyer has not been identified or engaged directly. Logan and Kevin are both influencers, not confirmed budget owners.",
+        "decision_criteria": "NetSuite Integration (Non-Negotiable #1): All Shopify transactions must feed into NetSuite as cash sales with inventory sync. This is the primary evaluation filter — NetSuite's own team pointed Hedrick to Shopify as a preferred connector.\nModern POS to Replace ERP Checkout: Current process has cashiers opening/closing the ERP for every transaction — unacceptable. New system must be intuitive, tablet-based, and decoupled from the ERP.\nInventory Management: Real-time inventory tracking across 3+ locations, replacing fully manual processes.\nContractor/B2B Pricing Support: Must support varied contractor pricing lists (currently managed as coupons). Shopify B2B catalogues directly address this — key Plus differentiator.\nCustomer Data Capture: Must capture customer identity for COD/one-off credit card buyers to build historical purchase records (currently zero tracking for these buyers).\nPayment Consolidation: Strong preference to consolidate all credit card processing (retail + quarry COD) under one provider — Shopify Payments is the path.\nCompetitive Evaluation: Hedrick is evaluating a short list of competitors alongside Shopify (specific names unknown).",
+        "decision_process": "Logan Hundley (assistant controller) is the project coordinator — he schedules calls, loops in stakeholders, and manages the evaluation.\nKevin Fender (operations/store manager) is the operational decision voice — most engaged in technical and demo calls.\nAmy Goudy (3rd-party NetSuite consultant) acts as technical sounding board and integration validator.\nUnnamed Executive at Hedrick/Southern Concrete — ultimate sign-off authority (not yet engaged directly).\nCurrent stage: Demo completed 4/1. Next step is a proposal/commercial call (Chase + Logan to schedule, was due week of 4/7 — not yet confirmed).\nEvaluation is competitive — Shopify is on a short list but competitor names are unknown.\nNo formal procurement or legal process has been mentioned yet.",
+        "pain": "Operational Pain: Cashiers use the ERP directly for checkout — a non-POS system being forced into a retail role. Entirely manual inventory, slow and error-prone.\nForced Urgency: Current readymix ERP hits end-of-life at end of 2025. They have a hard deadline to replace both the ERP (NetSuite) and POS simultaneously.\nNo Customer Intelligence: One-off COD buyers (credit card) are completely untracked. No purchase history, no customer records, no ability to identify repeat buyers.\nPricing Workaround: Contractor pricing is handled via coupons in the current ERP — informal, inconsistent, and unscalable.\nSpecial Order Reporting Issues: Kevin Fender is reusing a single 'bulk sale' item code for all special orders, causing cost/reporting conflicts when costs change multiple times in a month.\nFragmented Payments: Credit card processing split across multiple providers (First Citizens reader at quarries, separate store setup) — operational complexity and no consolidated view.",
+        "champion": "Logan Hundley (Assistant Controller) — initiated the relationship, drives scheduling, and is coordinating the internal evaluation. Understands the NetSuite timeline pressure. However, limited operational depth — he defers store-specific questions to Kevin.\nKevin Fender (Store/Operations Manager) — the day-to-day pain owner. Most engaged on inventory, pricing, special orders, and fulfillment scenarios during the Technical Disco and Demo. Best positioned to advocate internally for Shopify solving real workflow problems.\nAmy Goudy (NetSuite Consultant, 3rd party) — not a Shopify champion per se, but is a strong validator. She confirmed Shopify's transactions integrate cleanly into NetSuite as cash sales and is not blocking the deal. Her endorsement carries weight since she owns the NetSuite side."
       },
-      "strategy": "Shopify came into this deal with a significant tailwind \u2014 NetSuite's own implementation team referred Hedrick to us as a preferred POS connector. That's the foundation: we're not selling against skepticism, we're confirming a recommendation.\n\nThe primary play is NetSuite integration + operational modernization. Their current process (cashiers opening an ERP at checkout, fully manual inventory, zero customer tracking) is visibly broken and has a hard deadline attached \u2014 ERP goes end-of-life at year-end. We don't need to create urgency; it already exists.\n\nThe Plus justification has to be built around B2B catalogues, not just credit card rates. Contractor pricing is currently handled via coupons \u2014 a clear gap that Shopify B2B catalogues solve natively. This is the angle Jordan Murphy flagged internally and the one Kevin Fender will feel most directly.\n\nThe quarry COD consolidation ($25\u201330M in credit card volume) is upside that surfaced organically. If Shopify Payments can own that processing too, the rate savings alone make a meaningful ROI case \u2014 and it simplifies their payment stack.\n\nImmediate priority: get the commercial proposal in front of Logan and Kevin before momentum stalls. The Demo was 4/1 and Amy Goudy has signaled that a decision is a blocker for the NetSuite project. That pressure works in our favor \u2014 use it.",
+      "strategy": "Shopify came into this deal with a significant tailwind — NetSuite's own implementation team referred Hedrick to us as a preferred POS connector. That's the foundation: we're not selling against skepticism, we're confirming a recommendation.\n\nThe primary play is NetSuite integration + operational modernization. Their current process (cashiers opening an ERP at checkout, fully manual inventory, zero customer tracking) is visibly broken and has a hard deadline attached — ERP goes end-of-life at year-end. We don't need to create urgency; it already exists.\n\nThe Plus justification has to be built around B2B catalogues, not just credit card rates. Contractor pricing is currently handled via coupons — a clear gap that Shopify B2B catalogues solve natively. This is the angle Jordan Murphy flagged internally and the one Kevin Fender will feel most directly.\n\nThe quarry COD consolidation ($25–30M in credit card volume) is upside that surfaced organically. If Shopify Payments can own that processing too, the rate savings alone make a meaningful ROI case — and it simplifies their payment stack.\n\nImmediate priority: get the commercial proposal in front of Logan and Kevin before momentum stalls. The Demo was 4/1 and Amy Goudy has signaled that a decision is a blocker for the NetSuite project. That pressure works in our favor — use it.",
       "risks": [
         {
           "sev": "high",
           "text": "Unknown EB kills deal on cost",
-          "mit": "Logan/Kevin are influencers \u2014 the true budget owner hasn't been engaged. If we land a proposal with them and the EB says no on price without us ever having a conversation with them, we lose with no recourse. Get EB identified and in the room before or during proposal."
+          "mit": "Logan/Kevin are influencers — the true budget owner hasn't been engaged. If we land a proposal with them and the EB says no on price without us ever having a conversation with them, we lose with no recourse. Get EB identified and in the room before or during proposal."
         },
         {
           "sev": "high",
@@ -110,12 +118,12 @@
         {
           "sev": "med",
           "text": "Deal stalls into inaction",
-          "mit": "Proposal call is already overdue (was week of 4/7). If Chase doesn't get it scheduled immediately, NetSuite implementation momentum slows and Hedrick defaults to kicking the POS decision down the road \u2014 'do nothing' wins by default."
+          "mit": "Proposal call is already overdue (was week of 4/7). If Chase doesn't get it scheduled immediately, NetSuite implementation momentum slows and Hedrick defaults to kicking the POS decision down the road — 'do nothing' wins by default."
         },
         {
           "sev": "med",
-          "text": "Lose on price \u2014 can't justify Plus",
-          "mit": "If the Plus pitch is just 'better credit card rates,' a savvy buyer downgrades to POS Pro or picks a cheaper competitor. Must anchor Plus value in B2B catalogues solving the contractor pricing coupon problem \u2014 that's the real differentiator Kevin will feel."
+          "text": "Lose on price — can't justify Plus",
+          "mit": "If the Plus pitch is just 'better credit card rates,' a savvy buyer downgrades to POS Pro or picks a cheaper competitor. Must anchor Plus value in B2B catalogues solving the contractor pricing coupon problem — that's the real differentiator Kevin will feel."
         },
         {
           "sev": "low",
@@ -124,35 +132,36 @@
         }
       ],
       "done": [
-        "Intro call completed \u2014 Logan Hundley, Chase, Thomas Gilliatt (3/20)",
+        "Intro call completed — Logan Hundley, Chase, Thomas Gilliatt (3/20)",
         "Internal SE kickoff / KT with Jordan Murphy (3/23)",
-        "Technical Discovery completed \u2014 Amy Goudy, Logan, Kevin Fender, Chase, Jordan (3/25)",
-        "Platform Demo delivered \u2014 full team + Victoria Forte observing (4/1)",
-        "Technical Workshop (4/13) \u2014 multi-staff POS + NetSuite data flows (Chase, Jordan, Logan, Kevin)",
-        "Post-workshop follow-up sent to Logan (4/14) \u2014 proposing 1:1 strategy call to map revenue streams before broader proposal",
-        "Project Sync (4/17) \u2014 Artie Hattaway + Logan Hundley; walked through dispatching workflow and Shopify integration gaps; MAP shared post-call"
+        "Technical Discovery completed — Amy Goudy, Logan, Kevin Fender, Chase, Jordan (3/25)",
+        "Platform Demo delivered — full team + Victoria Forte observing (4/1)",
+        "Technical Workshop (4/13) — multi-staff POS + NetSuite data flows (Chase, Jordan, Logan, Kevin)",
+        "Post-workshop follow-up sent to Logan (4/14) — proposing 1:1 strategy call to map revenue streams before broader proposal",
+        "Project Sync (4/17) — Artie Hattaway + Logan Hundley; walked through dispatching workflow and Shopify integration gaps; MAP shared post-call",
+        "Logan Hundley email (4/23) — Logan confirmed he asked Marty to reach out to Chase directly; Marty expected to initiate contact soon"
       ],
       "left": [
+        "Receive and schedule Marty's direct outreach call (Logan confirmed 4/23 he would ask Marty to call Chase)",
         "Deliver architecture maps for key integration points (NetSuite sync, scaling/dispatching middleware, B2B portal, payment flows)",
-        "Schedule call with Marty to walk through his data flow vision (critical voice per Apr 17 call)",
         "Identify and engage true Economic Buyer",
         "Deliver commercial proposal",
         "Understand competitive shortlist and differentiate",
         "Legal / procurement review",
         "Contract signed"
       ],
-      "notes": "",
+      "notes": "Logan Hundley email Apr 23: 'I asked Marty to reach out to you about having a call.' Marty is the technical decision-maker per prior calls — this is a significant development. MAP shared post Apr 17 call (chasemccane.github.io/hub/hedrick/ — passcode: Hedrick123).",
       "last_call": "2026-04-17",
       "next_call": "",
       "manager_q": {
-        "compelling_event": "\u2022 Legacy ERP going end-of-life \u2014 POS must launch in tandem with NetSuite go-live (hard deadline) - Goal date: 10/1/26 for launch\n\u2022 Amy Goudy (NetSuite consultant) said a platform decision is needed NOW to unblock the parallel NetSuite project\n\u2022 ROI: $25\u201330M quarry credit card volume consolidated to Shopify Payments = meaningful rate savings\n\u2022 Miss it: cashiers continue using legacy ERP at checkout with no fix before EOL \u2014 operational crisis incoming",
+        "compelling_event": "• Legacy ERP going end-of-life — POS must launch in tandem with NetSuite go-live (hard deadline) - Goal date: 10/1/26 for launch\n• Amy Goudy (NetSuite consultant) said a platform decision is needed NOW to unblock the parallel NetSuite project\n• ROI: $25–30M quarry credit card volume consolidated to Shopify Payments = meaningful rate savings\n• Miss it: cashiers continue using legacy ERP at checkout with no fix before EOL — operational crisis incoming",
         "map_created": true,
         "map_shared": true,
         "map_agreed": null,
-        "map_notes": "MAP link shared in Apr 17 post-call email (chasemccane.github.io/hub/hedrick/ \u2014 passcode: Hedrick123)",
-        "who_signs": "\u2022 UNKNOWN \u2014 true Economic Buyer has NOT been identified or engaged\n\u2022 Logan Hundley (Asst Controller) drives the eval but has confirmed he is NOT the final decision-maker\n\u2022 Action needed: get Logan to name the EB and bring them into the proposal call",
-        "urgency": "\u2022 Natural: legacy ERP end-of-life at year-end \u2014 hard external deadline\n\u2022 Amy Goudy said decision needed now to unblock the parallel NetSuite project\n\u2022 Close date May 20 \u2014 less than 5 weeks away\n\u2022 Competitive evaluation running \u2014 urgency if a competitor is moving faster",
-        "risk_to_close": "\u2022 True EB never engaged \u2014 deal can die on cost without us ever speaking to the decision-maker\n\u2022 Competitor wins on NetSuite-native integration story (their #1 criterion \u2014 we must own this narrative)\n\u2022 Proposal call overdue \u2014 inaction becomes the default winner if not scheduled immediately\n\u2022 We do not know the competitive shortlist or how we are positioned against it - although we know it's Square on POS",
+        "map_notes": "MAP link shared in Apr 17 post-call email (chasemccane.github.io/hub/hedrick/ — passcode: Hedrick123)",
+        "who_signs": "• UNKNOWN — true Economic Buyer has NOT been identified or engaged\n• Logan Hundley (Asst Controller) drives the eval but has confirmed he is NOT the final decision-maker\n• Action needed: get Logan to name the EB and bring them into the proposal call",
+        "urgency": "• Natural: legacy ERP end-of-life at year-end — hard external deadline\n• Amy Goudy said decision needed now to unblock the parallel NetSuite project\n• Close date May 20 — less than 5 weeks away\n• Competitive evaluation running — urgency if a competitor is moving faster",
+        "risk_to_close": "• True EB never engaged — deal can die on cost without us ever speaking to the decision-maker\n• Competitor wins on NetSuite-native integration story (their #1 criterion — we must own this narrative)\n• Proposal call overdue — inaction becomes the default winner if not scheduled immediately\n• We do not know the competitive shortlist or how we are positioned against it - although we know it's Square on POS",
         "gut": 7
       }
     },
@@ -165,60 +174,60 @@
         "created": "2026-02-18"
       },
       "meddic": {
-        "metrics": "Wholesale floral distributor \u2014 3 locations (Seattle area, Spokane, Boise). Majority B2B; warehouses operate like restaurant supply for the floral trade (customers push carts). Currently 10-15% of business done online across two channels: own in-stock portal (outdated) and a third-party floral marketplace. Majority of orders placed via phone/email/text with assigned sales reps. QuickBooks being stressed at current scale.",
-        "economic_buyer": "Mark (last name not captured) \u2014 appears to be owner or senior decision-maker. He is personally evaluating platforms, has the authority to choose, and is the one with the backup plan. Grant Dugas (Shopify SDR) introduced us. No committee or other stakeholders mentioned yet.",
-        "decision_criteria": "Unified system (everything in one place \u2014 prior pain from daily data sync failures). Online portal that is modern and usable (current one looks like 1998). Ability to handle advance orders \u2014 flowers sold before inventory and pricing are known. Support for both B2B wholesale customers (net 30/ACH) and retail (pay in advance). Sales rep order entry and tracking internally (not just customer-facing \u2014 this is a key short-term requirement Mark flagged as a common gap). Flexible payment processing (not locked to one payment provider). QuickBooks integration or path off QuickBooks long-term.",
-        "decision_process": "Mark evaluating independently \u2192 SE technical call (30 min, late week of 4/7 or early week of 4/14) \u2192 Mark assessing platform fit from content care package + SE call \u2192 decision. No formal committee mentioned. Mark has a backup plan ready and is open-minded but skeptical \u2014 Shopify is one option he is exploring.",
-        "pain": "Industry-specific platform being discontinued \u2014 drop dead date already passed (7 days before 4/8 call), timeline extended but urgent. Current online portal is 10+ years out of date \u2014 Mark calls it 1998-level, customers are patient but it is costing credibility. System cannot handle advance orders (flowers sold before inventory/pricing is known \u2014 this is a large portion of their business). QuickBooks is being stressed at current company size. Two siloed online channels (own portal + third-party marketplace) with no unified view.",
-        "champion": "Mark is both the evaluator and the likely EB \u2014 no separation. Grant Dugas surfaced and introduced the opportunity. No internal champion advocating separately; Mark is driving the eval himself. This means there is no champion inside to coach \u2014 relationship with Mark is everything."
+        "metrics": "Wholesale floral distributor — 3 locations (Seattle area, Spokane, Boise). Majority B2B; warehouses operate like restaurant supply for the floral trade (customers push carts). Currently 10-15% of business done online across two channels: own in-stock portal (outdated) and a third-party floral marketplace. Majority of orders placed via phone/email/text with assigned sales reps. QuickBooks being stressed at current scale.",
+        "economic_buyer": "Mark (last name not captured) — appears to be owner or senior decision-maker. He is personally evaluating platforms, has the authority to choose, and is the one with the backup plan. Grant Dugas (Shopify SDR) introduced us. No committee or other stakeholders mentioned yet.",
+        "decision_criteria": "Unified system (everything in one place — prior pain from daily data sync failures). Online portal that is modern and usable (current one looks like 1998). Ability to handle advance orders — flowers sold before inventory and pricing are known. Support for both B2B wholesale customers (net 30/ACH) and retail (pay in advance). Sales rep order entry and tracking internally (not just customer-facing — this is a key short-term requirement Mark flagged as a common gap). Flexible payment processing (not locked to one payment provider). QuickBooks integration or path off QuickBooks long-term.",
+        "decision_process": "Mark evaluating independently → SE technical call (30 min, late week of 4/7 or early week of 4/14) → Mark assessing platform fit from content care package + SE call → decision. No formal committee mentioned. Mark has a backup plan ready and is open-minded but skeptical — Shopify is one option he is exploring.",
+        "pain": "Industry-specific platform being discontinued — drop dead date already passed (7 days before 4/8 call), timeline extended but urgent. Current online portal is 10+ years out of date — Mark calls it 1998-level, customers are patient but it is costing credibility. System cannot handle advance orders (flowers sold before inventory/pricing is known — this is a large portion of their business). QuickBooks is being stressed at current company size. Two siloed online channels (own portal + third-party marketplace) with no unified view.",
+        "champion": "Mark is both the evaluator and the likely EB — no separation. Grant Dugas surfaced and introduced the opportunity. No internal champion advocating separately; Mark is driving the eval himself. This means there is no champion inside to coach — relationship with Mark is everything."
       },
-      "strategy": "Platform discontinuation creates urgency but Mark has a backup plan and is not panicking. He sees Shopify as a long-term front-end play for online/customer-facing, not a full ERP. The SE call (next step) is critical \u2014 need to show that Shopify can handle: (1) internal sales rep order entry + tracking (his flagged gap), (2) advance orders with deferred pricing, (3) B2B + DTC + POS unified. If we solve the short-term sales rep order entry problem, Shopify becomes both the short and long-term answer. If we cannot, he uses a backup for short-term and potentially chooses whatever ERP integrates best for front-end long-term.",
+      "strategy": "Platform discontinuation creates urgency but Mark has a backup plan and is not panicking. He sees Shopify as a long-term front-end play for online/customer-facing, not a full ERP. The SE call (next step) is critical — need to show that Shopify can handle: (1) internal sales rep order entry + tracking (his flagged gap), (2) advance orders with deferred pricing, (3) B2B + DTC + POS unified. If we solve the short-term sales rep order entry problem, Shopify becomes both the short and long-term answer. If we cannot, he uses a backup for short-term and potentially chooses whatever ERP integrates best for front-end long-term.",
       "risks": [
         {
           "sev": "high",
-          "text": "Mark activates his backup plan before we get to SE call \u2014 urgency dissipates, deal stalls indefinitely because the platform discontinuation pressure is gone.",
+          "text": "Mark activates his backup plan before we get to SE call — urgency dissipates, deal stalls indefinitely because the platform discontinuation pressure is gone.",
           "mit": "Move fast. Get the content care package out same day, get the SE call on the calendar within 48 hours. Create urgency around showing Shopify as the short-term solution too, not just long-term."
         },
         {
           "sev": "high",
-          "text": "Shopify cannot convincingly solve internal sales rep order entry and tracking \u2014 Mark told us this is the key short-term requirement that past platforms have failed on. If we fail this bar, deal is dead.",
+          "text": "Shopify cannot convincingly solve internal sales rep order entry and tracking — Mark told us this is the key short-term requirement that past platforms have failed on. If we fail this bar, deal is dead.",
           "mit": "Prep Jordan (SE) specifically on this use case before the call. Research Shopify draft orders, B2B rep-linked ordering, and any app ecosystem solutions. Lead with a live demo of rep order entry in the SE session."
         },
         {
           "sev": "medium",
-          "text": "Mark chooses a full ERP that bundles a front-end \u2014 if he goes with an industry-specific ERP that has a built-in online portal, Shopify loses both the short and long-term opportunity.",
+          "text": "Mark chooses a full ERP that bundles a front-end — if he goes with an industry-specific ERP that has a built-in online portal, Shopify loses both the short and long-term opportunity.",
           "mit": "Position Shopify as the stronger front-end even when paired with an ERP. Offer to present a Shopify + QuickBooks or Shopify + ERP integration story. Do not concede the front-end decision by accident."
         },
         {
           "sev": "low",
-          "text": "Deal moves very slowly \u2014 Mark is thoughtful, has no hard deadline now, and is evaluating multiple options. Without momentum, this slips quarters.",
+          "text": "Deal moves very slowly — Mark is thoughtful, has no hard deadline now, and is evaluating multiple options. Without momentum, this slips quarters.",
           "mit": "Set a clear SE call date on the 4/8 intro call follow-up. After SE call, propose a specific next step with a date. Keep Mark engaged with relevant content between calls."
         }
       ],
       "done": [
-        "Intro call with Mark via Grant Dugas (4/8) \u2014 confirmed platform discontinuation urgency, 3 locations, B2B + DTC + POS opportunity, advance order challenge, sales rep order entry as key requirement",
+        "Intro call with Mark via Grant Dugas (4/8) — confirmed platform discontinuation urgency, 3 locations, B2B + DTC + POS opportunity, advance order challenge, sales rep order entry as key requirement",
         "Content care package email sent to Mark"
       ],
       "left": [
-        "Schedule 30-min SE technical call (post-Mother's Day \u2014 target week of May 18)",
-        "SE call \u2014 lead with sales rep order entry use case, advance orders, B2B + DTC + POS demo",
+        "Schedule 30-min SE technical call (post-Mother's Day — target week of May 18)",
+        "SE call — lead with sales rep order entry use case, advance orders, B2B + DTC + POS demo",
         "Determine QuickBooks integration path or ERP migration story",
         "Discovery: understand Mark's backup plan and actual EOL timeline",
         "Demo / executive alignment",
         "Contract"
       ],
-      "notes": "Mark confirmed Apr 15: not back-burnered, but Mother's Day farm orders are consuming all attention right now. He will send scheduling availability in coming days. SE call targeting week of May 18 (post-Mother's Day). Mark has a backup plan \u2014 do not let deal go cold between now and the SE call.",
+      "notes": "Mark confirmed Apr 15: not back-burnered, but Mother's Day farm orders are consuming all attention right now. He will send scheduling availability in coming days. SE call targeting week of May 18 (post-Mother's Day). Mark has a backup plan — do not let deal go cold between now and the SE call.",
       "last_call": "2026-04-15",
       "next_call": "",
       "manager_q": {
-        "compelling_event": "\u2022 Current industry-specific software is being DISCONTINUED \u2014 forced migration, not optional\n\u2022 Platform EOL already passed 7 days before our intro call (Apr 8); timeline extended but clock is ticking\n\u2022 3 locations + B2B + DTC + POS all need to transition simultaneously \u2014 complexity adds urgency\n\u2022 Miss it: platform goes dark with no replacement ready \u2014 operational crisis across all locations",
+        "compelling_event": "• Current industry-specific software is being DISCONTINUED — forced migration, not optional\n• Platform EOL already passed 7 days before our intro call (Apr 8); timeline extended but clock is ticking\n• 3 locations + B2B + DTC + POS all need to transition simultaneously — complexity adds urgency\n• Miss it: platform goes dark with no replacement ready — operational crisis across all locations",
         "map_created": true,
         "map_shared": null,
         "map_agreed": null,
         "map_notes": "",
-        "who_signs": "\u2022 Mark Berglund (mberglund@washingtonfloral.com) \u2014 appears to be owner or senior decision-maker\n\u2022 He is evaluating independently with no committee mentioned\n\u2022 YES \u2014 we have direct access to Mark, he is our main contact\n\u2022 Note: confirm Mark is the actual owner/signer, not just a senior manager",
-        "urgency": "\u2022 Natural: software discontinuation is a forced event \u2014 platform is going dark\n\u2022 Short-term blocker: Mother's Day (mid-May) is consuming all attention right now\n\u2022 Mark confirmed Apr 15: \"not back burnered\" \u2014 intent is there, just timing\n\u2022 Risk: if EOL timeline keeps getting extended, urgency dissipates",
-        "risk_to_close": "\u2022 Mark has a backup plan ready \u2014 if we are too slow or fail the SE call, he activates it and urgency evaporates\n\u2022 Advance order workflow (flowers sold before inventory and pricing are known) is complex \u2014 SE must validate\n\u2022 Another EOL extension from the vendor could remove the forcing event entirely",
+        "who_signs": "• Mark Berglund (mberglund@washingtonfloral.com) — appears to be owner or senior decision-maker\n• He is evaluating independently with no committee mentioned\n• YES — we have direct access to Mark, he is our main contact\n• Note: confirm Mark is the actual owner/signer, not just a senior manager",
+        "urgency": "• Natural: software discontinuation is a forced event — platform is going dark\n• Short-term blocker: Mother's Day (mid-May) is consuming all attention right now\n• Mark confirmed Apr 15: \"not back burnered\" — intent is there, just timing\n• Risk: if EOL timeline keeps getting extended, urgency dissipates",
+        "risk_to_close": "• Mark has a backup plan ready — if we are too slow or fail the SE call, he activates it and urgency evaporates\n• Advance order workflow (flowers sold before inventory and pricing are known) is complex — SE must validate\n• Another EOL extension from the vendor could remove the forcing event entirely",
         "gut": 4
       }
     },
@@ -231,14 +240,14 @@
         "created": "2026-03-23"
       },
       "meddic": {
-        "metrics": "Customer Base: Family distribution business serving local supermarkets, restaurants, hotels, and healthcare industry in Hawaii.\nCurrent Order Volume: All manual (email, phone, Excel order guides, or written on napkins) \u2014 no e-commerce baseline.\nProspective E-Commerce Use Case: Independent businesses who need online self-service ordering with contracted pricing.\nImplementation Target: 2027 \u2014 this is a planning-stage deal, not an imminent close.",
-        "economic_buyer": "Brendon Yamada \u2014 Executive VP, manages contracted corporate and group purchasing accounts. He initiated the inquiry, drove the intro call, and confirmed the company's direction. As EVP of a family-owned business, he likely has significant budget influence if not full authority.\nNote: It's a family business \u2014 other family members or a parent company principal may also need to sign off. This has not been explored.",
-        "decision_criteria": "Online Self-Service Ordering: Independent businesses and smaller accounts need an e-commerce channel to place orders without calling a sales rep \u2014 the core use case.\nContracted Pricing Support: Customers have individually negotiated pricing by volume and type. The platform must manage multiple pricing tiers without exposing all customers to each other's rates.\nInfor A+ ERP Integration: Their operations run on Infor A+, a distribution-focused ERP. Any Shopify implementation needs to sync orders and inventory into A+.\nHawaii Tax Compliance: Hawaii has unique wholesale vs. retail tax distinctions that complicate e-commerce setup \u2014 platform must handle this correctly.\nSelf-Service for Field Reps: Field reps should be able to place orders and view customer-specific pricing on behalf of accounts \u2014 a B2B rep ordering portal scenario.",
-        "decision_process": "Brendon Yamada is the primary contact and likely the internal driver.\nTimeline: 2027 strategic implementation target \u2014 no urgency today. This is an awareness and planning stage deal.\nNext steps from intro call: Chase to send content care package; schedule SE technical discovery call.\nNo competitive evaluation mentioned \u2014 Brendon responded to a Shopify marketing email and was engaged.",
-        "pain": "No Online Channel: Every order is manual \u2014 phone, email, Excel guides, or handwritten. As a distribution business, this is operationally inefficient and losing ground to competitors with e-commerce.\nField Order Complexity: Field reps don't have a clean tool to place orders with contracted pricing in the field. Orders end up on napkins or informal channels.\nMissed Smaller Accounts: Independent businesses that want online self-service have no portal. Larger accounts (Hilton) use Punch Out / Bert Street \u2014 those aren't available to the long tail of independent customers.\nHawaii Market Complexity: The tax structure (wholesale vs. retail distinctions) has historically made building an e-commerce channel complicated \u2014 this is why they haven't done it yet.",
-        "champion": "Brendon Yamada (Executive VP) \u2014 reached out proactively, engaged constructively in the intro call, and confirmed a 2027 timeline. He is the internal driver.\nNote: Grant Dugas initiated the relationship and is the primary Shopify AE. Chase is supporting."
+        "metrics": "Customer Base: Family distribution business serving local supermarkets, restaurants, hotels, and healthcare industry in Hawaii.\nCurrent Order Volume: All manual (email, phone, Excel order guides, or written on napkins) — no e-commerce baseline.\nProspective E-Commerce Use Case: Independent businesses who need online self-service ordering with contracted pricing.\nImplementation Target: 2027 — this is a planning-stage deal, not an imminent close.",
+        "economic_buyer": "Brendon Yamada — Executive VP, manages contracted corporate and group purchasing accounts. He initiated the inquiry, drove the intro call, and confirmed the company's direction. As EVP of a family-owned business, he likely has significant budget influence if not full authority.\nNote: It's a family business — other family members or a parent company principal may also need to sign off. This has not been explored.",
+        "decision_criteria": "Online Self-Service Ordering: Independent businesses and smaller accounts need an e-commerce channel to place orders without calling a sales rep — the core use case.\nContracted Pricing Support: Customers have individually negotiated pricing by volume and type. The platform must manage multiple pricing tiers without exposing all customers to each other's rates.\nInfor A+ ERP Integration: Their operations run on Infor A+, a distribution-focused ERP. Any Shopify implementation needs to sync orders and inventory into A+.\nHawaii Tax Compliance: Hawaii has unique wholesale vs. retail tax distinctions that complicate e-commerce setup — platform must handle this correctly.\nSelf-Service for Field Reps: Field reps should be able to place orders and view customer-specific pricing on behalf of accounts — a B2B rep ordering portal scenario.",
+        "decision_process": "Brendon Yamada is the primary contact and likely the internal driver.\nTimeline: 2027 strategic implementation target — no urgency today. This is an awareness and planning stage deal.\nNext steps from intro call: Chase to send content care package; schedule SE technical discovery call.\nNo competitive evaluation mentioned — Brendon responded to a Shopify marketing email and was engaged.",
+        "pain": "No Online Channel: Every order is manual — phone, email, Excel guides, or handwritten. As a distribution business, this is operationally inefficient and losing ground to competitors with e-commerce.\nField Order Complexity: Field reps don't have a clean tool to place orders with contracted pricing in the field. Orders end up on napkins or informal channels.\nMissed Smaller Accounts: Independent businesses that want online self-service have no portal. Larger accounts (Hilton) use Punch Out / Bert Street — those aren't available to the long tail of independent customers.\nHawaii Market Complexity: The tax structure (wholesale vs. retail distinctions) has historically made building an e-commerce channel complicated — this is why they haven't done it yet.",
+        "champion": "Brendon Yamada (Executive VP) — reached out proactively, engaged constructively in the intro call, and confirmed a 2027 timeline. He is the internal driver.\nNote: Grant Dugas initiated the relationship and is the primary Shopify AE. Chase is supporting."
       },
-      "strategy": "Long-runway deal. The 2027 implementation target is real \u2014 Brendon is not buying in 2026. The strategy is to stay top-of-mind and make Shopify the obvious, pre-evaluated choice when they're ready to move in late 2026 / early 2027.\n\nKey things to establish now: (1) Confirm that Infor A+ integration is solvable \u2014 SE discovery call should identify whether a native connector exists or what custom build looks like. (2) Map the B2B pricing architecture to their contracted pricing model early, so there are no surprises at evaluation time. (3) Keep Brendon engaged with occasional outreach and relevant content, but don't burn relationship capital pushing for a faster close.\n\nGrant Dugas is leading this account. Chase's role is supportive. Coordinate on outreach cadence to avoid over-contacting Brendon.",
+      "strategy": "Long-runway deal. The 2027 implementation target is real — Brendon is not buying in 2026. The strategy is to stay top-of-mind and make Shopify the obvious, pre-evaluated choice when they're ready to move in late 2026 / early 2027.\n\nKey things to establish now: (1) Confirm that Infor A+ integration is solvable — SE discovery call should identify whether a native connector exists or what custom build looks like. (2) Map the B2B pricing architecture to their contracted pricing model early, so there are no surprises at evaluation time. (3) Keep Brendon engaged with occasional outreach and relevant content, but don't burn relationship capital pushing for a faster close.\n\nGrant Dugas is leading this account. Chase's role is supportive. Coordinate on outreach cadence to avoid over-contacting Brendon.",
       "risks": [
         {
           "sev": "high",
@@ -247,13 +256,13 @@
         },
         {
           "sev": "med",
-          "text": "Infor A+ has no clean connector \u2014 integration complexity kills cost/timeline expectations",
-          "mit": "Infor A+ is a distribution-focused ERP common in food service and janitorial supply. If SA discovery reveals that a Shopify\u2013Infor A+ integration requires significant custom build (vs. a native app), Brendon may steer toward a platform more native to his distribution stack. Scope this early and get ahead of it."
+          "text": "Infor A+ has no clean connector — integration complexity kills cost/timeline expectations",
+          "mit": "Infor A+ is a distribution-focused ERP common in food service and janitorial supply. If SA discovery reveals that a Shopify–Infor A+ integration requires significant custom build (vs. a native app), Brendon may steer toward a platform more native to his distribution stack. Scope this early and get ahead of it."
         },
         {
           "sev": "med",
           "text": "Large enterprise accounts (Hilton/Punch Out) need EDI/Punch Out support we can't cleanly provide",
-          "mit": "Brendon's major accounts order through Punch Out (Bert Street). If Shopify can't seamlessly handle those enterprise ordering flows natively, the platform solves only half the problem \u2014 which may not be enough to justify switching. Validate Punch Out compatibility in SE discovery."
+          "mit": "Brendon's major accounts order through Punch Out (Bert Street). If Shopify can't seamlessly handle those enterprise ordering flows natively, the platform solves only half the problem — which may not be enough to justify switching. Validate Punch Out compatibility in SE discovery."
         },
         {
           "sev": "low",
@@ -264,31 +273,32 @@
       "done": [
         "Intro call with Brendon Yamada (3/25)",
         "Content care package sent",
-        "Chase x Eric Osborne (PSM) connect (4/14) \u2014 Eric introduced Chase to Daren Wang at Satel (B2B agency with relevant experience)",
-        "Strategy call with Daren Wang (Satel) (4/20) \u2014 aligned on KYD modernization goals, TCO approach, consultative readiness assessment; plan to intro Satel to Brendon for 3-way discovery call"
+        "Chase x Eric Osborne (PSM) connect (4/14) — Eric introduced Chase to Daren Wang at Satel (B2B agency with relevant experience)",
+        "Strategy call with Daren Wang (Satel) (4/20) — aligned on KYD modernization goals, TCO approach, consultative readiness assessment; plan to intro Satel to Brendon for 3-way discovery call",
+        "Intro email: Brendon Yamada <> Daren Wang / Satel (4/21) — Chase connected them by email"
       ],
       "left": [
-        "Send intro email connecting Brendon Yamada with Daren Wang / Satel team",
+        "Brendon to reply to Satel intro and accept discovery call — no reply as of Apr 23",
         "Schedule 3-way discovery call: Chase + Satel + Brendon",
-        "Re-engage Brendon (no reply to Apr 2, Apr 15 follow-ups)",
+        "Re-engage Brendon (no reply to Apr 2, Apr 15 follow-ups, or Apr 21 Satel intro)",
         "Schedule SE technical discovery call",
         "Scope Infor A+ ERP integration (native connector vs custom)",
         "Validate Punch Out / EDI support for large accounts",
         "Confirm Hawaii tax compliance with Shopify Tax",
         "Maintain quarterly engagement through 2026 toward 2027 close"
       ],
-      "notes": "",
+      "notes": "Satel intro sent Apr 21. Daren Wang (Satel) responded positively Apr 22 with relevant case studies (Samad Rugs wholesale, Sunrgy Solar B2B distributor) and offered a discovery call with Brendon. Brendon has not replied to the intro or any prior follow-ups (Apr 2, Apr 15). Re-engagement is the critical next step.",
       "last_call": "2026-04-14",
       "next_call": "",
       "manager_q": {
-        "compelling_event": "\u2022 No online ordering channel \u2014 every order is manual (phone/email/napkins/Excel guides)\n\u2022 Competitors building e-commerce while they remain static \u2014 long-term competitive erosion\n\u2022 Field reps have no tool for mobile ordering with contracted pricing in the field\n\u2022 Need to find: what is the specific trigger for the 2027 target? Any cost pressure or competitive event making this more urgent?",
+        "compelling_event": "• No online ordering channel — every order is manual (phone/email/napkins/Excel guides)\n• Competitors building e-commerce while they remain static — long-term competitive erosion\n• Field reps have no tool for mobile ordering with contracted pricing in the field\n• Need to find: what is the specific trigger for the 2027 target? Any cost pressure or competitive event making this more urgent?",
         "map_created": true,
         "map_shared": null,
         "map_agreed": null,
         "map_notes": "",
-        "who_signs": "\u2022 Brendon Yamada (Executive VP) \u2014 likely has significant budget authority as EVP of a family business\n\u2022 Family-owned company \u2014 other family members/principals may also need to sign off\n\u2022 YES \u2014 we have direct access to Brendon (he initiated the inquiry)\n\u2022 Need to find: who are the other family principals involved in major spending decisions?",
-        "urgency": "\u2022 VERY LOW \u2014 2027 target, explicitly described as exploratory, not urgent\n\u2022 Brendon has not replied to follow-ups on Apr 2 or Apr 15\n\u2022 Build it: cost of manual processing at current scale, competitive landscape in Hawaiian food distribution, lower-tier Shopify cost angle (mentioned in content care package)\n\u2022 Satel partner gameplan call Apr 20 \u2014 use to rebuild momentum",
-        "risk_to_close": "\u2022 No urgency \u2014 2027 target creates endless deferral potential with no forcing event\n\u2022 Brendon has gone quiet \u2014 re-engagement is not confirmed\n\u2022 Infor A+ integration complexity could make economics and timeline unpredictable\n\u2022 Family business dynamics (multiple sign-offs not yet mapped) could add surprise blockers\n\u2022 Hawaii tax complexity (wholesale/retail distinction) could slow setup expectations",
+        "who_signs": "• Brendon Yamada (Executive VP) — likely has significant budget authority as EVP of a family business\n• Family-owned company — other family members/principals may also need to sign off\n• YES — we have direct access to Brendon (he initiated the inquiry)\n• Need to find: who are the other family principals involved in major spending decisions?",
+        "urgency": "• VERY LOW — 2027 target, explicitly described as exploratory, not urgent\n• Brendon has not replied to follow-ups on Apr 2 or Apr 15\n• Build it: cost of manual processing at current scale, competitive landscape in Hawaiian food distribution, lower-tier Shopify cost angle (mentioned in content care package)\n• Satel partner gameplan call Apr 20 — use to rebuild momentum",
+        "risk_to_close": "• No urgency — 2027 target creates endless deferral potential with no forcing event\n• Brendon has gone quiet — re-engagement is not confirmed\n• Infor A+ integration complexity could make economics and timeline unpredictable\n• Family business dynamics (multiple sign-offs not yet mapped) could add surprise blockers\n• Hawaii tax complexity (wholesale/retail distinction) could slow setup expectations",
         "gut": 3
       }
     },
@@ -301,55 +311,55 @@
         "created": "2026-04-13"
       },
       "meddic": {
-        "metrics": "Radio equipment manufacturer (products ~$1K+, often built-to-order with 6\u20137 configurable add-ons). D2C storefront (BigCommerce + WordPress) + B2G government business (quote-based only via gov.flexradio.com). On BigCommerce for ~15 years. ERP: SIM 7. Tech stack: QuickBooks, Klaviyo, Paymore, Hooks. Timeline: ~1 quarter out for implementation.\n\nKey metrics to develop: cost of manual B2G quoting labor, revenue lost from no-backorder capability, dollar impact of 30+ day fulfillment cycles with auth expiry, cost of inventory errors and manual reporting.",
-        "economic_buyer": "Not yet confirmed. Contacts from Apr 15 intro call:\n\u2022 Lori \u2014 Head of Sales & Marketing, Austin TX (HQ). Most senior title known; likely the EB path for a platform decision of this size.\n\u2022 Michael \u2014 manages back-end/BigCommerce, Canada. Technical/ops contact.\n\u2022 Andy \u2014 manages government/commercial side, Canada (~1hr north of Toronto). B2G operations manager.\n\nAction needed: identify who owns the platform budget \u2014 Lori is the strongest EB candidate given her title, but this has not been confirmed.",
-        "decision_criteria": "1. Unified DTC + B2B + B2G visibility and reporting from a single platform. 2. Customer-specific portals \u2014 login experiences showing only relevant products and pricing per account. 3. Backorder handling \u2014 ability to place orders on out-of-stock items with expected dates (DX Engineering cited as the model). 4. Flexible, schedulable reporting with raw data access (backorders, cancellations, BTOC orders). 5. EDI support for B2G customers on SAP and other government procurement platforms. 6. Simplified tech stack \u2014 Andy's hard requirement: no app overload replacing BC's plugins. 7. Two-way SIM 7 ERP integration. 8. Serial number tracking and PO attachment for B2G quotes. 9. Functional customer-specific discount management (BC's is broken/abandoned).",
-        "decision_process": "Day 1 intro call Apr 15 \u2014 on BC 15 years but actively evaluating (originally evaluated BC vs Shopify). Next: SE technical discovery call with Jordan Murphy week of Apr 20. After SE call \u2192 full demo. May loop in Paul/Frankie (Shopify) for SIM 7 systems integration. Andy will contribute 'outside-in, clean sheet' architecture input. EB not yet identified or engaged. Timeline: ~1 quarter out for implementation. No formal RFP or committee confirmed.",
-        "pain": "1. SIM 7 ERP one-way push to BC \u2014 no sync back; causes mysterious inventory adjustments.\n2. No backorder capability \u2014 out-of-stock items cause customers to abandon or generate inbound calls.\n3. 30+ day fulfillment cycles cause credit card auth to expire before capture; can't split payments on backorders.\n4. Manual B2G quoting \u2014 Andy manages via BC backend; can't attach POs or track serial numbers.\n5. No EDI support for B2G customers on SAP and other procurement platforms.\n6. Customer-specific discount management in BC is broken \u2014 Andy gave up on it.\n7. Reporting inadequate: Paymore lacks flexibility; manually pulling cancelled orders; Klaviyo/BC abandoned cart attribution confusion.\n8. WordPress/BC password sync fails regularly.\n9. QuickBooks address format misaligns with BC (company name split into first/last fields).\n10. Heavy plugin dependency for basic B2B functionality.",
-        "champion": "Andy (andy@flex-radio.com) \u2014 manages government/commercial side; expressed strongest operational pain (broken B2G quoting, serial numbers, EDI, discount management). Proposed 'outside-in, clean sheet' architecture approach. Most technically engaged contact.\n\nLori (Head of Sales & Marketing, lori@flex-radio.com) \u2014 most senior title; the EB path. Needs to be cultivated as the executive sponsor.\n\nMichael (mike@flex-radio.com, back-end/BC admin) \u2014 technical enabler, critical for implementation but not a champion.\n\nNo confirmed champion yet \u2014 Andy drives the evaluation, Lori is the path to budget."
+        "metrics": "Radio equipment manufacturer (products ~$1K+, often built-to-order with 6–7 configurable add-ons). D2C storefront (BigCommerce + WordPress) + B2G government business (quote-based only via gov.flexradio.com). On BigCommerce for ~15 years. ERP: SIM 7. Tech stack: QuickBooks, Klaviyo, Paymore, Hooks. Timeline: ~1 quarter out for implementation.\n\nKey metrics to develop: cost of manual B2G quoting labor, revenue lost from no-backorder capability, dollar impact of 30+ day fulfillment cycles with auth expiry, cost of inventory errors and manual reporting.",
+        "economic_buyer": "Not yet confirmed. Contacts from Apr 15 intro call:\n• Lori — Head of Sales & Marketing, Austin TX (HQ). Most senior title known; likely the EB path for a platform decision of this size.\n• Michael — manages back-end/BigCommerce, Canada. Technical/ops contact.\n• Andy — manages government/commercial side, Canada (~1hr north of Toronto). B2G operations manager.\n\nAction needed: identify who owns the platform budget — Lori is the strongest EB candidate given her title, but this has not been confirmed.",
+        "decision_criteria": "1. Unified DTC + B2B + B2G visibility and reporting from a single platform. 2. Customer-specific portals — login experiences showing only relevant products and pricing per account. 3. Backorder handling — ability to place orders on out-of-stock items with expected dates (DX Engineering cited as the model). 4. Flexible, schedulable reporting with raw data access (backorders, cancellations, BTOC orders). 5. EDI support for B2G customers on SAP and other government procurement platforms. 6. Simplified tech stack — Andy's hard requirement: no app overload replacing BC's plugins. 7. Two-way SIM 7 ERP integration. 8. Serial number tracking and PO attachment for B2G quotes. 9. Functional customer-specific discount management (BC's is broken/abandoned).",
+        "decision_process": "Day 1 intro call Apr 15 — on BC 15 years but actively evaluating (originally evaluated BC vs Shopify). Next: SE technical discovery call with Jordan Murphy week of Apr 20. After SE call → full demo. May loop in Paul/Frankie (Shopify) for SIM 7 systems integration. Andy will contribute 'outside-in, clean sheet' architecture input. EB not yet identified or engaged. Timeline: ~1 quarter out for implementation. No formal RFP or committee confirmed.",
+        "pain": "1. SIM 7 ERP one-way push to BC — no sync back; causes mysterious inventory adjustments.\n2. No backorder capability — out-of-stock items cause customers to abandon or generate inbound calls.\n3. 30+ day fulfillment cycles cause credit card auth to expire before capture; can't split payments on backorders.\n4. Manual B2G quoting — Andy manages via BC backend; can't attach POs or track serial numbers.\n5. No EDI support for B2G customers on SAP and other procurement platforms.\n6. Customer-specific discount management in BC is broken — Andy gave up on it.\n7. Reporting inadequate: Paymore lacks flexibility; manually pulling cancelled orders; Klaviyo/BC abandoned cart attribution confusion.\n8. WordPress/BC password sync fails regularly.\n9. QuickBooks address format misaligns with BC (company name split into first/last fields).\n10. Heavy plugin dependency for basic B2B functionality.",
+        "champion": "Andy (andy@flex-radio.com) — manages government/commercial side; expressed strongest operational pain (broken B2G quoting, serial numbers, EDI, discount management). Proposed 'outside-in, clean sheet' architecture approach. Most technically engaged contact.\n\nLori (Head of Sales & Marketing, lori@flex-radio.com) — most senior title; the EB path. Needs to be cultivated as the executive sponsor.\n\nMichael (mike@flex-radio.com, back-end/BC admin) — technical enabler, critical for implementation but not a champion.\n\nNo confirmed champion yet — Andy drives the evaluation, Lori is the path to budget."
       },
-      "strategy": "15-year BigCommerce customer who is actively and openly evaluating. Day 1 intro surfaced extreme platform pain across 9 distinct areas \u2014 almost every key B2B requirement is broken or missing on their current stack. The play is to run a tight SE technical discovery call that maps SIM 7 ERP integration, backorder handling, and B2G quoting directly to Shopify capabilities \u2014 then land a full demo with the broader team.\n\nAndy (gov/commercial mgr) is the strongest technical advocate; Lori (Head of Sales & Marketing) is the EB path. Cultivate both in parallel. Find the BC contract renewal date \u2014 that's the hard deadline that creates urgency.",
+      "strategy": "15-year BigCommerce customer who is actively and openly evaluating. Day 1 intro surfaced extreme platform pain across 9 distinct areas — almost every key B2B requirement is broken or missing on their current stack. The play is to run a tight SE technical discovery call that maps SIM 7 ERP integration, backorder handling, and B2G quoting directly to Shopify capabilities — then land a full demo with the broader team.\n\nAndy (gov/commercial mgr) is the strongest technical advocate; Lori (Head of Sales & Marketing) is the EB path. Cultivate both in parallel. Find the BC contract renewal date — that's the hard deadline that creates urgency.",
       "risks": [
         {
           "sev": "high",
-          "text": "EB (Lori) not yet confirmed or engaged \u2014 deal could stall before she weighs in",
+          "text": "EB (Lori) not yet confirmed or engaged — deal could stall before she weighs in",
           "mit": "Confirm budget authority on SE call. Ask Andy directly who signs the platform contract."
         },
         {
           "sev": "high",
-          "text": "SIM 7 ERP two-way integration complexity \u2014 if SE can't validate, we lose on their #1 technical req",
+          "text": "SIM 7 ERP two-way integration complexity — if SE can't validate, we lose on their #1 technical req",
           "mit": "Pre-brief Jordan on SIM 7 before SE call. May need to loop in Paul/Frankie (Shopify SIM 7 specialists)."
         },
         {
           "sev": "med",
-          "text": "Andy's 'no app overload' requirement \u2014 must not present Shopify as 17K apps replacing 17K BC plugins",
+          "text": "Andy's 'no app overload' requirement — must not present Shopify as 17K apps replacing 17K BC plugins",
           "mit": "Lead with native B2B functionality. Explicitly acknowledge this in SE call and show how Shopify consolidates rather than adds complexity."
         }
       ],
       "done": [
-        "Intro call \u2014 Lori, Michael, Andy + Chase + Grant Dugas (4/15)",
-        "Content care package sent to FlexRadio team (4/16) \u2014 covered B2B unified platform, custom pricing portals, backorder handling, SIM 7 integration, EDI"
+        "Intro call — Lori, Michael, Andy + Chase + Grant Dugas (4/15)",
+        "Content care package sent to FlexRadio team (4/16) — covered B2B unified platform, custom pricing portals, backorder handling, SIM 7 integration, EDI"
       ],
       "left": [
-        "SE technical discovery call \u2014 Jordan Murphy (offering Apr 22 or wk Apr 27\u2013May 1; awaiting confirmation)",
+        "Confirm SE technical discovery call with Jordan Murphy — wk of Apr 27–May 1 (times already offered)",
         "Confirm EB: who holds platform budget (Lori vs. another stakeholder)",
-        "Find BigCommerce contract renewal date \u2014 this is the hard deadline",
+        "Find BigCommerce contract renewal date — this is the hard deadline",
         "Full platform demo with broader team",
         "LOI / intent to proceed",
         "Contract"
       ],
-      "notes": "Chase sent scheduling email Apr 20 offering Wed Apr 22 and all slots wk of Apr 27\u2013May 1 (CT times). No reply yet. Three contacts: Lori (lori@flex-radio.com), Michael (mike@flex-radio.com), Andy (andy@flex-radio.com). Grant Dugas (Shopify SDR) sourced the deal.",
+      "notes": "Chase sent scheduling email Apr 20 offering Wed Apr 22 and all slots wk of Apr 27–May 1 (CT times). Apr 22 slot not taken. Following up for wk of Apr 27 confirmation. Three contacts: Lori (lori@flex-radio.com), Michael (mike@flex-radio.com), Andy (andy@flex-radio.com). Platform confirmed: BigCommerce + WordPress. Grant Dugas (Shopify SDR) sourced the deal.",
       "last_call": "2026-04-15",
       "next_call": "",
       "manager_q": {
-        "compelling_event": "\u2022 Broken discount system in BigCommerce causing pricing errors \u2014 live revenue impact\n\u2022 SIM 7 ERP sync issues causing \"mysterious inventory adjustments\" \u2014 reliability and ops problem\n\u2022 Manual quoting for government/B2G accounts is operationally costly and slow\n\u2022 Need to find: when does their BigCommerce contract renew? That date is the hard deadline",
+        "compelling_event": "• Broken discount system in BigCommerce causing pricing errors — live revenue impact\n• SIM 7 ERP sync issues causing \"mysterious inventory adjustments\" — reliability and ops problem\n• Manual quoting for government/B2G accounts is operationally costly and slow\n• Need to find: when does their BigCommerce contract renew? That date is the hard deadline",
         "map_created": true,
         "map_shared": null,
         "map_agreed": null,
         "map_notes": "",
-        "who_signs": "\u2022 Need to find \u2014 not yet confirmed\n\u2022 Andy (andy@flex-radio.com) is most technically engaged but appears to be IT/technical lead\n\u2022 Lori (lori@flex-radio.com) and Mike (mike@flex-radio.com) also on intro call \u2014 roles unclear\n\u2022 Action needed: clarify who has budget authority and who signs the contract",
-        "urgency": "\u2022 Medium \u2014 strong platform pain surfaced on day 1, suggests active frustration\n\u2022 No hard deadline confirmed yet\n\u2022 Build it: find BC contract renewal date; quantify lost revenue from broken discounts and inventory errors\n\u2022 SE technical call next week \u2014 use to surface renewal date and identify budget authority",
-        "risk_to_close": "\u2022 Andy's skepticism: does not want 17,000 Shopify apps to replace 17,000 BC apps \u2014 must address early and directly\n\u2022 SIM 7 ERP two-way integration complexity \u2014 needs SE to validate and scope before we promise anything\n\u2022 Government/B2G account requirements (per-login portals, PO attachments, quote management) add evaluation complexity\n\u2022 EB not identified",
+        "who_signs": "• Need to find — not yet confirmed\n• Andy (andy@flex-radio.com) is most technically engaged but appears to be IT/technical lead\n• Lori (lori@flex-radio.com) and Mike (mike@flex-radio.com) also on intro call — roles unclear\n• Action needed: clarify who has budget authority and who signs the contract",
+        "urgency": "• Medium — strong platform pain surfaced on day 1, suggests active frustration\n• No hard deadline confirmed yet\n• Build it: find BC contract renewal date; quantify lost revenue from broken discounts and inventory errors\n• SE technical call next week — use to surface renewal date and identify budget authority",
+        "risk_to_close": "• Andy's skepticism: does not want 17,000 Shopify apps to replace 17,000 BC apps — must address early and directly\n• SIM 7 ERP two-way integration complexity — needs SE to validate and scope before we promise anything\n• Government/B2G account requirements (per-login portals, PO attachments, quote management) add evaluation complexity\n• EB not identified",
         "gut": 5
       }
     },
@@ -363,18 +373,18 @@
       },
       "meddic": {
         "metrics": "Not yet quantified. Stated priorities from Liz: website performance, UX, and site speed improvements. Operational inefficiencies in product management also flagged. Discovery needed to attach numbers.",
-        "economic_buyer": "Liz Huff \u2014 CEO and confirmed final decision maker and budget authority. She is both our entry point and the economic buyer. She responded to our intro today (4/13) with substantive questions about Shopify Plus (pricing, B2B features, site speed). As CEO she has full authority to approve.",
+        "economic_buyer": "Liz Huff — CEO and confirmed final decision-maker at our entry point. She responded to our intro and has been asking about pricing/features.\nHOWEVER — Yotpo intel (Michal Ashkenazi, Apr 21): Stuart Foster is the key DM and budget authority that Yotpo primarily works with. Matt Adler is an evaluator. Yotpo's team hasn't spoken to Liz in almost a year — suggesting she may not be the operational decision-maker.\nAction needed: Understand Stuart Foster's role and get him into the discovery process. Liz may be the CEO entry point but Stuart holds the day-to-day decision authority.",
         "decision_criteria": "Not yet scoped through formal discovery. Initial signals from Liz: website performance and UX improvements (site speed, modern look), operational efficiency in product management, B2B capabilities. BrightPearl ERP evaluation is running in parallel and may intersect with the platform decision.",
-        "decision_process": "Liz Huff (CEO) is the sole identified contact and the decision maker. She is evaluating independently at this stage \u2014 no committee or other stakeholders mentioned yet. Mitchell Goff (Sage partner) made the intro. Next step: get a discovery call with Liz to understand current stack, pain, timeline, and whether others are involved in the decision.",
+        "decision_process": "Liz Huff (CEO) is the sole identified contact and the decision maker. She is evaluating independently at this stage — no committee or other stakeholders mentioned yet. Mitchell Goff (Sage partner) made the intro. Next step: get a discovery call with Liz to understand current stack, pain, timeline, and whether others are involved in the decision.",
         "pain": "Not yet fully qualified. Signals: website performance and UX gaps (slow site, poor experience), operational inefficiencies in product management. BrightPearl ERP involvement suggests the ops stack is also being evaluated. Formal discovery call needed.",
-        "champion": "Liz Huff (CEO) \u2014 she is both the EB and our primary advocate. She initiated engagement by responding to our intro (via Mitchell Goff / Sage) and is actively asking questions. As CEO and the only contact identified, she is also the decision maker. No internal champion below her has been identified yet."
+        "champion": "Liz Huff (CEO) — our current entry point. She initiated engagement and has asked substantive questions. However she appears to be a gatekeeper/approver, not the day-to-day evaluator.\nStuart Foster (Key DM / Budget Authority per Yotpo) — not yet directly engaged. Yotpo describes him as the primary decision-maker and budget authority for Anatomy Warehouse.\nMatt Adler (Evaluator per Yotpo) — not yet contacted.\nAction needed: Push to get intro to Stuart through Liz or through Yotpo (Michal offered to have their team ask about Shopify timeline)."
       },
-      "strategy": "CEO-level entry with Liz Huff as both the EB and the champion. She is actively engaged, asking the right questions, and has full authority to move forward. The play is to run a tight discovery call, map her pain to specific Shopify capabilities (site speed via Hydrogen/Headless, B2B catalogs, product management workflows), and build a business case she can act on quickly.\n\nBrightPearl ERP evaluation is a parallel track \u2014 position Shopify as the commerce front-end that integrates cleanly with BrightPearl rather than competing with it. Mitchell Goff (Sage) made the intro and may be a useful partner-level advocate as the ecosystem picture becomes clearer.",
+      "strategy": "CEO-level entry with Liz Huff as both the EB and the champion. She is actively engaged, asking the right questions, and has full authority to move forward. The play is to run a tight discovery call, map her pain to specific Shopify capabilities (site speed via Hydrogen/Headless, B2B catalogs, product management workflows), and build a business case she can act on quickly.\n\nBrightPearl ERP evaluation is a parallel track — position Shopify as the commerce front-end that integrates cleanly with BrightPearl rather than competing with it. Mitchell Goff (Sage) made the intro and may be a useful partner-level advocate as the ecosystem picture becomes clearer.",
       "risks": [
         {
           "sev": "high",
           "text": "Discovery call never gets scheduled and Liz goes cold",
-          "mit": "Liz asked good questions in her first email response \u2014 momentum exists right now. Respond with value and immediately propose a 30-minute discovery call. Don't let the thread die in email. The window is this week or next."
+          "mit": "Liz asked good questions in her first email response — momentum exists right now. Respond with value and immediately propose a 30-minute discovery call. Don't let the thread die in email. The window is this week or next."
         },
         {
           "sev": "med",
@@ -387,25 +397,30 @@
           "mit": "Ask directly in discovery: 'Are you evaluating any other platforms right now?' Better to know early than after investing discovery time."
         }
       ],
-      "done": [],
+      "done": [
+        "Intro via Mitchell Goff (Sage partner) — Liz Huff responded Apr 13 with questions about Shopify Plus pricing + B2B features",
+        "Yotpo alignment via Kyra Young (4/8) — connected with Michal Ashkenazi, Yotpo Senior Strategic Partner Manager",
+        "Yotpo intel received (4/21, Michal Ashkenazi): Stuart Foster = key DM/budget authority; Matt Adler = evaluator; Yotpo hasn't spoken to Liz in ~1 year — she is the CEO entry point but not the operational DM"
+      ],
       "left": [
         "Schedule discovery call with Liz Huff (CEO)",
+        "Get intro to Stuart Foster (key DM) — leverage Yotpo (Michal) or push through Liz",
         "Full discovery: current stack, pain quantification, budget, timeline, BrightPearl scope",
         "Demo tailored to site speed + B2B + product management pain",
         "Business case and proposal"
       ],
-      "notes": "",
+      "notes": "Entry via Mitchell Goff (Sage). Liz Huff (CEO) is our contact but Yotpo (Michal Ashkenazi, Apr 21) says Stuart Foster is the real DM/budget authority and Matt Adler is an evaluator. Yotpo's team has not spoken to Liz in ~1 year. Yotpo offered to have their team probe Anatomy's Shopify timeline — could use as a warm intro path to Stuart. Discovery call with Liz not yet scheduled. No done items before Yotpo intel was received.",
       "last_call": "2026-04-13",
       "next_call": "",
       "manager_q": {
-        "compelling_event": "\u2022 Site speed and UX issues on BigCommerce hurting conversion and revenue\n\u2022 Revenue growth goal is the stated driver \u2014 Liz wants to get product updates faster and convert better\n\u2022 BrightPearl ERP evaluation running in parallel \u2014 may create a bundled decision timeline\n\u2022 Need to find: when does their BigCommerce contract renew? That is the hard deadline to surface",
+        "compelling_event": "• Site speed and UX issues on BigCommerce hurting conversion and revenue\n• Revenue growth goal is the stated driver — Liz wants to get product updates faster and convert better\n• BrightPearl ERP evaluation running in parallel — may create a bundled decision timeline\n• Need to find: when does their BigCommerce contract renew? That is the hard deadline to surface",
         "map_created": true,
         "map_shared": null,
         "map_agreed": null,
         "map_notes": "",
-        "who_signs": "\u2022 Liz Huff (CEO) \u2014 confirmed budget authority and final decision-maker\n\u2022 Stuart Foster \u2014 flagged by Yotpo as a key DM/budget authority; need to clarify his role relative to Liz\n\u2022 Liz is our entry point but has been price-gating before committing to calls\n\u2022 Matt Adler also identified as evaluator\n\u2022 Action needed: get discovery call scheduled with Liz first; clarify Stuart Foster's role",
-        "urgency": "\u2022 LOW \u2014 no hard timeline or renewal deadline surfaced\n\u2022 Liz asked for ballpark pricing before committing to calls \u2014 price sensitivity could stall momentum\n\u2022 BrightPearl ERP timeline may create a natural forcing event if they bundle the decisions\n\u2022 Build it: connect site speed improvements directly to conversion rate and revenue uplift numbers",
-        "risk_to_close": "\u2022 Liz is a price gatekeeper \u2014 if the pricing conversation goes wrong, access to the deal ends\n\u2022 Stuart Foster/daily team not engaged \n\u2022 Discovery call not yet scheduled \u2014 momentum depends entirely on email follow-through right now\n\u2022 BrightPearl ERP evaluation could delay or absorb the commerce platform decision entirely\n\u2022 No urgency signal \u2014 deal can drift indefinitely without a forcing event",
+        "who_signs": "• Liz Huff (CEO) — confirmed budget authority and final decision-maker per our direct contact\n• Stuart Foster — Yotpo (Michal Ashkenazi, Apr 21) identifies him as the key DM and budget authority; Matt Adler is an evaluator\n• Liz is our entry point but appears to be the approver, not the day-to-day evaluator\n• Action needed: get Stuart Foster into the conversation — either via Liz pushing us down or via Yotpo intro",
+        "urgency": "• LOW — no hard timeline or renewal deadline surfaced\n• Liz asked for ballpark pricing before committing to calls — price sensitivity could stall momentum\n• BrightPearl ERP timeline may create a natural forcing event if they bundle the decisions\n• Build it: connect site speed improvements directly to conversion rate and revenue uplift numbers",
+        "risk_to_close": "• Liz is a price gatekeeper — if the pricing conversation goes wrong, access to the deal ends\n• Stuart Foster/daily team not engaged \n• Discovery call not yet scheduled — momentum depends entirely on email follow-through right now\n• BrightPearl ERP evaluation could delay or absorb the commerce platform decision entirely\n• No urgency signal — deal can drift indefinitely without a forcing event",
         "gut": 4
       }
     },
@@ -418,19 +433,19 @@
         "created": "2026-04-02"
       },
       "meddic": {
-        "metrics": "Website Revenue: $200K\u2013$250K annually (current), targeting $400K \u2014 a 60\u2013100% increase.\nSKU Count: 28,000 SKUs to migrate, plus 4\u20135K product images.\nExploded View Diagrams: ~24 diagrams that are the core differentiating feature of the site.\nManufacturers: 20\u201340 manufacturer relationships with periodic price updates (some with 4,000+ SKUs each).\nBudget Ceiling: ~$50K estimated (based on original BigCommerce build cost; Tim has no budget authority \u2014 boss decides).",
-        "economic_buyer": "Tim Rusniak's Boss (name unknown) \u2014 holds budget authority and makes the final vendor decision. Tim will narrow to 2 finalists and present to the boss with quotes.\nTim Rusniak (IT/Technical Person) \u2014 no budget authority. He is the day-to-day technical contact and vendor evaluator. His recommendation carries significant weight but he cannot approve spend.\nNote: Tim is an influencer, not an EB. The actual EB has not been identified or engaged directly.",
-        "decision_criteria": "Exploded View Diagrams as a Theme-Independent App (Non-Negotiable #1): 24 hover-over diagrams where customers can identify part numbers, see part images, prices, required quantities, and add to cart \u2014 built as a standalone external app so it survives any theme change.\nSmart Bulk Pricing Import Tool: Ability to upload manufacturer spreadsheets (~2,000 SKUs each), auto-match SKUs, update prices, and flag new/deleted items with a summary report. Manual 3-day price update process is the core operational pain.\nBetter Search Functionality: Current BigCommerce search returns dozens of results for specific queries \u2014 new platform must return precise, relevant results.\nTheme Flexibility: The entire migration is motivated by being trapped in one BigCommerce theme. The new platform must decouple functionality from theme choice.\nUS-Based Agency (Non-Negotiable): Tim had a bad experience with an Egypt-based developer (American Eagle) \u2014 will not consider any agency that outsources offshore or operates outside US time zones.\nSimple and Practical Approach: Tim explicitly does not want agencies that upsell accounting, inventory, or analytics systems. Straightforward migration + custom exploded view app.\nBudget: Approximately $50K ceiling based on prior build cost (Tim's informal estimate \u2014 boss has final say).\nMobile-Friendly: Field operators use site on phones/tablets for in-field repairs \u2014 must work on mobile.",
-        "decision_process": "Tim Rusniak is evaluating 4 companies (Crimson Agility, ioVista, Netalico + 1 more), narrowing to 2 finalists based on BigCommerce backend review and quote.\nTim will provide BigCommerce admin access to finalists this week for accurate scoping.\nFollow-up meetings scheduled week of 4/20\u20134/24 (Netalico confirmed; others pending).\nTim presents 2 finalists with quotes to boss \u2014 boss makes final decision.\nNo formal RFP or procurement process mentioned. No urgency or hard deadline.",
-        "pain": "Theme Lock-In (Primary Pain): Exploded view functionality built by American Eagle is tied to a specific BigCommerce theme. Changing themes deletes the feature entirely \u2014 the boss wants a new theme design, but every attempt loses core functionality.\nLabor-Intensive Bulk Pricing: Price updates require 3+ days of manual preparation per manufacturer (matching 28K SKUs to manufacturer spreadsheets, reformatting for BigCommerce import). Any mistake creates upload errors. With 20-40 manufacturers sending periodic updates, this is a recurring operational burden.\nImprecise Search: Searching a specific SKU or term returns dozens of irrelevant results \u2014 field operators can't find what they need quickly.\nRising Worker Knowledge Gap: Older operators knew equipment from memory; newer operators need digital aids. The exploded view + parts recommendations are critical for field self-service repairs \u2014 a broken part with a 4-week lead time needs the full repair kit ordered on the first try.",
-        "champion": "Tim Rusniak \u2014 day-to-day contact, drives the evaluation, understands all the technical requirements deeply. He will make the recommendation to his boss. However, he has no budget authority and is not a traditional champion \u2014 he can advocate but cannot close.\nNote: The actual economic buyer (Tim's boss) is unknown and has not been engaged. If Tim's recommendation doesn't land, there's no secondary path."
+        "metrics": "Website Revenue: $200K–$250K annually (current), targeting $400K — a 60–100% increase.\nSKU Count: 28,000 SKUs to migrate, plus 4–5K product images.\nExploded View Diagrams: ~24 diagrams that are the core differentiating feature of the site.\nManufacturers: 20–40 manufacturer relationships with periodic price updates (some with 4,000+ SKUs each).\nBudget Ceiling: ~$50K estimated (based on original BigCommerce build cost; Tim has no budget authority — boss decides).",
+        "economic_buyer": "Tim Rusniak's Boss (name unknown) — holds budget authority and makes the final vendor decision. Tim will narrow to 2 finalists and present to the boss with quotes.\nTim Rusniak (IT/Technical Person) — no budget authority. He is the day-to-day technical contact and vendor evaluator. His recommendation carries significant weight but he cannot approve spend.\nNote: Tim is an influencer, not an EB. The actual EB has not been identified or engaged directly.",
+        "decision_criteria": "Exploded View Diagrams as a Theme-Independent App (Non-Negotiable #1): 24 hover-over diagrams where customers can identify part numbers, see part images, prices, required quantities, and add to cart — built as a standalone external app so it survives any theme change.\nSmart Bulk Pricing Import Tool: Ability to upload manufacturer spreadsheets (~2,000 SKUs each), auto-match SKUs, update prices, and flag new/deleted items with a summary report. Manual 3-day price update process is the core operational pain.\nBetter Search Functionality: Current BigCommerce search returns dozens of results for specific queries — new platform must return precise, relevant results.\nTheme Flexibility: The entire migration is motivated by being trapped in one BigCommerce theme. The new platform must decouple functionality from theme choice.\nUS-Based Agency (Non-Negotiable): Tim had a bad experience with an Egypt-based developer (American Eagle) — will not consider any agency that outsources offshore or operates outside US time zones.\nSimple and Practical Approach: Tim explicitly does not want agencies that upsell accounting, inventory, or analytics systems. Straightforward migration + custom exploded view app.\nBudget: Approximately $50K ceiling based on prior build cost (Tim's informal estimate — boss has final say).\nMobile-Friendly: Field operators use site on phones/tablets for in-field repairs — must work on mobile.",
+        "decision_process": "Tim Rusniak is evaluating 4 companies (Crimson Agility, ioVista, Netalico + 1 more), narrowing to 2 finalists based on BigCommerce backend review and quote.\nTim will provide BigCommerce admin access to finalists this week for accurate scoping.\nFollow-up meetings scheduled week of 4/20–4/24 (Netalico confirmed; others pending).\nTim presents 2 finalists with quotes to boss — boss makes final decision.\nNo formal RFP or procurement process mentioned. No urgency or hard deadline.",
+        "pain": "Theme Lock-In (Primary Pain): Exploded view functionality built by American Eagle is tied to a specific BigCommerce theme. Changing themes deletes the feature entirely — the boss wants a new theme design, but every attempt loses core functionality.\nLabor-Intensive Bulk Pricing: Price updates require 3+ days of manual preparation per manufacturer (matching 28K SKUs to manufacturer spreadsheets, reformatting for BigCommerce import). Any mistake creates upload errors. With 20-40 manufacturers sending periodic updates, this is a recurring operational burden.\nImprecise Search: Searching a specific SKU or term returns dozens of irrelevant results — field operators can't find what they need quickly.\nRising Worker Knowledge Gap: Older operators knew equipment from memory; newer operators need digital aids. The exploded view + parts recommendations are critical for field self-service repairs — a broken part with a 4-week lead time needs the full repair kit ordered on the first try.",
+        "champion": "Tim Rusniak — day-to-day contact, drives the evaluation, understands all the technical requirements deeply. He will make the recommendation to his boss. However, he has no budget authority and is not a traditional champion — he can advocate but cannot close.\nNote: The actual economic buyer (Tim's boss) is unknown and has not been engaged. If Tim's recommendation doesn't land, there's no secondary path."
       },
-      "strategy": "This isn't a platform competition \u2014 it's a partner selection competition. Shopify is the only platform being evaluated. The deal is won or lost based on whether Chase brings the right agency partners who meet Tim's criteria: US-based, practical, no upsell, exploded view app capability, and a fair quote near $50K.\n\nThree partners are already in motion: Crimson Agility (4/8), ioVista (4/10), Netalico (4/10). All are being evaluated in parallel. Chase's job now is to stay visible, facilitate the follow-up quotes (week of 4/20\u201324), and make sure at least one partner delivers a quote that Tim feels confident bringing to his boss.\n\nKey risk: Tim is pragmatic and skeptical. He's been burned by outsourced developers before and has no patience for feature creep. Any partner that comes in over $70K or tries to sell ERP/accounting integration will be disqualified. The winning formula is: custom exploded view app (theme-independent), smart import tool, clean migration of 28K SKUs and images, stay at or below $50K.\n\nThe unknown EB (Tim's boss) is a wildcard. Tim will present the top 2 options, but Chase has zero visibility into what the boss cares about or whether $50K is actually the ceiling. Consider asking Tim to arrange a brief intro call with the boss before the final presentation.",
+      "strategy": "This isn't a platform competition — it's a partner selection competition. Shopify is the only platform being evaluated. The deal is won or lost based on whether Chase brings the right agency partners who meet Tim's criteria: US-based, practical, no upsell, exploded view app capability, and a fair quote near $50K.\n\nThree partners are already in motion: Crimson Agility (4/8), ioVista (4/10), Netalico (4/10). All are being evaluated in parallel. Chase's job now is to stay visible, facilitate the follow-up quotes (week of 4/20–24), and make sure at least one partner delivers a quote that Tim feels confident bringing to his boss.\n\nKey risk: Tim is pragmatic and skeptical. He's been burned by outsourced developers before and has no patience for feature creep. Any partner that comes in over $70K or tries to sell ERP/accounting integration will be disqualified. The winning formula is: custom exploded view app (theme-independent), smart import tool, clean migration of 28K SKUs and images, stay at or below $50K.\n\nThe unknown EB (Tim's boss) is a wildcard. Tim will present the top 2 options, but Chase has zero visibility into what the boss cares about or whether $50K is actually the ceiling. Consider asking Tim to arrange a brief intro call with the boss before the final presentation.",
       "risks": [
         {
           "sev": "high",
-          "text": "Boss's true budget is below partner quotes \u2014 all options get rejected",
-          "mit": "Tim guessed $50K based on a 5-year-old project. Custom exploded view as an external app plus 28K SKU migration will likely push quotes to $50\u201370K+. If the boss's real number is $30K, every partner gets rejected and the deal dies. Chase should ask Tim directly to gut-check the budget with his boss before the quote meeting so there are no surprises."
+          "text": "Boss's true budget is below partner quotes — all options get rejected",
+          "mit": "Tim guessed $50K based on a 5-year-old project. Custom exploded view as an external app plus 28K SKU migration will likely push quotes to $50–70K+. If the boss's real number is $30K, every partner gets rejected and the deal dies. Chase should ask Tim directly to gut-check the budget with his boss before the quote meeting so there are no surprises."
         },
         {
           "sev": "high",
@@ -440,12 +455,12 @@
         {
           "sev": "med",
           "text": "Boss doesn't engage and decision gets indefinitely deferred",
-          "mit": "Tim has no urgency (discovered the theme-lock in August 2025, waited 8 months already). If his boss has other priorities, the $50K decision keeps getting pushed. Tim's framing \u2014 'the boss is getting frustrated with the dated look' \u2014 is the urgency lever. Coach Tim to use that frustration as the close signal when presenting options."
+          "mit": "Tim has no urgency (discovered the theme-lock in August 2025, waited 8 months already). If his boss has other priorities, the $50K decision keeps getting pushed. Tim's framing — 'the boss is getting frustrated with the dated look' — is the urgency lever. Coach Tim to use that frustration as the close signal when presenting options."
         },
         {
           "sev": "med",
           "text": "A BigCommerce-native agency convinces the boss to stay on BC",
-          "mit": "BigCommerce is not completely out of consideration \u2014 BC did tell Tim they 'couldn't help anymore,' but a motivated BC partner could counter with a custom exploded view rebuild on BC. If that quote comes in cheaper and the boss doesn't understand platform-level differences, we could lose to inertia. Chase should ensure Tim understands the theme-lock is a BC architectural problem, not just an app problem."
+          "mit": "BigCommerce is not completely out of consideration — BC did tell Tim they 'couldn't help anymore,' but a motivated BC partner could counter with a custom exploded view rebuild on BC. If that quote comes in cheaper and the boss doesn't understand platform-level differences, we could lose to inertia. Chase should ensure Tim understands the theme-lock is a BC architectural problem, not just an app problem."
         },
         {
           "sev": "low",
@@ -457,28 +472,27 @@
         "Intro call with Tim Rusniak (4/6)",
         "Partner intro: Crimson Agility + Tim (4/8)",
         "Partner intro: ioVista + Tim (4/10)",
-        "Partner intro: Netalico + Tim (4/10) \u2014 Tim has since fired Netalico (sticker shock + dropped email)",
+        "Partner intro: Netalico + Tim (4/10) — Tim has since fired Netalico (sticker shock + dropped email)",
         "Partner intro: Netformic + Tim (4/13)"
       ],
       "left": [
-        "Tim provides BigCommerce admin access to partner finalists this week",
-        "Partner quotes received (follow-up calls week of 4/20\u201324)",
-        "Tim shortlisting to 2 finalists \u2014 decision expected 1\u20132 weeks",
+        "Receive quotes from Crimson Agility, ioVista, and Netformic",
+        "Tim shortlisting to 2 finalists from the 3 remaining",
         "Ask Tim to arrange an intro call with his boss before final presentation",
         "Contract signed"
       ],
-      "notes": "Netalico dropped (Tim fired them Apr 14 \u2014 sticker shock on $50K min + dropped email). Active finalists: Netformic (Rob Neumann) confirmed Apr 15 he is actively working on the exploded view solution and has meetings with software partners this week. Crimson Agility + ioVista also still in play. Follow-up calls week of Apr 21. Tim is moving fast \u2014 Chase's credibility as a partner advisor is on the line. Do not let momentum stall.",
+      "notes": "Tim confirmed Apr 22: all 3 remaining partners (Crimson Agility, ioVista, Netformic) are still in the mix — not narrowed to 2 yet. Waiting on formal quotes from each partner. Tim's decision estimate of '1-2 weeks' has been stated since ~Apr 9 and has not materialized. 4 partners were introduced total: Crimson Agility, ioVista, Netalico (fired Apr 14 — sticker shock + dropped email), Netformic. Active finalists: Crimson Agility, ioVista, Netformic.",
       "last_call": "2026-04-15",
       "next_call": "",
       "manager_q": {
-        "compelling_event": "\u2022 Theme lock-in: changing BigCommerce themes destroys their exploded view functionality \u2014 boss wants a new look but every attempt breaks the site\n\u2022 Manual pricing updates take 3+ days/month across 20\u201340 manufacturers (28K SKUs) \u2014 recurring operational cost\n\u2022 Boss is visibly frustrated with the dated site \u2014 that frustration is the urgency lever\n\u2022 Miss it: keep paying labor hours every month for manual pricing; site stays dated; competitive risk grows",
+        "compelling_event": "• Theme lock-in: changing BigCommerce themes destroys their exploded view functionality — boss wants a new look but every attempt breaks the site\n• Manual pricing updates take 3+ days/month across 20–40 manufacturers (28K SKUs) — recurring operational cost\n• Boss is visibly frustrated with the dated site — that frustration is the urgency lever\n• Miss it: keep paying labor hours every month for manual pricing; site stays dated; competitive risk grows",
         "map_created": true,
         "map_shared": null,
         "map_agreed": null,
         "map_notes": "",
-        "who_signs": "\u2022 Tim Rusniak's boss (name unknown) \u2014 holds full budget authority, makes the final decision\n\u2022 Tim Rusniak (IT/technical evaluator) will recommend top 2 options to his boss\n\u2022 We have NO direct access to the boss \u2014 everything runs through Tim's recommendation\n\u2022 Action needed: ask Tim to arrange a brief intro call with his boss before the final presentation",
-        "urgency": "\u2022 Medium-high \u2014 Tim is moving fast: 4 partner intros in 7 days, already fired Netalico\n\u2022 No hard external deadline; boss's frustration with dated site is the urgency lever\n\u2022 Tim commented on \"strong performance of other potential partners\" \u2014 competitive urgency is real\n\u2022 Theme lock-in has been known since August 2025 \u2014 they waited 8 months, but momentum is high now",
-        "risk_to_close": "\u2022 Boss's real budget may be below $50K \u2014 Tim's estimate is informal and could be far off\n\u2022 Netalico mis-step (sticker shock + dropped email) may have dented Chase's credibility as a partner advisor\n\u2022 Tim has 3 active finalists comparing \u2014 could move fast without us if a partner impresses\n\u2022 EB (boss) has no relationship with us \u2014 Tim's filter is the only path and it is fragile\n\u2022 Complex custom requirements (exploded views app, bulk pricing CSV) = high SOW risk",
+        "who_signs": "• Tim Rusniak's boss (name unknown) — holds full budget authority, makes the final decision\n• Tim Rusniak (IT/technical evaluator) will recommend top 2 options to his boss\n• We have NO direct access to the boss — everything runs through Tim's recommendation\n• Action needed: ask Tim to arrange a brief intro call with his boss before the final presentation",
+        "urgency": "• Medium-high — Tim is moving fast: 4 partner intros in 7 days, already fired Netalico\n• No hard external deadline; boss's frustration with dated site is the urgency lever\n• Tim commented on \"strong performance of other potential partners\" — competitive urgency is real\n• Theme lock-in has been known since August 2025 — they waited 8 months, but momentum is high now",
+        "risk_to_close": "• Boss's real budget may be below $50K — Tim's estimate is informal and could be far off\n• Netalico mis-step (sticker shock + dropped email) may have dented Chase's credibility as a partner advisor\n• Tim has 3 active finalists comparing — could move fast without us if a partner impresses\n• EB (boss) has no relationship with us — Tim's filter is the only path and it is fragile\n• Complex custom requirements (exploded views app, bulk pricing CSV) = high SOW risk",
         "gut": 3
       }
     },
@@ -493,12 +507,12 @@
       "meddic": {
         "metrics": "Need to find: Quantifiable impact of moving to Shopify Plus",
         "economic_buyer": "Need to find: Who owns the platform decision at Bulldog Tools",
-        "decision_criteria": "\u2022 Shopify Plus platform fit for B2B\n\u2022 Custom shipping billing: buyers need to charge freight to their own FedEx/UPS account numbers\n\u2022 Need to find: Additional technical requirements",
-        "decision_process": "\u2022 Partner-led: Atwix (implementation partner) driving the opportunity\n\u2022 Need to find: Internal decision-making process and timeline",
-        "pain": "\u2022 Custom freight billing to buyer FedEx/UPS accounts \u2014 needs to be solved via app or custom dev\n\u2022 Need to find: Core platform pain driving the move to Shopify Plus",
+        "decision_criteria": "• Shopify Plus platform fit for B2B\n• Custom shipping billing: buyers need to charge freight to their own FedEx/UPS account numbers\n• Need to find: Additional technical requirements",
+        "decision_process": "• Partner-led: Atwix (implementation partner) driving the opportunity\n• Need to find: Internal decision-making process and timeline",
+        "pain": "• Custom freight billing to buyer FedEx/UPS accounts — needs to be solved via app or custom dev\n• Need to find: Core platform pain driving the move to Shopify Plus",
         "champion": "Need to find: Internal champion at Bulldog Tools"
       },
-      "strategy": "Partner-sourced deal via Atwix. Early stage \u2014 need to identify EB, understand current platform, and validate B2B use case.",
+      "strategy": "Partner-sourced deal via Atwix. Early stage — need to identify EB, understand current platform, and validate B2B use case.",
       "risks": [
         {
           "sev": "high",
@@ -512,17 +526,17 @@
         }
       ],
       "done": [
-        "Partner intro call with Atwix team (4/17) \u2014 validated Shopify Plus platform fit, discussed custom freight billing to buyer FedEx/UPS accounts (solvable via app/custom)"
+        "Partner intro call with Atwix team (4/17) — validated Shopify Plus platform fit, discussed custom freight billing to buyer FedEx/UPS accounts (solvable via app/custom)"
       ],
       "left": [
-        "Schedule direct call with Robert Meyer (Bulldog) \u2014 out of town week of 4/21, target week of 4/27",
+        "Schedule direct call with Robert Meyer (Bulldog) — out of town week of 4/21, target week of 4/27",
         "Identify Economic Buyer",
         "Full discovery call with Bulldog Tools team",
         "Validate custom shipping billing solution with SE",
         "Build out MEDDIC",
         "SE engagement"
       ],
-      "notes": "Partner: Atwix (c.shadonix@atwix.com, f.reyes@atwix.com). Juan Jacinto (Shopify) also involved. Robert Meyer (rmeyer@bulldogtools.com) is key contact \u2014 confirmed out of town week of 4/21.",
+      "notes": "Partner: Atwix (c.shadonix@atwix.com, f.reyes@atwix.com). Juan Jacinto (Shopify) also involved. Robert Meyer (rmeyer@bulldogtools.com) is key contact — confirmed out of town week of 4/21.",
       "last_call": "2026-04-17",
       "next_call": "",
       "manager_q": {
@@ -533,7 +547,7 @@
         "map_notes": "",
         "who_signs": "Need to find: Who signs the contract at Bulldog Tools?",
         "urgency": "Need to find: Is there natural urgency or do we need to build it?",
-        "risk_to_close": "\u2022 Very early stage \u2014 deal not yet properly qualified\n\u2022 Custom shipping billing requirement (FedEx/UPS buyer accounts) needs to be validated as solvable",
+        "risk_to_close": "• Very early stage — deal not yet properly qualified\n• Custom shipping billing requirement (FedEx/UPS buyer accounts) needs to be validated as solvable",
         "gut": 5
       }
     },
@@ -547,13 +561,13 @@
       },
       "meddic": {
         "metrics": "Replacing Cart.com with Shopify Plus + B2B + POS. Quote: $2,500/mo (1yr) or $2,300/mo (3yr). Scope includes Business Central ERP connector, ShipperHQ, Authorize.net, Shopify B2B portal, and POS for Chicago location.\n\nKey metrics to develop: current Cart.com annual platform cost + support fees, volume of B2B orders manually processed, labor cost of manual order entry, dealer/contractor portal adoption rate today.",
-        "economic_buyer": "Junior Campos (Website & Platform) \u2014 identified Champion and Decision Lead. He owns the platform evaluation and has been the primary technical voice across all calls.\nSonny Rodriguez (Operations) \u2014 Secondary Decision-Maker. Ops-side sign-off, cares about Business Central integration and fulfillment workflows.\nAction needed: Confirm who holds budget authority and who signs the final contract. Junior may be the technical champion but the financial EB (owner or CFO) has not been confirmed or directly engaged.",
-        "decision_criteria": "1. Shopify B2B portal with contractor/dealer pricing tiers. 2. Business Central ERP integration (order sync, inventory). 3. ShipperHQ for complex shipping rate management. 4. Authorize.net as payment processor. 5. POS for Chicago location(s). 6. Platform stability and modern storefront UX to replace Cart.com. 7. Implementation partner quality \u2014 selecting agency week of Apr 24.",
-        "decision_process": "Discovery Call Mar 27 \u2192 Technical Discovery Apr 3 \u2192 Platform Demo Apr 23 \u2192 Partner Selection Apr 24\u201325 \u2192 Technical Workshop & SOW wk Apr 27 \u2192 Pricing & Commercial Review \u2192 Economic Buyer Engagement \u2192 Platform Decision late May \u2192 LOI / Contract late May \u2192 Build Q2\u2013Q3 \u2192 Go-Live Q4 2026.\n\nJunior Campos leading the evaluation. Partner agency being selected Apr 24\u201325. EB engagement is a planned milestone \u2014 not yet completed.",
+        "economic_buyer": "Junior Campos (Website & Platform) — identified Champion and Decision Lead. He owns the platform evaluation and has been the primary technical voice across all calls.\nSonny Rodriguez (Operations) — Secondary Decision-Maker. Ops-side sign-off, cares about Business Central integration and fulfillment workflows.\nAction needed: Confirm who holds budget authority and who signs the final contract. Junior may be the technical champion but the financial EB (owner or CFO) has not been confirmed or directly engaged.",
+        "decision_criteria": "1. Shopify B2B portal with contractor/dealer pricing tiers. 2. Business Central ERP integration (order sync, inventory). 3. ShipperHQ for complex shipping rate management. 4. Authorize.net as payment processor. 5. POS for Chicago location(s). 6. Platform stability and modern storefront UX to replace Cart.com. 7. Implementation partner quality — selecting agency week of Apr 24.",
+        "decision_process": "Discovery Call Mar 27 → Technical Discovery Apr 3 → Platform Demo Apr 23 → Partner Selection Apr 24–25 → Technical Workshop & SOW wk Apr 27 → Pricing & Commercial Review → Economic Buyer Engagement → Platform Decision late May → LOI / Contract late May → Build Q2–Q3 → Go-Live Q4 2026.\n\nJunior Campos leading the evaluation. Partner agency being selected Apr 24–25. EB engagement is a planned milestone — not yet completed.",
         "pain": "Outgrowing Cart.com: platform limitations on B2B pricing, portal UX, and ERP integration.\nManual order friction: contractor/dealer ordering lacks a self-serve portal with account-specific pricing.\nBusiness Central integration gaps: current stack requires manual reconciliation between orders and ERP.\nShipping complexity: multiple freight rules and carrier rates not cleanly handled on current platform.\nPOS gap: Chicago location(s) need integrated POS tied to the same commerce system.",
-        "champion": "Junior Campos (Website & Platform) \u2014 identified Champion and Decision Lead. Drove the evaluation, attended all calls, is selecting the implementation partner. He is the internal advocate and the technical decision voice.\nSonny Rodriguez (Operations) \u2014 engaged and supportive. His sign-off is needed on the operational and ERP side."
+        "champion": "Junior Campos (Website & Platform) — identified Champion and Decision Lead. Drove the evaluation, attended all calls, is selecting the implementation partner. He is the internal advocate and the technical decision voice.\nSonny Rodriguez (Operations) — engaged and supportive. His sign-off is needed on the operational and ERP side."
       },
-      "strategy": "Clean displacement of Cart.com with a full Shopify Plus + B2B + POS stack. Junior Campos is an engaged champion who has moved fast: three touchpoints in four weeks and a demo on Apr 23. The next critical step is partner selection (Apr 24\u201325) \u2014 Chase needs at least one strong agency finalist in the mix.\n\nThe Business Central integration is the technical anchor. Position ShipperHQ + Authorize.net as native ecosystem strengths rather than workarounds. Tom Arehart (Agency Partner Manager) is engaged \u2014 leverage him to ensure the right partner gets selected.\n\nEconomic Buyer engagement is a planned but incomplete milestone. Before LOI in late May, Chase must identify who signs and get them in the room.",
+      "strategy": "Clean displacement of Cart.com with a full Shopify Plus + B2B + POS stack. Junior Campos is an engaged champion who has moved fast: three touchpoints in four weeks and a demo on Apr 23. The next critical step is partner selection (Apr 24–25) — Chase needs at least one strong agency finalist in the mix.\n\nThe Business Central integration is the technical anchor. Position ShipperHQ + Authorize.net as native ecosystem strengths rather than workarounds. Tom Arehart (Agency Partner Manager) is engaged — leverage him to ensure the right partner gets selected.\n\nEconomic Buyer engagement is a planned but incomplete milestone. Before LOI in late May, Chase must identify who signs and get them in the room.",
       "risks": [
         {
           "sev": "high",
@@ -562,8 +576,8 @@
         },
         {
           "sev": "high",
-          "text": "Partner selection goes wrong \u2014 wrong agency undermines confidence",
-          "mit": "Apr 24\u201325 is the agency shortlist decision. If the selected partner has no BC integration experience, poor B2B track record, or comes in with a sticker-shock SOW, momentum collapses. Tom Arehart must ensure a strong, qualified finalist is in the pool."
+          "text": "Partner selection goes wrong — wrong agency undermines confidence",
+          "mit": "Apr 24–25 is the agency shortlist decision. If the selected partner has no BC integration experience, poor B2B track record, or comes in with a sticker-shock SOW, momentum collapses. Tom Arehart must ensure a strong, qualified finalist is in the pool."
         },
         {
           "sev": "med",
@@ -572,46 +586,46 @@
         },
         {
           "sev": "med",
-          "text": "Cart.com retention play \u2014 platform offers concessions to keep Big Rock",
+          "text": "Cart.com retention play — platform offers concessions to keep Big Rock",
           "mit": "Cart.com may get wind of the evaluation and come in with pricing concessions or promises of new features. Junior is a motivated champion, but if Cart.com offers a meaningful price cut or roadmap commitment, it could stall the decision. Quantify the platform limitations (not just cost) to make a stay-or-go comparison unfavorable to Cart.com."
         },
         {
           "sev": "low",
-          "text": "Timeline slips past late-May decision \u2014 Q4 go-live at risk",
+          "text": "Timeline slips past late-May decision — Q4 go-live at risk",
           "mit": "Every week of delay in signing pushes the build timeline and risks a Q4 launch window. Use the go-live date as a reverse-engineered close milestone and pressure-test it with Junior and the chosen agency."
         }
       ],
       "done": [
-        "Discovery Call \u2014 Junior Campos, Sonny Rodriguez, Chase, Jordan (3/27)",
-        "Technical Discovery \u2014 full team (4/3)",
-        "Platform Demo \u2014 Apr 23"
+        "Discovery Call — Junior Campos, Sonny Rodriguez, Chase, Jordan (3/27)",
+        "Technical Discovery — full team (4/3)",
+        "Platform Demo — Apr 23"
       ],
       "left": [
-        "Partner Selection \u2014 Junior shortlisting agency finalists (Apr 24\u201325)",
-        "Technical Workshop & SOW \u2014 week of Apr 27",
+        "Partner Selection — Junior shortlisting agency finalists (Apr 24–25)",
+        "Technical Workshop & SOW — week of Apr 27",
         "Pricing & Commercial Review",
         "Identify and engage Economic Buyer",
-        "Platform Decision \u2014 target late May",
+        "Platform Decision — target late May",
         "LOI / Letter of Intent",
         "Submit Contract",
-        "Sign Agreement & Activate Plus \u2014 target late May",
+        "Sign Agreement & Activate Plus — target late May",
         "BC Integration Config",
         "Storefront & B2B Portal Build",
         "POS Setup Chicago",
-        "Go-Live \u2014 Q4 2026"
+        "Go-Live — Q4 2026"
       ],
-      "notes": "Replacing Cart.com. Implementation team: Junior Campos (Champion), Sonny Rodriguez (Ops/Secondary DM), Evan + Conner + Nick (team). Shopify team: Chase McCane (AE), Jordan Murphy (SE), Tom Arehart (Agency Partner Manager). Quote expires June 6, 2026. Partner selection happening Apr 24\u201325. BC integration + ShipperHQ + Authorize.net in scope.",
+      "notes": "Demo Apr 23 went very well — great energy from the team, lots of questions. Chase sent revenue/payment breakdown request to Sonny & Junior post-demo. Partner shortlist: Uncap + Arctic Grey (Sonny chose these Apr 7); Arctic Grey meeting scheduled Apr 24. Team contacts confirmed on demo invite: Evan (evan@bigrocksupply.com), Conner (conner@bigrocksupply.com), Nick (nick@bigrocksupply.com). Replacing Cart.com. Shopify team: Chase McCane (AE), Jordan Murphy (SE), Tom Arehart (Agency Partner Manager). Quote expires June 6, 2026. BC integration + ShipperHQ + Authorize.net in scope.",
       "last_call": "2026-04-23",
       "next_call": "",
       "manager_q": {
-        "compelling_event": "\u2022 Outgrowing Cart.com \u2014 B2B portal, pricing tiers, and ERP integration all hitting platform limits\n\u2022 Business Central integration is manual and error-prone today \u2014 ops team wants clean order sync\n\u2022 POS gap for Chicago location \u2014 needs unified stack\n\u2022 Go-Live target Q4 2026 \u2014 reverse-engineered close timeline is late May",
+        "compelling_event": "• Outgrowing Cart.com — B2B portal, pricing tiers, and ERP integration all hitting platform limits\n• Business Central integration is manual and error-prone today — ops team wants clean order sync\n• POS gap for Chicago location — needs unified stack\n• Go-Live target Q4 2026 — reverse-engineered close timeline is late May",
         "map_created": true,
         "map_shared": null,
         "map_agreed": null,
         "map_notes": "MAP + Proposal at chasemccane.github.io/maps/bigrock/ (passcode: bigrocksupply). MAP-only at chasemccane.github.io/maps/bigrock/map.html.",
-        "who_signs": "\u2022 Junior Campos (Champion / Decision Lead) \u2014 owns technical evaluation\n\u2022 Sonny Rodriguez (Operations) \u2014 secondary decision-maker\n\u2022 Economic Buyer NOT YET CONFIRMED \u2014 need to identify who holds budget authority\n\u2022 Action needed: get EB named before Technical Workshop week",
-        "urgency": "\u2022 Natural: Q4 2026 go-live target creates a reverse-engineered close window of late May\n\u2022 Moving fast: Discovery \u2192 Technical \u2192 Demo in 4 weeks\n\u2022 Partner selection Apr 24\u201325 \u2014 momentum is high right now\n\u2022 Build it: quantify Cart.com platform cost + manual ops overhead vs Shopify ROI",
-        "risk_to_close": "\u2022 EB not yet identified \u2014 late-stage surprise possible\n\u2022 Partner selection is a critical dependency \u2014 wrong agency stalls everything\n\u2022 BC integration scope not yet fully defined \u2014 could affect SOW cost and timeline\n\u2022 Cart.com may counter with concessions",
+        "who_signs": "• Junior Campos (Champion / Decision Lead) — owns technical evaluation\n• Sonny Rodriguez (Operations) — secondary decision-maker\n• Economic Buyer NOT YET CONFIRMED — need to identify who holds budget authority\n• Action needed: get EB named before Technical Workshop week",
+        "urgency": "• Natural: Q4 2026 go-live target creates a reverse-engineered close window of late May\n• Moving fast: Discovery → Technical → Demo in 4 weeks\n• Partner selection Apr 24–25 — momentum is high right now\n• Build it: quantify Cart.com platform cost + manual ops overhead vs Shopify ROI",
+        "risk_to_close": "• EB not yet identified — late-stage surprise possible\n• Partner selection is a critical dependency — wrong agency stalls everything\n• BC integration scope not yet fully defined — could affect SOW cost and timeline\n• Cart.com may counter with concessions",
         "gut": 7
       }
     }
