@@ -891,8 +891,7 @@
 <section id="payments">
   <div class="container">
     <div class="section-label">Payment Consolidation</div>
-    <h2>Kill the 2% fee.<br/>One processor. Every channel.</h2>
-    <p style="margin-top:.75rem;max-width:620px;">Right now, every order processed through a third-party gateway like Authorize.net triggers an additional Shopify transaction fee on top of your processing rate. Shopify Payments eliminates that fee entirely — and brings competitive rates across every channel.</p>
+    <h2>One processor.<br/>Every dollar, every channel.</h2>
 
     <div class="payments-layout">
       <div>
@@ -951,112 +950,41 @@
         <div class="payment-highlight">
           <h3>Why Shopify Payments</h3>
           <ul>
-            <li>No third-party gateway transaction fee — zero, on every order</li>
-            <li>Competitive Plus rates: online 2.15%, in-person 1.7%</li>
+            <li>No third-party gateway fee — eliminated entirely on every order</li>
             <li>B2B credit card vaulting for contractor accounts on net terms</li>
             <li>Same-day payouts available across all channels</li>
             <li>Chargeback management and fraud protection built in</li>
             <li>Single payout, single reconciliation, one 1099-K at year end</li>
-            <li>No contract — you can switch back at any time (but you won't)</li>
           </ul>
         </div>
       </div>
 
-      <!-- INTERACTIVE CALCULATOR -->
       <div>
-        <div class="calc-card">
-          <div class="calc-title">
-            <span>💰</span> Savings Calculator
-          </div>
-
-          <div class="calc-input-group">
-            <div class="calc-label">
-              Monthly Online / B2B Volume
-              <span class="val" id="vol-online-display">$100,000</span>
+        <div style="margin-top:0;padding:1.25rem;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);">
+          <p style="font-size:.75rem;font-weight:700;color:var(--ink-light);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.75rem;">What unified processing means</p>
+          <div style="display:flex;flex-direction:column;gap:.6rem;">
+            <div style="display:flex;align-items:flex-start;gap:.6rem;font-size:.875rem;">
+              <span style="color:var(--br-orange);font-weight:700;flex-shrink:0;">✓</span>
+              <span>One provider across B2B portal, DTC, Chicago POS, and outside sales orders</span>
             </div>
-            <input type="range" class="calc-slider" id="vol-online"
-              min="10000" max="1000000" step="5000" value="100000"
-              oninput="updateCalc()"
-            />
-          </div>
-
-          <div class="calc-input-group">
-            <div class="calc-label">
-              Monthly In-Store / POS Volume
-              <span class="val" id="vol-pos-display">$50,000</span>
+            <div style="display:flex;align-items:flex-start;gap:.6rem;font-size:.875rem;">
+              <span style="color:var(--br-orange);font-weight:700;flex-shrink:0;">✓</span>
+              <span>Single payout, single reconciliation, one dashboard</span>
             </div>
-            <input type="range" class="calc-slider" id="vol-pos"
-              min="0" max="500000" step="5000" value="50000"
-              oninput="updateCalc()"
-            />
-          </div>
-
-          <div style="margin-top:.5rem;padding:.75rem 1rem;background:var(--surface-2);border-radius:8px;border:1px solid var(--border);">
-            <p style="font-size:.75rem;color:var(--ink-light);">
-              Assumes Authorize.net effective rate of <strong>3.1%</strong> online (including $0.30/txn) and <strong>2.6%</strong> in-store, plus <strong>$25/mo</strong> gateway fee. Shopify Payments Plus rates: <strong>2.15%</strong> online, <strong>1.7%</strong> in-person.
-            </p>
-          </div>
-
-          <div class="calc-results">
-            <div class="calc-box old-box">
-              <div class="blabel">Current Monthly Cost</div>
-              <div class="bamount" id="result-current">$4,175</div>
-              <div class="bsub">Authorize.net + gateway fees</div>
+            <div style="display:flex;align-items:flex-start;gap:.6rem;font-size:.875rem;">
+              <span style="color:var(--br-orange);font-weight:700;flex-shrink:0;">✓</span>
+              <span>Every transaction flows to Business Central automatically — no manual entry</span>
             </div>
-            <div class="calc-box new-box">
-              <div class="blabel">Shopify Payments Monthly</div>
-              <div class="bamount" id="result-new">$3,000</div>
-              <div class="bsub">No gateway fee. Competitive rates.</div>
+            <div style="display:flex;align-items:flex-start;gap:.6rem;font-size:.875rem;">
+              <span style="color:var(--br-orange);font-weight:700;flex-shrink:0;">✓</span>
+              <span>Replace Authorize.net, reduce vendor count, simplify finance ops</span>
             </div>
-          </div>
-
-          <div class="calc-savings">
-            <div>
-              <div class="slabel">Estimated Annual Savings</div>
-              <div style="font-size:.7rem;color:rgba(255,255,255,.6);margin-top:.1rem;">By switching to Shopify Payments</div>
-            </div>
-            <div class="samount" id="result-annual">$14,100</div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-<script>
-  function fmtDollar(n) {
-    if (n >= 1000) return '$' + (n/1000).toFixed(n % 1000 === 0 ? 0 : 1) + 'K';
-    return '$' + n.toLocaleString();
-  }
-  function fmtFull(n) {
-    return '$' + Math.round(n).toLocaleString();
-  }
-  function updateCalc() {
-    var online = parseInt(document.getElementById('vol-online').value) || 0;
-    var pos = parseInt(document.getElementById('vol-pos').value) || 0;
-
-    document.getElementById('vol-online-display').textContent = fmtDollar(online);
-    document.getElementById('vol-pos-display').textContent = fmtDollar(pos);
-
-    // Current: Authorize.net effective rates + gateway
-    var currentOnline = online * 0.031;
-    var currentPos = pos * 0.026;
-    var currentTotal = currentOnline + currentPos + 25;
-
-    // Shopify Payments Plus
-    var newOnline = online * 0.0215;
-    var newPos = pos * 0.017;
-    var newTotal = newOnline + newPos;
-
-    var monthlySavings = currentTotal - newTotal;
-    var annualSavings = monthlySavings * 12;
-
-    document.getElementById('result-current').textContent = fmtFull(currentTotal) + '/mo';
-    document.getElementById('result-new').textContent = fmtFull(newTotal) + '/mo';
-    document.getElementById('result-annual').textContent = fmtFull(annualSavings);
-  }
-  updateCalc();
-</script>
 
 <!-- ══ BC365 INTEGRATION ══ -->
 <section id="bc">
