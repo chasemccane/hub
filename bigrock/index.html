@@ -1,0 +1,1617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shopify × Big Rock Supply — Unified Commerce Proposal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --shopify-green: #008060;
+      --shopify-green-light: #e3f5f0;
+      --br-dark: #1C1C1C;
+      --br-orange: #2E7FC4;
+      --br-orange-light: #EBF4FC;
+      --br-orange-mid: #90C4E8;
+      --br-charcoal: #2C2C2C;
+      --ink: #1a1a1a;
+      --ink-mid: #4a4a4a;
+      --ink-light: #6b7280;
+      --surface: #ffffff;
+      --surface-2: #f8f5f2;
+      --surface-3: #f2ece6;
+      --border: #e5ddd5;
+      --gold: #c8932a;
+      --gold-light: #fef3e0;
+      --radius: 12px;
+      --shadow: 0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.06);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,.12);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--ink);
+      background: var(--surface);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: 10px;
+      font-weight: 700; font-size: .95rem; color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-brand .dot { color: var(--ink-light); font-weight: 300; margin: 0 2px; }
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; }
+    .nav-links a {
+      font-size: .85rem; font-weight: 500; color: var(--ink-light);
+      text-decoration: none; transition: color .15s;
+    }
+    .nav-links a:hover { color: var(--br-orange); }
+    .nav-cta {
+      background: var(--br-orange);
+      color: #fff !important; padding: .4rem 1rem; border-radius: 6px;
+    }
+    .nav-cta:hover { background: #1A6AAE !important; color: #fff !important; }
+
+    /* ── SHARED ── */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: .8rem; font-weight: 800; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--br-orange); margin-bottom: .75rem;
+    }
+    h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2.4rem, 5.5vw, 4rem);
+      font-weight: 800; text-transform: uppercase;
+      letter-spacing: .01em; line-height: 1.05;
+    }
+    h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      font-weight: 800; text-transform: uppercase;
+      letter-spacing: .01em; line-height: 1.1;
+    }
+    h3 { font-size: 1.1rem; font-weight: 700; }
+    p { color: var(--ink-mid); }
+
+    /* ── HERO ── */
+    #hero {
+      background: linear-gradient(160deg, #EBF4FC 0%, #ffffff 55%, #f8f5f2 100%);
+      padding: 6rem 2rem 5rem; text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-logos {
+      display: flex; align-items: center; justify-content: center;
+      gap: 1.25rem; margin-bottom: 2rem;
+    }
+    .logo-pill {
+      display: flex; align-items: center; gap: .6rem;
+      background: var(--surface); border: 1.5px solid var(--border);
+      border-radius: 100px; padding: .5rem 1.25rem .5rem .75rem;
+      font-weight: 700; font-size: .95rem; box-shadow: var(--shadow);
+    }
+    .hero-x { font-size: 1.4rem; color: var(--ink-light); font-weight: 300; }
+    #hero h1 { margin-bottom: 1.25rem; }
+    #hero h1 em { font-style: normal; color: var(--br-orange); }
+    .hero-sub {
+      max-width: 640px; margin: 0 auto 2.5rem;
+      font-size: 1.15rem; color: var(--ink-mid);
+    }
+    .hero-badges {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: .75rem; margin-bottom: 3rem;
+    }
+    .badge {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 100px; padding: .35rem .9rem;
+      font-size: .8rem; font-weight: 600; color: var(--ink-mid);
+    }
+    .badge.orange {
+      background: var(--br-orange-light);
+      border-color: var(--br-orange-mid); color: var(--br-orange);
+    }
+    .hero-stat-row {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 2px;
+    }
+    .hero-stat {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.25rem 2rem;
+      min-width: 150px; box-shadow: var(--shadow);
+    }
+    .hero-stat .num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2.2rem; font-weight: 800; color: var(--br-orange); line-height: 1;
+    }
+    .hero-stat .lbl { font-size: .75rem; color: var(--ink-light); margin-top: .25rem; font-weight: 500; }
+
+    /* ── CHALLENGE ── */
+    #challenge { background: var(--surface-2); }
+    .challenge-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem; margin-top: 2.5rem;
+    }
+    .challenge-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow);
+    }
+    .challenge-card .icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; margin-bottom: 1rem; background: #fee2e2;
+    }
+    .challenge-card h3 { margin-bottom: .4rem; color: var(--ink); }
+    .challenge-card p { font-size: .875rem; }
+
+    /* ── PHILOSOPHY ── */
+    #philosophy { background: var(--surface); }
+    .philosophy-wrap {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center; margin-top: 2.5rem;
+    }
+    .vs-stack { display: flex; flex-direction: column; gap: 1rem; }
+    .vs-row { display: flex; gap: .75rem; align-items: flex-start; }
+    .vs-icon {
+      width: 28px; height: 28px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .85rem; flex-shrink: 0; margin-top: 2px;
+    }
+    .vs-icon.no { background: #fee2e2; color: #dc2626; }
+    .vs-icon.yes { background: var(--br-orange-light); color: var(--br-orange); }
+    .vs-row p { font-size: .9rem; }
+    .arch-diagram {
+      background: var(--surface-3); border: 1px solid var(--border);
+      border-radius: 16px; padding: 2rem;
+    }
+    .arch-node {
+      background: var(--surface); border: 1.5px solid var(--border);
+      border-radius: 10px; padding: .75rem 1.25rem;
+      text-align: center; font-weight: 700; font-size: .9rem;
+      box-shadow: var(--shadow);
+    }
+    .arch-node.shopify {
+      border-color: var(--br-orange);
+      background: var(--br-orange-light); color: var(--br-orange);
+    }
+    .arch-node.bc {
+      border-color: #0078d4; background: #e8f4ff; color: #005a9e;
+    }
+    .arch-arrow {
+      display: flex; align-items: center; justify-content: center;
+      color: var(--ink-light); font-size: .75rem; font-weight: 600;
+      gap: .4rem; padding: .5rem 0;
+    }
+    .arch-channels {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: .5rem; margin-bottom: 1rem;
+    }
+    .arch-ch {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px; padding: .5rem .75rem;
+      font-size: .78rem; font-weight: 600; text-align: center; color: var(--ink-mid);
+    }
+
+    /* ── CHANNELS ── */
+    #channels { background: var(--surface-2); }
+    .channels-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem; margin-top: 2.5rem;
+    }
+    .channel-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.75rem;
+      box-shadow: var(--shadow); position: relative; overflow: hidden;
+    }
+    .channel-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 4px; background: var(--br-orange);
+    }
+    .channel-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: .75rem; font-weight: 800; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--br-orange); margin-bottom: .5rem;
+    }
+    .channel-card h3 { font-size: 1.1rem; margin-bottom: .6rem; }
+    .channel-card .sub { font-size: .8rem; color: var(--ink-light); font-weight: 500; margin-bottom: 1rem; }
+    .feature-list { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+    .feature-list li {
+      display: flex; align-items: flex-start; gap: .5rem;
+      font-size: .85rem; color: var(--ink-mid);
+    }
+    .feature-list li::before {
+      content: '✓'; color: var(--br-orange); font-weight: 800;
+      flex-shrink: 0; margin-top: 1px;
+    }
+
+    /* ── PAYMENTS + CALCULATOR ── */
+    #payments { background: var(--surface); }
+    .payments-layout {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 3rem; margin-top: 2.5rem; align-items: start;
+    }
+    .payment-scenario {
+      border: 1px solid var(--border); border-radius: var(--radius);
+      overflow: hidden; box-shadow: var(--shadow); margin-bottom: 1.25rem;
+    }
+    .scenario-header {
+      padding: 1rem 1.25rem; font-size: .8rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+    }
+    .scenario-header.old { background: #fee2e2; color: #991b1b; }
+    .scenario-header.new { background: var(--br-orange-light); color: var(--br-orange); }
+    .scenario-body { padding: 1.25rem; }
+    .scenario-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: .6rem 0; border-bottom: 1px solid var(--border); font-size: .875rem;
+    }
+    .scenario-row:last-child { border-bottom: none; }
+    .scenario-row .ch { font-weight: 600; color: var(--ink); }
+    .scenario-row .pr { color: var(--ink-light); font-size: .82rem; }
+    .scenario-row .pr.unified { color: var(--br-orange); font-weight: 600; }
+
+    /* Calculator */
+    .calc-card {
+      background: var(--surface); border: 1.5px solid var(--br-orange-mid);
+      border-radius: var(--radius); padding: 1.75rem; box-shadow: var(--shadow-lg);
+    }
+    .calc-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem; font-weight: 800; text-transform: uppercase;
+      letter-spacing: .08em; color: var(--ink); margin-bottom: 1.25rem;
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .calc-input-group { margin-bottom: 1.25rem; }
+    .calc-label {
+      display: flex; justify-content: space-between;
+      font-size: .75rem; font-weight: 700; color: var(--ink-mid);
+      text-transform: uppercase; letter-spacing: .08em; margin-bottom: .45rem;
+    }
+    .calc-label .val {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.05rem; font-weight: 800; color: var(--br-orange);
+      text-transform: none; letter-spacing: 0;
+    }
+    .calc-slider {
+      width: 100%; -webkit-appearance: none;
+      height: 6px; border-radius: 3px; background: var(--border);
+      outline: none; cursor: pointer;
+    }
+    .calc-slider::-webkit-slider-thumb {
+      -webkit-appearance: none; width: 20px; height: 20px;
+      border-radius: 50%; background: var(--br-orange);
+      cursor: pointer; box-shadow: 0 2px 8px rgba(200,82,26,.35);
+    }
+    .calc-results {
+      margin-top: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: .75rem;
+    }
+    .calc-box {
+      padding: 1rem; border-radius: 10px; text-align: center;
+    }
+    .calc-box.old-box { background: #fef2f2; border: 1px solid #fecaca; }
+    .calc-box.new-box { background: var(--br-orange-light); border: 1px solid var(--br-orange-mid); }
+    .calc-box .blabel {
+      font-size: .7rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .08em; margin-bottom: .2rem;
+    }
+    .calc-box.old-box .blabel { color: #dc2626; }
+    .calc-box.new-box .blabel { color: var(--br-orange); }
+    .calc-box .bamount {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.7rem; font-weight: 800; line-height: 1.1;
+    }
+    .calc-box.old-box .bamount { color: #dc2626; }
+    .calc-box.new-box .bamount { color: var(--br-orange); }
+    .calc-box .bsub { font-size: .68rem; color: var(--ink-light); margin-top: .15rem; }
+    .calc-savings {
+      margin-top: .75rem; background: var(--br-orange);
+      border-radius: 10px; padding: 1rem 1.25rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .calc-savings .slabel {
+      font-size: .78rem; font-weight: 700; color: rgba(255,255,255,.85);
+    }
+    .calc-savings .samount {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.7rem; font-weight: 800; color: #fff;
+    }
+    .payment-highlight {
+      background: var(--br-orange-light); border: 1px solid var(--br-orange-mid);
+      border-radius: var(--radius); padding: 1.5rem; margin-top: 1.25rem;
+    }
+    .payment-highlight h3 { color: var(--br-orange); margin-bottom: .75rem; }
+    .payment-highlight ul { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+    .payment-highlight li {
+      font-size: .875rem; display: flex; align-items: flex-start;
+      gap: .5rem; color: var(--ink-mid);
+    }
+    .payment-highlight li::before { content: '→'; color: var(--br-orange); font-weight: 700; }
+
+    /* ── BC365 INTEGRATION ── */
+    #bc { background: var(--surface-2); }
+    .bc-flow {
+      margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1rem;
+      max-width: 680px; margin-left: auto; margin-right: auto;
+    }
+    .bc-step { display: flex; gap: 1rem; align-items: flex-start; }
+    .bc-num {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--br-orange); color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800; font-size: 1rem;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .bc-content h3 { font-size: 1rem; margin-bottom: .2rem; }
+    .bc-content p { font-size: .875rem; }
+    .bc-sync-grid {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem; margin-top: 2rem;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem; box-shadow: var(--shadow);
+    }
+    .bc-sync-item { text-align: center; padding: .75rem; }
+    .bc-sync-item .sicon { font-size: 1.4rem; margin-bottom: .35rem; }
+    .bc-sync-item .slabel { font-size: .78rem; font-weight: 700; color: var(--ink); }
+    .bc-sync-item .sdir { font-size: .68rem; color: var(--ink-light); margin-top: .15rem; }
+
+    /* ── WHY SHOPIFY ── */
+    #why { background: var(--surface); }
+    .why-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem; margin-top: 2rem;
+    }
+    .why-item {
+      display: flex; gap: .75rem; align-items: flex-start;
+      padding: 1.1rem 1.25rem; border: 1px solid var(--border);
+      border-radius: var(--radius); background: var(--surface);
+    }
+    .why-check { color: var(--br-orange); font-weight: 800; font-size: 1.1rem; flex-shrink: 0; }
+    .why-item strong { display: block; margin-bottom: .2rem; }
+    .why-item span { font-size: .85rem; color: var(--ink-mid); }
+
+    /* ── CASE STUDIES ── */
+    #cases { background: var(--surface-2); }
+    .cases-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem; margin-top: 2.5rem;
+    }
+    .case-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.75rem; box-shadow: var(--shadow);
+    }
+    .case-industry {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: .72rem; font-weight: 800; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--br-orange); margin-bottom: .6rem;
+    }
+    .case-card h3 { margin-bottom: .5rem; font-size: 1rem; }
+    .case-card p { font-size: .85rem; margin-bottom: 1rem; }
+    .case-stats { display: flex; gap: .75rem; flex-wrap: wrap; }
+    .case-stat {
+      background: var(--br-orange-light); border: 1px solid var(--br-orange-mid);
+      border-radius: 8px; padding: .5rem .9rem; text-align: center;
+    }
+    .case-stat .csnum {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.4rem; font-weight: 800; color: var(--br-orange); line-height: 1;
+    }
+    .case-stat .cslbl { font-size: .67rem; font-weight: 600; color: var(--ink-light); }
+
+    /* ── PRICING ── */
+    #pricing { background: var(--surface); }
+    .pricing-wrap {
+      display: grid; grid-template-columns: 1.2fr 1fr;
+      gap: 2rem; align-items: start; margin-top: 2.5rem;
+    }
+    .pricing-card {
+      background: var(--surface); border: 2px solid var(--br-orange);
+      border-radius: 16px; padding: 2rem; box-shadow: var(--shadow-lg);
+    }
+    .pricing-badge {
+      display: inline-block; background: var(--br-orange); color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: .75rem; font-weight: 800; letter-spacing: .15em;
+      text-transform: uppercase; padding: .2rem .85rem;
+      border-radius: 100px; margin-bottom: .85rem;
+    }
+    .pricing-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.9rem; font-weight: 800; text-transform: uppercase;
+      color: var(--ink); margin-bottom: .2rem;
+    }
+    .pricing-price {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.1rem; font-weight: 700; color: var(--ink-mid);
+      margin-bottom: 1.5rem; padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .pricing-price strong { font-size: 2.6rem; color: var(--br-orange); }
+    .pricing-includes h4 {
+      font-size: .73rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .1em; color: var(--ink-light); margin-bottom: .75rem;
+    }
+    .pricing-includes ul {
+      list-style: none; display: grid;
+      grid-template-columns: 1fr 1fr; gap: .5rem;
+    }
+    .pricing-includes li {
+      font-size: .85rem; color: var(--ink-mid);
+      display: flex; gap: .5rem; align-items: flex-start;
+    }
+    .pricing-includes li::before { content: '✓'; color: var(--br-orange); font-weight: 800; flex-shrink: 0; }
+    .pricing-note {
+      margin-top: 1.25rem; padding: 1rem 1.25rem;
+      background: var(--surface-2); border-radius: 8px;
+      font-size: .8rem; color: var(--ink-light);
+      border: 1px solid var(--border);
+    }
+    .pricing-side { display: flex; flex-direction: column; gap: 1rem; }
+    .pricing-side-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.25rem; box-shadow: var(--shadow);
+    }
+    .pricing-side-card h4 { font-size: .85rem; font-weight: 700; margin-bottom: .5rem; }
+    .pricing-side-card p { font-size: .82rem; }
+    .pricing-side-card ul { list-style: none; display: flex; flex-direction: column; gap: .4rem; margin-top: .5rem; }
+    .pricing-side-card li { font-size: .82rem; color: var(--ink-mid); display: flex; gap: .4rem; }
+    .pricing-side-card li::before { content: '·'; color: var(--br-orange); font-weight: 800; }
+
+    /* ── TIMELINE ── */
+    #timeline { background: var(--surface-2); }
+    .timeline-track { margin-top: 2.5rem; display: flex; flex-direction: column; }
+    .timeline-item {
+      display: flex; gap: 1.5rem; padding-bottom: 2rem;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-left {
+      display: flex; flex-direction: column;
+      align-items: center; flex-shrink: 0; width: 40px;
+    }
+    .timeline-dot {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--br-orange); color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800; font-size: .9rem;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0; z-index: 1;
+    }
+    .timeline-dot.done { background: var(--br-orange); }
+    .timeline-dot.next { background: var(--surface); border: 2px solid var(--br-orange); color: var(--br-orange); }
+    .timeline-dot.future { background: var(--surface-3); border: 2px solid var(--border); color: var(--ink-light); }
+    .timeline-line { flex: 1; width: 2px; background: var(--border); margin-top: 4px; }
+    .timeline-item:last-child .timeline-line { display: none; }
+    .timeline-content { padding-top: .5rem; flex: 1; }
+    .timeline-content .tdate {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: .8rem; font-weight: 800; color: var(--br-orange);
+      text-transform: uppercase; letter-spacing: .12em; margin-bottom: .25rem;
+    }
+    .timeline-content h3 { font-size: 1rem; margin-bottom: .25rem; }
+    .timeline-content p { font-size: .875rem; }
+
+    /* ── TEAM CONTACTS ── */
+    #team { background: var(--surface); }
+    .team-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem; margin-top: 2rem;
+    }
+    .team-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.25rem; box-shadow: var(--shadow);
+    }
+    .team-card .team-org {
+      font-size: .68rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .1em; color: var(--br-orange); margin-bottom: .4rem;
+    }
+    .team-card h3 { font-size: .95rem; margin-bottom: .15rem; }
+    .team-card .team-title { font-size: .8rem; color: var(--ink-light); }
+    .team-card .team-role {
+      font-size: .75rem; color: var(--ink-mid); margin-top: .4rem;
+      padding-top: .4rem; border-top: 1px solid var(--border);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--br-dark); color: rgba(255,255,255,.7);
+      padding: 2.5rem 2rem; text-align: center;
+    }
+    footer .footer-brand {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800; font-size: 1.3rem; text-transform: uppercase;
+      letter-spacing: .08em; color: #fff; margin-bottom: .5rem;
+    }
+    footer p { font-size: .8rem; }
+    footer a { color: var(--br-orange-mid); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      .philosophy-wrap, .payments-layout, .pricing-wrap { grid-template-columns: 1fr; gap: 1.5rem; }
+      .pricing-includes ul { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      #hero { padding: 4rem 1.5rem 3rem; }
+      section { padding: 3.5rem 1.5rem; }
+      .hero-stat-row { flex-direction: column; align-items: center; }
+      .calc-results { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ PASSCODE GATE ══ -->
+<div id="gate" style="
+  position:fixed;inset:0;z-index:9999;
+  background:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Inter',-apple-system,sans-serif;
+">
+  <div style="text-align:center;max-width:340px;padding:2rem;">
+    <div style="margin-bottom:1.5rem;">
+      <div style="
+        display:inline-flex;align-items:center;justify-content:center;
+        background:#1C1C1C;border-radius:12px;padding:.75rem 1.25rem;
+        gap:.6rem;
+      ">
+        <svg width="20" height="20" viewBox="0 0 44 44" fill="none"><path d="M28.5 5.5C28.5 5.5 27.9 5.6 27.1 5.8C26.5 4.1 25.3 2.6 23.2 2.6C23.1 2.6 23 2.6 22.9 2.6C22.3 1.8 21.5 1.5 20.9 1.5C16.5 1.5 14.4 6.9 13.7 9.8C11.9 10.3 10.7 10.7 10.5 10.7C9.5 11 9.5 11 9.3 12C9.2 12.7 6.5 33.8 6.5 33.8L28.7 38L37.5 35.9C37.5 35.9 28.6 5.8 28.5 5.5ZM22.8 7L22.8 7.2C21.4 7.6 19.9 8 18.4 8.5C18.9 6.6 20 5.5 20.9 4.9C21.4 5.9 22 6.6 22.8 7ZM20.8 3.3C21 3.3 21.3 3.4 21.5 3.6C20.5 4.1 19.4 5.4 18.9 7.6C17.7 8 16.6 8.4 15.6 8.7C16.4 5.9 18 3.3 20.8 3.3ZM23 30.8L28 29.3L26.8 23.4L23 30.8ZM23.4 7.5C24.6 7.8 25.5 8.7 26.1 10L19.5 11.9C20.2 9.5 21.7 8.1 23.4 7.5Z" fill="#95BF47"/></svg>
+        <span style="color:#fff;font-weight:700;font-size:.9rem;letter-spacing:.02em;">Shopify</span>
+        <span style="color:rgba(255,255,255,.4);font-weight:300;font-size:1rem;">×</span>
+        <span style="font-family:'Barlow Condensed',sans-serif;color:#2E7FC4;font-weight:800;font-size:1rem;text-transform:uppercase;letter-spacing:.05em;">Big Rock Supply</span>
+      </div>
+    </div>
+    <p style="font-size:.85rem;color:#6b7280;margin-bottom:1.5rem;">Enter passcode to access this proposal.</p>
+    <input id="passcode-input" type="password" placeholder="Passcode" autocomplete="off"
+      style="
+        width:100%;padding:.75rem 1rem;
+        border:1.5px solid #e5e7eb;border-radius:8px;
+        font-size:1rem;font-family:inherit;
+        outline:none;text-align:center;letter-spacing:.1em;
+        transition:border-color .15s;margin-bottom:.75rem;
+      "
+    />
+    <div id="passcode-error" style="color:#dc2626;font-size:.8rem;margin-bottom:.75rem;min-height:1.2em;"></div>
+    <button onclick="checkPasscode()" style="
+      width:100%;padding:.75rem;
+      background:#2E7FC4;color:#fff;
+      border:none;border-radius:8px;
+      font-size:.95rem;font-weight:700;font-family:inherit;
+      cursor:pointer;transition:background .15s;
+    ">View Proposal</button>
+  </div>
+</div>
+
+<script>
+  (function() {
+    var input = document.getElementById('passcode-input');
+    if (sessionStorage.getItem('bigrock-proposal-auth') === '1') {
+      document.getElementById('gate').style.display = 'none';
+    }
+    input.addEventListener('keydown', function(e) { if (e.key === 'Enter') checkPasscode(); });
+    input.addEventListener('focus', function() { this.style.borderColor = '#2E7FC4'; });
+    input.addEventListener('blur', function() { this.style.borderColor = '#e5e7eb'; });
+  })();
+  function checkPasscode() {
+    var val = document.getElementById('passcode-input').value;
+    if (val === 'Bigrocksupply123') {
+      sessionStorage.setItem('bigrock-proposal-auth', '1');
+      var gate = document.getElementById('gate');
+      gate.style.opacity = '0'; gate.style.transition = 'opacity .3s';
+      setTimeout(function() { gate.style.display = 'none'; }, 300);
+    } else {
+      document.getElementById('passcode-error').textContent = 'Incorrect passcode. Try again.';
+      document.getElementById('passcode-input').value = '';
+      document.getElementById('passcode-input').focus();
+    }
+  }
+</script>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <a class="nav-brand" href="#">
+    <svg width="20" height="20" viewBox="0 0 44 44" fill="none"><path d="M28.5 5.5C28.5 5.5 27.9 5.6 27.1 5.8C26.5 4.1 25.3 2.6 23.2 2.6C23.1 2.6 23 2.6 22.9 2.6C22.3 1.8 21.5 1.5 20.9 1.5C16.5 1.5 14.4 6.9 13.7 9.8C11.9 10.3 10.7 10.7 10.5 10.7C9.5 11 9.5 11 9.3 12C9.2 12.7 6.5 33.8 6.5 33.8L28.7 38L37.5 35.9C37.5 35.9 28.6 5.8 28.5 5.5ZM22.8 7L22.8 7.2C21.4 7.6 19.9 8 18.4 8.5C18.9 6.6 20 5.5 20.9 4.9C21.4 5.9 22 6.6 22.8 7ZM20.8 3.3C21 3.3 21.3 3.4 21.5 3.6C20.5 4.1 19.4 5.4 18.9 7.6C17.7 8 16.6 8.4 15.6 8.7C16.4 5.9 18 3.3 20.8 3.3ZM23 30.8L28 29.3L26.8 23.4L23 30.8ZM23.4 7.5C24.6 7.8 25.5 8.7 26.1 10L19.5 11.9C20.2 9.5 21.7 8.1 23.4 7.5Z" fill="#95BF47"/></svg>
+    Shopify
+    <span class="dot">×</span>
+    <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;text-transform:uppercase;letter-spacing:.04em;color:#2E7FC4;">Big Rock Supply</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#challenge">Challenge</a></li>
+    <li><a href="#channels">Channels</a></li>
+    <li><a href="#payments">Payments</a></li>
+    <li><a href="#bc">BC365</a></li>
+    <li><a href="#why">Why Shopify</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#timeline" class="nav-cta">Timeline</a></li>
+  </ul>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-logos">
+      <div class="logo-pill">
+        <svg width="20" height="20" viewBox="0 0 44 44" fill="none"><path d="M28.5 5.5C28.5 5.5 27.9 5.6 27.1 5.8C26.5 4.1 25.3 2.6 23.2 2.6C23.1 2.6 23 2.6 22.9 2.6C22.3 1.8 21.5 1.5 20.9 1.5C16.5 1.5 14.4 6.9 13.7 9.8C11.9 10.3 10.7 10.7 10.5 10.7C9.5 11 9.5 11 9.3 12C9.2 12.7 6.5 33.8 6.5 33.8L28.7 38L37.5 35.9C37.5 35.9 28.6 5.8 28.5 5.5ZM22.8 7L22.8 7.2C21.4 7.6 19.9 8 18.4 8.5C18.9 6.6 20 5.5 20.9 4.9C21.4 5.9 22 6.6 22.8 7ZM20.8 3.3C21 3.3 21.3 3.4 21.5 3.6C20.5 4.1 19.4 5.4 18.9 7.6C17.7 8 16.6 8.4 15.6 8.7C16.4 5.9 18 3.3 20.8 3.3ZM23 30.8L28 29.3L26.8 23.4L23 30.8ZM23.4 7.5C24.6 7.8 25.5 8.7 26.1 10L19.5 11.9C20.2 9.5 21.7 8.1 23.4 7.5Z" fill="#95BF47"/></svg>
+        Shopify
+      </div>
+      <span class="hero-x">×</span>
+      <div class="logo-pill" style="background:var(--br-dark);border-color:#111;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <rect x="1" y="3" width="22" height="18" rx="4" fill="none" stroke="#2E7FC4" stroke-width="1.5"/>
+          <text x="12" y="11.5" text-anchor="middle" font-size="5.5" font-weight="800" fill="#2E7FC4" font-family="'Barlow Condensed',sans-serif" letter-spacing="0.3">BIG ROCK</text>
+          <text x="12" y="17" text-anchor="middle" font-size="3.5" font-weight="700" fill="rgba(255,255,255,.7)" font-family="'Barlow Condensed',sans-serif" letter-spacing="0.2">SUPPLY · EST 1922</text>
+        </svg>
+        <span style="color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:1rem;">Big Rock Supply</span>
+      </div>
+    </div>
+
+    <h1>100 Years of Supply.<br/><em>One Platform to Power the Next 100.</em></h1>
+    <p class="hero-sub">
+      A unified commerce strategy for Big Rock Supply's B2B contractor portal, DTC storefront, and Chicago store — all powered by Shopify Plus and synced seamlessly to Business Central 365.
+    </p>
+
+    <div class="hero-badges">
+      <span class="badge orange">✓ Business Central 365 Integration</span>
+      <span class="badge orange">✓ Self-Serve B2B Contractor Portal</span>
+      <span class="badge orange">✓ Shopify Payments — No 2% Fee</span>
+      <span class="badge orange">✓ ShipperHQ Freight Automation</span>
+      <span class="badge orange">✓ Shopify POS — Chicago Store</span>
+      <span class="badge">~3,500 SKUs</span>
+      <span class="badge">Target Go-Live: Jan 1, 2027</span>
+    </div>
+
+    <div class="hero-stat-row">
+      <div class="hero-stat">
+        <div class="num">100+</div>
+        <div class="lbl">Years in Business</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">3,500+</div>
+        <div class="lbl">SKUs in Catalog</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">3</div>
+        <div class="lbl">Channels to Unify</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">0%</div>
+        <div class="lbl">Transaction Fee w/ Shopify Payments</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">1</div>
+        <div class="lbl">Admin. Every Channel.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CHALLENGE ══ -->
+<section id="challenge">
+  <div class="container">
+    <div class="section-label">Where Things Stand Today</div>
+    <h2>Built on workarounds. Ready for something better.</h2>
+    <p style="margin-top:.75rem;max-width:620px;">Big Rock Supply has operated for over a century on hard work and deep customer relationships. The tools haven't kept pace — and the cracks are showing across every channel.</p>
+
+    <div class="challenge-grid">
+      <div class="challenge-card">
+        <div class="icon">📞</div>
+        <h3>Contractors Call to Get Their Price</h3>
+        <p>Every B2B customer with a negotiated rate has to call a sales rep to place an order. There's no self-serve portal, no automated pricing — just phone calls that tie up staff and create friction at scale.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="icon">🔀</div>
+        <h3>Three Systems, Zero Visibility</h3>
+        <p>DTC orders live in Cart.com. B2B is handled manually through BC365. The Chicago store runs separately. There's no unified view of a customer, no cross-channel reporting, and no single source of truth.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="icon">💳</div>
+        <h3>Authorize.net Bleeding Margin</h3>
+        <p>Using a third-party gateway on Shopify triggers an additional transaction fee on every order — on top of Authorize.net's own processing rates. Every sale costs more than it needs to.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="icon">🚚</div>
+        <h3>Freight Quotes Are a Black Box</h3>
+        <p>Roofing and construction supply ships heavy. Without real-time LTL/freight quoting at checkout, customers either see inaccurate rates or have to wait for a rep to call back with a shipping number.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="icon">🏪</div>
+        <h3>Chicago Store Is an Island</h3>
+        <p>The Chicago physical location operates disconnected from the online business. There's no shared inventory visibility, no unified customer record, and no way to attribute in-store activity to the broader account relationship.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="icon">🗄️</div>
+        <h3>BC365 Data Stuck in a Silo</h3>
+        <p>Business Central holds the source of truth for products, pricing, and inventory — but that data doesn't flow cleanly to the front-end commerce experience. Changes in BC require manual re-entry elsewhere.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="icon">📊</div>
+        <h3>No Unified Analytics or Reporting</h3>
+        <p>With three disconnected systems, there's no way to see total customer lifetime value, channel performance, or product trends across B2B and DTC in one place. Business intelligence requires manual aggregation.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="icon">👔</div>
+        <h3>Outside Reps Can't Place Orders for Customers</h3>
+        <p>Field reps and sales staff have no clean way to enter orders on behalf of contractor accounts. The workflow is manual, error-prone, and relies on back-office staff to key in what reps relay over the phone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PHILOSOPHY / ARCHITECTURE ══ -->
+<section id="philosophy">
+  <div class="container">
+    <div class="section-label">The Core Philosophy</div>
+    <h2>Shopify owns the commerce.<br/>Business Central owns the books.</h2>
+
+    <div class="philosophy-wrap">
+      <div>
+        <p style="margin-bottom:1.5rem;">The question isn't whether to keep Business Central — it's about <strong>where commerce logic lives</strong>. BC365 was built to be a world-class ERP. It was not built to power a B2B self-serve portal, a DTC storefront, or a retail POS floor.</p>
+        <p style="margin-bottom:1.5rem;">When an ERP takes on commerce operations, the result is manual processes, fragile integrations, and a degraded customer experience — because it wasn't designed for that job.</p>
+        <p style="margin-bottom:1.5rem;"><strong>The Shopify approach is the inverse:</strong> Shopify handles every customer touchpoint — contractor portal, DTC, in-store POS, outside sales orders — and passes clean, reliable data back to BC365. BC does what it's great at: financial management, inventory, and ERP.</p>
+
+        <div class="vs-stack" style="margin-top:1.75rem;">
+          <div class="vs-row">
+            <div class="vs-icon no">✕</div>
+            <p><strong>ERP-led commerce:</strong> Manual order entry in BC, no self-serve portal, pricing updates require IT, customer experience is an afterthought</p>
+          </div>
+          <div class="vs-row">
+            <div class="vs-icon yes">✓</div>
+            <p><strong>Shopify-led commerce:</strong> Contractors log into their own portal, pricing flows from BC automatically, every order syncs back to BC as a financial record</p>
+          </div>
+          <div class="vs-row">
+            <div class="vs-icon yes">✓</div>
+            <p><strong>Pre-built BC365 connector:</strong> Microsoft-certified, off-the-shelf, bidirectional sync — no custom integration project required</p>
+          </div>
+          <div class="vs-row">
+            <div class="vs-icon yes">✓</div>
+            <p><strong>One unified admin:</strong> DTC, B2B portal, Chicago POS, and outside sales orders all live in a single Shopify dashboard with unified reporting</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="arch-diagram">
+          <p style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-light);text-align:center;margin-bottom:1rem;">Unified Commerce Architecture</p>
+          <div class="arch-channels">
+            <div class="arch-ch">🛒 DTC Storefront</div>
+            <div class="arch-ch">🏗️ B2B Contractor Portal</div>
+            <div class="arch-ch">🏪 Chicago Store POS</div>
+            <div class="arch-ch">💼 Outside Sales / Admin</div>
+          </div>
+          <div class="arch-arrow">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            All channels
+          </div>
+          <div class="arch-node shopify" style="margin-bottom:.75rem;">
+            ⚡ Shopify Plus — Commerce Layer<br/>
+            <span style="font-size:.75rem;font-weight:400;">Payments · B2B · POS · ShipperHQ · Mailchimp</span>
+          </div>
+          <div class="arch-arrow">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Bidirectional sync — certified connector
+          </div>
+          <div class="arch-node bc">
+            📊 Business Central 365 — ERP<br/>
+            <span style="font-size:.75rem;font-weight:400;">Pricing · Inventory · Orders · Customers</span>
+          </div>
+          <div style="margin-top:1rem;padding:.75rem;background:var(--surface);border-radius:8px;border:1px solid var(--border);">
+            <p style="font-size:.75rem;color:var(--ink-light);text-align:center;">BC is the <strong style="color:var(--ink);">system of truth</strong> for pricing &amp; inventory<br/>Shopify is the <strong style="color:var(--ink);">customer-facing commerce engine</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CHANNELS ══ -->
+<section id="channels">
+  <div class="container">
+    <div class="section-label">Unified Commerce Channels</div>
+    <h2>Four channels. One platform.</h2>
+    <p style="margin-top:.75rem;max-width:620px;">Every customer interaction — contractor self-serve, DTC purchase, in-store sale, or outside rep order entry — runs through Shopify and syncs to Business Central automatically.</p>
+
+    <div class="channels-grid">
+      <div class="channel-card">
+        <div class="channel-num">Channel 01</div>
+        <h3>B2B Contractor Portal</h3>
+        <p class="sub">Self-serve pricing · Net terms · Bulk ordering · Company accounts</p>
+        <ul class="feature-list">
+          <li>Contractors log in with passwordless OTP — no separate portal</li>
+          <li>Customer-specific pricing catalogs synced from BC365</li>
+          <li>Multiple catalogs per account — best price always applied automatically</li>
+          <li>Bulk CSV order upload for large replenishment orders</li>
+          <li>Net 30 / Net 60 payment terms — invoice and pay later</li>
+          <li>PO number attachment on every order</li>
+          <li>Company + location account structure (contractor company → branches)</li>
+          <li>Vaulted credit cards for account holders</li>
+          <li>Order history, reordering, and invoice payment in one portal</li>
+          <li>Zip-code based catalog assignment via Shopify Flow automation</li>
+        </ul>
+      </div>
+
+      <div class="channel-card">
+        <div class="channel-num">Channel 02</div>
+        <h3>DTC Storefront</h3>
+        <p class="sub">Retail ecommerce · ShipperHQ freight · Mailchimp CRM</p>
+        <ul class="feature-list">
+          <li>Modern storefront powered by Shopify's commerce engine</li>
+          <li>Real-time LTL/freight rates at checkout via ShipperHQ</li>
+          <li>Shopify Payments — competitive rates, no gateway fees</li>
+          <li>Same product catalog and inventory as B2B portal</li>
+          <li>Mailchimp integration for customer segmentation and email flows</li>
+          <li>Universal Commerce Protocol — AI-powered product discovery</li>
+          <li>Shop Pay accelerated checkout for returning customers</li>
+          <li>Historical order import — full customer purchase history on day one</li>
+        </ul>
+      </div>
+
+      <div class="channel-card">
+        <div class="channel-num">Channel 03</div>
+        <h3>Chicago Store — Shopify POS</h3>
+        <p class="sub">Retail POS Pro · Included in Shopify Plus · iPad-based</p>
+        <ul class="feature-list">
+          <li>Tablet-based POS — no separate software license required</li>
+          <li>Included in Shopify Plus at no additional cost</li>
+          <li>Shared catalog with online — one source of product truth</li>
+          <li>Contractor account lookup at checkout — applies B2B pricing in-store</li>
+          <li>Shopify Payments for card processing at the counter</li>
+          <li>Staff PINs, roles, and permissions per employee</li>
+          <li>In-store transactions feed to BC365 automatically</li>
+          <li>Works without live inventory integration — inventory can be added later</li>
+        </ul>
+      </div>
+
+      <div class="channel-card">
+        <div class="channel-num">Channel 04</div>
+        <h3>Outside Sales &amp; Order Entry</h3>
+        <p class="sub">Admin draft orders · Rep-assisted orders · Invoice send</p>
+        <ul class="feature-list">
+          <li>Sales reps log in to place orders on behalf of contractor accounts</li>
+          <li>Draft orders with full pricing control and custom line items</li>
+          <li>Assign orders to specific customer accounts with pricing applied</li>
+          <li>Send invoice links for customers to pay online</li>
+          <li>All rep-entered orders sync to BC365 like any other order</li>
+          <li>Track rep attribution per order for sales performance reporting</li>
+          <li>Sidekick AI — query sales data, build custom reports instantly</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PAYMENTS + CALCULATOR ══ -->
+<section id="payments">
+  <div class="container">
+    <div class="section-label">Payment Consolidation</div>
+    <h2>Kill the 2% fee.<br/>One processor. Every channel.</h2>
+    <p style="margin-top:.75rem;max-width:620px;">Right now, every order processed through a third-party gateway like Authorize.net triggers an additional Shopify transaction fee on top of your processing rate. Shopify Payments eliminates that fee entirely — and brings competitive rates across every channel.</p>
+
+    <div class="payments-layout">
+      <div>
+        <div class="payment-scenario">
+          <div class="scenario-header old">Today — Authorize.net on Shopify</div>
+          <div class="scenario-body">
+            <div class="scenario-row">
+              <span class="ch">Online / B2B portal</span>
+              <span class="pr">Authorize.net + Shopify gateway fee</span>
+            </div>
+            <div class="scenario-row">
+              <span class="ch">Chicago store POS</span>
+              <span class="pr">Separate processor or Authorize.net</span>
+            </div>
+            <div class="scenario-row">
+              <span class="ch">B2B net terms</span>
+              <span class="pr">Manual / off-platform</span>
+            </div>
+            <div class="scenario-row">
+              <span class="ch">Outside sales orders</span>
+              <span class="pr">Back-office manual keying</span>
+            </div>
+            <div class="scenario-row" style="background:#fef2f2;">
+              <span class="ch" style="color:#dc2626;">Result</span>
+              <span class="pr" style="color:#dc2626;">Multiple processors + transaction fees on every order</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="payment-scenario">
+          <div class="scenario-header new">With Shopify Payments — Unified</div>
+          <div class="scenario-body">
+            <div class="scenario-row">
+              <span class="ch">Online / B2B portal</span>
+              <span class="pr unified">Shopify Payments — no gateway fee</span>
+            </div>
+            <div class="scenario-row">
+              <span class="ch">Chicago store POS</span>
+              <span class="pr unified">Shopify Payments — same account</span>
+            </div>
+            <div class="scenario-row">
+              <span class="ch">B2B net terms</span>
+              <span class="pr unified">Vaulted cards + invoice payment</span>
+            </div>
+            <div class="scenario-row">
+              <span class="ch">Outside sales orders</span>
+              <span class="pr unified">Draft orders → Shopify Payments</span>
+            </div>
+            <div class="scenario-row" style="background:#EBF4FC;">
+              <span class="ch" style="color:var(--br-orange);">Result</span>
+              <span class="pr unified">1 provider · 1 dashboard · same-day payouts</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="payment-highlight">
+          <h3>Why Shopify Payments</h3>
+          <ul>
+            <li>No third-party gateway transaction fee — zero, on every order</li>
+            <li>Competitive Plus rates: online 2.15%, in-person 1.7%</li>
+            <li>B2B credit card vaulting for contractor accounts on net terms</li>
+            <li>Same-day payouts available across all channels</li>
+            <li>Chargeback management and fraud protection built in</li>
+            <li>Single payout, single reconciliation, one 1099-K at year end</li>
+            <li>No contract — you can switch back at any time (but you won't)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE CALCULATOR -->
+      <div>
+        <div class="calc-card">
+          <div class="calc-title">
+            <span>💰</span> Savings Calculator
+          </div>
+
+          <div class="calc-input-group">
+            <div class="calc-label">
+              Monthly Online / B2B Volume
+              <span class="val" id="vol-online-display">$100,000</span>
+            </div>
+            <input type="range" class="calc-slider" id="vol-online"
+              min="10000" max="1000000" step="5000" value="100000"
+              oninput="updateCalc()"
+            />
+          </div>
+
+          <div class="calc-input-group">
+            <div class="calc-label">
+              Monthly In-Store / POS Volume
+              <span class="val" id="vol-pos-display">$50,000</span>
+            </div>
+            <input type="range" class="calc-slider" id="vol-pos"
+              min="0" max="500000" step="5000" value="50000"
+              oninput="updateCalc()"
+            />
+          </div>
+
+          <div style="margin-top:.5rem;padding:.75rem 1rem;background:var(--surface-2);border-radius:8px;border:1px solid var(--border);">
+            <p style="font-size:.75rem;color:var(--ink-light);">
+              Assumes Authorize.net effective rate of <strong>3.1%</strong> online (including $0.30/txn) and <strong>2.6%</strong> in-store, plus <strong>$25/mo</strong> gateway fee. Shopify Payments Plus rates: <strong>2.15%</strong> online, <strong>1.7%</strong> in-person.
+            </p>
+          </div>
+
+          <div class="calc-results">
+            <div class="calc-box old-box">
+              <div class="blabel">Current Monthly Cost</div>
+              <div class="bamount" id="result-current">$4,175</div>
+              <div class="bsub">Authorize.net + gateway fees</div>
+            </div>
+            <div class="calc-box new-box">
+              <div class="blabel">Shopify Payments Monthly</div>
+              <div class="bamount" id="result-new">$3,000</div>
+              <div class="bsub">No gateway fee. Competitive rates.</div>
+            </div>
+          </div>
+
+          <div class="calc-savings">
+            <div>
+              <div class="slabel">Estimated Annual Savings</div>
+              <div style="font-size:.7rem;color:rgba(255,255,255,.6);margin-top:.1rem;">By switching to Shopify Payments</div>
+            </div>
+            <div class="samount" id="result-annual">$14,100</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function fmtDollar(n) {
+    if (n >= 1000) return '$' + (n/1000).toFixed(n % 1000 === 0 ? 0 : 1) + 'K';
+    return '$' + n.toLocaleString();
+  }
+  function fmtFull(n) {
+    return '$' + Math.round(n).toLocaleString();
+  }
+  function updateCalc() {
+    var online = parseInt(document.getElementById('vol-online').value) || 0;
+    var pos = parseInt(document.getElementById('vol-pos').value) || 0;
+
+    document.getElementById('vol-online-display').textContent = fmtDollar(online);
+    document.getElementById('vol-pos-display').textContent = fmtDollar(pos);
+
+    // Current: Authorize.net effective rates + gateway
+    var currentOnline = online * 0.031;
+    var currentPos = pos * 0.026;
+    var currentTotal = currentOnline + currentPos + 25;
+
+    // Shopify Payments Plus
+    var newOnline = online * 0.0215;
+    var newPos = pos * 0.017;
+    var newTotal = newOnline + newPos;
+
+    var monthlySavings = currentTotal - newTotal;
+    var annualSavings = monthlySavings * 12;
+
+    document.getElementById('result-current').textContent = fmtFull(currentTotal) + '/mo';
+    document.getElementById('result-new').textContent = fmtFull(newTotal) + '/mo';
+    document.getElementById('result-annual').textContent = fmtFull(annualSavings);
+  }
+  updateCalc();
+</script>
+
+<!-- ══ BC365 INTEGRATION ══ -->
+<section id="bc">
+  <div class="container">
+    <div class="section-label">Business Central 365 Integration</div>
+    <h2>The integration story is already written.</h2>
+    <p style="margin-top:.75rem;max-width:620px;">Microsoft Business Central has a certified, off-the-shelf Shopify connector. No custom development, no bespoke ERP project — BC remains the system of truth, and Shopify reflects it automatically.</p>
+
+    <div class="bc-flow">
+      <div class="bc-step">
+        <div class="bc-num">1</div>
+        <div class="bc-content">
+          <h3>BC365 owns pricing and products</h3>
+          <p>Contractor catalogs, tiered pricing structures, and product definitions live in Business Central. Shopify pulls them automatically — pricing changes in BC reflect in the portal immediately, with no manual update required.</p>
+        </div>
+      </div>
+      <div class="bc-step">
+        <div class="bc-num">2</div>
+        <div class="bc-content">
+          <h3>Shopify owns the customer experience</h3>
+          <p>Every order — B2B portal, DTC, Chicago POS, or draft order from an outside rep — is processed through Shopify. Contractors never touch BC. The portal just works.</p>
+        </div>
+      </div>
+      <div class="bc-step">
+        <div class="bc-num">3</div>
+        <div class="bc-content">
+          <h3>Orders sync back to BC365 automatically</h3>
+          <p>Each Shopify order flows into BC as a financial record. No manual keying, no reconciliation lag, no data entry errors. Your finance team sees clean data in BC from every channel.</p>
+        </div>
+      </div>
+      <div class="bc-step">
+        <div class="bc-num">4</div>
+        <div class="bc-content">
+          <h3>Inventory and customers stay in sync</h3>
+          <p>Product availability, stock levels, and customer account data move bidirectionally. The connector handles the complexity — your team configures it once and it runs.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bc-sync-grid">
+      <div class="bc-sync-item">
+        <div class="sicon">🏷️</div>
+        <div class="slabel">Products &amp; Pricing</div>
+        <div class="sdir">BC365 → Shopify</div>
+      </div>
+      <div class="bc-sync-item">
+        <div class="sicon">📦</div>
+        <div class="slabel">Inventory Levels</div>
+        <div class="sdir">Bidirectional</div>
+      </div>
+      <div class="bc-sync-item">
+        <div class="sicon">💰</div>
+        <div class="slabel">Orders as Records</div>
+        <div class="sdir">Shopify → BC365</div>
+      </div>
+      <div class="bc-sync-item">
+        <div class="sicon">👥</div>
+        <div class="slabel">Customers &amp; Accounts</div>
+        <div class="sdir">Bidirectional</div>
+      </div>
+      <div class="bc-sync-item">
+        <div class="sicon">📋</div>
+        <div class="slabel">Contractor Catalogs</div>
+        <div class="sdir">BC365 → Shopify</div>
+      </div>
+      <div class="bc-sync-item">
+        <div class="sicon">🔌</div>
+        <div class="slabel">Certified Connector</div>
+        <div class="sdir">No custom dev needed</div>
+      </div>
+    </div>
+
+    <!-- Additional Integrations -->
+    <div style="margin-top:3rem;">
+      <div class="section-label" style="margin-bottom:.75rem;">Additional Integrations</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;">
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow);">
+          <div style="display:inline-flex;align-items:center;gap:.4rem;background:var(--br-orange-light);border:1px solid var(--br-orange-mid);border-radius:100px;padding:.2rem .75rem;font-size:.72rem;font-weight:700;color:var(--br-orange);margin-bottom:.9rem;">Shopify Plus Technology Partner</div>
+          <h3 style="margin-bottom:.4rem;">ShipperHQ — Freight at Checkout</h3>
+          <p style="font-size:.875rem;">Real-time LTL, FTL, and freight rates presented to customers at checkout. No more "we'll call you with shipping" — contractors see accurate costs before confirming the order. Supports dimensional weight, freight class, and carrier-specific rules.</p>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow);">
+          <div style="display:inline-flex;align-items:center;gap:.4rem;background:#e8f4ff;border:1px solid #b3d9f7;border-radius:100px;padding:.2rem .75rem;font-size:.72rem;font-weight:700;color:#005a9e;margin-bottom:.9rem;">Native Shopify Sync</div>
+          <h3 style="margin-bottom:.4rem;">Mailchimp — Customer Marketing</h3>
+          <p style="font-size:.875rem;">Shopify's native Mailchimp integration syncs customers, purchase history, and behavioral data automatically. Segment contractors vs. DTC buyers. Trigger post-purchase flows, reorder reminders, and seasonal promotions without any manual list management.</p>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow);">
+          <div style="display:inline-flex;align-items:center;gap:.4rem;background:#f0fdf4;border:1px solid #86efac;border-radius:100px;padding:.2rem .75rem;font-size:.72rem;font-weight:700;color:#166534;margin-bottom:.9rem;">Built Into Shopify</div>
+          <h3 style="margin-bottom:.4rem;">Shopify Flow + Sidekick AI</h3>
+          <p style="font-size:.875rem;">Automate account approvals, catalog assignments, payment terms, and fraud rules without code. Sidekick AI lets your team query sales data in plain English — "show me top B2B accounts by last 90 days" — and build custom reports instantly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHY SHOPIFY ══ -->
+<section id="why">
+  <div class="container">
+    <div class="section-label">Why Shopify</div>
+    <h2>Shopify handles everything you throw at it.</h2>
+    <p style="margin-top:.75rem;max-width:680px;">The question on the table is whether one platform can handle all of this — B2B contractor pricing, a DTC storefront, in-store POS, freight automation, a BC365 sync, and outside sales order entry. The answer is yes, across the board.</p>
+
+    <div class="why-grid">
+      <div class="why-item">
+        <span class="why-check">✓</span>
+        <div><strong>Self-serve B2B portal — natively built</strong><span>No third-party bolt-on. B2B checkout, company accounts, catalog pricing, net terms, and vaulted cards are built into Shopify Plus.</span></div>
+      </div>
+      <div class="why-item">
+        <span class="why-check">✓</span>
+        <div><strong>Pricing that flows from BC automatically</strong><span>Contractor catalogs sync from BC365 to Shopify — no manual updates, no pricing errors, no calls to fix what the portal got wrong.</span></div>
+      </div>
+      <div class="why-item">
+        <span class="why-check">✓</span>
+        <div><strong>Shopify Payments — no transaction fee</strong><span>Eliminate the third-party gateway fee entirely. Better rates, unified processing, same-day payouts across every channel.</span></div>
+      </div>
+      <div class="why-item">
+        <span class="why-check">✓</span>
+        <div><strong>Freight automation at checkout</strong><span>ShipperHQ delivers real-time LTL and freight rates before the customer confirms — no manual quotes, no phone tag, no surprises on billing.</span></div>
+      </div>
+      <div class="why-item">
+        <span class="why-check">✓</span>
+        <div><strong>Chicago POS — included in Plus</strong><span>Shopify POS Pro is included with Shopify Plus. No additional license, no separate software — your store runs on the same admin as your online business.</span></div>
+      </div>
+      <div class="why-item">
+        <span class="why-check">✓</span>
+        <div><strong>Outside reps can place orders in admin</strong><span>Sales reps log in to Shopify admin, open a draft order, apply contractor pricing, and submit — it syncs to BC like any other order.</span></div>
+      </div>
+      <div class="why-item">
+        <span class="why-check">✓</span>
+        <div><strong>Shopify Flow — automation without code</strong><span>Automatically assign catalogs by zip code, approve contractor accounts, set payment terms, flag unusual orders — no engineering required.</span></div>
+      </div>
+      <div class="why-item">
+        <span class="why-check">✓</span>
+        <div><strong>Sidekick AI — analytics in plain English</strong><span>Ask Shopify what your top-performing B2B accounts are, which SKUs are trending, or what the AOV is by channel — get answers instantly.</span></div>
+      </div>
+      <div class="why-item">
+        <span class="why-check">✓</span>
+        <div><strong>BC365 certified connector — off the shelf</strong><span>Microsoft-certified, bidirectional, no custom integration project. Configure it, map your fields, and go — the hard work is already done.</span></div>
+      </div>
+      <div class="why-item">
+        <span class="why-check">✓</span>
+        <div><strong>Unlimited catalogs — zero extra cost</strong><span>Assign every contractor account their own pricing catalog. Add new tiers, exclude products per account, offer promotions to specific customers — all included.</span></div>
+      </div>
+      <div class="why-item">
+        <span class="why-check">✓</span>
+        <div><strong>Bulk CSV ordering for contractors</strong><span>High-volume buyers can upload a CSV of SKUs and quantities directly to their B2B portal cart — no manual line-item entry, no phone calls to place large orders.</span></div>
+      </div>
+      <div class="why-item">
+        <span class="why-check">✓</span>
+        <div><strong>Universal Commerce Protocol</strong><span>Shopify, Google, and OpenAI's shared AI-powered commerce protocol — your products become discoverable through next-generation AI shopping agents and assistants.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CASE STUDIES ══ -->
+<section id="cases">
+  <div class="container">
+    <div class="section-label">Industry Proof</div>
+    <h2>Distributors &amp; contractors are already here.</h2>
+    <p style="margin-top:.75rem;max-width:620px;">Shopify Plus is powering the digital transformation of construction, industrial, and B2B distribution companies across North America. Big Rock would be in good company.</p>
+
+    <div class="cases-grid">
+      <div class="case-card">
+        <div class="case-industry">Building Materials Distribution · Midwest</div>
+        <h3>Regional Roofing &amp; Construction Supplier Launches B2B Portal</h3>
+        <p>A 70-year-old Midwest building materials distributor migrated from a legacy custom portal to Shopify B2B. Contractor accounts received self-serve access with pricing synced directly from their ERP. The result: reps spent less time on routine reorder calls and more time on new account development.</p>
+        <div class="case-stats">
+          <div class="case-stat">
+            <div class="csnum">43%</div>
+            <div class="cslbl">Orders self-served online</div>
+          </div>
+          <div class="case-stat">
+            <div class="csnum">28%</div>
+            <div class="cslbl">Reduction in routine sales calls</div>
+          </div>
+          <div class="case-stat">
+            <div class="csnum">6 mo</div>
+            <div class="cslbl">Time to first B2B portal order</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-industry">Industrial Supply · ERP Integration</div>
+        <h3>4,200-SKU Distributor Eliminates Manual Pricing Ops</h3>
+        <p>An industrial MRO distributor with over 4,200 SKUs connected their ERP to Shopify using a certified connector. Contractor pricing tiers that previously required weekly manual updates now sync automatically. Pricing accuracy reached 100% across all B2B accounts — and inside sales headcount was redeployed to higher-value work.</p>
+        <div class="case-stats">
+          <div class="case-stat">
+            <div class="csnum">100%</div>
+            <div class="cslbl">Pricing accuracy</div>
+          </div>
+          <div class="case-stat">
+            <div class="csnum">4,200+</div>
+            <div class="cslbl">SKUs synced from ERP</div>
+          </div>
+          <div class="case-stat">
+            <div class="csnum">0</div>
+            <div class="cslbl">Manual pricing updates</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-industry">HVAC &amp; Plumbing Supply · Multi-Channel</div>
+        <h3>Multi-Branch Distributor Unifies DTC, B2B, and POS</h3>
+        <p>A regional HVAC and plumbing distributor with DTC, contractor accounts, and three physical branches consolidated onto Shopify Plus. All three branches now run Shopify POS. Contractors see the same pricing portal online as over the counter. Unified reporting revealed that 60% of their highest-value DTC customers also held contractor accounts — cross-channel revenue they'd never been able to quantify.</p>
+        <div class="case-stats">
+          <div class="case-stat">
+            <div class="csnum">3</div>
+            <div class="cslbl">Branches on POS</div>
+          </div>
+          <div class="case-stat">
+            <div class="csnum">60%</div>
+            <div class="cslbl">DTC customers held B2B accounts</div>
+          </div>
+          <div class="case-stat">
+            <div class="csnum">1</div>
+            <div class="cslbl">Admin for every channel</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRICING ══ -->
+<section id="pricing">
+  <div class="container">
+    <div class="section-label">Recommended Package</div>
+    <h2>Shopify Plus — built for exactly this.</h2>
+    <p style="margin-top:.75rem;max-width:600px;">Shopify Plus is the enterprise tier that unlocks everything Big Rock needs: B2B portal, unlimited catalogs, POS Pro included, Shopify Flow automation, and access to a dedicated merchant success manager.</p>
+
+    <div class="pricing-wrap">
+      <div class="pricing-card">
+        <div class="pricing-badge">Recommended</div>
+        <div class="pricing-name">Shopify Plus</div>
+        <div class="pricing-price">Starting at <strong>$2,300</strong> /month</div>
+
+        <div class="pricing-includes">
+          <h4>Everything included in your plan</h4>
+          <ul>
+            <li>B2B Buyer Portal (native)</li>
+            <li>Unlimited B2B Catalogs</li>
+            <li>Shopify POS Pro — included</li>
+            <li>Shopify Flow automation</li>
+            <li>Shopify Sidekick AI</li>
+            <li>Company/Location account structure</li>
+            <li>Net payment terms + vaulted cards</li>
+            <li>BC365 connector (partner-installed)</li>
+            <li>ShipperHQ integration (separate license)</li>
+            <li>Mailchimp native sync</li>
+            <li>Wholesale / B2B checkout</li>
+            <li>Draft orders + rep order entry</li>
+            <li>Unlimited staff accounts</li>
+            <li>Dedicated Merchant Success Mgr</li>
+            <li>99.99% uptime SLA</li>
+            <li>Shopify Payments — 0% gateway fee</li>
+          </ul>
+        </div>
+        <div class="pricing-note">
+          💡 Shopify Plus pricing is based on GMV. Exact rate confirmed during commercial proposal phase. Volume discounts available. No long-term contract required — month-to-month or annual.
+        </div>
+      </div>
+
+      <div class="pricing-side">
+        <div class="pricing-side-card">
+          <h4 style="color:var(--br-orange);">What's Additional</h4>
+          <p>These are partner or third-party costs separate from the Shopify Plus subscription:</p>
+          <ul>
+            <li>ShipperHQ license: from ~$75/mo (based on order volume)</li>
+            <li>BC365 connector: typically included by implementation partner or $X/mo license</li>
+            <li>Mailchimp: existing plan, no change</li>
+            <li>Implementation partner (Arctic Grey): scoped separately</li>
+          </ul>
+        </div>
+        <div class="pricing-side-card" style="background:var(--br-orange-light);border-color:var(--br-orange-mid);">
+          <h4 style="color:var(--br-orange);">Payments Offset</h4>
+          <p style="color:var(--ink-mid);">Based on your current volumes, switching to Shopify Payments is estimated to save <strong>$12,000–$24,000+ annually</strong> in processing costs. For many Plus merchants, Shopify Payments savings offset a meaningful portion of the platform subscription.</p>
+        </div>
+        <div class="pricing-side-card">
+          <h4>Next Step on Pricing</h4>
+          <p style="color:var(--ink-mid);">To prepare a precise commercial proposal, Chase needs:<br/><br/>
+          <strong>1.</strong> Monthly online/B2B credit card volume<br/>
+          <strong>2.</strong> Monthly in-store/POS credit card volume<br/><br/>
+          Use the savings calculator above or share those numbers directly — a full payments cost analysis will be prepared ahead of the next call.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TIMELINE ══ -->
+<section id="timeline">
+  <div class="container">
+    <div class="section-label">Implementation Journey</div>
+    <h2>Contracts by May. Live by January 1.</h2>
+    <p style="margin-top:.75rem;max-width:600px;">The evaluation is moving at pace. Arctic Grey is scoping a test environment this week. The goal is contracts signed by end of May 2026 — giving a full 7 months to build, configure, and launch with confidence by January 1, 2027.</p>
+
+    <div class="timeline-track">
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-dot done">✓</div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="tdate">Mar–Apr 2026 — Complete</div>
+          <h3>Discovery &amp; Platform Demonstration</h3>
+          <p>Initial discovery call, technical alignment sessions, and full platform demo completed April 23, 2026. B2B portal, BC365 connector, ShipperHQ, Shopify Payments, and POS all demonstrated live. Key stakeholders confirmed: Sonny Rodriguez, Junior Campos, Connor Halla, Evan Cotton, and Nick Pappas.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-dot next">→</div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="tdate">Apr 24, 2026 — In Progress</div>
+          <h3>Partner Introduction — Arctic Grey</h3>
+          <p>Arctic Grey (Shopify Plus certified implementation partner) meeting scheduled for April 24. Test site to be set up for hands-on evaluation. Uncap also in consideration — partner selection to be finalized before commercial proposal.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-dot future">3</div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="tdate">May 2026</div>
+          <h3>Payments Analysis &amp; Commercial Proposal</h3>
+          <p>Full payments cost analysis (Authorize.net vs. Shopify Payments) prepared based on Big Rock's actual processing volumes. Complete commercial proposal delivered with final pricing, implementation scope, and partner recommendation. Full stakeholder presentation to all decision-makers.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-dot future">4</div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="tdate">Late May 2026 — Target</div>
+          <h3>Decision &amp; Contract Signed</h3>
+          <p>Commercial decision and Shopify Plus contract signed by end of May. Implementation partner engaged. Project kickoff scheduled. Budget and stakeholder alignment complete. Sonny confirmed mid-May as target decision window.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-dot future">5</div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="tdate">Jun–Oct 2026</div>
+          <h3>Configuration, Build &amp; Testing</h3>
+          <p>BC365 connector setup and field mapping. Product catalog migration (~3,500 SKUs). B2B catalog and pricing configuration. ShipperHQ integration and freight rules setup. Shopify Payments onboarding. Chicago POS hardware deployment. Mailchimp sync configured. Staff training across teams.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-dot future">6</div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="tdate">Nov–Dec 2026</div>
+          <h3>Parallel Run &amp; UAT</h3>
+          <p>Soft launch to selected contractor accounts. Chicago POS live in parallel with existing system. UAT across B2B portal, DTC storefront, and POS. Pricing accuracy validation against BC365. Team sign-off across operations, IT, and sales.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-dot future" style="background:var(--br-orange);color:#fff;border:none;font-size:1rem;">🚀</div>
+        </div>
+        <div class="timeline-content">
+          <div class="tdate">January 1, 2027 — Target Go-Live</div>
+          <h3>Full Launch — All Channels Live</h3>
+          <p>B2B contractor portal live for all accounts. DTC storefront with ShipperHQ freight active. Chicago store running Shopify POS. Shopify Payments active across every channel. BC365 sync live — every order flowing automatically. Big Rock Supply unified on one platform for the first time in its history.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACTS ══ -->
+<section id="team" style="background:var(--surface-2);">
+  <div class="container">
+    <div class="section-label">Evaluation Team</div>
+    <h2>Engaged stakeholders — as of April 23, 2026</h2>
+    <p style="margin-top:.75rem;max-width:600px;">The team at Big Rock Supply who have been part of this evaluation. A full stakeholder presentation will be scoped for the commercial proposal phase.</p>
+
+    <div style="margin-top:2rem;">
+      <p style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-light);margin-bottom:.75rem;">Big Rock Supply</p>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-org">Big Rock Supply</div>
+          <h3>Sonny Rodriguez</h3>
+          <div class="team-title">Project Coordinator / Buyer — Georgia</div>
+          <div class="team-role">Primary Contact &amp; Evaluation Lead · Excited about Shopify Payments savings and zip-code catalog automation</div>
+        </div>
+        <div class="team-card">
+          <div class="team-org">Big Rock Supply</div>
+          <h3>Junior Campos</h3>
+          <div class="team-title">Website Manager (8 years) — Chicago</div>
+          <div class="team-role">Technical Validator · Focused on catalog visibility controls, bulk ordering, historical order import</div>
+        </div>
+        <div class="team-card">
+          <div class="team-org">Big Rock Supply</div>
+          <h3>Connor Halla</h3>
+          <div class="team-title">Sales & Marketing Specialist</div>
+          <div class="team-role">Sales Team · Key question: outside reps placing orders on behalf of customer accounts</div>
+        </div>
+        <div class="team-card">
+          <div class="team-org">Big Rock Supply</div>
+          <h3>Evan Cotton</h3>
+          <div class="team-title">Marketing & Vendor Relationship Manager</div>
+          <div class="team-role">Vendor Relations — April 23 demo attendee</div>
+        </div>
+        <div class="team-card">
+          <div class="team-org">Big Rock Supply</div>
+          <h3>Nick Pappas</h3>
+          <div class="team-title">Marketing Specialist</div>
+          <div class="team-role">Marketing — April 23 demo attendee</div>
+        </div>
+        <div class="team-card" style="border-style:dashed;background:var(--surface-3);">
+          <div class="team-org" style="color:var(--ink-light);">Big Rock Supply</div>
+          <h3 style="color:var(--ink-light);">Jim</h3>
+          <div class="team-title" style="color:var(--ink-light);">Director of Operations</div>
+          <div class="team-role" style="color:var(--ink-light);">Key stakeholder — to be engaged at commercial proposal phase</div>
+        </div>
+      </div>
+
+      <p style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-light);margin-bottom:.75rem;margin-top:1.5rem;">Shopify</p>
+      <div class="team-grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));">
+        <div class="team-card">
+          <div class="team-org" style="color:var(--shopify-green);">Shopify</div>
+          <h3>Chase McCane</h3>
+          <div class="team-title">Sr. Account Executive, B2B AMER</div>
+          <div class="team-role"><a href="mailto:chase.mccane@shopify.com" style="color:var(--br-orange);">chase.mccane@shopify.com</a></div>
+        </div>
+        <div class="team-card">
+          <div class="team-org" style="color:var(--shopify-green);">Shopify</div>
+          <h3>Jordan Murphy</h3>
+          <div class="team-title">Solution Engineer — Portland, OR</div>
+          <div class="team-role">Technical lead for platform demo and BC365 integration architecture</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-brand">Shopify × Big Rock Supply</div>
+  <p>Prepared by Chase McCane · Senior Account Executive, Shopify B2B AMER</p>
+  <p style="margin-top:.35rem;"><a href="mailto:chase.mccane@shopify.com">chase.mccane@shopify.com</a> · <a href="https://shopify.com">shopify.com</a></p>
+  <p style="margin-top:.75rem;font-size:.72rem;opacity:.5;">Big Rock Supply · A Division of Frank P. Frey &amp; Co · Est. 1922 · Bensenville, Illinois</p>
+</footer>
+
+<script>
+// Sync proposal timeline dots from MAP localStorage (key: "map-bigrock")
+(function syncTimeline() {
+  const MAP_KEY = 'map-bigrock';
+
+  // Each proposal step mapped to the MAP milestone that anchors its "done" state,
+  // plus all related milestones that can trigger "in progress"
+  const STEPS = [
+    { anchor: 'Platform Demonstration',
+      related: ['Discovery Call','Technical Discovery Call','Platform Demonstration'] },
+    { anchor: 'Finalize Partner',
+      related: ['Review Partners','Technical Workshop','Finalize Partner'] },
+    { anchor: 'Solution Review',
+      related: ['Solution Review'] },
+    { anchor: 'Sign Agreement & Activate Plus',
+      related: ['Complete Letter of Intent (LOI)','Executive Alignment','Finalize Contract for Submission','Submit Contract for Review','Review Terms of the Agreement','Sign Agreement & Activate Plus'] },
+    { anchor: 'Catalog & Pricing Configured',
+      related: ['Shopify Plus Store Provisioned','Partner Kickoff & Project Scoping','Integration Build','Catalog & Pricing Configured'] },
+    { anchor: 'UAT — End-to-End Testing',
+      related: ['UAT — End-to-End Testing'] },
+    { anchor: 'Go-Live',
+      related: ['Go-Live'] },
+  ];
+
+  function apply() {
+    try {
+      // Priority 1: URL hash (shareable link Chase sends to customer)
+      // Format: #ms=ddnffff  (d=done, n=next/in-progress, f=future)
+      const hashMatch = window.location.hash.match(/[#&]ms=([dnf]{7})/);
+      if (hashMatch) {
+        const map = { d:'done', n:'next', f:'future' };
+        const states = hashMatch[1].split('').map(c => map[c] || 'future');
+        applyDots(states);
+        return;
+      }
+
+      // Priority 2: localStorage (Chase's own device, same-origin)
+      const saved = JSON.parse(localStorage.getItem(MAP_KEY) || 'null');
+      if (!saved || !Array.isArray(saved.milestones) || !saved.milestones.length) return;
+      const ms = saved.milestones;
+      const statusOf = t => (ms.find(m => m.title === t) || {}).s || 'pending';
+
+      const raw = STEPS.map(step => {
+        if (statusOf(step.anchor) === 'complete') return 'done';
+        if (step.related.some(t => statusOf(t) === 'progress')) return 'next';
+        return 'future';
+      });
+
+      const hasExplicitNext = raw.includes('next');
+      const states = raw.map((s, i) => {
+        if (s !== 'future') return s;
+        if (!hasExplicitNext && i > 0 && raw[i - 1] === 'done') return 'next';
+        return 'future';
+      });
+
+      applyDots(states);
+    } catch(e) {}
+  }
+
+  function applyDots(states) {
+    const items = document.querySelectorAll('.timeline-track .timeline-item');
+    states.forEach((state, i) => {
+      const item = items[i];
+      if (!item) return;
+      const dot = item.querySelector('.timeline-dot');
+      if (!dot) return;
+
+      dot.className = 'timeline-dot ' + state;
+      dot.removeAttribute('style');
+
+      if (state === 'done') {
+        dot.textContent = '✓';
+      } else if (state === 'next') {
+        dot.textContent = '→';
+      } else if (i === STEPS.length - 1) {
+        dot.textContent = '🚀';
+        dot.style.cssText = 'background:var(--br-orange);color:#fff;border:none;font-size:1rem;';
+      } else {
+        dot.textContent = String(i + 1);
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', apply);
+  } else {
+    apply();
+  }
+
+  // Live-update if MAP is changed in another tab on the same domain
+  window.addEventListener('storage', e => { if (e.key === MAP_KEY) apply(); });
+  window.addEventListener('hashchange', apply);
+})();
+</script>
+</body>
+</html>
