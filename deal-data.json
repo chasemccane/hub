@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updated": "2026-04-23T15:00:00Z",
+  "updated": "2026-04-23T16:00:00Z",
   "deals": {
     "feniex": {
       "sf": {
@@ -627,6 +627,164 @@
         "urgency": "• Natural: Q4 2026 go-live target creates a reverse-engineered close window of late May\n• Moving fast: Discovery → Technical → Demo in 4 weeks\n• Partner selection Apr 24–25 — momentum is high right now\n• Build it: quantify Cart.com platform cost + manual ops overhead vs Shopify ROI",
         "risk_to_close": "• EB not yet identified — late-stage surprise possible\n• Partner selection is a critical dependency — wrong agency stalls everything\n• BC integration scope not yet fully defined — could affect SOW cost and timeline\n• Cart.com may counter with concessions",
         "gut": 7
+      }
+    },
+    "iron-star": {
+      "sf": {
+        "id": "006OG00000N6NvxYAF",
+        "pbr": 135874,
+        "stage": "Envision",
+        "close": "2026-05-22",
+        "created": "2026-04-23"
+      },
+      "meddic": {
+        "metrics": "Iron Star Roasting Co wholesale division: ~$3M annual revenue through B2B channel. August hard deadline — schools and universities ramp up Fall; missing that window = missed season. Pain quantification TBD (Commerce Build fees, manual processes, system fragility).",
+        "economic_buyer": "Shaun Kowaluk (COO, The Coffee Tree Roasters / Iron Star Roasting Co) — initiated contact, attended call, described full business context and provided detailed qualification info. Likely final DM but explicit budget authority not yet confirmed. CEO of Coffee Tree unknown — may need to be identified.",
+        "decision_criteria": "ERP integration (Sage 300 — possible migration to QuickBooks), B2B wholesale portal, POS handheld for on-site customer pickup, payment flexibility (WorldLine credit card + ACH for institutional). Full migration from Commerce Build. One certified partner preferred to own full scope (ecom + POS).",
+        "decision_process": "Shaun is primary contact and apparent decision-maker. Process not fully mapped — unknown if other stakeholders (CEO?) are involved. Next: SE technical session + partner intros, then scope → proposal.",
+        "identified_pain": "Commerce Build + Sage 300 is current stack — aging ecom platform, ERP-dependent, limited B2B portal flexibility. POS gap for on-site customers (want handheld). Pittsburgh POS agency they are talking to is NOT a certified Shopify partner — creates risk if not redirected.",
+        "champion": "Shaun Kowaluk (COO) — proactively re-engaged after initial SDR contact, provided detailed qualification, attended intro call same day. High intent and engaged."
+      },
+      "strategy": "Inbound via Jenny Bruns (SDR). Shaun is COO and primary contact — move quickly to SE session + certified partner intros. August deadline is a real forcing function. Scope: B2B wholesale portal + Sage 300 ERP integration + POS handheld + payment migration. Redirect away from the uncertified Pittsburgh POS agency — replace with one certified Shopify partner who can own full scope.",
+      "risks": [
+        {
+          "sev": "high",
+          "text": "August hard deadline — scoping must begin immediately",
+          "mit": "Fall school/university season is the hard stop. Partner intro + SE session this week; push partner to scope by early May."
+        },
+        {
+          "sev": "medium",
+          "text": "ERP integration complexity — Sage 300 timeline unclear; may overlap with Commerce Build migration",
+          "mit": "SE session to map Sage 300 → Shopify data flows; confirm whether Sage 300 stays or moves to QB and what that means for integration scope."
+        },
+        {
+          "sev": "medium",
+          "text": "Uncertified Pittsburgh POS agency in talks — could fragment implementation",
+          "mit": "Already flagged to Shaun 4/23. Redirect to one certified Shopify partner who handles full scope: ecom + POS + ERP."
+        }
+      ],
+      "done": [
+        "Inbound via Jenny Bruns (SDR) — Shaun Kowaluk (COO) re-engaged Apr 20 with detailed qualification",
+        "Intro discovery call with Shaun Kowaluk (4/23) — full picture: Iron Star B2B wholesale, Sage 300 + Commerce Build, ~$3M annual, August deadline, WorldLine + ACH payments",
+        "Post-call follow-up sent 4/23 — outlined next steps: partner intros + SE technical session; shared hub (ironstarcoffee)"
+      ],
+      "left": [
+        "SE technical session: Sage 300 → Shopify data flows, B2B pricing tier mapping, Commerce Build migration",
+        "Introduce 1–2 certified Shopify Plus implementation partners (B2B/ERP/wholesale experience, own POS scope)",
+        "Confirm Economic Buyer — is Shaun the final DM or does Coffee Tree CEO need to be involved?",
+        "Redirect Pittsburgh POS agency relationship — they are not Shopify certified",
+        "Full scope: B2B portal + POS handheld + Sage 300 integration + WorldLine/ACH payments",
+        "Proposal and business case",
+        "Contract — August deadline is hard"
+      ],
+      "notes": "Inbound via Jenny Bruns (SDR). Shaun Kowaluk (COO) is COO of The Coffee Tree Roasters (parent); Iron Star Roasting Co is the wholesale division. Call 4/23: $3M annual wholesale, Sage 300 + Commerce Build, August hard deadline (school/university season), WorldLine (credit card) + ACH (institutional), handheld POS interest for on-site pickup. Pittsburgh POS agency they are in talks with is NOT a certified Shopify partner — flagged to Shaun. Hub: chasemccane.github.io/hub/iron-star/ (passcode: ironstarcoffee).",
+      "last_call": "2026-04-23",
+      "next_call": null,
+      "manager_q": {
+        "who_signs": "• Shaun Kowaluk (COO, The Coffee Tree / Iron Star) — our contact and apparent DM\n• CEO of The Coffee Tree Roasters unknown — may need to be identified and looped in\n• Action: confirm budget authority on SE call",
+        "urgency": "• August hard deadline — project must be complete before Fall school/university season\n• Commerce Build is current platform — aging, needs replacing\n• Shaun is highly engaged and motivated to move quickly",
+        "risk_to_close": "• August deadline is real — late start on scoping = missed window\n• ERP path unclear: Sage 300 vs. QuickBooks migration timing could complicate integration scope\n• Pittsburgh POS agency (uncertified) in talks — could fragment implementation if not redirected\n• CEO not yet engaged — unknown whether Shaun can sign alone",
+        "next_ask": "SE technical session this week or next (Sage 300 → Shopify, pricing tiers, Commerce Build migration). Partner intros in parallel — 1-2 certified partners with B2B/ERP/wholesale experience."
+      }
+    },
+    "vault-cps": {
+      "sf": {
+        "id": "006OG00000N5zX3YAJ",
+        "pbr": 153184,
+        "stage": "Envision",
+        "close": "2026-06-29",
+        "created": "2026-04-23"
+      },
+      "meddic": {
+        "metrics": "Pain quantification TBD. Business impact of replacing 20+ year old homegrown ERP + eCommerce site: efficiency gains from configuration automation, consignment flow management, self-service customer reporting, and RMA handling. Revenue and volume numbers not yet captured.",
+        "economic_buyer": "Not yet identified. Jason Martin (Product Owner) is our initial contact. Jeff Reddekopp and Catherine Deuty attended intro call — Jeff appears more senior (conducting system walkthrough). Action needed: identify who holds platform budget authority.",
+        "decision_criteria": "Customer portal requirements: inventory/QoH visibility, customer-visible reports, RMA initiation, account management, order services for select products. Configuration automation, consignment flow support, NetSuite integration (replacing homegrown ERP). Full eCommerce platform replacement.",
+        "decision_process": "Intro call complete 4/23 — Jeff Reddekopp, Catherine Deuty, Jason Martin + Chase + Kevin (SE). Jeff to walk through current live system (scheduling wk 4/28). Tailored Shopify demo to follow wk 4/28 or 5/5. Full decision process and other stakeholders not yet mapped.",
+        "identified_pain": "Homegrown ERP + website system over 20 years old — being replaced by NetSuite migration. New eCommerce platform needed to serve as customer portal. Key features needed: inventory visibility, self-service reports, RMA requests, account settings, order services, config automation, consignment flows.",
+        "champion": "Jason Martin (Product Owner) — initiated inbound contact, responsive, attended intro call, confirmed scheduling. Jeff Reddekopp appears more senior — may be closer to EB. Action: clarify Jeff's role and identify budget authority."
+      },
+      "strategy": "Outbound — Chase initiated contact Apr 20. Full discovery call completed 4/23 with Jeff, Catherine, and Jason (+ Kevin SE). Jeff doing system walkthrough wk 4/28 to enable tailored demo. EB not yet identified — Jason is Product Owner, Jeff appears more senior. Key integration: NetSuite (moving from 20yr old homegrown ERP). Complex portal requirements = likely larger implementation scope.",
+      "risks": [
+        {
+          "sev": "high",
+          "text": "Economic Buyer not identified — Jason is Product Owner, not budget authority",
+          "mit": "Use Jeff system walkthrough as opportunity to understand org structure and identify who approves platform spend."
+        },
+        {
+          "sev": "medium",
+          "text": "NetSuite migration timing — eCommerce platform decision is coupled to ERP migration pace",
+          "mit": "Understand NetSuite go-live timeline; Shopify has native NetSuite connectors — position this as an advantage."
+        },
+        {
+          "sev": "medium",
+          "text": "Scope complexity — config automation, consignment, reporting, RMA, NetSuite = large implementation",
+          "mit": "SE session + Jeff walkthrough to scope accurately before partner intro. Avoid surprises on implementation cost."
+        }
+      ],
+      "done": [
+        "Outbound — Chase initial contact Apr 20",
+        "Jason Martin (Product Owner) responded Apr 21 — described needs: customer portal, RMA, inventory visibility, order services, ERP migration to NetSuite",
+        "Intro call Apr 23 — Jeff Reddekopp, Catherine Deuty, Jason Martin + Chase + Kevin (SE); discovery: config automation, consignment flows, reporting requirements",
+        "Post-call follow-up Apr 23 — offered Jeff system walkthrough times wk 4/28; shared hub (vault2026)"
+      ],
+      "left": [
+        "Jeff Reddekopp system walkthrough — wk 4/28 (Mon 9a-12p/2:30-4p, Tue 9a-12p/3-5p, Wed 9-11a ET offered)",
+        "Tailored Shopify demo — wk 4/28 or 5/5 after system walkthrough",
+        "Identify Economic Buyer — who approves platform budget?",
+        "Map NetSuite integration scope (native connector vs. custom API)",
+        "Partner intro once scope is clearer",
+        "Proposal and business case",
+        "Contract"
+      ],
+      "notes": "Outbound — Chase initiated contact Apr 20; Jason Martin (Product Owner) responded Apr 21. Intro call 4/23: Jeff Reddekopp, Catherine Deuty, Jason Martin + Chase + Kevin (SE). Company: Vault CPS, Greer SC. Moving from 20+ year old homegrown ERP to NetSuite; need full eCommerce/customer portal replacement. Key requirements: inventory/QoH visibility, customer reports, RMA, account mgmt, order services, config automation, consignment flows, NetSuite integration. Jeff Reddekopp conducting system walkthrough wk 4/28. Hub: chasemccane.github.io/vault-cps/ (passcode: vault2026).",
+      "last_call": "2026-04-23",
+      "next_call": null,
+      "manager_q": {
+        "who_signs": "• Unknown — Jason Martin (Product Owner) is our contact but not budget authority\n• Jeff Reddekopp appears more senior and may be closer to EB\n• Catherine Deuty role unknown\n• Action: identify and engage EB — priority on Jeff system walkthrough call",
+        "urgency": "• NetSuite ERP migration underway — eCommerce platform decision is tied to migration timeline\n• Homegrown system is 20+ years old — replacement is overdue\n• No hard deadline stated yet",
+        "risk_to_close": "• EB not identified — deal is with Product Owner, not budget authority\n• Scope complexity: config automation + consignment + reporting + NetSuite integration = large project, potential sticker shock\n• SF close date June 29 may be aggressive given no EB engagement yet",
+        "next_ask": "Jeff Reddekopp system walkthrough wk 4/28 — use to understand org structure and identify EB. Tailored Shopify demo wk 4/28 or 5/5."
+      }
+    },
+    "source-books": {
+      "sf": {
+        "id": "006OG00000IMAw2YAH",
+        "pbr": 92856,
+        "stage": "Envision",
+        "close": "2026-10-30",
+        "created": "2025-11-04"
+      },
+      "meddic": {
+        "metrics": "Unknown — no discovery completed. Deal created Nov 2025 from Contact Us inbound form.",
+        "economic_buyer": "Unknown. Nick Martinelli (Director of Systems and Development) is the only SF contact — not a typical EB title.",
+        "decision_criteria": "Unknown — no discovery completed.",
+        "decision_process": "Unknown — no contact since deal creation.",
+        "identified_pain": "Unknown — originated from Contact Us inbound form Nov 2025. No qualification data.",
+        "champion": "Nick Martinelli (Director of Systems and Development, nick.martinelli@sourcebooks.com) — only known contact. Engagement status unknown."
+      },
+      "strategy": "Dormant inbound deal from Nov 2025 — Contact Us form. No email activity or discovery completed. Re-engage Nick Martinelli to qualify. Sourcebooks is a large independent book publisher — likely B2B wholesale or DTC use case. October close date in SF is a placeholder; true timeline unknown.",
+      "risks": [
+        {
+          "sev": "high",
+          "text": "Dormant — no contact or activity since Nov 2025 creation",
+          "mit": "Re-engage Nick Martinelli via email and/or phone. Qualify: current platform, pain, timeline, budget."
+        }
+      ],
+      "done": [],
+      "left": [
+        "Re-engage Nick Martinelli (Director of Systems and Development, nick.martinelli@sourcebooks.com)",
+        "Discovery call: current platform, pain, timeline, budget",
+        "Identify Economic Buyer",
+        "Assess B2B vs. DTC scope (Sourcebooks is a publisher — likely has wholesale distribution channel)"
+      ],
+      "notes": "Dormant inbound deal — originated from Contact Us form Nov 4, 2025. Only contact: Nick Martinelli (Director of Systems and Development, nick.martinelli@sourcebooks.com). No email activity found. No discovery completed. Sourcebooks is a large independent book publisher. Re-engagement required before any meaningful qualification.",
+      "last_call": null,
+      "next_call": null,
+      "manager_q": {
+        "who_signs": "• Unknown — Nick Martinelli (Dir. of Systems and Development) is our only contact\n• Not a typical EB title — need to identify budget authority\n• No discovery completed",
+        "urgency": "• None identified — deal is dormant since Nov 2025",
+        "risk_to_close": "• No contact in ~6 months — deal may be cold or prospect engaged another vendor\n• Zero qualification data — stage, pain, timeline, budget all unknown",
+        "next_ask": "Re-engage Nick Martinelli — qualify or close out."
       }
     }
   }
