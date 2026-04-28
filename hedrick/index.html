@@ -508,6 +508,61 @@
     .scale-col ul { list-style: none; display: flex; flex-direction: column; gap: .4rem; }
     .scale-col li { font-size: .875rem; color: var(--ink-mid); display: flex; align-items: flex-start; gap: .5rem; }
     .scale-col li::before { content: '•'; color: var(--hedrick-green); font-weight: 800; }
+    .scale-diagram-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem 2rem;
+      margin: 2.5rem 0;
+      overflow-x: auto;
+    }
+    .scale-diagram-wrap svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+    .scale-callouts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-top: .5rem;
+    }
+    .scale-callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.125rem;
+    }
+    .scale-callout h3 {
+      font-size: .75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--ink-light);
+      margin-bottom: .5rem;
+    }
+    .scale-callout p { font-size: .8125rem; line-height: 1.5; color: var(--ink-mid); }
+    .scale-pros-cons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+    .scale-pc-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem 1.375rem;
+    }
+    .scale-pc-box.pro { border-left: 4px solid var(--shopify-green); }
+    .scale-pc-box.con { border-left: 4px solid #D72C0D; }
+    .scale-pc-box h3 { font-size: .875rem; font-weight: 700; margin-bottom: .75rem; }
+    .scale-pc-box ul { list-style: none; }
+    .scale-pc-box li {
+      font-size: .8125rem;
+      line-height: 1.6;
+      padding: .375rem 0 .375rem 1.25rem;
+      position: relative;
+      color: var(--ink-mid);
+    }
+    .scale-pc-box.pro li::before { content: "✓"; color: var(--shopify-green); position: absolute; left: 0; font-weight: 700; }
+    .scale-pc-box.con li::before { content: "!"; color: #D72C0D; position: absolute; left: 0; font-weight: 700; }
 
     /* ── WHY SHOPIFY ── */
     #why { background: var(--surface); }
@@ -637,7 +692,8 @@
     @media (max-width: 700px) {
       .philosophy-wrap,
       .payments-layout,
-      .scale-cols { grid-template-columns: 1fr; gap: 1.5rem; }
+      .scale-cols,
+      .scale-pros-cons { grid-template-columns: 1fr; gap: 1.5rem; }
       .nav-links { display: none; }
       #hero { padding: 4rem 1.5rem 3rem; }
       section { padding: 3.5rem 1.5rem; }
@@ -728,6 +784,7 @@
     <li><a href="#channels">Channels</a></li>
     <li><a href="#payments">Payments</a></li>
     <li><a href="#netsuite">NetSuite</a></li>
+    <li><a href="#scale-integration">Scale</a></li>
     <li><a href="#why">Why Shopify</a></li>
     <li><a href="#timeline" class="nav-cta">Timeline</a></li>
   </ul>
@@ -1125,6 +1182,206 @@
         <div class="icon">🔌</div>
         <div class="label">Pre-built Connector</div>
         <div class="dir">No custom dev required</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCALE INTEGRATION -->
+<section id="scale-integration">
+  <div class="container">
+    <div class="section-label">Quarry Scale Integration</div>
+    <h2>Custom Shopify app ingests RFID + weight.</h2>
+    <p style="margin-top:.75rem;max-width:680px;">Purpose-built Shopify app reads scale and RFID hardware directly, resolves the company via Shopify metaobjects, and writes the order into Shopify. No separate ticketing vendor.</p>
+
+    <div class="scale-diagram-wrap">
+      <svg viewBox="0 0 1200 680" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arrow-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#5C5F62"/>
+          </marker>
+          <filter id="shadow-b" x="-10%" y="-10%" width="120%" height="120%">
+            <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.08"/>
+          </filter>
+        </defs>
+
+        <!-- Swim lane labels -->
+        <text x="120" y="30" font-size="11" font-weight="700" fill="#6D7175" letter-spacing="1">ON-SITE (QUARRY)</text>
+        <text x="480" y="30" font-size="11" font-weight="700" fill="#6D7175" letter-spacing="1">CUSTOM SHOPIFY APP</text>
+        <text x="870" y="30" font-size="11" font-weight="700" fill="#6D7175" letter-spacing="1">SHOPIFY + FINANCIALS</text>
+
+        <!-- Lane dividers -->
+        <line x1="370" y1="45" x2="370" y2="650" stroke="#E1E3E5" stroke-dasharray="4 4"/>
+        <line x1="800" y1="45" x2="800" y2="650" stroke="#E1E3E5" stroke-dasharray="4 4"/>
+
+        <!-- Truck Arrives -->
+        <g filter="url(#shadow-b)">
+          <rect x="30" y="70" width="180" height="80" rx="10" fill="#FFF4E5" stroke="#B98900" stroke-width="1.5"/>
+          <text x="120" y="100" font-size="14" font-weight="600" text-anchor="middle" fill="#4A3B00">Truck Arrives</text>
+          <text x="120" y="120" font-size="11" text-anchor="middle" fill="#4A3B00">RFID tag + empty</text>
+          <text x="120" y="135" font-size="11" text-anchor="middle" fill="#4A3B00">(tare weight)</text>
+        </g>
+
+        <!-- RFID Reader -->
+        <g filter="url(#shadow-b)">
+          <rect x="30" y="190" width="180" height="70" rx="10" fill="#F4F6F8" stroke="#8C9196" stroke-width="1.5"/>
+          <text x="120" y="220" font-size="13" font-weight="600" text-anchor="middle" fill="#202223">RFID Reader</text>
+          <text x="120" y="240" font-size="11" text-anchor="middle" fill="#6D7175">HTTP / MQTT event</text>
+        </g>
+
+        <!-- Scale -->
+        <g filter="url(#shadow-b)">
+          <rect x="30" y="290" width="180" height="70" rx="10" fill="#F4F6F8" stroke="#8C9196" stroke-width="1.5"/>
+          <text x="120" y="320" font-size="13" font-weight="600" text-anchor="middle" fill="#202223">Truck Scale</text>
+          <text x="120" y="340" font-size="11" text-anchor="middle" fill="#6D7175">Serial / IP controller</text>
+        </g>
+
+        <!-- Scale House Kiosk -->
+        <g filter="url(#shadow-b)">
+          <rect x="30" y="390" width="180" height="80" rx="10" fill="#EBF5FF" stroke="#0A4D8F" stroke-width="1.5"/>
+          <text x="120" y="420" font-size="13" font-weight="600" text-anchor="middle" fill="#0A4D8F">Scale-house Kiosk</text>
+          <text x="120" y="440" font-size="11" text-anchor="middle" fill="#0A4D8F">Driver confirms,</text>
+          <text x="120" y="455" font-size="11" text-anchor="middle" fill="#0A4D8F">prints ticket</text>
+        </g>
+
+        <!-- Truck Departs -->
+        <g filter="url(#shadow-b)">
+          <rect x="30" y="500" width="180" height="80" rx="10" fill="#FFF4E5" stroke="#B98900" stroke-width="1.5"/>
+          <text x="120" y="530" font-size="14" font-weight="600" text-anchor="middle" fill="#4A3B00">Truck Departs</text>
+          <text x="120" y="550" font-size="11" text-anchor="middle" fill="#4A3B00">RFID + loaded</text>
+          <text x="120" y="565" font-size="11" text-anchor="middle" fill="#4A3B00">(gross weight)</text>
+        </g>
+
+        <!-- Custom Shopify App -->
+        <g filter="url(#shadow-b)">
+          <rect x="410" y="80" width="360" height="500" rx="12" fill="#E4F4EA" stroke="#008060" stroke-width="2"/>
+          <text x="590" y="110" font-size="14" font-weight="700" text-anchor="middle" fill="#004C3F">CUSTOM SHOPIFY APP</text>
+          <text x="590" y="128" font-size="11" text-anchor="middle" fill="#004C3F">(Remix, Node; on-prem edge + cloud)</text>
+
+          <!-- Ingest -->
+          <rect x="430" y="145" width="320" height="55" rx="8" fill="#fff" stroke="#B9DEC7"/>
+          <text x="590" y="167" font-size="12" font-weight="700" text-anchor="middle" fill="#202223">Hardware Ingest Service</text>
+          <text x="590" y="186" font-size="11" text-anchor="middle" fill="#6D7175">Scale serial/IP + RFID events + local queue</text>
+
+          <!-- Resolver -->
+          <rect x="430" y="215" width="320" height="70" rx="8" fill="#fff" stroke="#B9DEC7"/>
+          <text x="590" y="237" font-size="12" font-weight="700" text-anchor="middle" fill="#202223">Truck Resolver</text>
+          <text x="590" y="256" font-size="11" text-anchor="middle" fill="#6D7175">Metaobject: truck → Company</text>
+          <text x="590" y="273" font-size="11" text-anchor="middle" fill="#6D7175">(managed in Shopify admin)</text>
+
+          <!-- Ticket Builder -->
+          <rect x="430" y="300" width="320" height="70" rx="8" fill="#fff" stroke="#B9DEC7"/>
+          <text x="590" y="322" font-size="12" font-weight="700" text-anchor="middle" fill="#202223">Ticket Assembler</text>
+          <text x="590" y="341" font-size="11" text-anchor="middle" fill="#6D7175">Net weight = gross − tare</text>
+          <text x="590" y="358" font-size="11" text-anchor="middle" fill="#6D7175">Maps SKU + Measura UoM</text>
+
+          <!-- Admin UI Extension -->
+          <rect x="430" y="385" width="320" height="60" rx="8" fill="#fff" stroke="#B9DEC7"/>
+          <text x="590" y="407" font-size="12" font-weight="700" text-anchor="middle" fill="#202223">Admin UI Extension</text>
+          <text x="590" y="425" font-size="11" text-anchor="middle" fill="#6D7175">Truck registry + live scale dashboard</text>
+
+          <!-- Retry / queue -->
+          <rect x="430" y="460" width="320" height="55" rx="8" fill="#fff" stroke="#B9DEC7"/>
+          <text x="590" y="482" font-size="12" font-weight="700" text-anchor="middle" fill="#202223">Offline Queue + Retry</text>
+          <text x="590" y="500" font-size="11" text-anchor="middle" fill="#6D7175">Flushes when connectivity returns</text>
+        </g>
+
+        <!-- Shopify Plus -->
+        <g filter="url(#shadow-b)">
+          <rect x="840" y="110" width="330" height="290" rx="12" fill="#EBF5FF" stroke="#0A4D8F" stroke-width="2"/>
+          <text x="1005" y="140" font-size="14" font-weight="700" text-anchor="middle" fill="#0A4D8F">SHOPIFY PLUS + B2B</text>
+
+          <rect x="860" y="160" width="290" height="35" rx="6" fill="#fff" stroke="#B4D5F5"/>
+          <text x="1005" y="183" font-size="12" font-weight="600" text-anchor="middle" fill="#202223">Admin API → draftOrderCreate</text>
+
+          <rect x="860" y="205" width="290" height="35" rx="6" fill="#fff" stroke="#B4D5F5"/>
+          <text x="1005" y="228" font-size="12" font-weight="600" text-anchor="middle" fill="#202223">Company + B2B Price List</text>
+
+          <rect x="860" y="250" width="290" height="35" rx="6" fill="#fff" stroke="#B4D5F5"/>
+          <text x="1005" y="273" font-size="12" font-weight="600" text-anchor="middle" fill="#202223">Metaobject: Truck registry</text>
+
+          <rect x="860" y="295" width="290" height="35" rx="6" fill="#fff" stroke="#B4D5F5"/>
+          <text x="1005" y="318" font-size="12" font-weight="600" text-anchor="middle" fill="#202223">Measura — sell by weight</text>
+
+          <rect x="860" y="340" width="290" height="45" rx="6" fill="#fff" stroke="#B4D5F5"/>
+          <text x="1005" y="360" font-size="12" font-weight="600" text-anchor="middle" fill="#202223">Shopify Flow — approvals,</text>
+          <text x="1005" y="376" font-size="12" font-weight="600" text-anchor="middle" fill="#202223">credit hold notifications</text>
+        </g>
+
+        <!-- NetSuite -->
+        <g filter="url(#shadow-b)">
+          <rect x="840" y="460" width="330" height="95" rx="12" fill="#FEF3F3" stroke="#D72C0D" stroke-width="1.5"/>
+          <text x="1005" y="490" font-size="13" font-weight="700" text-anchor="middle" fill="#8B1A00">NetSuite (ERP)</text>
+          <text x="1005" y="512" font-size="11" text-anchor="middle" fill="#8B1A00">Cash sale / AR + inventory sync</text>
+          <text x="1005" y="530" font-size="11" text-anchor="middle" fill="#8B1A00">via Celigo / Codup connector</text>
+        </g>
+
+        <!-- Arrows: on-site → app -->
+        <line x1="210" y1="110" x2="410" y2="160" stroke="#5C5F62" stroke-width="2" marker-end="url(#arrow-b)"/>
+        <line x1="210" y1="225" x2="410" y2="175" stroke="#5C5F62" stroke-width="2" marker-end="url(#arrow-b)"/>
+        <line x1="210" y1="325" x2="410" y2="185" stroke="#5C5F62" stroke-width="2" marker-end="url(#arrow-b)"/>
+        <line x1="210" y1="430" x2="410" y2="415" stroke="#5C5F62" stroke-width="2" marker-end="url(#arrow-b)"/>
+        <line x1="210" y1="540" x2="410" y2="485" stroke="#5C5F62" stroke-width="2" marker-end="url(#arrow-b)"/>
+
+        <!-- Arrow: app → Shopify -->
+        <line x1="770" y1="200" x2="840" y2="200" stroke="#5C5F62" stroke-width="2" marker-end="url(#arrow-b)"/>
+
+        <!-- Arrow: Shopify → app (metaobjects lookup) -->
+        <line x1="840" y1="380" x2="770" y2="380" stroke="#5C5F62" stroke-width="2" marker-end="url(#arrow-b)"/>
+
+        <!-- Arrow labels -->
+        <text x="805" y="193" font-size="10" fill="#004C3F" font-weight="700" text-anchor="middle">draftOrderCreate</text>
+        <text x="805" y="395" font-size="10" fill="#6D7175" font-weight="700" text-anchor="middle">metaobjects.query</text>
+
+        <!-- Arrow: Shopify → NetSuite -->
+        <line x1="1005" y1="400" x2="1005" y2="460" stroke="#5C5F62" stroke-width="2" marker-end="url(#arrow-b)"/>
+
+        <!-- Footer note -->
+        <text x="600" y="645" font-size="11" text-anchor="middle" fill="#6D7175" font-style="italic">
+          Truck registry, scale events, and orders all flow through Shopify. Single pane of glass for ops.
+        </text>
+      </svg>
+    </div>
+
+    <div class="scale-callouts">
+      <div class="scale-callout">
+        <h3>Truck Registry in Shopify</h3>
+        <p>Truck metaobjects with fields (RFID, company reference, plate, driver) editable by Hedrick staff inside Shopify admin — no custom UI to maintain.</p>
+      </div>
+      <div class="scale-callout">
+        <h3>Admin UI Extension</h3>
+        <p>App surfaces a native panel inside Shopify admin for truck registry management + a live scale-house dashboard.</p>
+      </div>
+      <div class="scale-callout">
+        <h3>Edge + Cloud</h3>
+        <p>On-prem agent at each quarry talks to scale/RFID hardware and buffers offline. Cloud service validates + writes to Shopify via Admin API.</p>
+      </div>
+      <div class="scale-callout">
+        <h3>Scale-house Kiosk</h3>
+        <p>Optional Admin UI extension on an iPad lets the operator confirm the ticket, override driver/company if needed, and print the DOT ticket.</p>
+      </div>
+    </div>
+
+    <div class="scale-pros-cons">
+      <div class="scale-pc-box pro">
+        <h3>Pros</h3>
+        <ul>
+          <li>Single vendor — fewer moving parts long-term</li>
+          <li>Truck registry in Shopify → one source of truth</li>
+          <li>Full control of UX (kiosk, admin extension, flow rules)</li>
+          <li>No 3rd-party ticketing license</li>
+          <li>Scales to all quarries without new vendor contracts</li>
+        </ul>
+      </div>
+      <div class="scale-pc-box con">
+        <h3>Cons / Watchouts</h3>
+        <ul>
+          <li>Build + maintain custom code (partner or in-house)</li>
+          <li>Scale hardware drivers vary — hardware discovery required</li>
+          <li>DOT-compliant ticket format needs printing module</li>
+          <li>Offline resilience is on us to design + test</li>
+          <li>Higher upfront cost; lower ongoing vendor cost</li>
+        </ul>
       </div>
     </div>
   </div>
