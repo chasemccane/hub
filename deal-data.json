@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updated": "2026-04-23T16:00:00Z",
+  "updated": "2026-04-28T15:10:00Z",
   "deals": {
     "feniex": {
       "sf": {
@@ -139,10 +139,10 @@
         "Technical Workshop (4/13) — multi-staff POS + NetSuite data flows (Chase, Jordan, Logan, Kevin)",
         "Post-workshop follow-up sent to Logan (4/14) — proposing 1:1 strategy call to map revenue streams before broader proposal",
         "Project Sync (4/17) — Artie Hattaway + Logan Hundley; walked through dispatching workflow and Shopify integration gaps; MAP shared post-call",
-        "Logan Hundley email (4/23) — Logan confirmed he asked Marty to reach out to Chase directly; Marty expected to initiate contact soon"
+        "Logan Hundley email (4/23) — Logan confirmed he asked Marty to reach out to Chase directly; Marty expected to initiate contact soon",
+        "Technical Workshop #2 — Marty Calvert + Artie Hattaway + Chase + Jordan Murphy (4/28); Kevin Zaw added as optional; agenda: quarries platform strategy, system integrations, Q&A; Marty is the technical DM Logan flagged — now directly engaged"
       ],
       "left": [
-        "Receive and schedule Marty's direct outreach call (Logan confirmed 4/23 he would ask Marty to call Chase)",
         "Deliver architecture maps for key integration points (NetSuite sync, scaling/dispatching middleware, B2B portal, payment flows)",
         "Identify and engage true Economic Buyer",
         "Deliver commercial proposal",
@@ -150,8 +150,8 @@
         "Legal / procurement review",
         "Contract signed"
       ],
-      "notes": "Logan Hundley email Apr 23: 'I asked Marty to reach out to you about having a call.' Marty is the technical decision-maker per prior calls — this is a significant development. MAP shared post Apr 17 call (chasemccane.github.io/hub/hedrick/ — passcode: Hedrick123).",
-      "last_call": "2026-04-17",
+      "notes": "MARTY CALVERT NOW ENGAGED (4/28): Technical Workshop #2 held this morning with Marty Calvert + Artie Hattaway + Jordan Murphy. Marty is the technical DM Logan referenced on Apr 23 — this is a significant progression. Logan Hundley email Apr 23: 'I asked Marty to reach out to you about having a call.' MAP shared post Apr 17 call (chasemccane.github.io/hub/hedrick/ — passcode: Hedrick123). Next: deliver architecture maps, identify EB, move toward commercial proposal.",
+      "last_call": "2026-04-28",
       "next_call": "",
       "manager_q": {
         "compelling_event": "• Legacy ERP going end-of-life — POS must launch in tandem with NetSuite go-live (hard deadline) - Goal date: 10/1/26 for launch\n• Amy Goudy (NetSuite consultant) said a platform decision is needed NOW to unblock the parallel NetSuite project\n• ROI: $25–30M quarry credit card volume consolidated to Shopify Payments = meaningful rate savings\n• Miss it: cashiers continue using legacy ERP at checkout with no fix before EOL — operational crisis incoming",
@@ -307,7 +307,7 @@
         "id": "006OG00000MeMegYAF",
         "pbr": 168501,
         "stage": "Envision",
-        "close": "2026-06-29",
+        "close": "2026-07-31",
         "created": "2026-04-13"
       },
       "meddic": {
@@ -341,15 +341,15 @@
         "Content care package sent to FlexRadio team (4/16) — covered B2B unified platform, custom pricing portals, backorder handling, SIM 7 integration, EDI"
       ],
       "left": [
-        "Confirm SE technical discovery call with Jordan Murphy — wk of Apr 27–May 1 (times already offered)",
-        "Confirm EB: who holds platform budget (Lori vs. another stakeholder)",
+        "Re-engage Lori in early July (per her response Apr 28 — she proposed early July as better timing)",
+        "Confirm EB: who holds platform budget (Lori is VP Sales & Marketing — strongest EB candidate)",
         "Find BigCommerce contract renewal date — this is the hard deadline",
         "Full platform demo with broader team",
         "LOI / intent to proceed",
         "Contract"
       ],
-      "notes": "Chase sent scheduling email Apr 20 offering Wed Apr 22 and all slots wk of Apr 27–May 1 (CT times). Apr 22 slot not taken. Following up for wk of Apr 27 confirmation. Three contacts: Lori (lori@flex-radio.com), Michael (mike@flex-radio.com), Andy (andy@flex-radio.com). Platform confirmed: BigCommerce + WordPress. Grant Dugas (Shopify SDR) sourced the deal.",
-      "last_call": "2026-04-15",
+      "notes": "TIMELINE PUSHED — Lori (VP, Sales & Marketing) responded Apr 28: 'the next couple of months will be busy, and we are not positioned to move very quickly on this. I think early July would be better timing for a next round of calls.' SE call is off the table until July. Three contacts: Lori (lori@flex-radio.com), Michael (mike@flex-radio.com), Andy (andy@flex-radio.com). Platform confirmed: BigCommerce + WordPress. Grant Dugas (Shopify SDR) sourced the deal. Note: Lori signed as 'VP, Sales & Marketing' — stronger title than previously noted; she may be the EB.",
+      "last_call": "2026-04-28",
       "next_call": "",
       "manager_q": {
         "compelling_event": "• Broken discount system in BigCommerce causing pricing errors — live revenue impact\n• SIM 7 ERP sync issues causing \"mysterious inventory adjustments\" — reliability and ops problem\n• Manual quoting for government/B2G accounts is operationally costly and slow\n• Need to find: when does their BigCommerce contract renew? That date is the hard deadline",
@@ -357,10 +357,10 @@
         "map_shared": null,
         "map_agreed": null,
         "map_notes": "",
-        "who_signs": "• Need to find — not yet confirmed\n• Andy (andy@flex-radio.com) is most technically engaged but appears to be IT/technical lead\n• Lori (lori@flex-radio.com) and Mike (mike@flex-radio.com) also on intro call — roles unclear\n• Action needed: clarify who has budget authority and who signs the contract",
-        "urgency": "• Medium — strong platform pain surfaced on day 1, suggests active frustration\n• No hard deadline confirmed yet\n• Build it: find BC contract renewal date; quantify lost revenue from broken discounts and inventory errors\n• SE technical call next week — use to surface renewal date and identify budget authority",
-        "risk_to_close": "• Andy's skepticism: does not want 17,000 Shopify apps to replace 17,000 BC apps — must address early and directly\n• SIM 7 ERP two-way integration complexity — needs SE to validate and scope before we promise anything\n• Government/B2G account requirements (per-login portals, PO attachments, quote management) add evaluation complexity\n• EB not identified",
-        "gut": 5
+        "who_signs": "• Lori Hicks (VP, Sales & Marketing) — most senior contact; strongest EB candidate given title\n• Andy (andy@flex-radio.com) is most technically engaged but appears IT/ops role\n• Mike (mike@flex-radio.com) manages BC backend\n• Action needed: confirm budget authority when re-engaging in July",
+        "urgency": "• LOW — Lori explicitly said 'not positioned to move quickly' and pushed to early July\n• No hard deadline confirmed; BC contract renewal date still unknown\n• Platform pain is real but team is busy for the next 2 months\n• Build it: find BC contract renewal date; quantify lost revenue from broken discounts and SIM 7 errors",
+        "risk_to_close": "• 2-month pause kills momentum — Lori may re-engage July with different priorities or a decision already made\n• Andy's skepticism: does not want 17,000 Shopify apps to replace 17,000 BC apps\n• SIM 7 ERP two-way integration complexity — needs SE validation\n• EB not confirmed; Lori may still require budget sign-off from someone above her\n• No urgency signal — deal can slip to Q3 or Q4 without a forcing event (BC renewal date)",
+        "gut": 3
       }
     },
     "anatomy": {
@@ -505,50 +505,63 @@
         "created": "2026-04-16"
       },
       "meddic": {
-        "metrics": "Need to find: Quantifiable impact of moving to Shopify Plus",
-        "economic_buyer": "Need to find: Who owns the platform decision at Bulldog Tools",
-        "decision_criteria": "• Shopify Plus platform fit for B2B\n• Custom shipping billing: buyers need to charge freight to their own FedEx/UPS account numbers\n• Need to find: Additional technical requirements",
-        "decision_process": "• Partner-led: Atwix (implementation partner) driving the opportunity\n• Need to find: Internal decision-making process and timeline",
-        "pain": "• Custom freight billing to buyer FedEx/UPS accounts — needs to be solved via app or custom dev\n• Need to find: Core platform pain driving the move to Shopify Plus",
-        "champion": "Need to find: Internal champion at Bulldog Tools"
+        "metrics": "Revenue quantification TBD. Atwix scoping context: legacy site is failing and at risk of going dark — soft-launch to trusted customer base is the immediate goal. Bob Meyer (owner) flagged: website revenue impact of outages, labor cost of manual order entry, pricing errors from fragmented systems. Formal metrics to be built post-demo (Apr 30).",
+        "economic_buyer": "Bob Meyer — owner of Bulldog Tools (rmeyer@bulldogtools.com). He is the final decision-maker and was the source of the priority list Atwix shared. Budget authority confirmed by virtue of ownership.",
+        "decision_criteria": "Per Bob Meyer's priority list (via Francisco Reyes, Atwix, Apr 27):\n1. Responsive Shopify Setup — mobile-friendly storefront, Shopify Plus pending final feature requirements\n2. Advanced B2B Site Search — robust search/filter for complex mating/fitting parts and erector-set style configs\n3. Simplified B2B Checkout — capture orders as Invoices with terms; bypass immediate credit card during soft launch\n4. Basic Order Management & QB Sync — one-way Shopify → QuickBooks for completed orders; relieve load on current QB setup\n5. Customer Account Portals — view past web orders, facilitate 'reorder what I got last time'\n6. Centralized Pricing Management V1 — single source of truth for pricing; eliminate manual double-entry",
+        "decision_process": "Partner-led via Atwix (Francisco Reyes + Chris Shadonix). Bob Meyer is the owner and final DM. Demo scheduled Apr 30 9am ET. Atwix leading scoping; Chase supporting with Shopify Plus platform positioning. Internal process not fully mapped — post-demo next steps to be established.",
+        "pain": "• CRITICAL: Legacy site is failing and at risk of going completely dark — soft-launch needed urgently before that happens\n• Manual order management creating data load issues in QuickBooks — ops strain\n• No customer self-service portals — reorders require rep intervention\n• Pricing fragmented across systems — manual double-entry errors\n• B2B checkout is cumbersome — no invoice-based flow for customers on terms\n• Custom freight billing: buyers need to charge freight to their own FedEx/UPS account numbers (solvable via app/custom)",
+        "champion": "Bob Meyer (owner) — final DM and source of requirements. Atwix is the internal advocate and partner driving the opportunity. No separate internal champion identified — Bob is both EB and primary stakeholder."
       },
-      "strategy": "Partner-sourced deal via Atwix. Early stage — need to identify EB, understand current platform, and validate B2B use case.",
+      "strategy": "Partner-sourced deal via Atwix with clear urgency: legacy site is failing. Bob Meyer has defined his requirements precisely — the demo (Apr 30) needs to land the core use cases: mobile-friendly B2B site, invoice-based checkout with terms, customer reorder portals, and QuickBooks sync. Atwix strategy session (4/27) confirmed: position Shopify Plus as the mandatory solution for B2B requirements (account-based pricing). Kevin/Chase sync (4/27) flagged: Atwix may have overstated where the opportunity stands with Bob — calibrate expectations and confirm level of engagement post-demo. Demo Review (internal prep) scheduled Apr 28 1:30pm PDT. Demo with Bob: Apr 30 9am ET.",
       "risks": [
         {
           "sev": "high",
-          "text": "No EB identified yet",
-          "mit": "Identify decision-maker in Atwix partner call 4/17"
+          "text": "Atwix overstated opportunity advancement — deal may be less qualified than presented",
+          "mit": "Kevin/Chase sync Apr 27 flagged this explicitly. Don't assume Bob is at a decision stage — treat the Apr 30 demo as a qualification call. Confirm: does Bob have active urgency, budget, and a decision timeline? Ask Atwix directly what Bob knows and expects."
+        },
+        {
+          "sev": "high",
+          "text": "Legacy site fails before Shopify is set up — creates chaos but also extreme urgency",
+          "mit": "If the site goes dark before soft-launch, Bulldog loses web revenue. This is the forcing function. Confirm the actual timeline risk with Bob on Apr 30 — how imminent is the failure? Use it to accelerate decision velocity."
         },
         {
           "sev": "med",
-          "text": "Custom shipping billing requirement may be complex",
-          "mit": "Validate app solutions in SE session"
+          "text": "Plus vs. Basic/Advanced decision not resolved — Bob may push back on Plus pricing",
+          "mit": "Atwix's note says 'potentially Shopify Plus, pending final feature requirements.' Make sure the Apr 30 demo anchors the Plus requirement in B2B features (account-based pricing, company profiles, B2B checkout) — not just brand perception."
+        },
+        {
+          "sev": "med",
+          "text": "Custom shipping billing (FedEx/UPS buyer accounts) needs validation",
+          "mit": "App or custom solution needed. Validate before close — if this is a hard requirement for Bob and there's no clean solution, it becomes a deal blocker."
         }
       ],
       "done": [
-        "Partner intro call with Atwix team (4/17) — validated Shopify Plus platform fit, discussed custom freight billing to buyer FedEx/UPS accounts (solvable via app/custom)"
+        "Partner intro call with Atwix team (4/17) — validated Shopify Plus platform fit, discussed custom freight billing to buyer FedEx/UPS accounts (solvable via app/custom)",
+        "Atwix strategy session (4/27) — aligned on demo approach; strategy: position Shopify Plus as mandatory for B2B requirements (account-based pricing); received Bob Meyer's priority list from Francisco Reyes",
+        "Demo Review — internal prep session (4/28, 1:30pm PDT) — Chase + team aligning on Apr 30 demo"
       ],
       "left": [
-        "Schedule direct call with Robert Meyer (Bulldog) — out of town week of 4/21, target week of 4/27",
-        "Identify Economic Buyer",
-        "Full discovery call with Bulldog Tools team",
-        "Validate custom shipping billing solution with SE",
-        "Build out MEDDIC",
-        "SE engagement"
+        "Demo with Bob Meyer (Apr 30, 9am ET) — anchor on: invoice checkout, customer portals, site search, QB sync, mobile-friendly",
+        "Post-demo: confirm Bob's urgency level, timeline, and whether deal is properly qualified",
+        "Validate custom shipping billing (FedEx/UPS buyer accounts) — app or custom dev path",
+        "Identify and confirm EB budget authority beyond Bob (any partners/investors with sign-off?)",
+        "SE engagement — scope B2B Plus requirements and QB integration",
+        "Proposal and business case",
+        "Contract"
       ],
-      "notes": "Partner: Atwix (c.shadonix@atwix.com, f.reyes@atwix.com). Juan Jacinto (Shopify) also involved. Robert Meyer (rmeyer@bulldogtools.com) is key contact — confirmed out of town week of 4/21.",
-      "last_call": "2026-04-17",
-      "next_call": "",
+      "notes": "LEGACY SITE FAILING — urgency is real. Atwix (Francisco Reyes) shared Bob Meyer's priority list Apr 27: responsive setup, B2B site search, invoice-based checkout, QB sync, customer portals, centralized pricing V1. Atwix strategy: position Plus as mandatory for B2B. Kevin/Chase sync (4/27) flagged: Atwix may have overstated opportunity advancement — calibrate expectations. Demo Review internal prep: today (Apr 28, 1:30pm). Demo with Bob: Apr 30 9am ET (6am PDT). Partner: Atwix (c.shadonix@atwix.com, f.reyes@atwix.com). Juan Jacinto (Shopify) also involved. Bob Meyer: rmeyer@bulldogtools.com.",
+      "last_call": "2026-04-27",
+      "next_call": "2026-04-30",
       "manager_q": {
-        "compelling_event": "Need to find: What is driving the timeline for this deal?",
+        "compelling_event": "• CRITICAL: Legacy site is actively failing — soft-launch must happen before it goes completely dark\n• Bob Meyer (owner) has personally defined the scope and priorities — high intent signal\n• B2B customers on terms need invoice checkout — current setup is broken for their core buying model\n• Miss it: site goes dark, web revenue stops, customer relationships damaged",
         "map_created": true,
         "map_shared": null,
         "map_agreed": null,
         "map_notes": "",
-        "who_signs": "Need to find: Who signs the contract at Bulldog Tools?",
-        "urgency": "Need to find: Is there natural urgency or do we need to build it?",
-        "risk_to_close": "• Very early stage — deal not yet properly qualified\n• Custom shipping billing requirement (FedEx/UPS buyer accounts) needs to be validated as solvable",
-        "gut": 5
+        "who_signs": "• Bob Meyer (owner) — confirmed decision-maker via Atwix; he provided the requirements list personally\n• Direct access: rmeyer@bulldogtools.com\n• Budget authority: owner-level — no additional sign-offs expected, but confirm on Apr 30",
+        "urgency": "• HIGH — legacy site is failing; soft-launch urgency is the compelling event\n• Demo Apr 30 will confirm how imminent the failure risk is\n• Atwix is motivated to close — use partner urgency to maintain momentum post-demo\n• Risk: Kevin/Chase sync flagged deal may be less advanced than Atwix presented — don't over-assume close velocity",
+        "risk_to_close": "• Atwix overstated deal advancement — Bob may not be as close to decision as presented\n• Plus vs. non-Plus decision not resolved — pricing could be a pushback\n• Custom freight billing (FedEx/UPS buyer accounts) needs technical validation before commit\n• No SE engaged yet — scoping gaps remain\n• Legacy site crisis could drive Bob to a faster, cheaper stopgap rather than a proper Plus implementation",
+        "gut": 6
       }
     },
     "bigrock": {
@@ -634,7 +647,7 @@
         "id": "006OG00000N6NvxYAF",
         "pbr": 135874,
         "stage": "Envision",
-        "close": "2026-05-22",
+        "close": "2027-03-31",
         "created": "2026-04-23"
       },
       "meddic": {
@@ -666,18 +679,15 @@
       "done": [
         "Inbound via Jenny Bruns (SDR) — Shaun Kowaluk (COO) re-engaged Apr 20 with detailed qualification",
         "Intro discovery call with Shaun Kowaluk (4/23) — full picture: Iron Star B2B wholesale, Sage 300 + Commerce Build, ~$3M annual, August deadline, WorldLine + ACH payments",
-        "Post-call follow-up sent 4/23 — outlined next steps: partner intros + SE technical session; shared hub (ironstarcoffee)"
+        "Post-call follow-up sent 4/23 — outlined next steps: partner intros + SE technical session; shared hub (ironstarcoffee)",
+        "Shaun Kowaluk email (4/28) — tabling until next year; had a bad experience; deal pushed to 2027"
       ],
       "left": [
-        "SE technical session: Sage 300 → Shopify data flows, B2B pricing tier mapping, Commerce Build migration",
-        "Introduce 1–2 certified Shopify Plus implementation partners (B2B/ERP/wholesale experience, own POS scope)",
-        "Confirm Economic Buyer — is Shaun the final DM or does Coffee Tree CEO need to be involved?",
-        "Redirect Pittsburgh POS agency relationship — they are not Shopify certified",
-        "Full scope: B2B portal + POS handheld + Sage 300 integration + WorldLine/ACH payments",
-        "Proposal and business case",
-        "Contract — August deadline is hard"
+        "Re-engage Shaun in Q1 2027 — build on the relationship, come back with a fresh approach",
+        "Address 'bad experience' directly when re-engaging — understand what happened and whether it was platform or partner related",
+        "Identify whether the August school/university deadline created urgency for another platform — track what they chose"
       ],
-      "notes": "Inbound via Jenny Bruns (SDR). Shaun Kowaluk (COO) is COO of The Coffee Tree Roasters (parent); Iron Star Roasting Co is the wholesale division. Call 4/23: $3M annual wholesale, Sage 300 + Commerce Build, August hard deadline (school/university season), WorldLine (credit card) + ACH (institutional), handheld POS interest for on-site pickup. Pittsburgh POS agency they are in talks with is NOT a certified Shopify partner — flagged to Shaun. Hub: chasemccane.github.io/hub/iron-star/ (passcode: ironstarcoffee).",
+      "notes": "TABLED UNTIL NEXT YEAR — Shaun Kowaluk (COO) emailed Apr 28: 'going to table this until next year. We had a really bad experience.' Timeline: pushed to 2027 close. The August school/university deadline was real — they may have already made a decision with another platform or using the Pittsburgh POS agency (not Shopify certified). Re-engagement in Q1 2027 is the path. Background: Shaun is COO of The Coffee Tree Roasters (parent); Iron Star Roasting Co is the wholesale division. $3M annual wholesale, Sage 300 + Commerce Build stack. Hub: chasemccane.github.io/hub/iron-star/ (passcode: ironstarcoffee).",
       "last_call": "2026-04-23",
       "next_call": null,
       "manager_q": {
@@ -725,25 +735,25 @@
         "Outbound — Chase initial contact Apr 20",
         "Jason Martin (Product Owner) responded Apr 21 — described needs: customer portal, RMA, inventory visibility, order services, ERP migration to NetSuite",
         "Intro call Apr 23 — Jeff Reddekopp, Catherine Deuty, Jason Martin + Chase + Kevin (SE); discovery: config automation, consignment flows, reporting requirements",
-        "Post-call follow-up Apr 23 — offered Jeff system walkthrough times wk 4/28; shared hub (vault2026)"
+        "Post-call follow-up Apr 23 — offered Jeff system walkthrough times wk 4/28; shared hub (vault2026)",
+        "Jeff Reddekopp system walkthrough + Tech Discovery Apr 28 — Jeff Reddekopp, Catherine Deuty + Chase + Kevin Zaw (SE); walked through current platform data flows, reporting, use cases; aligned on Shopify Plus"
       ],
       "left": [
-        "Jeff Reddekopp system walkthrough — wk 4/28 (Mon 9a-12p/2:30-4p, Tue 9a-12p/3-5p, Wed 9-11a ET offered)",
-        "Tailored Shopify demo — wk 4/28 or 5/5 after system walkthrough",
-        "Identify Economic Buyer — who approves platform budget?",
+        "Tailored Shopify demo — wk 5/5 (follow-on from system walkthrough)",
+        "Identify Economic Buyer — who approves platform budget? (use demo call to probe Jeff/Catherine authority)",
         "Map NetSuite integration scope (native connector vs. custom API)",
         "Partner intro once scope is clearer",
         "Proposal and business case",
         "Contract"
       ],
-      "notes": "Outbound — Chase initiated contact Apr 20; Jason Martin (Product Owner) responded Apr 21. Intro call 4/23: Jeff Reddekopp, Catherine Deuty, Jason Martin + Chase + Kevin (SE). Company: Vault CPS, Greer SC. Moving from 20+ year old homegrown ERP to NetSuite; need full eCommerce/customer portal replacement. Key requirements: inventory/QoH visibility, customer reports, RMA, account mgmt, order services, config automation, consignment flows, NetSuite integration. Jeff Reddekopp conducting system walkthrough wk 4/28. Hub: chasemccane.github.io/vault-cps/ (passcode: vault2026).",
-      "last_call": "2026-04-23",
+      "notes": "SYSTEM WALKTHROUGH COMPLETE (4/28) — Jeff Reddekopp, Catherine Deuty + Chase + Kevin Zaw (SE) walked through current platform data flows, reporting, use cases; aligned on Shopify Plus. Tailored demo targeted wk 5/5. Outbound — Chase initiated contact Apr 20; Jason Martin (Product Owner) responded Apr 21. Intro call 4/23: Jeff Reddekopp, Catherine Deuty, Jason Martin + Chase + Kevin (SE). Company: Vault CPS, Greer SC. Moving from 20+ year old homegrown ERP to NetSuite; need full eCommerce/customer portal replacement. Key requirements: inventory/QoH visibility, customer reports, RMA, account mgmt, order services, config automation, consignment flows, NetSuite integration. Hub: chasemccane.github.io/vault-cps/ (passcode: vault2026).",
+      "last_call": "2026-04-28",
       "next_call": null,
       "manager_q": {
-        "who_signs": "• Unknown — Jason Martin (Product Owner) is our contact but not budget authority\n• Jeff Reddekopp appears more senior and may be closer to EB\n• Catherine Deuty role unknown\n• Action: identify and engage EB — priority on Jeff system walkthrough call",
+        "who_signs": "• Unknown — Jason Martin (Product Owner) is our contact but not budget authority\n• Jeff Reddekopp appears more senior and may be closer to EB (attended system walkthrough Apr 28)\n• Catherine Deuty role unknown — also attended Apr 28\n• Action: identify and engage EB — use wk 5/5 demo to surface budget authority",
         "urgency": "• NetSuite ERP migration underway — eCommerce platform decision is tied to migration timeline\n• Homegrown system is 20+ years old — replacement is overdue\n• No hard deadline stated yet",
         "risk_to_close": "• EB not identified — deal is with Product Owner, not budget authority\n• Scope complexity: config automation + consignment + reporting + NetSuite integration = large project, potential sticker shock\n• SF close date June 29 may be aggressive given no EB engagement yet",
-        "next_ask": "Jeff Reddekopp system walkthrough wk 4/28 — use to understand org structure and identify EB. Tailored Shopify demo wk 4/28 or 5/5."
+        "next_ask": "Tailored Shopify demo wk 5/5 — use to identify EB and map decision process."
       }
     },
     "source-books": {
@@ -785,6 +795,54 @@
         "urgency": "• None identified — deal is dormant since Nov 2025",
         "risk_to_close": "• No contact in ~6 months — deal may be cold or prospect engaged another vendor\n• Zero qualification data — stage, pain, timeline, budget all unknown",
         "next_ask": "Re-engage Nick Martinelli — qualify or close out."
+      }
+    },
+    "natures-first": {
+      "sf": {
+        "id": "",
+        "pbr": 0,
+        "stage": "Pre-Qualified",
+        "close": "2026-07-31",
+        "created": "2026-04-27"
+      },
+      "meddic": {
+        "metrics": "Unknown — no discovery completed. Intro call Apr 29.",
+        "economic_buyer": "Unknown — H. Singh (hsingh@naturesfirst.com) is the only known contact. Title/role TBD.",
+        "decision_criteria": "Unknown — no discovery completed.",
+        "decision_process": "Unknown — intro call Apr 29 is first touch.",
+        "identified_pain": "Unknown — no qualification data. Grant Dugas transfer implies potential fit.",
+        "champion": "H. Singh (hsingh@naturesfirst.com) — only known contact. Role and influence TBD."
+      },
+      "strategy": "Grant Dugas transfer — intro call Apr 29 10:30am PDT. No qualification data yet. Goal of first call: understand business model (B2B/DTC/wholesale), current platform, pain points, and who owns the decision.",
+      "risks": [
+        {
+          "sev": "high",
+          "text": "Zero qualification data — stage, pain, timeline, budget all unknown",
+          "mit": "Run full discovery on Apr 29 intro call. Qualify or disqualify quickly."
+        }
+      ],
+      "done": [
+        "Grant Dugas transfer accepted Apr 27 — Chase taking ownership of deal"
+      ],
+      "left": [
+        "Intro / discovery call Apr 29 10:30am PDT — H. Singh; qualify: business model, platform, pain, timeline, budget, EB",
+        "Identify Economic Buyer",
+        "Create SF opportunity (no ID yet)",
+        "Discovery → proposal → close"
+      ],
+      "notes": "Grant Dugas transfer — Apr 27. Intro call Apr 29, 10:30am–11am PDT with H. Singh (hsingh@naturesfirst.com). Company: Nature's First (naturesfirst.com). No qualification data yet. First touch is Apr 29.",
+      "last_call": null,
+      "next_call": "2026-04-29",
+      "manager_q": {
+        "compelling_event": "Unknown — TBD after Apr 29 discovery call",
+        "map_created": false,
+        "map_shared": null,
+        "map_agreed": null,
+        "map_notes": "",
+        "who_signs": "• Unknown — H. Singh is our only contact; role and budget authority TBD",
+        "urgency": "• Unknown — no discovery completed",
+        "risk_to_close": "• No qualification data — this is a cold intro; may not be a fit",
+        "gut": 5
       }
     }
   }
