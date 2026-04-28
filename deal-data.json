@@ -623,9 +623,15 @@
       "last_call": "2026-04-23",
       "next_call": "",
       "manager_q": {
+        "compelling_event": "",
+        "map_created": null,
+        "map_shared": null,
+        "map_agreed": null,
+        "map_notes": "",
         "who_signs": "• Shaun Kowaluk (COO, The Coffee Tree / Iron Star) — our contact and apparent DM\n• CEO of The Coffee Tree Roasters unknown — may need to be identified and looped in\n• Action: confirm budget authority on SE call",
         "urgency": "• August hard deadline — project must be complete before Fall school/university season\n• Commerce Build is current platform — aging, needs replacing\n• Shaun is highly engaged and motivated to move quickly",
         "risk_to_close": "• August deadline is real — late start on scoping = missed window\n• ERP path unclear: Sage 300 vs. QuickBooks migration timing could complicate integration scope\n• Pittsburgh POS agency (uncertified) in talks — could fragment implementation if not redirected\n• CEO not yet engaged — unknown whether Shaun can sign alone",
+        "gut": 5,
         "next_ask": "SE technical session this week or next (Sage 300 → Shopify, pricing tiers, Commerce Build migration). Partner intros in parallel — 1-2 certified partners with B2B/ERP/wholesale experience."
       }
     },
@@ -729,9 +735,15 @@
       "last_call": "",
       "next_call": "",
       "manager_q": {
+        "compelling_event": "",
+        "map_created": null,
+        "map_shared": null,
+        "map_agreed": null,
+        "map_notes": "",
         "who_signs": "• Unknown — Nick Martinelli (Dir. of Systems and Development) is our only contact\n• Not a typical EB title — need to identify budget authority\n• No discovery completed",
         "urgency": "• None identified — deal is dormant since Nov 2025",
         "risk_to_close": "• No contact in ~6 months — deal may be cold or prospect engaged another vendor\n• Zero qualification data — stage, pain, timeline, budget all unknown",
+        "gut": 0,
         "next_ask": "Re-engage Nick Martinelli — qualify or close out."
       }
     },
