@@ -682,9 +682,15 @@
       "last_call": "2026-04-28",
       "next_call": "",
       "manager_q": {
+        "compelling_event": "",
+        "map_created": null,
+        "map_shared": null,
+        "map_agreed": null,
+        "map_notes": "",
         "who_signs": "• Unknown — Jason Martin (Product Owner) is our contact but not budget authority\n• Jeff Reddekopp appears more senior and may be closer to EB (attended system walkthrough Apr 28)\n• Catherine Deuty role unknown — also attended Apr 28\n• Action: identify and engage EB — use wk 5/5 demo to surface budget authority",
         "urgency": "• NetSuite ERP migration underway — eCommerce platform decision is tied to migration timeline\n• Homegrown system is 20+ years old — replacement is overdue\n• No hard deadline stated yet",
         "risk_to_close": "• EB not identified — deal is with Product Owner, not budget authority\n• Scope complexity: config automation + consignment + reporting + NetSuite integration = large project, potential sticker shock\n• SF close date June 29 may be aggressive given no EB engagement yet",
+        "gut": 6,
         "next_ask": "Tailored Shopify demo wk 5/5 — use to identify EB and map decision process."
       }
     },
