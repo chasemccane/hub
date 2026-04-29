@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Washington Floral Service × Shopify Plus</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #f4f1ec;
+  --white: #ffffff;
+  --black: #0d0d0d;
+  --dark: #1a1a1a;
+  --mid: #666666;
+  --light: #999999;
+  --border: #e0dbd3;
+  --forest: #1e2e1f;
+  --sage: #5a6b4e;
+  --sage-light: #7a8e6c;
+  --sage-muted: rgba(90,107,78,0.12);
+  --shopify: #004C3F;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--dark); line-height: 1.6; }
+
+/* ── PASSWORD GATE ── */
+#gate {
+  position: fixed; inset: 0;
+  background: var(--forest);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  z-index: 9999; gap: 2rem;
+  transition: opacity 0.5s ease;
+}
+#gate.fade-out { opacity: 0; pointer-events: none; }
+
+.gate-ring {
+  width: 80px; height: 80px;
+  border: 1.5px solid rgba(255,255,255,0.25);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem; font-weight: 700;
+  color: #fff; letter-spacing: 2px;
+}
+.gate-subtitle {
+  font-size: 0.6rem; letter-spacing: 5px;
+  text-transform: uppercase; color: rgba(255,255,255,0.35);
+  text-align: center;
+}
+.gate-rule { width: 30px; height: 1px; background: rgba(255,255,255,0.15); }
+
+.gate-form {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 0.85rem; width: 100%; max-width: 280px;
+}
+.gate-form label {
+  font-size: 0.55rem; letter-spacing: 4px;
+  text-transform: uppercase; color: rgba(255,255,255,0.35);
+}
+.gate-form input {
+  width: 100%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #fff; text-align: center;
+  padding: 0.9rem 1.5rem;
+  font-family: 'Inter', sans-serif; font-size: 1rem;
+  letter-spacing: 8px; outline: none; border-radius: 2px;
+  transition: border-color 0.2s;
+}
+.gate-form input:focus { border-color: rgba(255,255,255,0.35); }
+.gate-form input.shake {
+  animation: shake 0.38s ease;
+  border-color: rgba(220, 100, 100, 0.45);
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  60% { transform: translateX(6px); }
+}
+.gate-btn {
+  width: 100%; background: transparent;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.7);
+  padding: 0.7rem; font-family: 'Inter', sans-serif;
+  font-size: 0.6rem; letter-spacing: 3px;
+  text-transform: uppercase; cursor: pointer;
+  transition: all 0.2s; border-radius: 2px;
+}
+.gate-btn:hover { background: rgba(255,255,255,0.06); color: #fff; }
+
+/* ── MAIN CONTENT ── */
+#content { display: none; }
+
+/* ── STICKY NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--forest);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 0.85rem 2.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-brand { display: flex; align-items: center; gap: 0.85rem; }
+.nav-badge {
+  width: 36px; height: 36px;
+  border: 1.5px solid rgba(255,255,255,0.3); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.58rem; font-weight: 700; letter-spacing: 0.5px;
+  color: rgba(255,255,255,0.85);
+}
+.nav-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.85rem; letter-spacing: 0.5px;
+  color: rgba(255,255,255,0.85);
+}
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  color: rgba(255,255,255,0.4); text-decoration: none;
+  font-size: 0.6rem; letter-spacing: 2px;
+  text-transform: uppercase; transition: color 0.2s;
+}
+.nav-links a:hover { color: rgba(255,255,255,0.85); }
+.nav-shopify {
+  font-size: 0.65rem; font-weight: 600;
+  color: var(--sage-light); letter-spacing: 1.5px; text-transform: uppercase;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--forest); min-height: 92vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 5rem 2rem;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at center, rgba(90,107,78,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font-size: 0.6rem; letter-spacing: 5px;
+  text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 2.5rem;
+}
+.hero-seal {
+  width: 96px; height: 96px;
+  border: 1.5px solid rgba(255,255,255,0.2); border-radius: 50%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  margin: 0 auto 3rem; gap: 2px;
+}
+.hero-seal-main {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem; font-weight: 700; line-height: 1;
+  color: #fff;
+}
+.hero-seal-sub {
+  font-size: 0.38rem; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(255,255,255,0.3);
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.6rem, 5.5vw, 4.8rem);
+  font-weight: 400; line-height: 1.1;
+  color: #fff; max-width: 720px;
+  margin: 0 auto 1.5rem;
+}
+.hero h1 em { font-style: italic; color: var(--sage-light); }
+.hero-sub {
+  font-size: 0.8rem; color: rgba(255,255,255,0.3); letter-spacing: 2px;
+  text-transform: uppercase; margin-bottom: 3.5rem;
+}
+.hero-meta {
+  display: flex; gap: 2.5rem; align-items: center;
+  justify-content: center; flex-wrap: wrap;
+  font-size: 0.65rem; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(255,255,255,0.25);
+}
+.hero-meta-dot { color: rgba(255,255,255,0.12); }
+
+/* ── SHARED SECTION STYLES ── */
+.bg-white { background: var(--white); }
+.bg-off { background: var(--bg); }
+.bg-dark { background: var(--forest); }
+.bg-sage { background: var(--sage); }
+
+.wrap { max-width: 1080px; margin: 0 auto; padding: 6rem 2.5rem; }
+
+.s-label {
+  font-size: 0.55rem; letter-spacing: 5px;
+  text-transform: uppercase; color: var(--light); margin-bottom: 0.85rem;
+}
+.s-label-inv { color: rgba(255,255,255,0.3); }
+.s-label-sage { color: rgba(255,255,255,0.45); }
+
+.s-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 400; line-height: 1.2;
+  color: var(--black); margin-bottom: 0.75rem;
+}
+.s-title-inv { color: #fff; }
+
+.s-desc {
+  font-size: 0.9rem; color: var(--mid);
+  max-width: 580px; line-height: 1.75; margin-bottom: 3rem;
+}
+.s-desc-inv { color: rgba(255,255,255,0.5); }
+
+.rule { width: 36px; height: 1.5px; background: var(--sage); margin: 1.25rem 0; }
+.rule-inv { background: rgba(255,255,255,0.2); }
+.rule-light { background: var(--border); }
+
+/* ── CARD GRID ── */
+.grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; }
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 2rem; border-radius: 1px;
+}
+.card-inv {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 2rem; border-radius: 1px;
+}
+.card-label {
+  font-size: 0.55rem; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--light); margin-bottom: 0.75rem;
+}
+.card-label-inv { color: rgba(255,255,255,0.3); }
+.card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem; font-weight: 400;
+  color: var(--black); margin-bottom: 0.65rem;
+}
+.card-inv h3 { color: #fff; }
+.card p { font-size: 0.82rem; color: var(--mid); line-height: 1.65; }
+.card-inv p { color: rgba(255,255,255,0.45); }
+
+/* ── GAP LIST ── */
+.gap-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem; margin-top: 1.5rem;
+}
+.gap-item-title {
+  font-size: 0.82rem; font-weight: 500;
+  color: var(--dark); margin-bottom: 0.3rem;
+}
+.gap-item-desc { font-size: 0.78rem; color: var(--mid); line-height: 1.5; }
+
+/* ── STAT BAR ── */
+.stat-bar {
+  background: var(--sage);
+  display: flex; gap: 0; flex-wrap: wrap;
+}
+.stat-item {
+  flex: 1; min-width: 140px;
+  padding: 3rem 2rem; text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+.stat-item:last-child { border-right: none; }
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem; color: #fff;
+  display: block; margin-bottom: 0.4rem;
+}
+.stat-lbl {
+  font-size: 0.58rem; letter-spacing: 3px;
+  text-transform: uppercase; color: rgba(255,255,255,0.5);
+}
+
+/* ── FEATURE GRID (dark bg) ── */
+.feat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid rgba(255,255,255,0.08);
+  margin-top: 2.5rem;
+}
+.feat-item {
+  padding: 2rem 1.75rem;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.feat-item:nth-child(3n) { border-right: none; }
+.feat-icon { font-size: 1.3rem; margin-bottom: 0.85rem; }
+.feat-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem; color: #fff;
+  margin-bottom: 0.4rem;
+}
+.feat-desc { font-size: 0.78rem; color: rgba(255,255,255,0.45); line-height: 1.55; }
+
+/* ── COMPARISON ── */
+.comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
+.cmp-col h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem; padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border); margin-bottom: 1.5rem;
+}
+.cmp-col.bad h3 { color: var(--mid); }
+.cmp-col.good h3 { color: var(--black); }
+.cmp-item {
+  display: flex; gap: 0.75rem;
+  align-items: flex-start; margin-bottom: 0.9rem;
+  font-size: 0.82rem; color: var(--mid);
+}
+.cmp-col.good .cmp-item { color: var(--dark); }
+.cmp-icon { flex-shrink: 0; margin-top: 1px; }
+
+/* ── CALLOUT BOX ── */
+.callout {
+  padding: 2rem; margin-top: 2rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--sage);
+  background: var(--white);
+}
+.callout-inv {
+  border-color: rgba(255,255,255,0.08);
+  border-left-color: var(--sage-light);
+  background: rgba(255,255,255,0.03);
+}
+.callout-label {
+  font-size: 0.55rem; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--sage); margin-bottom: 0.6rem;
+}
+.callout-label-inv { color: rgba(255,255,255,0.35); }
+.callout-text { font-size: 0.88rem; color: var(--mid); line-height: 1.65; }
+.callout-text-inv { color: rgba(255,255,255,0.55); }
+
+/* ── PARTNER ROWS ── */
+.partner-row {
+  font-size: 0.83rem; color: var(--mid);
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--border);
+  display: flex; gap: 0.75rem;
+}
+.partner-row::before { content: '→'; color: var(--sage-light); flex-shrink: 0; }
+.partner-row-inv {
+  font-size: 0.83rem; color: rgba(255,255,255,0.5);
+  padding: 0.55rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  display: flex; gap: 0.75rem;
+}
+.partner-row-inv::before { content: '→'; color: var(--sage-light); flex-shrink: 0; }
+
+/* ── PRICING ── */
+.price-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem; margin-top: 3rem;
+}
+.price-card {
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 2.5rem;
+}
+.price-card.featured {
+  border-color: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.04);
+}
+.price-lbl {
+  font-size: 0.55rem; letter-spacing: 3px;
+  text-transform: uppercase; color: rgba(255,255,255,0.3);
+  margin-bottom: 0.75rem;
+}
+.price-amount {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem; color: #fff;
+  margin: 0.75rem 0;
+  line-height: 1.1;
+}
+.price-amount span {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem; color: rgba(255,255,255,0.4);
+}
+.price-period {
+  font-size: 0.7rem; color: rgba(255,255,255,0.3); margin-bottom: 1.5rem;
+}
+.price-includes { list-style: none; }
+.price-includes li {
+  font-size: 0.78rem; color: rgba(255,255,255,0.5);
+  padding: 0.45rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  display: flex; gap: 0.5rem;
+}
+.price-includes li::before { content: '—'; color: rgba(255,255,255,0.15); flex-shrink: 0; }
+
+/* ── PHASE CARDS ── */
+.phase-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--sage);
+  padding: 2rem;
+}
+.phase-card.secondary { border-top-color: var(--border); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--forest); padding: 3rem 2rem;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer-line {
+  font-size: 0.58rem; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(255,255,255,0.18);
+  line-height: 2;
+}
+
+/* ── LOCATIONS STRIP ── */
+.locations {
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  display: flex; justify-content: center; gap: 0;
+}
+.loc-item {
+  flex: 1; max-width: 280px;
+  padding: 2.5rem 2rem; text-align: center;
+  border-right: 1px solid var(--border);
+}
+.loc-item:last-child { border-right: none; }
+.loc-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem; color: var(--forest); margin-bottom: 0.3rem;
+}
+.loc-desc { font-size: 0.72rem; color: var(--mid); letter-spacing: 1px; }
+
+/* ── URGENT BAND ── */
+.urgent-band {
+  background: rgba(90,107,78,0.08);
+  border: 1px solid rgba(90,107,78,0.18);
+  border-left: 3px solid var(--sage);
+  padding: 1.25rem 2rem; margin-top: 2.5rem;
+  display: flex; gap: 1rem; align-items: flex-start;
+}
+.urgent-label {
+  font-size: 0.5rem; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--sage);
+  flex-shrink: 0; margin-top: 0.15rem;
+}
+.urgent-text { font-size: 0.85rem; color: var(--dark); line-height: 1.6; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 860px) {
+  nav { padding: 0.85rem 1.5rem; }
+  .nav-links { display: none; }
+  .feat-grid { grid-template-columns: 1fr 1fr; }
+  .feat-item:nth-child(3n) { border-right: 1px solid rgba(255,255,255,0.08); }
+  .feat-item:nth-child(2n) { border-right: none; }
+  .locations { flex-direction: column; }
+  .loc-item { border-right: none; border-bottom: 1px solid var(--border); }
+  .loc-item:last-child { border-bottom: none; }
+}
+@media (max-width: 640px) {
+  .hero h1 { font-size: 2.2rem; }
+  .hero-meta { flex-direction: column; gap: 0.4rem; }
+  .hero-meta-dot { display: none; }
+  .feat-grid { grid-template-columns: 1fr; border: none; }
+  .feat-item { border: 1px solid rgba(255,255,255,0.08); margin-bottom: 0.5rem; border-right: 1px solid rgba(255,255,255,0.08) !important; }
+  .comparison { grid-template-columns: 1fr; }
+  .stat-item { min-width: 50%; }
+  .wrap { padding: 4rem 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════ PASSWORD GATE ════ -->
+<div id="gate">
+  <div class="gate-ring">WFS</div>
+  <div class="gate-subtitle">Washington Floral Service × Shopify Plus</div>
+  <div class="gate-rule"></div>
+  <div class="gate-form">
+    <label for="pw">Enter Passcode</label>
+    <input type="password" id="pw" placeholder="· · · · · · ·" autocomplete="off"
+           onkeydown="if(event.key==='Enter') unlock()">
+    <button class="gate-btn" onclick="unlock()">Access</button>
+  </div>
+</div>
+
+<!-- ════ MAIN CONTENT ════ -->
+<div id="content">
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-brand">
+      <div class="nav-badge">WFS</div>
+      <div class="nav-name">Washington Floral Service</div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#today">Today</a></li>
+      <li><a href="#nearterm">Near-Term</a></li>
+      <li><a href="#platform">Platform</a></li>
+      <li><a href="#longterm">Long-Term</a></li>
+      <li><a href="#payments">Payments</a></li>
+      <li><a href="#investment">Investment</a></li>
+    </ul>
+    <div class="nav-shopify">Shopify Plus</div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-eyebrow">Prepared Exclusively For</div>
+    <div class="hero-seal">
+      <div class="hero-seal-main">WFS</div>
+      <div class="hero-seal-sub">× Shopify</div>
+    </div>
+    <h1>The platform to carry<br><em>Washington Floral forward.</em></h1>
+    <p class="hero-sub">Washington Floral Service × Shopify Plus</p>
+    <div class="hero-meta">
+      <span>Mark Berglund</span>
+      <span class="hero-meta-dot">·</span>
+      <span>Tacoma · Spokane · Boise</span>
+      <span class="hero-meta-dot">·</span>
+      <span>April 2026</span>
+    </div>
+  </section>
+
+  <!-- ── 01 YOUR BUSINESS TODAY ── -->
+  <div id="today" class="bg-off">
+    <div class="wrap">
+      <div class="s-label">01 — Your Business Today</div>
+      <h2 class="s-title">A strong wholesale operation<br>at a critical inflection point.</h2>
+      <div class="rule"></div>
+      <p class="s-desc">Washington Floral has built a respected wholesale floral business across three markets — Tacoma, Spokane, and Boise. The challenge isn't the business. It's the platform holding it together, and the clock is running.</p>
+
+      <div class="grid-4">
+        <div class="card">
+          <div class="card-label">Core Business</div>
+          <h3>Wholesale First</h3>
+          <p>The majority of WFS revenue is B2B — florists, shops, and commercial buyers served by dedicated sales reps across three locations. That relationship-driven model needs modern tooling, not just a website.</p>
+        </div>
+        <div class="card">
+          <div class="card-label">Current Stack</div>
+          <h3>Industry System + QuickBooks</h3>
+          <p>A floral-specific front-end sits on top of QuickBooks, handling sales orders, purchase orders, and sales reporting. It works — but it's being discontinued, and the clock is ticking on finding a replacement.</p>
+        </div>
+        <div class="card">
+          <div class="card-label">Online Today</div>
+          <h3>10–15% Online, Two Channels</h3>
+          <p>An outdated portal through the current system handles in-stock sales. A third-party marketplace handles vendor-connected inventory. Neither is purpose-built for the WFS buying experience.</p>
+        </div>
+        <div class="card">
+          <div class="card-label">The Hard Part</div>
+          <h3>Advance Orders Aren't Supported</h3>
+          <p>Flowers are sold in advance — before inventory is confirmed, before final pricing is set. The current system can't take orders for products that aren't yet in stock. That gap costs you sales every season.</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 2.5rem; padding: 2.25rem; border: 1px solid var(--border); background: var(--white);">
+        <div class="card-label">Where the Real Gaps Are</div>
+        <div class="gap-grid">
+          <div>
+            <div class="gap-item-title">No Advance Ordering</div>
+            <div class="gap-item-desc">Wholesale floral sales are forward-looking by nature. A platform that can only sell what's in stock today isn't built for how your business actually works.</div>
+          </div>
+          <div>
+            <div class="gap-item-title">Rep Order Entry Is Manual</div>
+            <div class="gap-item-desc">Orders from commercial customers flow through phone, email, and text to assigned sales reps. There's no central system tying rep activity to accounts, commissions, or history.</div>
+          </div>
+          <div>
+            <div class="gap-item-title">Outdated Customer Portal</div>
+            <div class="gap-item-desc">The current online portal is built on aging technology. It wasn't designed to grow — and it shows. Your wholesale buyers deserve a modern self-service experience.</div>
+          </div>
+          <div>
+            <div class="gap-item-title">No Unified View Across Locations</div>
+            <div class="gap-item-desc">Three locations operating independently means no shared customer data, inventory visibility, or reporting across Tacoma, Spokane, and Boise.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="urgent-band">
+        <div class="urgent-label">Urgent</div>
+        <div class="urgent-text">The current platform is being discontinued by its parent company. This is a forced transition — but handled well, it's an opportunity to build a significantly better foundation. The goal is to make the right decision once, not scramble to a stopgap.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAT BAR -->
+  <div class="stat-bar">
+    <div class="stat-item">
+      <span class="stat-num">3</span>
+      <span class="stat-lbl">Locations · Tacoma, Spokane, Boise</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">B2B</span>
+      <span class="stat-lbl">Core Revenue Driver</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">Urgent</span>
+      <span class="stat-lbl">Platform Discontinuation</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">1</span>
+      <span class="stat-lbl">Platform to Solve It All</span>
+    </div>
+  </div>
+
+  <!-- ── 02 NEAR-TERM ── -->
+  <div id="nearterm" class="bg-dark">
+    <div class="wrap">
+      <div class="s-label s-label-inv">02 — Near-Term Requirements</div>
+      <h2 class="s-title s-title-inv">Solving the immediate challenge.<br>Without compromise.</h2>
+      <div class="rule rule-inv"></div>
+      <p class="s-desc s-desc-inv">Your near-term need is clear: replace a discontinued system with something that handles the complexity of wholesale floral — advance orders, rep order entry, flexible payments, and multiple buyer types. Shopify Plus is built for exactly this.</p>
+
+      <div class="feat-grid">
+        <div class="feat-item">
+          <div class="feat-icon">📋</div>
+          <div class="feat-title">Advance Orders via Draft Orders</div>
+          <div class="feat-desc">Sales reps can create draft orders for items not yet in stock — with placeholder pricing that gets confirmed when inventory and final costs are known. No more lost seasonal sales.</div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">👤</div>
+          <div class="feat-title">Sales Rep Order Entry</div>
+          <div class="feat-desc">Reps can build and submit orders on behalf of any customer directly in Shopify. Every order is tracked against the account, keeping activity visible and commissions attributable.</div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">🔔</div>
+          <div class="feat-title">Rep Notifications on Major Orders</div>
+          <div class="feat-desc">When a commercial customer places a significant self-service order, the assigned rep is automatically notified — so the personal relationship stays intact even as ordering moves online.</div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">🏢</div>
+          <div class="feat-title">Company Accounts with Buyer Roles</div>
+          <div class="feat-desc">Set up individual company profiles for every wholesale account. Multiple buyers per company, each with their own login — but a single account record tied to their sales rep and pricing tier.</div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">💲</div>
+          <div class="feat-title">Custom Pricing Per Account</div>
+          <div class="feat-desc">Different florists, shops, and commercial buyers get different pricing — managed natively in Shopify without workarounds or manual overrides. The buyer logs in and sees their rate automatically.</div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">📅</div>
+          <div class="feat-title">Net Payment Terms Built In</div>
+          <div class="feat-desc">Net 30 and other payment terms are native to Shopify B2B checkout. Wholesale customers purchase now, pay later — with invoice tracking and reminders built into the platform.</div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">🌿</div>
+          <div class="feat-title">Pre-Order Apps for Online Buyers</div>
+          <div class="feat-desc">For customers ordering through the self-service portal, pre-order apps allow advance purchases against confirmed seasonal inventory — solving the forward-order gap for online channels.</div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">🔐</div>
+          <div class="feat-title">Gated B2B Storefront</div>
+          <div class="feat-desc">Wholesale buyers log in to see their pricing. Retail customers see standard rates. The same storefront handles both audiences — separated by login, not by separate systems.</div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">📦</div>
+          <div class="feat-title">Quick Reorder from History</div>
+          <div class="feat-desc">Buyers can reorder from past purchases in seconds — reducing friction on the standing orders and recurring purchases that make up the bulk of wholesale floral revenue.</div>
+        </div>
+      </div>
+
+      <div class="callout callout-inv" style="margin-top: 2.5rem;">
+        <div class="callout-label callout-label-inv">The Sales Rep Relationship</div>
+        <p class="callout-text callout-text-inv">One of WFS's core strengths is the personal relationship between sales reps and commercial accounts. Shopify is designed to preserve and enhance this — not replace it. Reps get a proper tool for order entry and account management. Customers get a modern self-service option that always keeps the rep in the loop.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 03 THE PLATFORM ── -->
+  <div id="platform" class="bg-off">
+    <div class="wrap">
+      <div class="s-label">03 — The Platform</div>
+      <h2 class="s-title">Why Shopify Plus<br>for Washington Floral</h2>
+      <div class="rule"></div>
+      <p class="s-desc">Shopify Plus is Shopify's enterprise tier, purpose-built for businesses with complex B2B requirements, multiple locations, and the need for a single platform that handles wholesale and retail without compromise.</p>
+
+      <div class="comparison">
+        <div class="cmp-col bad">
+          <h3>Washington Floral Today</h3>
+          <div class="cmp-item"><span class="cmp-icon">⚠</span> Industry system being discontinued — forced transition</div>
+          <div class="cmp-item"><span class="cmp-icon">⚠</span> No advance ordering capability — seasonal sales lost</div>
+          <div class="cmp-item"><span class="cmp-icon">⚠</span> Rep order entry is manual — no central tracking</div>
+          <div class="cmp-item"><span class="cmp-icon">⚠</span> Outdated online portal — poor buyer experience</div>
+          <div class="cmp-item"><span class="cmp-icon">⚠</span> B2B and retail handled on separate, disconnected systems</div>
+          <div class="cmp-item"><span class="cmp-icon">⚠</span> Three locations with no unified inventory or customer view</div>
+          <div class="cmp-item"><span class="cmp-icon">⚠</span> Payment terms and ACH managed outside the platform</div>
+        </div>
+        <div class="cmp-col good">
+          <h3>Washington Floral on Shopify Plus</h3>
+          <div class="cmp-item"><span class="cmp-icon">✓</span> Purpose-built B2B storefront on a platform built to last</div>
+          <div class="cmp-item"><span class="cmp-icon">✓</span> Draft orders + pre-order apps for full advance ordering</div>
+          <div class="cmp-item"><span class="cmp-icon">✓</span> Reps enter orders in-system, tied to accounts and commissions</div>
+          <div class="cmp-item"><span class="cmp-icon">✓</span> Modern, logged-in B2B portal with custom pricing per buyer</div>
+          <div class="cmp-item"><span class="cmp-icon">✓</span> B2B and DTC on one platform — same admin, shared data</div>
+          <div class="cmp-item"><span class="cmp-icon">✓</span> POS Pro for all three locations — unified inventory in real time</div>
+          <div class="cmp-item"><span class="cmp-icon">✓</span> Native Net 30, ACH, and credit card — no workarounds</div>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top: 2.5rem;">
+        <div class="callout-label">Not a True ERP — But the Right Front-End</div>
+        <p class="callout-text">Shopify Plus isn't a full ERP system and won't replace QuickBooks. What it does — better than anything else — is handle the customer-facing and sales-rep-facing side of the business: orders, pricing, payments, and accounts. QuickBooks stays as your back-office, and Shopify connects to it through certified integration partners. It's the modern front-end your business needs without replacing the accounting infrastructure that's already working.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOCATIONS STRIP -->
+  <div class="locations">
+    <div class="loc-item">
+      <div class="loc-name">Tacoma</div>
+      <div class="loc-desc">Seattle Area · Primary Location</div>
+    </div>
+    <div class="loc-item">
+      <div class="loc-name">Spokane</div>
+      <div class="loc-desc">Eastern Washington</div>
+    </div>
+    <div class="loc-item">
+      <div class="loc-name">Boise</div>
+      <div class="loc-desc">Idaho Market</div>
+    </div>
+  </div>
+
+  <!-- ── 04 LONG-TERM ── -->
+  <div id="longterm" class="bg-white">
+    <div class="wrap">
+      <div class="s-label">04 — Long-Term Vision</div>
+      <h2 class="s-title">One platform for the whole<br>Washington Floral operation.</h2>
+      <div class="rule"></div>
+      <p class="s-desc">The near-term need is urgent — but the right platform decision today sets up Washington Floral for years of growth. Shopify Plus isn't a stopgap; it's the long-term operating system for your entire business.</p>
+
+      <div class="grid-3" style="margin-top: 2.5rem;">
+        <div class="phase-card">
+          <div class="card-label">Phase 1 — Near-Term</div>
+          <h3>Wholesale B2B Live</h3>
+          <p style="font-size: 0.82rem; color: var(--mid); line-height: 1.65; margin-top: 0.65rem;">Replace the discontinued system with a purpose-built B2B storefront. Advance ordering, rep order entry, custom pricing, and Net 30 terms — all working before Mother's Day and holiday seasons put the pressure on.</p>
+        </div>
+        <div class="phase-card">
+          <div class="card-label">Phase 2 — When Ready</div>
+          <h3>DTC + Retail Growth</h3>
+          <p style="font-size: 0.82rem; color: var(--mid); line-height: 1.65; margin-top: 0.65rem;">The 10–15% of business that's currently online can grow significantly with a modern DTC channel. Retail customers get a proper shopping experience. B2B and DTC share the same platform, the same inventory, and the same admin — no separate system to manage.</p>
+        </div>
+        <div class="phase-card secondary">
+          <div class="card-label">Phase 3 — Full Unification</div>
+          <h3>POS Across All Locations</h3>
+          <p style="font-size: 0.82rem; color: var(--mid); line-height: 1.65; margin-top: 0.65rem;">Shopify POS Pro is included in the Shopify Plus plan. Tacoma, Spokane, and Boise each get a modern in-store checkout system — unified inventory, customer data, and sales reporting across all three locations in one view.</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 3rem;">
+        <div class="s-label" style="margin-bottom: 1.5rem;">What Unified Commerce Means for WFS</div>
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-label">Single Customer Record</div>
+            <h3>Know Every Buyer</h3>
+            <p>Whether a customer orders online, calls a rep, or walks into a location, Shopify maintains a single customer profile — purchase history, pricing tier, payment terms, and assigned rep all in one place.</p>
+          </div>
+          <div class="card">
+            <div class="card-label">Unified Inventory</div>
+            <h3>One Stock View</h3>
+            <p>All three locations share real-time inventory visibility. What's available in Tacoma is visible in Spokane. What sells online immediately reflects across the system — no more manual reconciliation.</p>
+          </div>
+          <div class="card">
+            <div class="card-label">Reporting Across the Business</div>
+            <h3>One Dashboard</h3>
+            <p>B2B online orders, rep-entered sales, in-store POS transactions, and DTC purchases all roll up into a single reporting view. Revenue by location, by rep, by product — without building custom exports.</p>
+          </div>
+          <div class="card">
+            <div class="card-label">Grow Online at Your Pace</div>
+            <h3>Self-Service Without Losing the Relationship</h3>
+            <p>Shopify Plus supports both high-touch and self-service buyers on the same platform. As WFS grows its online percentage, the same system scales — no migration, no new platform decision.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top: 2.5rem;">
+        <div class="callout-label">The Long-Term Case</div>
+        <p class="callout-text">Mark noted that Shopify would likely serve Washington Floral's online, customer-facing duties long-term — which is exactly Shopify's core strength. This isn't about turning WFS into an e-commerce company. It's about giving a relationship-driven wholesale operation the modern infrastructure it deserves: one that lets reps focus on selling, lets buyers order more easily, and gives leadership a clear view of the whole business.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 05 PAYMENTS ── -->
+  <div id="payments" class="bg-dark">
+    <div class="wrap">
+      <div class="s-label s-label-inv">05 — Payment Flexibility</div>
+      <h2 class="s-title s-title-inv">The payment setup<br>that works for WFS.</h2>
+      <div class="rule rule-inv"></div>
+      <p class="s-desc s-desc-inv">Wholesale floral has real payment complexity — advance orders with uncertain pricing, Net 30 accounts, ACH collection, and retail customers paying in full upfront. Shopify handles all of it natively, with full flexibility on how you process payments.</p>
+
+      <div class="feat-grid">
+        <div class="feat-item">
+          <div class="feat-icon">📄</div>
+          <div class="feat-title">Net 30 Terms — Native</div>
+          <div class="feat-desc">B2B wholesale accounts can purchase online and pay later. Net 30, Net 60 — whatever terms you set per account. Invoice tracking, payment reminders, and status are all managed in-platform.</div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">🏦</div>
+          <div class="feat-title">ACH Payments Supported</div>
+          <div class="feat-desc">ACH is a native payment method in Shopify. Wholesale customers on ACH don't need a workaround — it's a first-class option at checkout alongside credit and debit cards.</div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">💳</div>
+          <div class="feat-title">Credit & Debit for Retail</div>
+          <div class="feat-desc">Retail customers pay in advance by card — whether online, via the self-serve portal, or in-store through POS. The same payment infrastructure handles all channels seamlessly.</div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">🔄</div>
+          <div class="feat-title">Keep Your Existing Merchant</div>
+          <div class="feat-desc">If WFS has pre-negotiated card processing rates, you can continue using that merchant. Shopify supports external payment gateways. On Plus, the platform transaction fee is just 0.20% — typically well below the savings from an existing negotiated rate.</div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">⚡</div>
+          <div class="feat-title">Or Use Shopify Payments</div>
+          <div class="feat-desc">Shopify Payments is Shopify's built-in processor — competitive rates, zero Shopify transaction fees, and full integration with the admin. Credit card, ACH, and digital wallets are all included with no third-party setup.</div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">📋</div>
+          <div class="feat-title">Draft Order Payments — Finalized Later</div>
+          <div class="feat-desc">For advance orders placed before pricing is confirmed, draft orders can be created and sent as invoices. The buyer pays when pricing is finalized — no system-level conflict with uncertain inventory or costs.</div>
+        </div>
+      </div>
+
+      <div class="callout callout-inv" style="margin-top: 2.5rem;">
+        <div class="callout-label callout-label-inv">Payment Complexity is Solved, Not Worked Around</div>
+        <p class="callout-text callout-text-inv">Wholesale floral has always had payment complexity that generic e-commerce platforms weren't built to handle. Advance orders. Net terms. ACH collection. Mixed buyer types. Shopify Plus handles all of it natively — not through third-party patches or manual processes bolted on after the fact. This is built for how WFS actually operates.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 06 IMPLEMENTATION ── -->
+  <div class="bg-off">
+    <div class="wrap">
+      <div class="s-label">06 — Implementation</div>
+      <h2 class="s-title">How the build actually works.<br>QuickBooks and beyond.</h2>
+      <div class="rule"></div>
+      <p class="s-desc">A project of this scope — replacing a core business system while maintaining operations — requires a clear build plan and the right implementation partner. Here's what that looks like.</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-label">QuickBooks Integration</div>
+          <h3>Your Back-Office Stays In Place</h3>
+          <div style="margin-top: 1rem;">
+            <div class="partner-row">QuickBooks remains the system of record for accounting</div>
+            <div class="partner-row">Shopify connects via certified integration apps (e.g., Sync with QuickBooks)</div>
+            <div class="partner-row">Orders sync automatically — no double-entry of sales data</div>
+            <div class="partner-row">Invoices, payments, and customer records stay reconciled</div>
+            <div class="partner-row">The integration is designed to work with QuickBooks, not replace it</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-label">Implementation Partner</div>
+          <h3>The Build Team</h3>
+          <div style="margin-top: 1rem;">
+            <div class="partner-row">Certified Shopify Plus partner manages the full project</div>
+            <div class="partner-row">B2B storefront design and configuration</div>
+            <div class="partner-row">Company account and pricing setup for your wholesale accounts</div>
+            <div class="partner-row">QuickBooks integration scoping and build</div>
+            <div class="partner-row">Data migration from current system</div>
+            <div class="partner-row">Staff training, documentation, and go-live support</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top: 2.5rem;">
+        <div class="callout-label">A Note on Fosters Creative</div>
+        <p class="callout-text">Washington Floral recently worked with Fosters Creative on a full website redesign — a strong foundation to build on. The Shopify B2B storefront can be designed to complement that brand direction, and Fosters or a certified Shopify Plus partner can lead the implementation. Either way, the goal is continuity — not starting over from scratch.</p>
+      </div>
+
+      <div style="margin-top: 3rem;">
+        <div class="s-label" style="margin-bottom: 1.5rem;">What I Handle at Shopify</div>
+        <div class="grid-2">
+          <div class="card" style="border-left: 3px solid var(--sage);">
+            <div class="card-label">Your Shopify Relationship</div>
+            <h3>Chase McCane · Account Executive</h3>
+            <div style="margin-top: 1rem;">
+              <div class="partner-row">Partner introductions and selection guidance</div>
+              <div class="partner-row">Shopify Plus contract and commercial terms</div>
+              <div class="partner-row">Platform roadmap and feature alignment</div>
+              <div class="partner-row">Escalation and support coordination</div>
+              <div class="partner-row">Your direct line into Shopify — before and after launch</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-label">Ongoing Support</div>
+            <h3>After You're Live</h3>
+            <div style="margin-top: 1rem;">
+              <div class="partner-row">24/7 Shopify Plus merchant support</div>
+              <div class="partner-row">Dedicated merchant success team</div>
+              <div class="partner-row">Platform updates and new features at no extra cost</div>
+              <div class="partner-row">Access to Shopify's ecosystem of apps and integrations</div>
+              <div class="partner-row">Continued relationship with Chase and the B2B team</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 07 INVESTMENT ── -->
+  <div id="investment" class="bg-dark">
+    <div class="wrap">
+      <div class="s-label s-label-inv">07 — Investment</div>
+      <h2 class="s-title s-title-inv">Clear, predictable pricing.<br>Everything included.</h2>
+      <div class="rule rule-inv"></div>
+      <p class="s-desc s-desc-inv">Shopify Plus is a platform investment — designed to consolidate what you're currently spending across disconnected systems while delivering materially better functionality.</p>
+
+      <div class="price-grid">
+
+        <div class="price-card featured">
+          <div class="price-lbl">Core Platform</div>
+          <div class="price-amount">~$2,300 <span>/ month</span></div>
+          <div class="price-period">3-year term · starting rate</div>
+          <ul class="price-includes">
+            <li>Full Shopify Plus B2B suite — built in, no add-ons</li>
+            <li>Draft orders and advance ordering tools</li>
+            <li>Company accounts, price lists, net payment terms</li>
+            <li>Up to 9 storefronts on one account</li>
+            <li>Shopify POS Pro — all three locations included</li>
+            <li>Unlimited staff accounts</li>
+            <li>Shopify Flow automation included</li>
+            <li>Advanced analytics and reporting</li>
+            <li>Priority 24/7 merchant support</li>
+          </ul>
+        </div>
+
+        <div class="price-card">
+          <div class="price-lbl">Implementation</div>
+          <div class="price-amount" style="font-size: 1.6rem; margin-top: 1rem;">Partner-<br>Scoped</div>
+          <div class="price-period">Based on project requirements</div>
+          <ul class="price-includes">
+            <li>B2B storefront design and build</li>
+            <li>QuickBooks integration</li>
+            <li>Company account and pricing configuration</li>
+            <li>Data migration from current system</li>
+            <li>POS hardware and setup across 3 locations</li>
+            <li>Staff training and documentation</li>
+            <li>Chase will recommend 1–2 certified partners</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="callout callout-inv" style="margin-top: 2rem;">
+        <div class="callout-label callout-label-inv">On Transaction Fees</div>
+        <p class="callout-text callout-text-inv">If WFS uses Shopify Payments as the processor, there are no Shopify transaction fees — just the card processing rate. If you use an external payment gateway (to retain pre-negotiated rates), Shopify Plus applies a 0.20% platform fee. In most cases, businesses at this scale have negotiated rates that still come out ahead even with the small platform fee. I'll make sure you have the right numbers to evaluate both options clearly.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-line">Washington Floral Service &nbsp;·&nbsp; Tacoma · Spokane · Boise</div>
+    <div class="footer-line">Washington Floral Service × Shopify Plus &nbsp;·&nbsp; Confidential &nbsp;·&nbsp; Prepared for Mark Berglund &nbsp;·&nbsp; April 2026</div>
+    <div class="footer-line" style="margin-top: 1rem;">Chase McCane &nbsp;·&nbsp; Sr. Account Executive, Shopify B2B &nbsp;·&nbsp; chase.mccane@shopify.com &nbsp;·&nbsp; +1 510 552 6224</div>
+  </footer>
+
+</div><!-- /content -->
+
+<script>
+  if (sessionStorage.getItem('wfs_auth') === '1') {
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
+  }
+
+  function unlock() {
+    const pw = document.getElementById('pw').value.trim().toLowerCase();
+    if (pw === 'wfs2026') {
+      sessionStorage.setItem('wfs_auth', '1');
+      const gate = document.getElementById('gate');
+      gate.classList.add('fade-out');
+      setTimeout(() => {
+        gate.style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+        window.scrollTo(0, 0);
+      }, 500);
+    } else {
+      const input = document.getElementById('pw');
+      input.classList.remove('shake');
+      void input.offsetWidth;
+      input.classList.add('shake');
+      setTimeout(() => input.classList.remove('shake'), 400);
+      input.value = '';
+      input.focus();
+    }
+  }
+</script>
+
+</body>
+</html>
