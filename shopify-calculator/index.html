@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shopify Plus Pricing Calculator</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f6f6f7;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    /* ── Password screen ── */
+    #password-screen {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      padding: 48px 40px;
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+    }
+
+    #password-screen .logo {
+      margin-bottom: 24px;
+    }
+
+    #password-screen h1 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+
+    #password-screen p {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 28px;
+    }
+
+    #password-screen input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.15s;
+      margin-bottom: 12px;
+    }
+
+    #password-screen input:focus { border-color: #008060; }
+
+    #password-screen button {
+      width: 100%;
+      padding: 12px;
+      background: #008060;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    #password-screen button:hover { background: #006e52; }
+
+    #pw-error {
+      color: #dc2626;
+      font-size: 13px;
+      margin-top: 10px;
+      display: none;
+    }
+
+    /* ── Calculator screen ── */
+    #calc-screen { display: none; width: 100%; max-width: 680px; }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      overflow: hidden;
+    }
+
+    .card-header {
+      background: #008060;
+      padding: 28px 32px;
+    }
+
+    .card-header .logo {
+      margin-bottom: 14px;
+    }
+
+    .card-header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .card-header p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.80);
+    }
+
+    .card-body { padding: 32px; }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #6b7280;
+      margin-bottom: 16px;
+    }
+
+    .input-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .input-row label {
+      flex: 1;
+      font-size: 15px;
+      color: #1a1a1a;
+      font-weight: 500;
+    }
+
+    .input-row .rate {
+      font-size: 13px;
+      color: #6b7280;
+      width: 36px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .input-wrap {
+      position: relative;
+      width: 180px;
+      flex-shrink: 0;
+    }
+
+    .input-wrap span {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #6b7280;
+      font-size: 15px;
+      pointer-events: none;
+    }
+
+    .input-wrap input {
+      width: 100%;
+      padding: 10px 12px 10px 26px;
+      border: 1.5px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.15s;
+      text-align: right;
+    }
+
+    .input-wrap input:focus { border-color: #008060; }
+
+    .fee-display {
+      width: 110px;
+      flex-shrink: 0;
+      text-align: right;
+      font-size: 15px;
+      color: #374151;
+      font-weight: 500;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1.5px solid #f0f0f0;
+      margin: 20px 0;
+    }
+
+    .result-box {
+      background: #f0fdf8;
+      border: 1.5px solid #a7f3d0;
+      border-radius: 10px;
+      padding: 20px 24px;
+    }
+
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+
+    .result-row:last-child { margin-bottom: 0; }
+
+    .result-label {
+      font-size: 14px;
+      color: #374151;
+    }
+
+    .result-value {
+      font-size: 15px;
+      font-weight: 600;
+      color: #065f46;
+    }
+
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1.5px solid #a7f3d0;
+    }
+
+    .total-label {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+
+    .total-value {
+      font-size: 26px;
+      font-weight: 800;
+      color: #008060;
+    }
+
+    .minimum-note {
+      font-size: 12px;
+      color: #6b7280;
+      margin-top: 10px;
+      display: none;
+    }
+
+    .minimum-note.visible { display: block; }
+
+    .footer-note {
+      margin-top: 20px;
+      font-size: 13px;
+      color: #9ca3af;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    /* Shopify logo SVG */
+    svg.shopify-logo { width: 110px; height: auto; }
+
+    @media (max-width: 520px) {
+      .input-row { flex-wrap: wrap; }
+      .input-wrap { width: 100%; }
+      .fee-display { width: auto; }
+      .card-body { padding: 20px; }
+      .card-header { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Password Screen ── -->
+<div id="password-screen">
+  <div class="logo">
+    <svg class="shopify-logo" viewBox="0 0 109.5 124.5" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#95BF47" d="M74.7 14.8s-.3 0-.8.1l-2.9.9S68.7 9 63 9c-4.5 0-6.7 3-7.4 5.8l-1 .3c-2.1.7-2.2.7-2.4 2.9L48.3 68h35.3l4.3-49.4c-.2-2.3-1.6-3.8-3.2-3.8z"/>
+      <path fill="#5E8E3E" d="M74.7 14.8l-.8.2V68h9.7l-4.3-49.4c-.3-2.3-1.7-3.8-3.2-3.8-.1-.1-.2-.1-.3-.1h-.3c-.2 0-.5 0-.8.1z"/>
+      <path fill="#FFFFFF" d="M63 9c-.4 0-.8 0-1.1.1-.5.1-1 .3-1.5.5-.4.2-.8.5-1.2.8-.5.4-.9.9-1.3 1.5-.8 1.3-1.3 3-1.3 5.1 0 1.3.2 2.3.5 3.2l6.9-2.2V9z"/>
+      <path fill="#95BF47" d="M48.3 68l-3.9 45.3 31.4 5.4 3.8-50.7H48.3z"/>
+      <path fill="#5E8E3E" d="M79.6 68H73.9v50.7l5.7-5.4V68z"/>
+    </svg>
+  </div>
+  <h1>Shopify Plus Pricing Calculator</h1>
+  <p>Enter the password to access this tool.</p>
+  <input type="password" id="pw-input" placeholder="Password" />
+  <button onclick="checkPassword()">Continue</button>
+  <p id="pw-error">Incorrect password. Please try again.</p>
+</div>
+
+<!-- ── Calculator Screen ── -->
+<div id="calc-screen">
+  <div class="card">
+    <div class="card-header">
+      <div class="logo">
+        <svg viewBox="0 0 109.5 124.5" xmlns="http://www.w3.org/2000/svg" style="width:36px;height:auto;">
+          <path fill="rgba(255,255,255,0.9)" d="M74.7 14.8s-.3 0-.8.1l-2.9.9S68.7 9 63 9c-4.5 0-6.7 3-7.4 5.8l-1 .3c-2.1.7-2.2.7-2.4 2.9L48.3 68h35.3l4.3-49.4c-.2-2.3-1.6-3.8-3.2-3.8z"/>
+          <path fill="rgba(255,255,255,0.6)" d="M74.7 14.8l-.8.2V68h9.7l-4.3-49.4c-.3-2.3-1.7-3.8-3.2-3.8z"/>
+          <path fill="rgba(255,255,255,0.4)" d="M63 9c-.4 0-.8 0-1.1.1-.5.1-1 .3-1.5.5-.4.2-.8.5-1.2.8-.5.4-.9.9-1.3 1.5-.8 1.3-1.3 3-1.3 5.1 0 1.3.2 2.3.5 3.2l6.9-2.2V9z"/>
+          <path fill="rgba(255,255,255,0.9)" d="M48.3 68l-3.9 45.3 31.4 5.4 3.8-50.7H48.3z"/>
+          <path fill="rgba(255,255,255,0.6)" d="M79.6 68H73.9v50.7l5.7-5.4V68z"/>
+        </svg>
+      </div>
+      <h1>Shopify Plus Pricing Calculator</h1>
+      <p>Estimate your monthly platform fee based on revenue</p>
+    </div>
+
+    <div class="card-body">
+      <div class="section-label">Monthly Revenue by Channel</div>
+
+      <!-- B2B -->
+      <div class="input-row">
+        <label>B2B Revenue</label>
+        <span class="rate">0.18%</span>
+        <div class="input-wrap">
+          <span>$</span>
+          <input type="text" id="b2b" placeholder="0" oninput="calculate()" />
+        </div>
+        <div class="fee-display" id="b2b-fee">$0.00</div>
+      </div>
+
+      <!-- D2C -->
+      <div class="input-row">
+        <label>D2C Revenue</label>
+        <span class="rate">0.35%</span>
+        <div class="input-wrap">
+          <span>$</span>
+          <input type="text" id="d2c" placeholder="0" oninput="calculate()" />
+        </div>
+        <div class="fee-display" id="d2c-fee">$0.00</div>
+      </div>
+
+      <!-- POS -->
+      <div class="input-row">
+        <label>POS Revenue</label>
+        <span class="rate">0.25%</span>
+        <div class="input-wrap">
+          <span>$</span>
+          <input type="text" id="pos" placeholder="0" oninput="calculate()" />
+        </div>
+        <div class="fee-display" id="pos-fee">$0.00</div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Result -->
+      <div class="result-box">
+        <div class="result-row">
+          <span class="result-label">B2B Fee (0.18%)</span>
+          <span class="result-value" id="r-b2b">$0.00</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">D2C Fee (0.35%)</span>
+          <span class="result-value" id="r-d2c">$0.00</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">POS Fee (0.25%)</span>
+          <span class="result-value" id="r-pos">$0.00</span>
+        </div>
+        <div class="total-row">
+          <span class="total-label">Estimated Monthly Charge</span>
+          <span class="total-value" id="r-total">$2,300.00</span>
+        </div>
+        <p class="minimum-note" id="min-note">* $2,300 monthly minimum applied</p>
+      </div>
+
+      <p class="footer-note">Custom pricing available for high-volume B2B businesses.<br>Contact your Shopify representative for details.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const CORRECT = 'Shopify123';
+  const MIN_FEE = 2300;
+
+  function checkPassword() {
+    const val = document.getElementById('pw-input').value;
+    if (val === CORRECT) {
+      document.getElementById('password-screen').style.display = 'none';
+      document.getElementById('calc-screen').style.display = 'block';
+    } else {
+      document.getElementById('pw-error').style.display = 'block';
+    }
+  }
+
+  document.getElementById('pw-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') checkPassword();
+  });
+
+  function parseValue(id) {
+    const raw = document.getElementById(id).value.replace(/[^0-9.]/g, '');
+    return parseFloat(raw) || 0;
+  }
+
+  function fmt(n) {
+    return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function calculate() {
+    const b2b = parseValue('b2b');
+    const d2c = parseValue('d2c');
+    const pos = parseValue('pos');
+
+    const feeB2B = b2b * 0.0018;
+    const feeD2C = d2c * 0.0035;
+    const feePOS = pos * 0.0025;
+    const rawTotal = feeB2B + feeD2C + feePOS;
+    const total = Math.max(rawTotal, MIN_FEE);
+    const minApplied = rawTotal < MIN_FEE;
+
+    document.getElementById('b2b-fee').textContent = fmt(feeB2B);
+    document.getElementById('d2c-fee').textContent = fmt(feeD2C);
+    document.getElementById('pos-fee').textContent = fmt(feePOS);
+
+    document.getElementById('r-b2b').textContent = fmt(feeB2B);
+    document.getElementById('r-d2c').textContent = fmt(feeD2C);
+    document.getElementById('r-pos').textContent = fmt(feePOS);
+    document.getElementById('r-total').textContent = fmt(total);
+
+    const note = document.getElementById('min-note');
+    note.classList.toggle('visible', minApplied);
+
+    // Format inputs with commas on the fly
+    ['b2b', 'd2c', 'pos'].forEach(id => {
+      const el = document.getElementById(id);
+      const num = parseFloat(el.value.replace(/[^0-9.]/g, ''));
+      if (!isNaN(num) && el.value !== '') {
+        const parts = el.value.replace(/[^0-9.]/g, '').split('.');
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        const formatted = parts.join('.');
+        if (el.value !== formatted) {
+          const pos = el.selectionStart;
+          el.value = formatted;
+        }
+      }
+    });
+  }
+</script>
+</body>
+</html>
